@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FSCreative™ Brand Launch Sprint — Build a Premium Personal Brand in 30 Days</title>
+<meta property="og:title" content="FSCreative™ Brand Launch Sprint — Build a Premium Personal Brand in 30 Days">
+<meta property="og:description" content="A focused 30-day challenge that installs your positioning, visual identity, and content system. One payment. 60 days of support. A premium brand on the other side.">
+<meta property="og:type" content="website">
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ─── RESET ─── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* ─── DARK TOKENS (default) ─── */
+:root {
+  --bg:       #0a0a0a;
+  --surface:  #111111;
+  --card:     #161616;
+  --border:   #1f1f1f;
+  --border2:  #2a2a2a;
+  --orange:   #F0601B;
+  --orange2:  #ff6d28;
+  --text:     #ffffff;
+  --dim:      #a0a0a0;
+  --dimmer:   #555555;
+  --green:    #3ab864;
+  --max:      1160px;
+  --nav-bg:   rgba(10,10,10,0.92);
+  --nav-h:    64px;
+  --bar-h:    44px;
+}
+
+/* ─── LIGHT TOKENS ─── */
+body.light {
+  --bg:       #f7f6f4;
+  --surface:  #edecea;
+  --card:     #e2e0dc;
+  --border:   #ccc9c2;
+  --border2:  #b8b4ac;
+  --text:     #0a0a0a;
+  --dim:      #404040;
+  --dimmer:   #888888;
+  --green:    #1a7a3a;
+  --nav-bg:   rgba(247,246,244,0.92);
+}
+
+/* ─── BASE ─── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background 0.25s, color 0.25s;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 9998; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='0.04'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ─── NAV ─── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  border-bottom: 1px solid var(--border);
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px);
+  transition: background 0.25s, border-color 0.25s;
+}
+.nav-inner {
+  max-width: var(--max); margin: 0 auto; padding: 0 32px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.logo-dark  { display: block; }
+.logo-light { display: none; }
+body.light .logo-dark  { display: none; }
+body.light .logo-light { display: block; }
+.nav-right { display: flex; align-items: center; gap: 10px; }
+
+/* theme toggle */
+.theme-toggle {
+  background: none; border: 1px solid var(--border2); border-radius: 6px;
+  padding: 6px 8px; cursor: pointer; color: var(--dimmer);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.2s, color 0.2s;
+}
+.theme-toggle:hover { border-color: var(--border2); color: var(--text); }
+.icon-moon { display: block; }
+.icon-sun  { display: none; }
+body.light .icon-moon { display: none; }
+body.light .icon-sun  { display: block; }
+
+/* ─── BUTTONS ─── */
+.btn-primary {
+  background: var(--orange); color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 2px;
+  border: none; border-radius: 5px; cursor: pointer;
+  padding: 11px 22px; white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: var(--orange2); transform: translateY(-1px); }
+.btn-outline {
+  background: transparent; color: var(--text);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 2px;
+  border: 1px solid var(--border2); border-radius: 5px; cursor: pointer;
+  padding: 10px 22px; white-space: nowrap;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover { border-color: var(--text); }
+
+/* ─── URGENCY BAR ─── */
+.urgency-bar {
+  height: var(--bar-h); overflow: hidden; position: relative;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.25s, border-color 0.25s;
+}
+.bar-panel {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  position: absolute; opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.bar-panel.bar-visible { opacity: 1; position: relative; }
+.bar-countdown { display: flex; align-items: center; gap: 8px; }
+.bar-cd-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 3px; color: var(--dimmer);
+  white-space: nowrap; transition: color 0.25s;
+}
+.bar-cd-timer { display: flex; align-items: center; gap: 2px; }
+.bar-cd-unit { display: flex; flex-direction: column; align-items: center; min-width: 28px; }
+.bar-cd-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 900; color: var(--text); line-height: 1;
+  transition: color 0.25s;
+}
+.bar-cd-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 7px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; color: var(--dimmer);
+  transition: color 0.25s;
+}
+.bar-cd-sep { font-size: 16px; color: var(--dimmer); padding-bottom: 10px; font-weight: 700; }
+.urgency-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+.bar-guarantee {
+  display: flex; align-items: center; gap: 8px;
+}
+.bar-guar-icon { color: #4ab874; flex-shrink: 0; }
+.bar-guar-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px; color: var(--dimmer);
+  transition: color 0.25s;
+}
+.bar-guar-accent { color: #4ab874; font-weight: 800; }
+
+@keyframes blink {
+  0%,100%{opacity:1} 50%{opacity:0.3}
+}
+
+/* ─── WRAP ─── */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+
+/* ─── SECTION ─── */
+.section { padding: 80px 0; border-bottom: 1px solid var(--border); transition: border-color 0.25s; }
+.section:last-child { border-bottom: none; }
+.section-header { margin-bottom: 48px; }
+.eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 4px; color: var(--orange);
+  margin-bottom: 16px;
+}
+h2 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 900; text-transform: uppercase;
+  letter-spacing: -2px; line-height: 0.93;
+  color: var(--text); transition: color 0.25s;
+}
+h2 .o { color: var(--orange); }
+.section-sub {
+  font-size: 17px; color: var(--dim); max-width: 600px;
+  margin-top: 20px; line-height: 1.65; transition: color 0.25s;
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: calc(100dvh - var(--nav-h) - var(--bar-h));
+  width: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 60px 24px;
+  border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+  transition: border-color 0.25s;
+}
+.hero-inner {
+  width: 100%; max-width: 960px;
+  display: flex; flex-direction: column; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(240,96,27,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-spots-row {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.hero-spots-num { color: var(--orange); font-weight: 800; }
+.hero-spots-text { color: var(--dimmer); font-weight: 600; transition: color 0.25s; }
+
+.hero h1 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(52px, 6.5vw, 88px);
+  text-transform: uppercase;
+  letter-spacing: -3px; line-height: 0.92;
+  color: var(--text); max-width: 960px;
+  margin: 0 auto 28px;
+  transition: color 0.25s;
+}
+.hero h1 .o { color: var(--orange); }
+
+.hero-sub {
+  font-size: 18px; font-weight: 500; color: var(--dim);
+  max-width: 580px; margin: 0 auto 44px; line-height: 1.65;
+  transition: color 0.25s;
+}
+.hero-sub strong { color: var(--text); font-weight: 700; }
+
+.hero-cta-group {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 10px; margin-bottom: 20px;
+  width: 100%; max-width: 560px;
+}
+.hero-micro { font-size: 13px; color: var(--dimmer); letter-spacing: 0.5px; transition: color 0.25s; }
+
+/* ─── VIDEO ─── */
+.video-section { background: var(--bg); border-bottom: 1px solid var(--border); transition: background 0.25s, border-color 0.25s; }
+.video-wrap { max-width: var(--max); margin: 0 auto; padding: 48px 32px; }
+.video-container { width: 100%; max-width: 800px; margin: 0 auto; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; }
+.video-container iframe { width: 100%; height: 100%; border: 0; }
+
+/* ─── CONTRAST GRID ─── */
+.contrast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.contrast-col { background: var(--surface); border: 1px solid var(--border); padding: 36px 32px; transition: background 0.25s, border-color 0.25s; }
+.contrast-col.right { background: var(--card); }
+.contrast-col-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;
+}
+.contrast-col-label.bad  { color: var(--dimmer); }
+.contrast-col-label.good { color: var(--orange); }
+.check-list { display: flex; flex-direction: column; gap: 14px; }
+.check-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s; }
+.check-icon { font-size: 13px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+.check-icon.x  { color: var(--dimmer); }
+.check-icon.ok { color: var(--green); }
+
+/* ─── WHAT'S INSIDE ─── */
+.inside-list { display: flex; flex-direction: column; }
+.inside-item {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.25s;
+}
+.inside-item:first-child { border-top: 1px solid var(--border); }
+.inside-item:last-child { border-bottom: none; }
+.inside-num-mobile {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 10px;
+}
+/* Desktop: side-by-side card */
+.inside-card {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: background 0.25s, border-color 0.25s;
+}
+.inside-item:nth-child(odd) .inside-card { grid-template-columns: 2fr 3fr; }
+.inside-item:nth-child(odd) .inside-img-wrap { order: 2; }
+.inside-item:nth-child(odd) .inside-card-body { order: 1; }
+.inside-img-wrap { line-height: 0; }
+.inside-img-wrap img { width: 100%; display: block; aspect-ratio: 21/9; object-fit: cover; border-radius: 10px; }
+.inside-card-body { padding: 28px 36px; display: flex; flex-direction: column; justify-content: center; }
+.inside-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 22px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  color: var(--text); margin-bottom: 12px;
+  transition: color 0.25s;
+}
+.inside-body { font-size: 14px; color: var(--dim); line-height: 1.75; transition: color 0.25s; }
+.arrow-list { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+.arrow-item {
+  font-size: 14px; color: var(--dim); line-height: 1.5;
+  display: flex; gap: 10px; align-items: flex-start;
+  transition: color 0.25s;
+}
+.arrow-item .arr { color: var(--orange); flex-shrink: 0; font-weight: 700; }
+
+/* ─── ROADMAP ─── */
+.roadmap { display: flex; flex-direction: column; gap: 12px; position: relative; }
+.roadmap::before {
+  content: ''; position: absolute;
+  left: 20px; top: 0; bottom: 0; width: 2px;
+  background: var(--border2); z-index: 0;
+}
+.roadmap-item { display: flex; gap: 20px; align-items: flex-start; position: relative; }
+.roadmap-bubble {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--orange); color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 900; letter-spacing: 0.5px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; position: relative; z-index: 1; margin-top: 2px;
+}
+.roadmap-card {
+  flex: 1; border: 1px solid var(--border); border-radius: 10px;
+  overflow: hidden; transition: border-color 0.25s;
+}
+.roadmap-card:hover { border-color: var(--border2); }
+.roadmap-header {
+  display: flex; flex-direction: column;
+  padding: 18px 22px; cursor: pointer; user-select: none; gap: 6px;
+}
+.roadmap-header-top {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.roadmap-title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px; font-weight: 800; color: var(--text); transition: color 0.25s;
+}
+.roadmap-desc { font-size: 13px; color: var(--dim); line-height: 1.55; transition: color 0.25s; }
+.roadmap-chevron {
+  width: 18px; height: 18px; flex-shrink: 0; color: var(--dimmer);
+  transition: transform 0.25s, color 0.25s;
+}
+.roadmap-card.rm-open { background: var(--card); border-color: var(--border2); }
+.roadmap-card.rm-open .roadmap-title { color: var(--orange); }
+.roadmap-card.rm-open .roadmap-chevron { transform: rotate(180deg); color: var(--orange); }
+.roadmap-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.25s ease;
+  padding: 0 22px; border-top: 0px solid var(--border);
+}
+.roadmap-card.rm-open .roadmap-body {
+  max-height: 600px; padding: 16px 22px 20px;
+  border-top: 1px solid var(--border);
+}
+.roadmap-steps { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.roadmap-steps li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s;
+}
+.roadmap-steps li::before { content: '→'; color: var(--orange); flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+
+/* ─── VALUE LIST ─── */
+.value-list {
+  border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+  background: rgba(62,184,100,0.02);
+  border-color: rgba(62,184,100,0.18);
+  transition: border-color 0.25s;
+}
+body.light .value-list { background: rgba(26,122,58,0.03); border-color: rgba(26,122,58,0.18); }
+.value-row {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 28px;
+  border-bottom: 1px solid rgba(62,184,100,0.12);
+  transition: border-color 0.25s;
+}
+.value-row:last-child { border-bottom: none; }
+.value-check {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: rgba(62,184,100,0.15);
+  border: 1px solid rgba(62,184,100,0.35);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  color: #4ab874;
+  font-size: 11px; font-weight: 900;
+}
+.value-item-text {
+  font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s;
+}
+.value-total-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--text); transition: color 0.25s;
+}
+
+/* ─── WHO ─── */
+.who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.who-col { background: var(--surface); border: 1px solid var(--border); padding: 36px 32px; transition: background 0.25s, border-color 0.25s; }
+.who-col-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px; font-weight: 900; text-transform: uppercase; margin-bottom: 24px;
+}
+.who-col-label.yes { color: var(--orange); }
+.who-col-label.no  { color: var(--dimmer); }
+.who-list { display: flex; flex-direction: column; gap: 12px; }
+.who-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s; }
+.who-icon { font-size: 13px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+.who-icon.yes { color: var(--green); }
+.who-icon.no  { color: var(--dimmer); }
+
+/* ─── PRICING ─── */
+.pricing-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+  max-width: 520px; margin: 0 auto;
+  transition: background 0.25s, border-color 0.25s;
+}
+.pricing-top {
+  padding: 48px 40px; border-bottom: 1px solid var(--border); position: relative;
+  transition: border-color 0.25s;
+}
+.pricing-top::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--orange);
+}
+.founding-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px;
+  color: var(--orange); background: rgba(240,96,27,0.1);
+  border: 1px solid rgba(240,96,27,0.25); border-radius: 3px; padding: 5px 12px; margin-bottom: 24px;
+}
+.price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+.price-amount {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 80px; font-weight: 900; line-height: 1; letter-spacing: -3px; color: var(--text);
+  transition: color 0.25s;
+}
+.price-was {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 36px; font-weight: 700; color: var(--dimmer); text-decoration: line-through;
+}
+.price-per { font-size: 15px; font-weight: 600; color: var(--dim); transition: color 0.25s; }
+.price-note { font-size: 14px; color: var(--dim); margin-bottom: 24px; line-height: 1.6; transition: color 0.25s; }
+.price-note strong { color: var(--text); }
+
+.pricing-includes { padding: 28px 40px; display: grid; grid-template-columns: 1fr; gap: 10px; transition: border-color 0.25s; }
+.include-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--dim); transition: color 0.25s; }
+.include-item::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 13px; flex-shrink: 0; }
+
+/* Support bar */
+.support-bar {
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(62,184,100,0.05);
+  border: 1px solid rgba(62,184,100,0.18);
+  border-radius: 8px; padding: 14px 18px;
+  margin: 0 40px 32px;
+}
+body.light .support-bar { background: rgba(26,122,58,0.06); border-color: rgba(26,122,58,0.2); }
+.support-icon { color: #4ab874; flex-shrink: 0; }
+.support-text { font-size: 13px; color: var(--dim); line-height: 1.5; transition: color 0.25s; }
+.support-text strong { color: var(--text); }
+
+/* ─── GUARANTEE ─── */
+.guarantee-box {
+  background: rgba(62,184,100,0.04);
+  border: 1px solid rgba(62,184,100,0.18);
+  border-radius: 10px; padding: 32px 36px;
+  display: flex; flex-direction: column; gap: 10px;
+  max-width: 520px; margin: 12px auto 0;
+  transition: background 0.25s, border-color 0.25s;
+}
+body.light .guarantee-box {
+  background: rgba(26,122,58,0.06);
+  border-color: rgba(26,122,58,0.2);
+}
+.guarantee-label-row {
+  display: flex; align-items: center; gap: 8px;
+}
+.guarantee-icon { flex-shrink: 0; color: #4ab874; }
+body.light .guarantee-icon { color: var(--green); }
+.guarantee-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: #4ab874;
+}
+body.light .guarantee-label { color: var(--green); }
+.guar-headline {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 900; line-height: 1.05;
+  letter-spacing: -1px; text-transform: uppercase;
+  color: var(--text); margin-bottom: 2px;
+  transition: color 0.25s;
+}
+.guarantee-body { font-size: 14px; color: var(--dim); line-height: 1.65; transition: color 0.25s; }
+
+/* ─── #PRICING CENTER ─── */
+#pricing .section-header { text-align: center; }
+
+/* ─── FAQ ─── */
+.faq-list { display: flex; flex-direction: column; }
+.faq-item { padding: 22px 0; border-bottom: 1px solid var(--border); transition: border-color 0.25s; cursor: pointer; }
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px; font-weight: 800; text-transform: uppercase; color: var(--text);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  transition: color 0.25s; user-select: none;
+}
+.faq-item.faq-open .faq-q { color: var(--orange); }
+.faq-chevron {
+  width: 16px; height: 16px; flex-shrink: 0; color: var(--dimmer);
+  transition: transform 0.25s, color 0.25s;
+}
+.faq-item.faq-open .faq-chevron { transform: rotate(180deg); color: var(--orange); }
+.faq-a {
+  font-size: 14px; color: var(--dim); line-height: 1.7;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.25s ease;
+  padding: 0;
+}
+.faq-item.faq-open .faq-a { max-height: 400px; padding-top: 12px; }
+
+/* ─── ABOUT ─── */
+.about-inner { display: grid; grid-template-columns: 210px 1fr; gap: 48px; align-items: flex-start; }
+.about-avatar {
+  width: 100%; aspect-ratio: 1/1;
+  border-radius: 12px; border: 2px solid var(--orange);
+  object-fit: cover; display: block;
+  transition: border-color 0.25s;
+}
+.about-name {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 28px; font-weight: 900;
+  color: var(--text); margin-bottom: 4px; transition: color 0.25s;
+}
+.about-role { font-size: 13px; font-weight: 600; color: var(--orange); letter-spacing: 0.5px; margin-bottom: 28px; }
+.about-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 28px; }
+.about-stat {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 16px 14px; text-align: center;
+  transition: background 0.25s, border-color 0.25s;
+}
+.about-stat-val {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 20px; font-weight: 900; color: var(--text);
+  margin-bottom: 4px; transition: color 0.25s;
+}
+.about-stat-label { font-size: 11px; color: var(--dim); line-height: 1.3; transition: color 0.25s; }
+.about-body { font-size: 15px; color: var(--dim); line-height: 1.75; transition: color 0.25s; }
+.about-body p + p { margin-top: 14px; }
+
+/* ─── FINAL CTA ─── */
+.final-section { padding: 100px 24px; text-align: center; position: relative; overflow: hidden; }
+.final-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(240,96,27,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.final-headline {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 900; font-size: clamp(36px, 5vw, 64px);
+  text-transform: uppercase; letter-spacing: -2px;
+  line-height: 0.93; color: var(--text); margin-bottom: 24px;
+  max-width: 600px; margin-left: auto; margin-right: auto;
+  transition: color 0.25s;
+}
+.final-headline .o { color: var(--orange); }
+.final-sub { font-size: 17px; color: var(--dim); max-width: 460px; margin: 0 auto 40px; line-height: 1.65; transition: color 0.25s; }
+.final-cta-wrap { display: flex; justify-content: center; }
+.final-micro { font-size: 13px; color: var(--dimmer); margin-top: 14px; transition: color 0.25s; }
+
+/* ─── FOOTER ─── */
+footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: border-color 0.25s; }
+.footer-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-copy { font-size: 12px; color: var(--dimmer); transition: color 0.25s; }
+.footer-link { font-size: 12px; color: var(--dimmer); transition: color 0.15s; }
+.footer-link:hover { color: var(--orange); }
+
+/* ─── ANIMATION ─── */
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+.hero { animation: fadeUp 0.6s ease both; }
+
+/* ─── RESPONSIVE ─── */
+@media(max-width: 768px) {
+  .wrap { padding: 0 16px; }
+  .video-wrap { padding: 36px 16px; }
+  .nav-inner { padding: 0 16px; gap: 8px; }
+  .nav-logo-text { font-size: 16px; }
+  .btn-primary { font-size: 12px; padding: 10px 16px; letter-spacing: 1px; }
+  .btn-outline  { font-size: 12px; padding: 9px 16px;  letter-spacing: 1px; }
+  .hero-cta-group { max-width: 100%; }
+
+  .hero { padding: 40px 16px; min-height: calc(100dvh - var(--nav-h) - var(--bar-h)); display: flex; justify-content: center; align-items: center; }
+  .hero h1 { font-size: clamp(34px, 9.5vw, 50px); letter-spacing: -1.5px; }
+  .hero-sub { font-size: 14px; font-weight: 400; margin-bottom: 32px; }
+
+  .bar-cd-label { font-size: 9px; letter-spacing: 2px; }
+  .bar-cd-num { font-size: 16px; }
+  .bar-cd-sub { font-size: 6px; }
+  .bar-cd-sep { font-size: 13px; padding-bottom: 8px; }
+  .bar-cd-unit { min-width: 24px; }
+  .bar-guar-text { font-size: 10px; letter-spacing: 1.5px; }
+  .bar-guar-icon { width: 12px; height: 12px; }
+
+  .section { padding: 56px 0; }
+  .section-header { margin-bottom: 36px; }
+  .contrast-grid, .who-grid, .pricing-includes { grid-template-columns: 1fr; }
+
+  /* What's Inside: mobile */
+  .inside-item { padding: 32px 0; }
+  .inside-card { display: block; }
+  .inside-img-wrap img { aspect-ratio: 21/9; border-radius: 0; }
+  .inside-card-body { padding: 20px; display: block; }
+  .inside-item:nth-child(odd) .inside-img-wrap { order: 0; }
+  .inside-item:nth-child(odd) .inside-card-body { order: 0; }
+
+  .about-inner { grid-template-columns: 1fr; }
+  .about-avatar { max-width: 180px; aspect-ratio: 1/1; }
+  .about-stats { grid-template-columns: repeat(3,1fr); gap: 8px; }
+  .about-stat-val { font-size: 16px; }
+  .about-stat-label { font-size: 10px; }
+  .guarantee-box { padding: 28px 20px; }
+  .pricing-top { padding: 32px 24px; }
+  .pricing-includes { padding: 24px 24px; }
+  .support-bar { margin: 0 24px 24px; }
+  footer { padding: 20px 16px; }
+  .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
+  .final-section { padding: 72px 16px; }
+  .final-cta-wrap .btn-primary { font-size: 13px; padding: 12px 20px; }
+  .pricing-top .btn-primary {
+    width: 100%; font-size: 13px; padding: 13px 16px;
+    letter-spacing: 1px; white-space: normal; text-align: center;
+  }
+  .value-row { padding: 14px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="https://fscreative.live" class="nav-logo">
+      <img class="logo-dark"  src="FSC Orange White no TM@4x.png" height="18" alt="FSCreative">
+      <img class="logo-light" src="Dark Orange No TM@4x.png"       height="18" alt="FSCreative">
+    </a>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+        <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+        <svg class="icon-sun"  width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="#pricing">
+        <button class="btn-primary">Join the Sprint — $997</button>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">
+  <div class="bar-panel bar-visible" id="bar-panel-cd">
+    <div class="urgency-dot"></div>
+    <div class="bar-countdown">
+      <span class="bar-cd-label">Next Sprint Call</span>
+      <div class="bar-cd-timer">
+        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-days">--</span><span class="bar-cd-sub">Days</span></div>
+        <div class="bar-cd-sep">:</div>
+        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-hours">--</span><span class="bar-cd-sub">Hours</span></div>
+        <div class="bar-cd-sep">:</div>
+        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-mins">--</span><span class="bar-cd-sub">Mins</span></div>
+        <div class="bar-cd-sep">:</div>
+        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-secs">--</span><span class="bar-cd-sub">Secs</span></div>
+      </div>
+    </div>
+    <div class="urgency-dot"></div>
+  </div>
+  <div class="bar-panel" id="bar-panel-guar">
+    <div class="bar-guarantee">
+      <svg class="bar-guar-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span class="bar-guar-text">Brand Launch Guarantee — <span class="bar-guar-accent">Do The Work. Get The Result.</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-spots-row">
+      <span class="hero-spots-num">Limited spots</span><span class="hero-spots-text"> available this sprint</span>
+    </div>
+    <h1>Launch Your <span class="o">Premium</span> Brand in 30 Days.</h1>
+    <p class="hero-sub">
+      You don't need another course. You need a <strong>focused sprint.</strong> FSCreative™ gives you the system, the coaching, and the accountability to build a premium personal brand — done in 30 days, supported for 60.
+    </p>
+    <div class="hero-cta-group">
+      <a href="#pricing">
+        <button class="btn-primary">Join the Sprint — $997 →</button>
+      </a>
+      <a href="#inside">
+        <button class="btn-outline">See What's Inside</button>
+      </a>
+    </div>
+    <p class="hero-micro">One-time payment · 30-day sprint · 60 days of support included</p>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<div class="video-section" id="how-it-works">
+  <div class="video-wrap">
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/CbJzynAAzco?rel=0&modestbranding=1"
+        title="FSCreative™ — Brand Launch Sprint"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">The Problem</div>
+      <h2>Your brand<br>is <span class="o">working against</span> you.</h2>
+    </div>
+    <div class="contrast-grid">
+      <div class="contrast-col">
+        <div class="contrast-col-label bad">Without the Sprint</div>
+        <div class="check-list">
+          <div class="check-item"><span class="check-icon x">✕</span> Your brand doesn't reflect the quality of your work</div>
+          <div class="check-item"><span class="check-icon x">✕</span> Content feels inconsistent — no real system behind it</div>
+          <div class="check-item"><span class="check-icon x">✕</span> Hours spent creating with no clear positioning or strategy</div>
+          <div class="check-item"><span class="check-icon x">✕</span> Less experienced creators get better opportunities because they look more premium</div>
+          <div class="check-item"><span class="check-icon x">✕</span> You know you're leaving money on the table but don't know how to fix it</div>
+        </div>
+      </div>
+      <div class="contrast-col right">
+        <div class="contrast-col-label good">After the Sprint</div>
+        <div class="check-list">
+          <div class="check-item"><span class="check-icon ok">✓</span> A premium brand that reflects the real value of your expertise</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> Clear positioning that differentiates you in your niche</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> A repeatable cinematic content system — installed in 30 days</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> Audience trust that converts attention into higher-quality clients</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> Confidence showing up online because your brand finally looks like it should</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INSIDE -->
+  <section class="section" id="inside">
+    <div class="section-header">
+      <div class="eyebrow">What's Inside</div>
+      <h2>Here's what you get<br>inside the <span class="o">Sprint</span></h2>
+    </div>
+
+    <div class="inside-list">
+
+      <div class="inside-item">
+        <div class="inside-card">
+          <div class="inside-img-wrap">
+            <img src="remove_all_the_copy_and_the_logo_and_make_the_mockups_fill_the_entire_screen_all_it_is_is_a_tight-l_emur3dflq0m6bzut4lv7_1.png" alt="Brand Launch Checklist">
+          </div>
+          <div class="inside-card-body">
+            <div class="inside-num-mobile">01</div>
+            <div class="inside-label">Brand Launch Checklist™</div>
+            <div class="inside-body">The core framework of the sprint. 30 sequenced steps that walk you through every stage of building a premium personal brand — from positioning to launch. No guesswork. Just execute.</div>
+            <div class="arrow-list">
+              <div class="arrow-item"><span class="arr">→</span> Build your brand foundation and positioning</div>
+              <div class="arrow-item"><span class="arr">→</span> Develop your visual identity and aesthetic</div>
+              <div class="arrow-item"><span class="arr">→</span> Install your Creator OS™ content system</div>
+              <div class="arrow-item"><span class="arr">→</span> Set up your audience capture funnel</div>
+              <div class="arrow-item"><span class="arr">→</span> Launch your brand with a clear growth strategy</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inside-item">
+        <div class="inside-card">
+          <div class="inside-img-wrap">
+            <img src="rework_the_first_image_so_that_it_shows_a_little_bit_more_personality_you_can_use_the_screenshots_f_k0zuj8iojehmhinhng9j_1.jpeg" alt="Sprint Masterclasses">
+          </div>
+          <div class="inside-card-body">
+            <div class="inside-num-mobile">02</div>
+            <div class="inside-label">Sprint Masterclasses</div>
+            <div class="inside-body">Focused training sessions that go deep on the skills that separate premium brands from everyone else. Each masterclass is built to be immediately actionable inside the sprint.</div>
+            <div class="arrow-list">
+              <div class="arrow-item"><span class="arr">→</span> Personal brand strategy and positioning</div>
+              <div class="arrow-item"><span class="arr">→</span> Cinematic content creation</div>
+              <div class="arrow-item"><span class="arr">→</span> Storytelling and audience trust</div>
+              <div class="arrow-item"><span class="arr">→</span> AI tools and Creator OS setup</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inside-item">
+        <div class="inside-card">
+          <div class="inside-img-wrap">
+            <img src="similar_to_the_second_image_i_downloaded_i_want_to_create_a_live_icon_on_my_image_of_me_which_is_me_8o4djey8awhjp1qls6lp_1.png" alt="60-Day Coaching Support">
+          </div>
+          <div class="inside-card-body">
+            <div class="inside-num-mobile">03</div>
+            <div class="inside-label">60-Day Coaching Support</div>
+            <div class="inside-body">The sprint is 30 days. The support is 60. Weekly coaching calls keep you on track, answering your questions and reviewing your brand in real time — so you finish what you start.</div>
+            <div class="arrow-list">
+              <div class="arrow-item"><span class="arr">→</span> Weekly live coaching calls</div>
+              <div class="arrow-item"><span class="arr">→</span> Direct Q&amp;A and brand feedback</div>
+              <div class="arrow-item"><span class="arr">→</span> Strategy and content system reviews</div>
+              <div class="arrow-item"><span class="arr">→</span> Private FSCreative community access</div>
+              <div class="arrow-item"><span class="arr">→</span> 60 days of support after you join</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 30-DAY SPRINT CHECKLIST -->
+  <section class="section" id="roadmap">
+    <div class="section-header">
+      <div class="eyebrow">The Checklist</div>
+      <h2>Your 30-Day<br><span class="o">Sprint.</span></h2>
+      <p class="section-sub">Each phase builds on the last. Complete them in order and you'll have a premium personal brand — positioned, designed, and ready to launch — in 30 days.</p>
+    </div>
+
+    <div class="roadmap">
+
+      <div class="roadmap-item">
+        <div class="roadmap-bubble">01</div>
+        <div class="roadmap-card rm-open">
+          <div class="roadmap-header">
+            <div class="roadmap-header-top">
+              <div class="roadmap-title">Creator Foundation</div>
+              <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="roadmap-desc">Lock in the strategic foundation of your brand — your audience, mission, values, origin story, and content pillars. Everything you build in the sprint rests on this.</div>
+          </div>
+          <div class="roadmap-body">
+            <ul class="roadmap-steps">
+              <li>Define Your Avatar</li>
+              <li>Core Mission + Ikigai</li>
+              <li>Your Core Values</li>
+              <li>Content Pillars</li>
+              <li>Map Your Origin Story</li>
+              <li>Brand Mission</li>
+              <li>Conduct Brand Audit</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-bubble">02</div>
+        <div class="roadmap-card">
+          <div class="roadmap-header">
+            <div class="roadmap-header-top">
+              <div class="roadmap-title">Visual Identity</div>
+              <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="roadmap-desc">Design a clear and recognizable visual identity — your aesthetic, creative direction, style system, and visual standards that make your brand instantly recognizable.</div>
+          </div>
+          <div class="roadmap-body">
+            <ul class="roadmap-steps">
+              <li>Creator Moodboard</li>
+              <li>Define Color Palette &amp; Typography</li>
+              <li>Define Visual World</li>
+              <li>Creator Analysis</li>
+              <li>Shot System Blueprint</li>
+              <li>Craft Your Styleguide</li>
+              <li>Content Approach</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-bubble">03</div>
+        <div class="roadmap-card">
+          <div class="roadmap-header">
+            <div class="roadmap-header-top">
+              <div class="roadmap-title">Full Stack OS</div>
+              <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="roadmap-desc">Install a repeatable content system — from idea to publish. Script, shoot, edit, and batch consistently without starting from scratch every time.</div>
+          </div>
+          <div class="roadmap-body">
+            <ul class="roadmap-steps">
+              <li>Set Up Your Content System</li>
+              <li>Idea Generation</li>
+              <li>Scripting / Storytelling</li>
+              <li>Create Batching Schedule &amp; Workflow</li>
+              <li>Graphic Design</li>
+              <li>Technical Setup</li>
+              <li>Edit Your Content</li>
+              <li>Finding Editing Rhythm</li>
+              <li>Bonus: Creator Confidence Workshop</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-bubble">04</div>
+        <div class="roadmap-card">
+          <div class="roadmap-header">
+            <div class="roadmap-header-top">
+              <div class="roadmap-title">Automated Funnel</div>
+              <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="roadmap-desc">Set up the infrastructure that turns attention into subscribers and subscribers into buyers — running automatically while you create.</div>
+          </div>
+          <div class="roadmap-body">
+            <ul class="roadmap-steps">
+              <li>Automated Sales Funnel</li>
+              <li>Manychat Overview</li>
+              <li>Setup Your Newsletter</li>
+              <li>Lead Magnet Creation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-item">
+        <div class="roadmap-bubble">05</div>
+        <div class="roadmap-card">
+          <div class="roadmap-header">
+            <div class="roadmap-header-top">
+              <div class="roadmap-title">Launch</div>
+              <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="roadmap-desc">Execute a focused brand launch — optimize your profile, publish your brand content, and build momentum with a 7-day launch calendar.</div>
+          </div>
+          <div class="roadmap-body">
+            <ul class="roadmap-steps">
+              <li>Optimize Your Bio</li>
+              <li>Create Brand Launch Content</li>
+              <li>Build 7-Day Launch Calendar</li>
+              <li>Set 90-Day Goals</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHAT YOU'LL WALK AWAY WITH -->
+  <section class="section" style="padding-top: 0; border-top: none;">
+    <div class="section-header" style="margin-bottom: 24px;">
+      <div class="eyebrow">What You'll Walk Away With</div>
+    </div>
+    <div class="value-list">
+      <div class="value-row">
+        <div class="value-check">✓</div>
+        <div class="value-item-text">A premium authority brand that reflects the real value of your expertise</div>
+      </div>
+      <div class="value-row">
+        <div class="value-check">✓</div>
+        <div class="value-item-text">Crystal-clear positioning that differentiates you in your niche</div>
+      </div>
+      <div class="value-row">
+        <div class="value-check">✓</div>
+        <div class="value-item-text">A repeatable, cinematic content system installed and ready to use</div>
+      </div>
+      <div class="value-row">
+        <div class="value-check">✓</div>
+        <div class="value-item-text">An automated funnel that captures audience and moves them toward your offer</div>
+      </div>
+      <div class="value-row">
+        <div class="value-check">✓</div>
+        <div class="value-item-text">A 7-day brand launch plan to announce your rebrand with momentum</div>
+      </div>
+      <div class="value-row">
+        <div class="value-check">✓</div>
+        <div class="value-item-text">60 days of coaching support to make sure you finish and launch</div>
+      </div>
+      <div class="value-row">
+        <div class="value-check">✓</div>
+        <div class="value-item-text">The confidence to show up online because your brand finally looks like it should</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <div class="section-header">
+      <div class="eyebrow">Sprint Pricing</div>
+      <h2>One payment.<br><span class="o">Everything included.</span></h2>
+    </div>
+
+    <div class="pricing-box">
+      <div class="pricing-top">
+        <div class="founding-badge">
+          <span class="live-dot" style="width:8px;height:8px;border-radius:50%;background:var(--orange);animation:blink 1.4s infinite;flex-shrink:0;"></span>
+          Brand Launch Sprint™ — Limited Spots
+        </div>
+
+        <div class="price-row">
+          <span class="price-amount">$997</span>
+          <div>
+            <div class="price-per">one-time payment</div>
+          </div>
+        </div>
+
+        <p class="price-note">One payment covers the full 30-day sprint plus <strong>60 days of coaching support.</strong> No subscriptions. No hidden fees. Start building immediately.</p>
+
+        <a href="https://fscreative.circle.so/checkout/brand-launch-sprint">
+          <button class="btn-primary" style="font-size:15px;padding:15px 32px;">
+            Join the Sprint — $997 →
+          </button>
+        </a>
+
+        <p style="font-size:13px;color:var(--dimmer);margin-top:14px;transition:color 0.25s;">
+          After joining you'll receive immediate access to the Brand Launch Checklist™ and onboarding. Sprint call schedule sent via email.
+        </p>
+      </div>
+
+      <div class="support-bar">
+        <svg class="support-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="support-text"><strong>60-day support window included.</strong> Weekly coaching calls + community access for 60 days from the day you join.</div>
+      </div>
+
+      <div class="pricing-includes">
+        <div class="include-item">Brand Launch Checklist™ — all 30 steps</div>
+        <div class="include-item">Sprint Masterclasses + recordings</div>
+        <div class="include-item">Weekly live coaching calls</div>
+        <div class="include-item">Private FSCreative community (60 days)</div>
+        <div class="include-item">Content system installed</div>
+        <div class="include-item">Funnel &amp; launch strategy tools</div>
+      </div>
+    </div>
+
+    <!-- GUARANTEE -->
+    <div class="guarantee-box">
+      <div class="guarantee-label-row">
+        <svg class="guarantee-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="guarantee-label">The Brand Launch Guarantee</div>
+      </div>
+      <div class="guar-headline">Do the work. Get the result. <span style="color:#4ab874">Or your money back.</span></div>
+      <div class="guarantee-body">Complete the Brand Launch Checklist™ in full. If you don't feel confident launching your Premium Personal Brand and content system after completing it, submit your checklist and receive a full refund. No questions asked.</div>
+    </div>
+
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">Fit Check</div>
+      <h2>Is this<br><span class="o">for you?</span></h2>
+    </div>
+    <div class="who-grid">
+      <div class="who-col">
+        <div class="who-col-label yes">This Sprint Is for You If →</div>
+        <div class="who-list">
+          <div class="who-item"><span class="who-icon yes">✓</span> You already sell a product, service, or offer — but your brand doesn't match the level of your work</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You've invested time into content but the results don't match the effort</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You know your skills are strong, yet others with weaker work appear more established</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You want a clear system for turning ideas into consistent, high-quality content</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You're ready to commit 30 days to building something you're proud of</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You want coaching and accountability — not just another course to sit on</div>
+        </div>
+      </div>
+      <div class="who-col">
+        <div class="who-col-label no">This Sprint Is NOT for You If →</div>
+        <div class="who-list">
+          <div class="who-item"><span class="who-icon no">✕</span> You're looking for a quick fix or shortcuts instead of a real system</div>
+          <div class="who-item"><span class="who-icon no">✕</span> Your primary goal is to go viral rather than build lasting brand authority</div>
+          <div class="who-item"><span class="who-icon no">✕</span> You're still in the "thinking about it" stage rather than actively building</div>
+          <div class="who-item"><span class="who-icon no">✕</span> You want someone to do the work for you</div>
+          <div class="who-item"><span class="who-icon no">✕</span> You're not prepared to implement what's inside the checklist</div>
+          <div class="who-item"><span class="who-icon no">✕</span> A $997 investment in your brand feels financially stressful right now</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">FAQ</div>
+      <h2>Questions<br><span class="o">answered.</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What exactly is the Brand Launch Sprint™? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">A focused 30-day challenge where you complete the Brand Launch Checklist™ — a 30-step system that walks you through building your entire premium personal brand. You get masterclass training, weekly coaching calls, and community support to make sure you actually finish it.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What does the $997 include? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Everything: the Brand Launch Checklist™, Sprint Masterclasses, weekly live coaching calls, private community access, and 60 full days of support from the day you join. One payment. No subscriptions.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How quickly will I see results? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Participants who work through the checklist and engage on the coaching calls typically achieve brand clarity within the first 2 weeks. A complete transformation — identity, content system, and launch — happens inside the full 30-day sprint.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if I'm just getting started? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">The checklist is designed to guide you from the very beginning. The earlier you build your brand correctly, the faster everything compounds. That said, you should be actively building or selling something — this sprint is about execution, not exploration.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What does 60 days of support mean? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">From the day you join, you have 60 days of access to weekly live coaching calls, the private community, and all sprint materials. The 30-day checklist is your primary sprint, and the extra 30 days ensures you have the support to fully implement and launch.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How does the guarantee work? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Complete the Brand Launch Checklist™ in full. If you don't feel confident launching your premium personal brand and content system after doing the work, submit your completed checklist and receive a full refund. Simple as that.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">When are the weekly coaching calls? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Every Tuesday at 5:30 PM CST. All sessions are recorded so you never miss a call even if your schedule conflicts. You'll receive the call link and schedule immediately after joining.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">About</div>
+      <h2>Your <span class="o">Coach.</span></h2>
+    </div>
+    <div class="about-inner">
+      <img class="about-avatar" src="458590589_1534654820461228_4076101104222827177_n.jpg" alt="Gabe">
+      <div>
+        <div class="about-name">Gabe Harris</div>
+        <div class="about-role">Founder, FSCreative™ · @watch.gabe</div>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="about-stat-val">50K+</div>
+            <div class="about-stat-label">Instagram Followers</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-val">35+</div>
+            <div class="about-stat-label">Digital Product Downloads</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-val">10 Yrs</div>
+            <div class="about-stat-label">Branding Agency Experience</div>
+          </div>
+        </div>
+        <div class="about-body">
+          <p>I built FSCreative™ because I kept watching talented creators get overlooked — not because their work wasn't good, but because their brand was working against them. A weak brand doesn't just hurt your aesthetics. It quietly costs you clients, partnerships, and opportunities every single day.</p>
+          <p>I've spent years studying what makes premium brands command attention, charge more, and build loyal audiences — and I built the Brand Launch Checklist™ to install that same system into your brand, step by step.</p>
+          <p>Inside the sprint, I work with you directly. You get my frameworks, my feedback, and my attention every week. This isn't a course you buy and forget. It's a 30-day execution environment built to get you a result.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /wrap -->
+
+<!-- FINAL CTA -->
+<section class="final-section">
+  <div class="final-headline">Your brand is either<br>building trust<br>or <span class="o">losing it.</span></div>
+  <p class="final-sub">Every day without a premium brand, you're leaving sales, credibility, and opportunities on the table. Join the sprint and build it in 30 days.</p>
+  <div class="final-cta-wrap">
+    <a href="https://fscreative.circle.so/checkout/brand-launch-sprint">
+      <button class="btn-primary" style="font-size:15px;padding:15px 36px;">
+        Join the Sprint — $997 →
+      </button>
+    </a>
+  </div>
+  <p class="final-micro">One-time payment · 30-day sprint · 60 days of support included · Guaranteed</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">FSCreative™ — fscreative.live</span>
+    <a class="footer-link" href="#pricing">Join the Sprint →</a>
+  </div>
+</footer>
+
+<script>
+  // ── BANNER PANEL ROTATION ──
+  (function() {
+    const panelCd   = document.getElementById('bar-panel-cd');
+    const panelGuar = document.getElementById('bar-panel-guar');
+    let showingCd = true;
+    function swap() {
+      if (showingCd) {
+        panelCd.classList.remove('bar-visible');
+        setTimeout(() => { panelGuar.classList.add('bar-visible'); }, 100);
+      } else {
+        panelGuar.classList.remove('bar-visible');
+        setTimeout(() => { panelCd.classList.add('bar-visible'); }, 100);
+      }
+      showingCd = !showingCd;
+    }
+    setInterval(swap, 6000);
+  })();
+
+  // ── ROADMAP ACCORDION (single-open) ──
+  document.querySelectorAll('.roadmap-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.closest('.roadmap-card');
+      const isOpen = card.classList.contains('rm-open');
+      document.querySelectorAll('.roadmap-card').forEach(c => c.classList.remove('rm-open'));
+      if (!isOpen) card.classList.add('rm-open');
+    });
+  });
+
+  // ── FAQ ACCORDION (single-open) ──
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('faq-open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('faq-open'));
+      if (!isOpen) item.classList.add('faq-open');
+    });
+  });
+
+  // ── THEME TOGGLE ──
+  const toggle = document.getElementById('themeToggle');
+  if (localStorage.getItem('fsc-theme') === 'light') document.body.classList.add('light');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    localStorage.setItem('fsc-theme', document.body.classList.contains('light') ? 'light' : 'dark');
+  });
+
+  // ── NEXT SPRINT CALL COUNTDOWN (Tuesdays 5:30 PM CST) ──
+  (function() {
+    function getChicagoOffsetMin(date) {
+      const utcH = date.getUTCHours();
+      const chH = parseInt(new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Chicago', hour: '2-digit', hour12: false
+      }).format(date));
+      return ((utcH - chH) + 24) % 24 * 60;
+    }
+    function getNextCall() {
+      const now = new Date();
+      const offMin = getChicagoOffsetMin(now);
+      const chNow = new Date(now.getTime() - offMin * 60000);
+      const dow = chNow.getUTCDay();
+      const chH = chNow.getUTCHours();
+      const chM = chNow.getUTCMinutes();
+      let d = (2 - dow + 7) % 7;
+      if (d === 0 && chH * 60 + chM >= 17 * 60 + 30) d = 7;
+      const targetCh = new Date(Date.UTC(
+        chNow.getUTCFullYear(), chNow.getUTCMonth(), chNow.getUTCDate() + d, 17, 30, 0
+      ));
+      const approxUTC = new Date(targetCh.getTime() + offMin * 60000);
+      const offAtTarget = getChicagoOffsetMin(approxUTC);
+      return new Date(targetCh.getTime() + offAtTarget * 60000);
+    }
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function tick() {
+      const diff = getNextCall() - new Date();
+      if (diff <= 0) {
+        ['bar-days','bar-hours','bar-mins','bar-secs'].forEach(id => document.getElementById(id).textContent = '00');
+        return;
+      }
+      const s = Math.floor(diff / 1000);
+      document.getElementById('bar-days').textContent  = pad(Math.floor(s / 86400));
+      document.getElementById('bar-hours').textContent = pad(Math.floor((s % 86400) / 3600));
+      document.getElementById('bar-mins').textContent  = pad(Math.floor((s % 3600) / 60));
+      document.getElementById('bar-secs').textContent  = pad(s % 60);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
+</body>
+</html>
