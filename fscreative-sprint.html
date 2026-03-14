@@ -525,6 +525,27 @@ body.light .guarantee-label { color: var(--green); }
 /* ─── #PRICING CENTER ─── */
 #pricing .section-header { text-align: center; }
 
+/* ─── TIER PRICING ─── */
+.tier-section { padding: 0 40px 32px; }
+.tier-note { font-size: 12px; color: var(--dimmer); margin-bottom: 18px; transition: color 0.25s; }
+.tier-row { margin-bottom: 14px; }
+.tier-row:last-child { margin-bottom: 0; }
+.tier-row-label { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.tier-price-label { font-size: 13px; font-weight: 600; color: var(--dim); transition: color 0.25s; }
+.tier-badge {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
+  padding: 3px 8px; border-radius: 2px;
+}
+.tier-badge.current { background: rgba(240,96,27,0.12); color: var(--orange); border: 1px solid rgba(240,96,27,0.3); }
+.tier-badge.upcoming { background: transparent; color: var(--dimmer); border: 1px solid var(--border); }
+.tier-segments { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; }
+.tier-seg { height: 4px; border-radius: 2px; background: var(--border2); transition: background 0.25s; }
+.tier-seg.active { background: var(--orange); }
+@media(max-width: 768px) {
+  .tier-section { padding: 0 24px 24px; }
+}
+
 /* ─── FAQ ─── */
 .faq-list { display: flex; flex-direction: column; }
 .faq-item { padding: 22px 0; border-bottom: 1px solid var(--border); transition: border-color 0.25s; cursor: pointer; }
@@ -718,9 +739,9 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
     <div class="hero-spots-row">
       <span class="hero-spots-num">Only 5 spots</span><span class="hero-spots-text"> available at this price</span>
     </div>
-    <h1>Build &amp; install your <span class="o">premium personal brand</span> in just 30 days.</h1>
+    <h1>Build your <span class="o">personal brand</span> and system to amplify it.</h1>
     <p class="hero-sub">
-      You don't need another course. You need a <strong>focused sprint.</strong> FSCreative™ helps you install the personal brand and content system to amplify it in just 30 days.
+      You don't need another course. You need a <strong>focused sprint.</strong> FSCreative™ installs your brand identity, aesthetic, and content system — in 30 days, supported for 60.
     </p>
     <div class="hero-cta-group">
       <a href="#pricing">
@@ -1035,12 +1056,11 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
         <div class="price-row">
           <span class="price-amount">$997</span>
           <div>
-            <div class="price-was">$1,997</div>
             <div class="price-per">one-time payment</div>
           </div>
         </div>
 
-        <p class="price-note"><strong>Discounted for the first 5 people.</strong> One payment covers the full 30-day sprint plus <strong>60 days of coaching support.</strong> No subscriptions. No hidden fees.</p>
+        <p class="price-note">One payment covers the full 30-day sprint plus <strong>60 days of creative direction.</strong> No subscriptions. No hidden fees.</p>
 
         <a href="https://fscreative.circle.so/checkout/brand-launch-sprint">
           <button class="btn-primary" style="font-size:15px;padding:15px 32px;">
@@ -1051,6 +1071,50 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
         <p style="font-size:13px;color:var(--dimmer);margin-top:14px;transition:color 0.25s;">
           After joining you'll receive immediate access to the Brand Launch Checklist™ and onboarding. Sprint call schedule sent via email.
         </p>
+      </div>
+
+      <!-- TIER PRICING -->
+      <div class="tier-section">
+        <p class="tier-note">Price increases every 5 people — lock in your rate now.</p>
+        <div class="tier-row">
+          <div class="tier-row-label">
+            <span class="tier-price-label">$997 tier</span>
+            <span class="tier-badge current">Current</span>
+          </div>
+          <div class="tier-segments">
+            <div class="tier-seg"></div>
+            <div class="tier-seg"></div>
+            <div class="tier-seg"></div>
+            <div class="tier-seg"></div>
+            <div class="tier-seg"></div>
+          </div>
+        </div>
+        <div class="tier-row">
+          <div class="tier-row-label">
+            <span class="tier-price-label">$1,497 tier</span>
+            <span class="tier-badge upcoming">Next</span>
+          </div>
+          <div class="tier-segments">
+            <div class="tier-seg"></div>
+            <div class="tier-seg"></div>
+            <div class="tier-seg"></div>
+            <div class="tier-seg"></div>
+            <div class="tier-seg"></div>
+          </div>
+        </div>
+        <div class="tier-row">
+          <div class="tier-row-label">
+            <span class="tier-price-label">$1,997 tier</span>
+            <span class="tier-badge upcoming">Final</span>
+          </div>
+          <div class="tier-segments">
+            <div class="tier-seg"></div>
+            <div class="tier-seg"></div>
+            <div class="tier-seg"></div>
+            <div class="tier-seg"></div>
+            <div class="tier-seg"></div>
+          </div>
+        </div>
       </div>
 
       <div class="support-bar">
