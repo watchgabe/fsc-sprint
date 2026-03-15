@@ -1,0 +1,2093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funnel Analyzer — FSCreative™</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* RESET */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* DARK TOKENS (default) */
+:root {
+  --bg:       #0a0a0a;
+  --surface:  #111111;
+  --card:     #161616;
+  --border:   #1f1f1f;
+  --border2:  #2a2a2a;
+  --orange:   #F0601B;
+  --orange2:  #ff6d28;
+  --text:     #ffffff;
+  --dim:      #a0a0a0;
+  --dimmer:   #555555;
+  --green:    #3ab864;
+  --max:      1240px;
+  --nav-h:    64px;
+  --yt:       #FF3B30;
+  --ig:       #C13584;
+  --circle:   #6366F1;
+  --analytics:#10B981;
+}
+
+/* LIGHT TOKENS */
+body.light {
+  --bg:       #f7f6f4;
+  --surface:  #edecea;
+  --card:     #e2e0dc;
+  --border:   #ccc9c2;
+  --border2:  #b8b4ac;
+  --text:     #0a0a0a;
+  --dim:      #404040;
+  --dimmer:   #888888;
+  --green:    #1a7a3a;
+}
+
+/* BASE */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Barlow', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background 0.25s, color 0.25s;
+}
+
+/* GRAIN */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 9998; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='0.04'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  border-bottom: 1px solid var(--border);
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(16px);
+  transition: background 0.25s, border-color 0.25s;
+}
+body.light nav { background: rgba(247,246,244,0.92); }
+.nav-inner {
+  max-width: var(--max); margin: 0 auto; padding: 0 24px;
+  height: var(--nav-h);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+}
+.nav-left { display: flex; align-items: center; gap: 20px; }
+.nav-logo img { height: 28px; display: block; }
+.logo-dark  { display: block; }
+.logo-light { display: none; }
+body.light .logo-dark  { display: none; }
+body.light .logo-light { display: block; }
+.nav-divider { width: 1px; height: 24px; background: var(--border2); }
+.nav-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 3px;
+  color: var(--dim);
+}
+.nav-right { display: flex; align-items: center; gap: 10px; }
+
+/* Platform dots */
+.platform-dots { display: flex; align-items: center; gap: 6px; }
+.pdot {
+  position: relative;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--dimmer);
+  cursor: default;
+  transition: transform 0.15s;
+}
+.pdot.connected { animation: pulse-dot 2s ease-in-out infinite; }
+.pdot:hover { transform: scale(1.3); }
+.pdot[data-tip]:hover::after {
+  content: attr(data-tip);
+  position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
+  background: var(--card); border: 1px solid var(--border2);
+  color: var(--text); font-size: 11px; font-weight: 600;
+  white-space: nowrap; padding: 4px 8px; border-radius: 4px;
+  pointer-events: none; z-index: 300;
+}
+
+@keyframes pulse-dot {
+  0%,100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.3); }
+  50% { box-shadow: 0 0 0 4px rgba(255,255,255,0); }
+}
+
+/* Buttons */
+.btn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  border-radius: 5px; cursor: pointer;
+  padding: 8px 14px; white-space: nowrap;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+  border: 1px solid transparent;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-ghost {
+  background: transparent; color: var(--dim);
+  border-color: var(--border2);
+}
+.btn-ghost:hover { border-color: var(--text); color: var(--text); }
+.btn-orange {
+  background: var(--orange); color: #fff;
+  border-color: var(--orange);
+}
+.btn-orange:hover { background: var(--orange2); border-color: var(--orange2); transform: translateY(-1px); }
+.btn-sm { padding: 5px 10px; font-size: 11px; }
+
+/* Theme toggle */
+.theme-toggle {
+  background: none; border: 1px solid var(--border2); border-radius: 6px;
+  padding: 7px 8px; cursor: pointer; color: var(--dimmer);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.2s, color 0.2s;
+}
+.theme-toggle:hover { color: var(--text); border-color: var(--border2); }
+.icon-moon { display: block; }
+.icon-sun  { display: none; }
+body.light .icon-moon { display: none; }
+body.light .icon-sun  { display: block; }
+
+/* STATUS BAR */
+.status-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  transition: background 0.25s, border-color 0.25s;
+}
+.status-bar-inner {
+  max-width: var(--max); margin: 0 auto; width: 100%;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.demo-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--orange); background: rgba(240,96,27,0.12);
+  border: 1px solid rgba(240,96,27,0.25);
+  padding: 4px 10px; border-radius: 4px;
+}
+.demo-tag.hidden { display: none; }
+.last-updated {
+  font-size: 11px; color: var(--dimmer);
+  font-family: 'Barlow Condensed', sans-serif;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* MAIN LAYOUT */
+.main {
+  max-width: var(--max); margin: 0 auto; padding: 32px 24px 80px;
+}
+
+/* SECTION LABELS */
+.section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; font-weight: 800; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--dimmer); margin-bottom: 16px;
+}
+
+/* FUNNEL OVERVIEW */
+.funnel-section { margin-bottom: 40px; }
+.funnel-stages {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 24px;
+}
+.funnel-stage-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: background 0.25s, border-color 0.25s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.funnel-stage-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--stage-color, var(--orange));
+}
+.funnel-stage-card:hover { transform: translateY(-2px); }
+.stage-icon { font-size: 22px; margin-bottom: 8px; }
+.stage-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--dimmer); margin-bottom: 10px;
+}
+.stage-number {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 36px; font-weight: 900; color: var(--text);
+  line-height: 1; margin-bottom: 4px;
+  transition: color 0.25s;
+}
+.stage-sublabel { font-size: 11px; color: var(--dimmer); }
+
+.funnel-arrow {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 0 8px;
+}
+.arrow-line {
+  width: 32px; height: 1px; background: var(--border2);
+  position: relative;
+}
+.arrow-line::after {
+  content: '';
+  position: absolute; right: -1px; top: -3px;
+  border-left: 6px solid var(--border2);
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+}
+.arrow-pct {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700; color: var(--orange);
+  letter-spacing: 0.5px;
+}
+
+/* FUNNEL HEALTH */
+.funnel-health {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 20px 24px;
+  display: flex; align-items: center; gap: 20px;
+  transition: background 0.25s, border-color 0.25s;
+}
+.health-label-group { flex-shrink: 0; }
+.health-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--dimmer); margin-bottom: 4px;
+}
+.health-score-display {
+  display: flex; align-items: baseline; gap: 8px;
+}
+.health-score-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 42px; font-weight: 900; line-height: 1;
+  color: var(--text); transition: color 0.25s;
+}
+.health-grade {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px; font-weight: 900;
+  padding: 2px 10px; border-radius: 4px;
+}
+.grade-a { background: rgba(58,184,100,0.15); color: #3ab864; }
+.grade-b { background: rgba(58,184,100,0.1); color: #7dc267; }
+.grade-c { background: rgba(240,96,27,0.12); color: var(--orange); }
+.grade-d { background: rgba(255,59,48,0.12); color: #FF3B30; }
+.grade-f { background: rgba(255,59,48,0.15); color: #FF3B30; }
+.health-bar-wrap { flex: 1; }
+.health-bar-track {
+  height: 8px; background: var(--border2); border-radius: 99px;
+  overflow: hidden; margin-bottom: 8px;
+}
+.health-bar-fill {
+  height: 100%; border-radius: 99px;
+  background: linear-gradient(90deg, var(--orange), #3ab864);
+  transition: width 1s cubic-bezier(0.4,0,0.2,1);
+}
+.health-breakdown {
+  display: flex; gap: 16px; flex-wrap: wrap;
+}
+.health-item {
+  font-size: 11px; color: var(--dimmer);
+}
+.health-item span { color: var(--text); font-weight: 600; }
+
+/* PLATFORM GRID */
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+/* PLATFORM CARD */
+.platform-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0;
+  overflow: hidden;
+  transition: background 0.25s, border-color 0.25s, transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  opacity: 0;
+  transform: translateY(16px);
+}
+.platform-card.visible {
+  opacity: 1; transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease,
+              background 0.25s, border-color 0.25s;
+}
+.platform-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.card-accent-bar { height: 3px; }
+.card-body { padding: 20px; }
+.card-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 16px;
+}
+.card-platform-info { display: flex; align-items: center; gap: 10px; }
+.card-status-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--dimmer); flex-shrink: 0;
+  transition: background 0.25s;
+}
+.card-status-dot.connected { background: var(--accent-color, var(--orange)); }
+.card-platform-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text);
+}
+.card-platform-sub { font-size: 11px; color: var(--dimmer); }
+.card-setup-btn {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  border: 1px solid var(--border2); background: transparent;
+  color: var(--dim); padding: 4px 10px; border-radius: 4px;
+  cursor: pointer; transition: all 0.2s;
+}
+.card-setup-btn:hover { border-color: var(--text); color: var(--text); }
+.card-setup-btn.connected-btn {
+  border-color: rgba(58,184,100,0.4); color: var(--green);
+  background: rgba(58,184,100,0.06);
+}
+
+.card-big-number {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 52px; font-weight: 900; line-height: 1;
+  color: var(--text); margin-bottom: 2px;
+  transition: color 0.25s;
+}
+.card-big-label {
+  font-size: 11px; color: var(--dimmer); margin-bottom: 20px;
+}
+.card-metrics { display: flex; flex-direction: column; gap: 8px; }
+.card-metric-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 7px 0;
+  border-top: 1px solid var(--border);
+}
+.card-metric-label { font-size: 12px; color: var(--dim); }
+.card-metric-value {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 700; color: var(--text);
+}
+.card-metric-value.positive { color: var(--green); }
+.card-metric-value.negative { color: #FF3B30; }
+
+.card-loading {
+  display: flex; align-items: center; justify-content: center;
+  height: 120px;
+}
+.spinner {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid var(--border2);
+  border-top-color: var(--orange);
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.card-manual-badge {
+  font-size: 10px; font-weight: 600; color: var(--dimmer);
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 2px 7px; border-radius: 3px;
+  display: inline-block; margin-top: 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  letter-spacing: 1px; text-transform: uppercase;
+}
+
+.card-error {
+  font-size: 12px; color: var(--dimmer);
+  padding: 12px 0; text-align: center;
+}
+
+/* INSIGHTS */
+.insights-section { margin-bottom: 40px; }
+.insights-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.insight-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 22px;
+  border-left: 3px solid var(--insight-color, var(--border2));
+  transition: background 0.25s, border-color 0.25s;
+  opacity: 0; transform: translateY(12px);
+}
+.insight-card.visible {
+  opacity: 1; transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease,
+              background 0.25s, border-color 0.25s;
+}
+.insight-icon { font-size: 24px; margin-bottom: 10px; }
+.insight-type {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--insight-color, var(--dimmer)); margin-bottom: 8px;
+}
+.insight-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px; font-weight: 800; color: var(--text);
+  margin-bottom: 6px; line-height: 1.2;
+}
+.insight-body { font-size: 13px; color: var(--dim); line-height: 1.55; }
+
+/* SETTINGS MODAL */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.settings-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 501;
+  width: min(480px, 100vw);
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), background 0.25s, border-color 0.25s;
+  overflow: hidden;
+}
+.settings-panel.open { transform: translateX(0); }
+.settings-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0;
+}
+.settings-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+}
+.settings-close {
+  background: none; border: none; cursor: pointer; color: var(--dim);
+  font-size: 20px; line-height: 1; padding: 4px;
+  transition: color 0.2s;
+}
+.settings-close:hover { color: var(--text); }
+.settings-body { flex: 1; overflow-y: auto; padding: 0 0 24px; }
+.settings-body::-webkit-scrollbar { width: 4px; }
+.settings-body::-webkit-scrollbar-track { background: transparent; }
+.settings-body::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+/* Platform settings accordion */
+.settings-platform {
+  border-bottom: 1px solid var(--border);
+}
+.settings-platform-header {
+  padding: 16px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.settings-platform-header:hover { background: rgba(255,255,255,0.03); }
+.sph-left { display: flex; align-items: center; gap: 10px; }
+.sph-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--dimmer); flex-shrink: 0;
+}
+.sph-dot.connected { background: var(--dot-color, var(--orange)); }
+.sph-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+}
+.sph-status { font-size: 11px; color: var(--dimmer); }
+.sph-chevron {
+  color: var(--dimmer); font-size: 12px;
+  transition: transform 0.25s;
+}
+.settings-platform.expanded .sph-chevron { transform: rotate(180deg); }
+.settings-platform-body {
+  display: none; padding: 0 24px 20px;
+}
+.settings-platform.expanded .settings-platform-body { display: block; }
+
+/* Form elements */
+.form-group { margin-bottom: 14px; }
+.form-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--dim); display: block; margin-bottom: 6px;
+}
+.form-input {
+  width: 100%; background: var(--card); border: 1px solid var(--border2);
+  border-radius: 6px; padding: 10px 12px;
+  color: var(--text); font-family: 'Barlow', sans-serif; font-size: 13px;
+  transition: border-color 0.2s, background 0.25s;
+  outline: none;
+}
+.form-input:focus { border-color: var(--orange); }
+.form-input::placeholder { color: var(--dimmer); }
+.form-hint { font-size: 11px; color: var(--dimmer); margin-top: 5px; }
+
+.form-toggle-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px;
+}
+.form-toggle-label { font-size: 13px; color: var(--dim); }
+.toggle-switch {
+  position: relative; width: 40px; height: 22px;
+}
+.toggle-switch input { display: none; }
+.toggle-track {
+  position: absolute; inset: 0; border-radius: 11px;
+  background: var(--border2); cursor: pointer;
+  transition: background 0.25s;
+}
+.toggle-track::after {
+  content: ''; position: absolute;
+  left: 2px; top: 2px; width: 18px; height: 18px;
+  border-radius: 50%; background: var(--dim);
+  transition: transform 0.25s, background 0.25s;
+}
+.toggle-switch input:checked + .toggle-track { background: var(--orange); }
+.toggle-switch input:checked + .toggle-track::after {
+  transform: translateX(18px); background: #fff;
+}
+
+.help-toggle {
+  font-size: 12px; color: var(--orange); cursor: pointer; margin-bottom: 10px;
+  display: inline-block; text-decoration: underline; text-underline-offset: 3px;
+}
+.help-content {
+  display: none; background: rgba(240,96,27,0.06); border: 1px solid rgba(240,96,27,0.2);
+  border-radius: 8px; padding: 14px; margin-bottom: 14px;
+}
+.help-content.open { display: block; }
+.help-content ol { margin-left: 16px; }
+.help-content li { font-size: 12px; color: var(--dim); margin-bottom: 6px; line-height: 1.5; }
+.help-content a { color: var(--orange); text-decoration: underline; }
+
+.settings-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  display: flex; gap: 10px;
+  flex-shrink: 0;
+}
+.btn-save {
+  flex: 1; background: var(--orange); color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+  border: none; border-radius: 6px; padding: 12px; cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-save:hover { background: var(--orange2); }
+.btn-cancel {
+  background: transparent; color: var(--dim);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  border: 1px solid var(--border2); border-radius: 6px; padding: 12px 20px;
+  cursor: pointer; transition: all 0.2s;
+}
+.btn-cancel:hover { border-color: var(--text); color: var(--text); }
+
+/* DEMO WATERMARK */
+.demo-watermark {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(240,96,27,0.4); pointer-events: none;
+  display: none;
+}
+.demo-watermark.show { display: block; }
+
+/* TOAST */
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px);
+  background: var(--card); border: 1px solid var(--border2);
+  color: var(--text); font-size: 13px; font-weight: 600;
+  padding: 10px 20px; border-radius: 8px; z-index: 9999;
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  white-space: nowrap;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .funnel-stages {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .funnel-arrow { flex-direction: row; padding: 0; }
+  .arrow-line { width: 20px; }
+  .platform-grid { grid-template-columns: repeat(2, 1fr); }
+  .insights-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .platform-grid { grid-template-columns: 1fr; }
+  .insights-grid { grid-template-columns: 1fr; }
+  .funnel-health { flex-direction: column; align-items: flex-start; }
+  .nav-inner { padding: 0 16px; }
+  .main { padding: 24px 16px 60px; }
+  .nav-title { display: none; }
+  .nav-divider { display: none; }
+  .platform-dots { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="/" class="nav-logo">
+        <img class="logo-dark"  src="FSC Orange White no TM@4x.png" alt="FSCreative" style="height:28px;">
+        <img class="logo-light" src="Dark Orange No TM@4x.png"      alt="FSCreative" style="height:28px;">
+      </a>
+      <div class="nav-divider"></div>
+      <span class="nav-title">Funnel Analyzer</span>
+    </div>
+    <div class="nav-right">
+      <div class="platform-dots">
+        <div class="pdot" id="dot-yt"        data-platform="youtube"   data-tip="YouTube — Disconnected"   style="background:#FF3B30;opacity:0.3;"></div>
+        <div class="pdot" id="dot-ig"        data-platform="instagram" data-tip="Instagram — Disconnected" style="background:#C13584;opacity:0.3;"></div>
+        <div class="pdot" id="dot-kit"       data-platform="kit"       data-tip="Kit — Disconnected"       style="background:#F0601B;opacity:0.3;"></div>
+        <div class="pdot" id="dot-circle"    data-platform="circle"    data-tip="Circle — Disconnected"    style="background:#6366F1;opacity:0.3;"></div>
+        <div class="pdot" id="dot-analytics" data-platform="analytics" data-tip="Analytics — Disconnected" style="background:#10B981;opacity:0.3;"></div>
+      </div>
+      <button class="btn btn-ghost" id="btn-refresh" onclick="refreshData()">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M1 8A7 7 0 1 0 8 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M1 1v4h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Refresh
+      </button>
+      <button class="btn btn-ghost" id="btn-settings" onclick="openSettings()">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.5"/><path d="M13.3 8c0-.2 0-.4-.1-.6l1.4-1.1-1.4-2.4-1.7.7c-.3-.2-.7-.4-1.1-.6L10.1 2H7.9l-.3 2c-.4.1-.8.3-1.1.6L4.8 3.9 3.4 6.3l1.4 1.1c0 .2-.1.4-.1.6s0 .4.1.6L3.4 9.7l1.4 2.4 1.7-.7c.3.2.7.4 1.1.6l.3 2h2.2l.3-2c.4-.1.8-.3 1.1-.6l1.7.7 1.4-2.4-1.4-1.1c.1-.2.1-.4.1-.6Z" stroke="currentColor" stroke-width="1.5"/></svg>
+        Settings
+      </button>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="icon-moon" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M14 10.5A6.5 6.5 0 0 1 5.5 2a6.5 6.5 0 1 0 8.5 8.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        <svg class="icon-sun"  width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.5 1.5M11.5 11.5 13 13M13 3l-1.5 1.5M4.5 11.5 3 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- STATUS BAR -->
+<div class="status-bar">
+  <div class="status-bar-inner">
+    <div id="demo-tag" class="demo-tag">DEMO MODE — Connect your accounts in Settings</div>
+    <div class="last-updated" id="last-updated">Last updated: —</div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- FUNNEL OVERVIEW -->
+  <section class="funnel-section">
+    <div class="section-label">Funnel Overview</div>
+    <div class="funnel-stages" id="funnel-stages">
+      <!-- Stage: REACH -->
+      <div class="funnel-stage-card" style="--stage-color:#F0601B;">
+        <div class="stage-icon">📡</div>
+        <div class="stage-name">Reach</div>
+        <div class="stage-number" id="stage-reach">—</div>
+        <div class="stage-sublabel">Monthly impressions</div>
+      </div>
+      <!-- Arrow 1 -->
+      <div class="funnel-arrow">
+        <div class="arrow-pct" id="conv-reach-audience">—</div>
+        <div class="arrow-line"></div>
+      </div>
+      <!-- Stage: AUDIENCE -->
+      <div class="funnel-stage-card" style="--stage-color:#C13584;">
+        <div class="stage-icon">👥</div>
+        <div class="stage-name">Audience</div>
+        <div class="stage-number" id="stage-audience">—</div>
+        <div class="stage-sublabel">Total followers</div>
+      </div>
+      <!-- Arrow 2 -->
+      <div class="funnel-arrow">
+        <div class="arrow-pct" id="conv-audience-email">—</div>
+        <div class="arrow-line"></div>
+      </div>
+      <!-- Stage: EMAIL LIST -->
+      <div class="funnel-stage-card" style="--stage-color:#F0601B;">
+        <div class="stage-icon">✉️</div>
+        <div class="stage-name">Email List</div>
+        <div class="stage-number" id="stage-email">—</div>
+        <div class="stage-sublabel">Kit subscribers</div>
+      </div>
+      <!-- Arrow 3 -->
+      <div class="funnel-arrow">
+        <div class="arrow-pct" id="conv-email-community">—</div>
+        <div class="arrow-line"></div>
+      </div>
+      <!-- Stage: COMMUNITY -->
+      <div class="funnel-stage-card" style="--stage-color:#6366F1;">
+        <div class="stage-icon">🔮</div>
+        <div class="stage-name">Community</div>
+        <div class="stage-number" id="stage-community">—</div>
+        <div class="stage-sublabel">Circle members</div>
+      </div>
+    </div>
+
+    <!-- Funnel Health -->
+    <div class="funnel-health">
+      <div class="health-label-group">
+        <div class="health-title">Funnel Health</div>
+        <div class="health-score-display">
+          <div class="health-score-num" id="health-score">—</div>
+          <div class="health-grade" id="health-grade">—</div>
+        </div>
+      </div>
+      <div class="health-bar-wrap">
+        <div class="health-bar-track">
+          <div class="health-bar-fill" id="health-bar" style="width:0%"></div>
+        </div>
+        <div class="health-breakdown" id="health-breakdown">
+          <span class="health-item">Audience/Reach <span id="hb-ar">—</span></span>
+          <span class="health-item">Email/Audience <span id="hb-ea">—</span></span>
+          <span class="health-item">Community/Email <span id="hb-ce">—</span></span>
+          <span class="health-item">Open Rate <span id="hb-or">—</span></span>
+          <span class="health-item">Engagement <span id="hb-eng">—</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM CARDS -->
+  <section>
+    <div class="section-label">Platform Data</div>
+    <div class="platform-grid" id="platform-grid">
+
+      <!-- YouTube Card -->
+      <div class="platform-card" id="card-youtube" data-platform="youtube" style="--accent-color:#FF3B30;">
+        <div class="card-accent-bar" style="background:#FF3B30;"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-platform-info">
+              <div class="card-status-dot" id="status-youtube"></div>
+              <div>
+                <div class="card-platform-name">YouTube</div>
+                <div class="card-platform-sub" id="sub-youtube">Not connected</div>
+              </div>
+            </div>
+            <button class="card-setup-btn" id="btn-youtube" onclick="openSettingsAt('youtube')">Setup</button>
+          </div>
+          <div id="content-youtube">
+            <div class="card-big-number" id="yt-subs">—</div>
+            <div class="card-big-label">Subscribers</div>
+            <div class="card-metrics">
+              <div class="card-metric-row">
+                <span class="card-metric-label">Monthly Views</span>
+                <span class="card-metric-value" id="yt-views">—</span>
+              </div>
+              <div class="card-metric-row">
+                <span class="card-metric-label">Total Views</span>
+                <span class="card-metric-value" id="yt-total-views">—</span>
+              </div>
+              <div class="card-metric-row">
+                <span class="card-metric-label">Video Count</span>
+                <span class="card-metric-value" id="yt-videos">—</span>
+              </div>
+              <div class="card-metric-row">
+                <span class="card-metric-label">Sub Growth</span>
+                <span class="card-metric-value positive" id="yt-growth">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Instagram Card -->
+      <div class="platform-card" id="card-instagram" data-platform="instagram" style="--accent-color:#C13584;">
+        <div class="card-accent-bar" style="background:linear-gradient(90deg,#F58529,#DD2A7B,#8134AF,#515BD4);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-platform-info">
+              <div class="card-status-dot" id="status-instagram"></div>
+              <div>
+                <div class="card-platform-name">Instagram</div>
+                <div class="card-platform-sub" id="sub-instagram">Not connected</div>
+              </div>
+            </div>
+            <button class="card-setup-btn" id="btn-instagram" onclick="openSettingsAt('instagram')">Setup</button>
+          </div>
+          <div id="content-instagram">
+            <div class="card-big-number" id="ig-followers">—</div>
+            <div class="card-big-label">Followers</div>
+            <div class="card-metrics">
+              <div class="card-metric-row">
+                <span class="card-metric-label">Following</span>
+                <span class="card-metric-value" id="ig-following">—</span>
+              </div>
+              <div class="card-metric-row">
+                <span class="card-metric-label">Posts</span>
+                <span class="card-metric-value" id="ig-posts">—</span>
+              </div>
+              <div class="card-metric-row">
+                <span class="card-metric-label">Engagement Rate</span>
+                <span class="card-metric-value positive" id="ig-eng">—</span>
+              </div>
+              <div class="card-metric-row">
+                <span class="card-metric-label">Avg Reach / Post</span>
+                <span class="card-metric-value" id="ig-reach">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kit Card -->
+      <div class="platform-card" id="card-kit" data-platform="kit" style="--accent-color:#F0601B;">
+        <div class="card-accent-bar" style="background:var(--orange);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-platform-info">
+              <div class="card-status-dot" id="status-kit"></div>
+              <div>
+                <div class="card-platform-name">Kit</div>
+                <div class="card-platform-sub" id="sub-kit">Not connected</div>
+              </div>
+            </div>
+            <button class="card-setup-btn" id="btn-kit" onclick="openSettingsAt('kit')">Setup</button>
+          </div>
+          <div id="content-kit">
+            <div class="card-big-number" id="kit-subs">—</div>
+            <div class="card-big-label">Subscribers</div>
+            <div class="card-metrics">
+              <div class="card-metric-row">
+                <span class="card-metric-label">Growth This Month</span>
+                <span class="card-metric-value positive" id="kit-growth">—</span>
+              </div>
+              <div class="card-metric-row">
+                <span class="card-metric-label">Open Rate</span>
+                <span class="card-metric-value" id="kit-open">—</span>
+              </div>
+              <div class="card-metric-row">
+                <span class="card-metric-label">Click Rate</span>
+                <span class="card-metric-value" id="kit-click">—</span>
+              </div>
+              <div class="card-metric-row">
+                <span class="card-metric-label">Unsub Rate</span>
+                <span class="card-metric-value" id="kit-unsub">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Circle Card -->
+      <div class="platform-card" id="card-circle" data-platform="circle" style="--accent-color:#6366F1;">
+        <div class="card-accent-bar" style="background:#6366F1;"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-platform-info">
+              <div class="card-status-dot" id="status-circle"></div>
+              <div>
+                <div class="card-platform-name">Circle</div>
+                <div class="card-platform-sub" id="sub-circle">Not connected</div>
+              </div>
+            </div>
+            <button class="card-setup-btn" id="btn-circle" onclick="openSettingsAt('circle')">Setup</button>
+          </div>
+          <div id="content-circle">
+            <div class="card-big-number" id="circle-members">—</div>
+            <div class="card-big-label">Members</div>
+            <div class="card-metrics">
+              <div class="card-metric-row">
+                <span class="card-metric-label">Active Members (30d)</span>
+                <span class="card-metric-value positive" id="circle-active">—</span>
+              </div>
+              <div class="card-metric-row">
+                <span class="card-metric-label">New This Month</span>
+                <span class="card-metric-value" id="circle-new">—</span>
+              </div>
+              <div class="card-metric-row">
+                <span class="card-metric-label">Community Posts</span>
+                <span class="card-metric-value" id="circle-posts">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Analytics Card -->
+      <div class="platform-card" id="card-analytics" data-platform="analytics" style="--accent-color:#10B981;">
+        <div class="card-accent-bar" style="background:#10B981;"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div class="card-platform-info">
+              <div class="card-status-dot" id="status-analytics"></div>
+              <div>
+                <div class="card-platform-name">Analytics</div>
+                <div class="card-platform-sub" id="sub-analytics">Not connected</div>
+              </div>
+            </div>
+            <button class="card-setup-btn" id="btn-analytics" onclick="openSettingsAt('analytics')">Setup</button>
+          </div>
+          <div id="content-analytics">
+            <div class="card-big-number" id="ga-sessions">—</div>
+            <div class="card-big-label">Monthly Sessions</div>
+            <div class="card-metrics">
+              <div class="card-metric-row">
+                <span class="card-metric-label">Unique Users</span>
+                <span class="card-metric-value" id="ga-users">—</span>
+              </div>
+              <div class="card-metric-row">
+                <span class="card-metric-label">Avg Session Duration</span>
+                <span class="card-metric-value" id="ga-duration">—</span>
+              </div>
+              <div class="card-metric-row">
+                <span class="card-metric-label">Bounce Rate</span>
+                <span class="card-metric-value" id="ga-bounce">—</span>
+              </div>
+              <div class="card-metric-row">
+                <span class="card-metric-label">New Users</span>
+                <span class="card-metric-value" id="ga-new">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INSIGHTS -->
+  <section class="insights-section">
+    <div class="section-label">Funnel Insights</div>
+    <div class="insights-grid">
+      <div class="insight-card" id="insight-working" style="--insight-color:#3ab864;">
+        <div class="insight-icon">✅</div>
+        <div class="insight-type">What's Working</div>
+        <div class="insight-title" id="insight-working-title">—</div>
+        <div class="insight-body" id="insight-working-body">Analyzing your funnel data...</div>
+      </div>
+      <div class="insight-card" id="insight-focus" style="--insight-color:#F0601B;">
+        <div class="insight-icon">🎯</div>
+        <div class="insight-type">Where to Focus</div>
+        <div class="insight-title" id="insight-focus-title">—</div>
+        <div class="insight-body" id="insight-focus-body">Analyzing your funnel data...</div>
+      </div>
+      <div class="insight-card" id="insight-week" style="--insight-color:#3B82F6;">
+        <div class="insight-icon">⚡</div>
+        <div class="insight-type">This Week's Priority</div>
+        <div class="insight-title" id="insight-week-title">—</div>
+        <div class="insight-body" id="insight-week-body">Analyzing your funnel data...</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- DEMO WATERMARK -->
+<div class="demo-watermark" id="demo-watermark">● DEMO DATA</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- SETTINGS MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeSettings()"></div>
+<div class="settings-panel" id="settings-panel">
+  <div class="settings-header">
+    <span class="settings-title">Settings</span>
+    <button class="settings-close" onclick="closeSettings()">✕</button>
+  </div>
+  <div class="settings-body" id="settings-body">
+
+    <!-- YouTube -->
+    <div class="settings-platform" id="sp-youtube">
+      <div class="settings-platform-header" onclick="toggleAccordion('youtube')">
+        <div class="sph-left">
+          <div class="sph-dot" id="sph-dot-youtube" style="--dot-color:#FF3B30;"></div>
+          <div>
+            <div class="sph-name" style="color:#FF3B30;">YouTube</div>
+            <div class="sph-status" id="sph-status-youtube">Not connected</div>
+          </div>
+        </div>
+        <span class="sph-chevron">▼</span>
+      </div>
+      <div class="settings-platform-body">
+        <div class="form-group">
+          <label class="form-label">API Key</label>
+          <input type="password" class="form-input" id="yt-api-key" placeholder="AIzaSy..." autocomplete="off">
+          <div class="form-hint">Your YouTube Data API v3 key</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Channel ID</label>
+          <input type="text" class="form-input" id="yt-channel-id" placeholder="UCxxxxxxxxxxxxxxxx" autocomplete="off">
+          <div class="form-hint">Found in YouTube Studio → Settings → Channel → Advanced</div>
+        </div>
+        <span class="help-toggle" onclick="toggleHelp('yt-help')">How to get these? →</span>
+        <div class="help-content" id="yt-help">
+          <ol>
+            <li>Go to <a href="https://console.cloud.google.com" target="_blank">Google Cloud Console</a></li>
+            <li>Create a new project (or select existing)</li>
+            <li>Enable "YouTube Data API v3" in the API Library</li>
+            <li>Go to Credentials → Create Credentials → API Key</li>
+            <li>Copy the API key and paste it above</li>
+            <li>For Channel ID: open <a href="https://studio.youtube.com" target="_blank">YouTube Studio</a> → Settings → Channel → Advanced settings</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instagram -->
+    <div class="settings-platform" id="sp-instagram">
+      <div class="settings-platform-header" onclick="toggleAccordion('instagram')">
+        <div class="sph-left">
+          <div class="sph-dot" id="sph-dot-instagram" style="--dot-color:#C13584;"></div>
+          <div>
+            <div class="sph-name" style="color:#C13584;">Instagram</div>
+            <div class="sph-status" id="sph-status-instagram">Not connected</div>
+          </div>
+        </div>
+        <span class="sph-chevron">▼</span>
+      </div>
+      <div class="settings-platform-body">
+        <div class="form-toggle-row">
+          <span class="form-toggle-label">Use manual entry instead of API</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="ig-manual-toggle" onchange="toggleIgMode()">
+            <div class="toggle-track"></div>
+          </label>
+        </div>
+        <div id="ig-api-fields">
+          <div class="form-group">
+            <label class="form-label">Access Token</label>
+            <input type="password" class="form-input" id="ig-access-token" placeholder="IGQVJXxx..." autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label class="form-label">User ID</label>
+            <input type="text" class="form-input" id="ig-user-id" placeholder="17841400..." autocomplete="off">
+          </div>
+        </div>
+        <div id="ig-manual-fields" style="display:none;">
+          <div class="form-group">
+            <label class="form-label">Followers</label>
+            <input type="number" class="form-input" id="ig-m-followers" placeholder="8600">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Following</label>
+            <input type="number" class="form-input" id="ig-m-following" placeholder="412">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Posts</label>
+            <input type="number" class="form-input" id="ig-m-posts" placeholder="234">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Engagement Rate (%)</label>
+            <input type="number" class="form-input" id="ig-m-eng" placeholder="3.2" step="0.1">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Avg Reach / Post</label>
+            <input type="number" class="form-input" id="ig-m-reach" placeholder="4200">
+          </div>
+        </div>
+        <span class="help-toggle" onclick="toggleHelp('ig-help')">How to get Instagram API access? →</span>
+        <div class="help-content" id="ig-help">
+          <ol>
+            <li>Go to <a href="https://developers.facebook.com" target="_blank">Meta for Developers</a></li>
+            <li>Create an app → choose "Consumer" type</li>
+            <li>Add the Instagram Basic Display product</li>
+            <li>Under User Token Generator, add your Instagram account</li>
+            <li>Generate a User Token — this is your Access Token</li>
+            <li>Your User ID appears alongside the token</li>
+            <li><strong>Note:</strong> If CORS blocks the API, the dashboard will use your manual data automatically</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kit -->
+    <div class="settings-platform" id="sp-kit">
+      <div class="settings-platform-header" onclick="toggleAccordion('kit')">
+        <div class="sph-left">
+          <div class="sph-dot" id="sph-dot-kit" style="--dot-color:#F0601B;"></div>
+          <div>
+            <div class="sph-name" style="color:#F0601B;">Kit</div>
+            <div class="sph-status" id="sph-status-kit">Not connected</div>
+          </div>
+        </div>
+        <span class="sph-chevron">▼</span>
+      </div>
+      <div class="settings-platform-body">
+        <div class="form-group">
+          <label class="form-label">API Key</label>
+          <input type="password" class="form-input" id="kit-api-key" placeholder="kit_..." autocomplete="off">
+          <div class="form-hint">Found in Kit → Settings → Developer → API Keys</div>
+        </div>
+        <div style="margin-bottom:14px;">
+          <div class="form-label" style="margin-bottom:8px;color:var(--dimmer);">Manual Fallback (used if API unavailable)</div>
+          <div class="form-group">
+            <label class="form-label">Total Subscribers</label>
+            <input type="number" class="form-input" id="kit-m-subs" placeholder="2100">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Open Rate (%)</label>
+            <input type="number" class="form-input" id="kit-m-open" placeholder="42" step="0.1">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Click Rate (%)</label>
+            <input type="number" class="form-input" id="kit-m-click" placeholder="4.2" step="0.1">
+          </div>
+        </div>
+        <span class="help-toggle" onclick="toggleHelp('kit-help')">How to get Kit API key? →</span>
+        <div class="help-content" id="kit-help">
+          <ol>
+            <li>Log in to <a href="https://app.kit.com" target="_blank">Kit (formerly ConvertKit)</a></li>
+            <li>Go to Settings → Developer</li>
+            <li>Under "API Keys", click "Add API Key"</li>
+            <li>Copy the key and paste it above</li>
+            <li><strong>Note:</strong> Kit's API may block browser requests (CORS). If so, enter your stats manually in the fallback fields above.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Circle -->
+    <div class="settings-platform" id="sp-circle">
+      <div class="settings-platform-header" onclick="toggleAccordion('circle')">
+        <div class="sph-left">
+          <div class="sph-dot" id="sph-dot-circle" style="--dot-color:#6366F1;"></div>
+          <div>
+            <div class="sph-name" style="color:#6366F1;">Circle</div>
+            <div class="sph-status" id="sph-status-circle">Not connected</div>
+          </div>
+        </div>
+        <span class="sph-chevron">▼</span>
+      </div>
+      <div class="settings-platform-body">
+        <div class="form-group">
+          <label class="form-label">API Token</label>
+          <input type="password" class="form-input" id="circle-token" placeholder="circle_..." autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Community URL</label>
+          <input type="text" class="form-input" id="circle-url" placeholder="https://yourcommunity.circle.so">
+        </div>
+        <div style="margin-bottom:14px;">
+          <div class="form-label" style="margin-bottom:8px;color:var(--dimmer);">Manual Fallback</div>
+          <div class="form-group">
+            <label class="form-label">Total Members</label>
+            <input type="number" class="form-input" id="circle-m-members" placeholder="847">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Active Members (30d)</label>
+            <input type="number" class="form-input" id="circle-m-active" placeholder="576">
+          </div>
+          <div class="form-group">
+            <label class="form-label">New Members This Month</label>
+            <input type="number" class="form-input" id="circle-m-new" placeholder="43">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Community Posts</label>
+            <input type="number" class="form-input" id="circle-m-posts" placeholder="312">
+          </div>
+        </div>
+        <span class="help-toggle" onclick="toggleHelp('circle-help')">How to get Circle API token? →</span>
+        <div class="help-content" id="circle-help">
+          <ol>
+            <li>Log in to your Circle community</li>
+            <li>Go to Settings → API</li>
+            <li>Generate a new API token</li>
+            <li>Copy and paste it above along with your community URL</li>
+            <li><strong>Note:</strong> Circle's API may require server-side calls. Use manual entry as a reliable fallback.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Analytics -->
+    <div class="settings-platform" id="sp-analytics">
+      <div class="settings-platform-header" onclick="toggleAccordion('analytics')">
+        <div class="sph-left">
+          <div class="sph-dot" id="sph-dot-analytics" style="--dot-color:#10B981;"></div>
+          <div>
+            <div class="sph-name" style="color:#10B981;">Google Analytics</div>
+            <div class="sph-status" id="sph-status-analytics">Not connected</div>
+          </div>
+        </div>
+        <span class="sph-chevron">▼</span>
+      </div>
+      <div class="settings-platform-body">
+        <div class="form-group" style="margin-bottom:8px;">
+          <div style="font-size:12px;color:var(--dimmer);background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.2);border-radius:6px;padding:10px 12px;">
+            Full API integration coming soon. Enter your stats manually from Google Analytics.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Monthly Sessions</label>
+          <input type="number" class="form-input" id="ga-m-sessions" placeholder="5200">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Unique Users</label>
+          <input type="number" class="form-input" id="ga-m-users" placeholder="3800">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Avg Session Duration (mm:ss)</label>
+          <input type="text" class="form-input" id="ga-m-duration" placeholder="2:18">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Bounce Rate (%)</label>
+          <input type="number" class="form-input" id="ga-m-bounce" placeholder="48" step="0.1">
+        </div>
+        <div class="form-group">
+          <label class="form-label">New Users (%)</label>
+          <input type="number" class="form-input" id="ga-m-new" placeholder="64" step="0.1">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="settings-footer">
+    <button class="btn-cancel" onclick="closeSettings()">Cancel</button>
+    <button class="btn-save" onclick="saveSettings()">Save & Refresh</button>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   FSCreative™ Funnel Analyzer — JavaScript Architecture
+   ══════════════════════════════════════════════════════ */
+
+// ─── CONSTANTS ───────────────────────────────────────────
+const STORAGE_KEY = 'fa-settings';
+
+const DEMO_DATA = {
+  youtube: {
+    channelName: 'Your Channel',
+    subscribers:     12400,
+    monthlyViews:    18700,
+    totalViews:      284000,
+    videoCount:      87,
+    subscriberGrowth: 342,
+    growthPercent:   2.8,
+    source: 'demo'
+  },
+  instagram: {
+    username:       'yourhandle',
+    followers:      8600,
+    following:      412,
+    posts:          234,
+    engagementRate: 3.2,
+    avgReach:       4200,
+    profileVisits:  1840,
+    source: 'demo'
+  },
+  kit: {
+    totalSubs:    2100,
+    newThisMonth: 187,
+    growthPercent: 9.8,
+    openRate:     42,
+    clickRate:    4.2,
+    unsubRate:    0.3,
+    source: 'demo'
+  },
+  circle: {
+    members:      847,
+    activeMembers: 576,
+    newThisMonth:  43,
+    posts:         312,
+    activePct:     68,
+    source: 'demo'
+  },
+  analytics: {
+    sessions:    5200,
+    users:       3800,
+    newUsersPct: 64,
+    avgDuration: '2:18',
+    bounceRate:  48,
+    source: 'demo'
+  }
+};
+
+// ─── STATE ───────────────────────────────────────────────
+const state = {
+  data: {},
+  settings: {},
+  isDemoMode: true,
+  isRefreshing: false
+};
+
+// ─── THEME ───────────────────────────────────────────────
+function toggleTheme() {
+  document.body.classList.toggle('light');
+  localStorage.setItem('fa-theme', document.body.classList.contains('light') ? 'light' : 'dark');
+}
+function initTheme() {
+  const saved = localStorage.getItem('fa-theme');
+  if (saved === 'light') document.body.classList.add('light');
+}
+
+// ─── SETTINGS ────────────────────────────────────────────
+function loadSettings() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    state.settings = saved ? JSON.parse(saved) : {};
+  } catch(e) {
+    state.settings = {};
+  }
+  populateSettingsForms();
+}
+
+function populateSettingsForms() {
+  const s = state.settings;
+  // YouTube
+  if (s.ytApiKey)    document.getElementById('yt-api-key').value    = s.ytApiKey;
+  if (s.ytChannelId) document.getElementById('yt-channel-id').value = s.ytChannelId;
+  // Instagram
+  if (s.igManual)    { document.getElementById('ig-manual-toggle').checked = true; toggleIgMode(); }
+  if (s.igToken)     document.getElementById('ig-access-token').value = s.igToken;
+  if (s.igUserId)    document.getElementById('ig-user-id').value      = s.igUserId;
+  if (s.igMFollowers) document.getElementById('ig-m-followers').value = s.igMFollowers;
+  if (s.igMFollowing) document.getElementById('ig-m-following').value = s.igMFollowing;
+  if (s.igMPosts)     document.getElementById('ig-m-posts').value     = s.igMPosts;
+  if (s.igMEng)       document.getElementById('ig-m-eng').value       = s.igMEng;
+  if (s.igMReach)     document.getElementById('ig-m-reach').value     = s.igMReach;
+  // Kit
+  if (s.kitApiKey)  document.getElementById('kit-api-key').value  = s.kitApiKey;
+  if (s.kitMSubs)   document.getElementById('kit-m-subs').value   = s.kitMSubs;
+  if (s.kitMOpen)   document.getElementById('kit-m-open').value   = s.kitMOpen;
+  if (s.kitMClick)  document.getElementById('kit-m-click').value  = s.kitMClick;
+  // Circle
+  if (s.circleToken)    document.getElementById('circle-token').value      = s.circleToken;
+  if (s.circleUrl)      document.getElementById('circle-url').value        = s.circleUrl;
+  if (s.circleMMembers) document.getElementById('circle-m-members').value  = s.circleMMembers;
+  if (s.circleMActive)  document.getElementById('circle-m-active').value   = s.circleMActive;
+  if (s.circleMNew)     document.getElementById('circle-m-new').value      = s.circleMNew;
+  if (s.circleMPosts)   document.getElementById('circle-m-posts').value    = s.circleMPosts;
+  // Analytics
+  if (s.gaSessions) document.getElementById('ga-m-sessions').value = s.gaSessions;
+  if (s.gaUsers)    document.getElementById('ga-m-users').value    = s.gaUsers;
+  if (s.gaDuration) document.getElementById('ga-m-duration').value = s.gaDuration;
+  if (s.gaBounce)   document.getElementById('ga-m-bounce').value   = s.gaBounce;
+  if (s.gaNew)      document.getElementById('ga-m-new').value      = s.gaNew;
+}
+
+function saveSettings() {
+  const s = {
+    ytApiKey:    document.getElementById('yt-api-key').value.trim(),
+    ytChannelId: document.getElementById('yt-channel-id').value.trim(),
+    igManual:    document.getElementById('ig-manual-toggle').checked,
+    igToken:     document.getElementById('ig-access-token').value.trim(),
+    igUserId:    document.getElementById('ig-user-id').value.trim(),
+    igMFollowers: document.getElementById('ig-m-followers').value,
+    igMFollowing: document.getElementById('ig-m-following').value,
+    igMPosts:     document.getElementById('ig-m-posts').value,
+    igMEng:       document.getElementById('ig-m-eng').value,
+    igMReach:     document.getElementById('ig-m-reach').value,
+    kitApiKey:   document.getElementById('kit-api-key').value.trim(),
+    kitMSubs:    document.getElementById('kit-m-subs').value,
+    kitMOpen:    document.getElementById('kit-m-open').value,
+    kitMClick:   document.getElementById('kit-m-click').value,
+    circleToken:    document.getElementById('circle-token').value.trim(),
+    circleUrl:      document.getElementById('circle-url').value.trim(),
+    circleMMembers: document.getElementById('circle-m-members').value,
+    circleMActive:  document.getElementById('circle-m-active').value,
+    circleMNew:     document.getElementById('circle-m-new').value,
+    circleMPosts:   document.getElementById('circle-m-posts').value,
+    gaSessions: document.getElementById('ga-m-sessions').value,
+    gaUsers:    document.getElementById('ga-m-users').value,
+    gaDuration: document.getElementById('ga-m-duration').value,
+    gaBounce:   document.getElementById('ga-m-bounce').value,
+    gaNew:      document.getElementById('ga-m-new').value,
+  };
+  state.settings = s;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+  closeSettings();
+  showToast('Settings saved — refreshing data…');
+  setTimeout(() => fetchAll(), 300);
+}
+
+// ─── SETTINGS MODAL ──────────────────────────────────────
+function openSettings() {
+  document.getElementById('modal-overlay').classList.add('open');
+  document.getElementById('settings-panel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function openSettingsAt(platform) {
+  openSettings();
+  // Expand the correct accordion after a short delay
+  setTimeout(() => {
+    const el = document.getElementById('sp-' + platform);
+    if (el && !el.classList.contains('expanded')) {
+      el.classList.add('expanded');
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, 350);
+}
+
+function closeSettings() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.getElementById('settings-panel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function toggleAccordion(platform) {
+  const el = document.getElementById('sp-' + platform);
+  if (!el) return;
+  el.classList.toggle('expanded');
+}
+
+function toggleHelp(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.toggle('open');
+}
+
+function toggleIgMode() {
+  const manual = document.getElementById('ig-manual-toggle').checked;
+  document.getElementById('ig-api-fields').style.display    = manual ? 'none' : 'block';
+  document.getElementById('ig-manual-fields').style.display = manual ? 'block' : 'none';
+}
+
+// ─── TOAST ───────────────────────────────────────────────
+function showToast(msg, duration = 2800) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), duration);
+}
+
+// ─── UTILITIES ───────────────────────────────────────────
+function fmt(n) {
+  if (n === null || n === undefined || n === '—') return '—';
+  n = Number(n);
+  if (isNaN(n)) return '—';
+  if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+  if (n >= 10000)   return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+  if (n >= 1000)    return n.toLocaleString();
+  return String(n);
+}
+
+function fmtPct(n) {
+  if (n === null || n === undefined) return '—';
+  return Number(n).toFixed(1) + '%';
+}
+
+function updateLastUpdated() {
+  const now = new Date();
+  const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const date = now.toLocaleDateString([], { month: 'short', day: 'numeric' });
+  document.getElementById('last-updated').textContent = 'Last updated: ' + date + ' at ' + time;
+}
+
+// ─── PLATFORM STATUS UI ──────────────────────────────────
+function updatePlatformStatus(platform, connected, source) {
+  // Nav dot
+  const dot = document.getElementById('dot-' + platform);
+  if (dot) {
+    const colors = { youtube:'#FF3B30', instagram:'#C13584', kit:'#F0601B', circle:'#6366F1', analytics:'#10B981' };
+    dot.style.background = colors[platform] || '#555';
+    dot.style.opacity = connected ? '1' : '0.3';
+    const statusStr = connected ? 'Connected' : 'Disconnected';
+    dot.setAttribute('data-tip', platform.charAt(0).toUpperCase() + platform.slice(1) + ' — ' + statusStr);
+    if (connected) dot.classList.add('connected');
+    else           dot.classList.remove('connected');
+  }
+  // Card status dot
+  const cdot = document.getElementById('status-' + platform);
+  if (cdot) {
+    if (connected) cdot.classList.add('connected');
+    else           cdot.classList.remove('connected');
+  }
+  // Settings header dot
+  const sphDot = document.getElementById('sph-dot-' + platform);
+  if (sphDot) {
+    if (connected) sphDot.classList.add('connected');
+    else           sphDot.classList.remove('connected');
+  }
+  // Card button
+  const btn = document.getElementById('btn-' + platform);
+  if (btn) {
+    if (connected) { btn.textContent = 'Connected'; btn.classList.add('connected-btn'); }
+    else           { btn.textContent = 'Setup';     btn.classList.remove('connected-btn'); }
+  }
+  // Card sub
+  const sub = document.getElementById('sub-' + platform);
+  if (sub) {
+    if (source === 'api')    sub.textContent = 'Live data';
+    else if (source === 'manual') sub.textContent = 'Manual entry';
+    else if (source === 'demo')   sub.textContent = 'Demo data';
+    else                          sub.textContent = 'Not connected';
+  }
+  // Settings status
+  const sstat = document.getElementById('sph-status-' + platform);
+  if (sstat) {
+    sstat.textContent = connected ? (source === 'api' ? 'Connected — Live' : source === 'manual' ? 'Manual entry' : 'Demo') : 'Not connected';
+  }
+}
+
+// ─── DEMO MODE UI ────────────────────────────────────────
+function checkDemoMode() {
+  const s = state.settings;
+  const hasAny = s.ytApiKey || s.ytChannelId || s.igToken || s.kitApiKey || s.circleToken
+               || s.igMFollowers || s.kitMSubs || s.circleMMembers || s.gaSessions;
+  state.isDemoMode = !hasAny;
+  const tag = document.getElementById('demo-tag');
+  const wm  = document.getElementById('demo-watermark');
+  if (state.isDemoMode) { tag.classList.remove('hidden'); wm.classList.add('show'); }
+  else                  { tag.classList.add('hidden');    wm.classList.remove('show'); }
+}
+
+// ─── API FETCHERS ────────────────────────────────────────
+
+async function fetchYouTube() {
+  const s = state.settings;
+  if (s.ytApiKey && s.ytChannelId) {
+    try {
+      const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=${s.ytChannelId}&key=${s.ytApiKey}`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('YT API error ' + res.status);
+      const json = await res.json();
+      const ch = json.items && json.items[0];
+      if (!ch) throw new Error('Channel not found');
+      const stats = ch.statistics;
+      state.data.youtube = {
+        channelName:      ch.snippet.title,
+        subscribers:      parseInt(stats.subscriberCount) || 0,
+        monthlyViews:     parseInt(stats.viewCount) || 0,
+        totalViews:       parseInt(stats.viewCount) || 0,
+        videoCount:       parseInt(stats.videoCount) || 0,
+        subscriberGrowth: 0,
+        growthPercent:    0,
+        source: 'api'
+      };
+      return;
+    } catch(e) {
+      console.warn('YouTube API failed:', e.message);
+    }
+  }
+  // Fallback to demo
+  state.data.youtube = { ...DEMO_DATA.youtube };
+}
+
+async function fetchInstagram() {
+  const s = state.settings;
+  // Manual mode
+  if (s.igManual) {
+    if (s.igMFollowers) {
+      state.data.instagram = {
+        username:       '@yourhandle',
+        followers:      parseInt(s.igMFollowers) || 0,
+        following:      parseInt(s.igMFollowing) || 0,
+        posts:          parseInt(s.igMPosts) || 0,
+        engagementRate: parseFloat(s.igMEng) || 0,
+        avgReach:       parseInt(s.igMReach) || 0,
+        profileVisits:  0,
+        source: 'manual'
+      };
+      return;
+    }
+  }
+  // API mode
+  if (s.igToken) {
+    try {
+      const url = `https://graph.instagram.com/me?fields=followers_count,media_count,username&access_token=${s.igToken}`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('IG API error ' + res.status);
+      const json = await res.json();
+      state.data.instagram = {
+        username:       '@' + (json.username || 'yourhandle'),
+        followers:      json.followers_count || 0,
+        following:      0,
+        posts:          json.media_count || 0,
+        engagementRate: parseFloat(s.igMEng) || 0,
+        avgReach:       parseInt(s.igMReach) || 0,
+        profileVisits:  0,
+        source: 'api'
+      };
+      return;
+    } catch(e) {
+      console.warn('Instagram API failed (CORS likely):', e.message);
+      // Fall back to manual if entered
+      if (s.igMFollowers) {
+        state.data.instagram = {
+          username: '@yourhandle', followers: parseInt(s.igMFollowers)||0,
+          following: parseInt(s.igMFollowing)||0, posts: parseInt(s.igMPosts)||0,
+          engagementRate: parseFloat(s.igMEng)||0, avgReach: parseInt(s.igMReach)||0,
+          profileVisits: 0, source: 'manual'
+        };
+        showToast('Instagram: using manual data (API blocked by browser)');
+        return;
+      }
+    }
+  }
+  state.data.instagram = { ...DEMO_DATA.instagram };
+}
+
+async function fetchKit() {
+  const s = state.settings;
+  if (s.kitApiKey) {
+    try {
+      const res = await fetch('https://api.kit.com/v4/subscribers', {
+        headers: { 'X-Kit-Api-Key': s.kitApiKey, 'Accept': 'application/json' }
+      });
+      if (!res.ok) throw new Error('Kit API error ' + res.status);
+      const json = await res.json();
+      state.data.kit = {
+        totalSubs:    json.total_count || (json.subscribers && json.subscribers.length) || 0,
+        newThisMonth: 0,
+        growthPercent: 0,
+        openRate:     parseFloat(s.kitMOpen)  || DEMO_DATA.kit.openRate,
+        clickRate:    parseFloat(s.kitMClick) || DEMO_DATA.kit.clickRate,
+        unsubRate:    DEMO_DATA.kit.unsubRate,
+        source: 'api'
+      };
+      return;
+    } catch(e) {
+      console.warn('Kit API failed (CORS likely):', e.message);
+      if (s.kitMSubs) {
+        state.data.kit = {
+          totalSubs:    parseInt(s.kitMSubs)  || 0,
+          newThisMonth: 0,
+          growthPercent: 0,
+          openRate:     parseFloat(s.kitMOpen)  || 0,
+          clickRate:    parseFloat(s.kitMClick) || 0,
+          unsubRate:    0,
+          source: 'manual'
+        };
+        showToast('Kit: using manual data (API blocked by browser)');
+        return;
+      }
+    }
+  }
+  // Manual only
+  if (s.kitMSubs) {
+    state.data.kit = {
+      totalSubs:    parseInt(s.kitMSubs) || 0,
+      newThisMonth: 0, growthPercent: 0,
+      openRate:     parseFloat(s.kitMOpen)  || 0,
+      clickRate:    parseFloat(s.kitMClick) || 0,
+      unsubRate:    0,
+      source: 'manual'
+    };
+    return;
+  }
+  state.data.kit = { ...DEMO_DATA.kit };
+}
+
+async function fetchCircle() {
+  const s = state.settings;
+  // Try API
+  if (s.circleToken && s.circleUrl) {
+    try {
+      const base = s.circleUrl.replace(/\/$/, '');
+      const res = await fetch(`${base}/api/v1/community_members?api_key=${s.circleToken}&per_page=1`);
+      if (!res.ok) throw new Error('Circle API error ' + res.status);
+      const json = await res.json();
+      state.data.circle = {
+        members:       json.total || parseInt(s.circleMMembers) || 0,
+        activeMembers: parseInt(s.circleMActive) || 0,
+        newThisMonth:  parseInt(s.circleMNew) || 0,
+        posts:         parseInt(s.circleMPosts) || 0,
+        activePct:     0,
+        source: 'api'
+      };
+      return;
+    } catch(e) {
+      console.warn('Circle API failed:', e.message);
+    }
+  }
+  // Manual
+  if (s.circleMMembers) {
+    state.data.circle = {
+      members:      parseInt(s.circleMMembers) || 0,
+      activeMembers: parseInt(s.circleMActive) || 0,
+      newThisMonth:  parseInt(s.circleMNew) || 0,
+      posts:         parseInt(s.circleMPosts) || 0,
+      activePct: s.circleMMembers > 0 ? Math.round((parseInt(s.circleMActive)||0) / parseInt(s.circleMMembers) * 100) : 0,
+      source: 'manual'
+    };
+    return;
+  }
+  state.data.circle = { ...DEMO_DATA.circle };
+}
+
+function loadAnalytics() {
+  const s = state.settings;
+  if (s.gaSessions) {
+    state.data.analytics = {
+      sessions:    parseInt(s.gaSessions) || 0,
+      users:       parseInt(s.gaUsers) || 0,
+      newUsersPct: parseFloat(s.gaNew) || 0,
+      avgDuration: s.gaDuration || '—',
+      bounceRate:  parseFloat(s.gaBounce) || 0,
+      source: 'manual'
+    };
+  } else {
+    state.data.analytics = { ...DEMO_DATA.analytics };
+  }
+}
+
+// ─── FETCH ALL ───────────────────────────────────────────
+async function fetchAll() {
+  if (state.isRefreshing) return;
+  state.isRefreshing = true;
+  const btn = document.getElementById('btn-refresh');
+  if (btn) { btn.style.opacity = '0.5'; btn.style.pointerEvents = 'none'; }
+
+  checkDemoMode();
+  loadAnalytics();
+
+  try {
+    await Promise.allSettled([
+      fetchYouTube(),
+      fetchInstagram(),
+      fetchKit(),
+      fetchCircle()
+    ]);
+  } catch(e) {
+    console.error('fetchAll error:', e);
+  }
+
+  updateLastUpdated();
+  renderDashboard();
+
+  state.isRefreshing = false;
+  if (btn) { btn.style.opacity = ''; btn.style.pointerEvents = ''; }
+}
+
+function refreshData() {
+  showToast('Refreshing data…');
+  fetchAll();
+}
+
+// ─── RENDER ───────────────────────────────────────────────
+function renderDashboard() {
+  renderYouTube();
+  renderInstagram();
+  renderKit();
+  renderCircle();
+  renderAnalytics();
+  renderFunnelOverview();
+  renderInsights();
+}
+
+function renderYouTube() {
+  const d = state.data.youtube || DEMO_DATA.youtube;
+  const connected = d.source !== 'demo';
+  updatePlatformStatus('youtube', connected, d.source);
+  setText('yt-subs',        fmt(d.subscribers));
+  setText('yt-views',       fmt(d.monthlyViews));
+  setText('yt-total-views', fmt(d.totalViews));
+  setText('yt-videos',      fmt(d.videoCount));
+  const growthEl = document.getElementById('yt-growth');
+  if (growthEl) {
+    growthEl.textContent = d.subscriberGrowth ? '+' + fmt(d.subscriberGrowth) + ' this month' : '—';
+    growthEl.className = 'card-metric-value ' + (d.subscriberGrowth > 0 ? 'positive' : '');
+  }
+}
+
+function renderInstagram() {
+  const d = state.data.instagram || DEMO_DATA.instagram;
+  const connected = d.source !== 'demo';
+  updatePlatformStatus('instagram', connected, d.source);
+  setText('ig-followers', fmt(d.followers));
+  setText('ig-following', fmt(d.following));
+  setText('ig-posts',     fmt(d.posts));
+  setText('ig-eng',       fmtPct(d.engagementRate));
+  setText('ig-reach',     fmt(d.avgReach));
+  const engEl = document.getElementById('ig-eng');
+  if (engEl) engEl.className = 'card-metric-value ' + (d.engagementRate >= 3 ? 'positive' : '');
+}
+
+function renderKit() {
+  const d = state.data.kit || DEMO_DATA.kit;
+  const connected = d.source !== 'demo';
+  updatePlatformStatus('kit', connected, d.source);
+  setText('kit-subs',   fmt(d.totalSubs));
+  setText('kit-growth', d.newThisMonth ? '+' + fmt(d.newThisMonth) + ' (' + fmtPct(d.growthPercent) + ')' : '—');
+  setText('kit-open',   fmtPct(d.openRate));
+  setText('kit-click',  fmtPct(d.clickRate));
+  const unsubEl = document.getElementById('kit-unsub');
+  if (unsubEl) {
+    unsubEl.textContent = fmtPct(d.unsubRate);
+    unsubEl.className = 'card-metric-value ' + (d.unsubRate > 0.5 ? 'negative' : '');
+  }
+  const openEl = document.getElementById('kit-open');
+  if (openEl) openEl.className = 'card-metric-value ' + (d.openRate >= 30 ? 'positive' : '');
+}
+
+function renderCircle() {
+  const d = state.data.circle || DEMO_DATA.circle;
+  const connected = d.source !== 'demo';
+  updatePlatformStatus('circle', connected, d.source);
+  setText('circle-members', fmt(d.members));
+  setText('circle-active',  fmt(d.activeMembers));
+  setText('circle-new',     d.newThisMonth ? '+' + fmt(d.newThisMonth) : '—');
+  setText('circle-posts',   fmt(d.posts));
+}
+
+function renderAnalytics() {
+  const d = state.data.analytics || DEMO_DATA.analytics;
+  const connected = d.source !== 'demo';
+  updatePlatformStatus('analytics', connected, d.source);
+  setText('ga-sessions', fmt(d.sessions));
+  setText('ga-users',    fmt(d.users));
+  setText('ga-duration', d.avgDuration || '—');
+  setText('ga-bounce',   fmtPct(d.bounceRate));
+  setText('ga-new',      fmtPct(d.newUsersPct));
+  const bounceEl = document.getElementById('ga-bounce');
+  if (bounceEl) bounceEl.className = 'card-metric-value ' + (d.bounceRate > 60 ? 'negative' : '');
+}
+
+function renderFunnelOverview() {
+  const yt  = state.data.youtube   || DEMO_DATA.youtube;
+  const ig  = state.data.instagram || DEMO_DATA.instagram;
+  const kit = state.data.kit       || DEMO_DATA.kit;
+  const cir = state.data.circle    || DEMO_DATA.circle;
+  const ga  = state.data.analytics || DEMO_DATA.analytics;
+
+  // Stage values
+  const reach     = (yt.monthlyViews || 0) + (ig.avgReach * (ig.posts || 0) / 30 * 30 || 0) + (ga.sessions || 0);
+  const audience  = (yt.subscribers || 0) + (ig.followers || 0);
+  const emailList = kit.totalSubs || 0;
+  const community = cir.members   || 0;
+
+  setText('stage-reach',     fmt(reach) || '—');
+  setText('stage-audience',  fmt(audience) || '—');
+  setText('stage-email',     fmt(emailList) || '—');
+  setText('stage-community', fmt(community) || '—');
+
+  // Conversion rates
+  const arPct  = reach    > 0 ? ((audience  / reach)    * 100).toFixed(1) : null;
+  const eaPct  = audience > 0 ? ((emailList / audience)  * 100).toFixed(1) : null;
+  const cePct  = emailList > 0 ? ((community / emailList) * 100).toFixed(1) : null;
+
+  setText('conv-reach-audience',  arPct  ? arPct + '%'  : '—');
+  setText('conv-audience-email',  eaPct  ? eaPct + '%'  : '—');
+  setText('conv-email-community', cePct  ? cePct + '%'  : '—');
+
+  // Health score
+  const health = calculateFunnelHealth({
+    reach, audience, emailList, community,
+    openRate:     kit.openRate || 0,
+    engRate:      ig.engagementRate || 0
+  });
+  const scoreEl = document.getElementById('health-score');
+  const gradeEl = document.getElementById('health-grade');
+  const barEl   = document.getElementById('health-bar');
+  if (scoreEl) scoreEl.textContent = health.score;
+  if (gradeEl) {
+    gradeEl.textContent = health.grade;
+    gradeEl.className = 'health-grade grade-' + health.grade.toLowerCase();
+  }
+  if (barEl) barEl.style.width = health.score + '%';
+
+  // Breakdown labels
+  setText('hb-ar',  arPct  ? arPct + '%'  : '—');
+  setText('hb-ea',  eaPct  ? eaPct + '%'  : '—');
+  setText('hb-ce',  cePct  ? cePct + '%'  : '—');
+  setText('hb-or',  fmtPct(kit.openRate));
+  setText('hb-eng', fmtPct(ig.engagementRate));
+}
+
+function calculateFunnelHealth(d) {
+  let score = 0;
+
+  // 1. Audience-to-Reach ratio (20pts): good if > 5%
+  if (d.reach > 0) {
+    const r = (d.audience / d.reach) * 100;
+    score += r >= 5 ? 20 : r >= 2 ? 12 : r >= 0.5 ? 6 : 2;
+  }
+
+  // 2. Email-to-Audience ratio (25pts): good if > 10%
+  if (d.audience > 0) {
+    const r = (d.emailList / d.audience) * 100;
+    score += r >= 10 ? 25 : r >= 5 ? 16 : r >= 2 ? 8 : 2;
+  }
+
+  // 3. Community-to-Email ratio (25pts): good if > 30%
+  if (d.emailList > 0) {
+    const r = (d.community / d.emailList) * 100;
+    score += r >= 30 ? 25 : r >= 15 ? 16 : r >= 5 ? 8 : 2;
+  }
+
+  // 4. Email open rate (15pts): good if > 30%
+  if (d.openRate > 0) {
+    score += d.openRate >= 30 ? 15 : d.openRate >= 20 ? 9 : d.openRate >= 10 ? 4 : 1;
+  }
+
+  // 5. Engagement rate (15pts): good if > 3%
+  if (d.engRate > 0) {
+    score += d.engRate >= 3 ? 15 : d.engRate >= 1.5 ? 9 : d.engRate >= 0.5 ? 4 : 1;
+  }
+
+  const grade =
+    score >= 85 ? 'A' :
+    score >= 70 ? 'B' :
+    score >= 55 ? 'C' :
+    score >= 40 ? 'D' : 'F';
+
+  return { score, grade };
+}
+
+function generateInsights(data) {
+  const yt  = data.youtube   || DEMO_DATA.youtube;
+  const ig  = data.instagram || DEMO_DATA.instagram;
+  const kit = data.kit       || DEMO_DATA.kit;
+  const cir = data.circle    || DEMO_DATA.circle;
+
+  const audience  = (yt.subscribers || 0) + (ig.followers || 0);
+  const emailList = kit.totalSubs || 0;
+  const community = cir.members || 0;
+
+  const eaRatio = audience > 0 ? (emailList / audience) * 100 : 0;
+  const ceRatio = emailList > 0 ? (community / emailList) * 100 : 0;
+
+  // What's Working
+  let working = { title: '', body: '' };
+  if (kit.openRate >= 35) {
+    working = {
+      title: 'Email engagement is strong',
+      body: `Your ${fmtPct(kit.openRate)} open rate is well above the industry average of ~22%. Your audience is genuinely interested in what you send — keep the consistency.`
+    };
+  } else if (ig.engagementRate >= 3) {
+    working = {
+      title: 'Instagram engagement is above average',
+      body: `A ${fmtPct(ig.engagementRate)} engagement rate puts you in the top tier for Instagram. Your content is resonating — repurpose your best posts to other platforms.`
+    };
+  } else if (yt.subscriberGrowth > 200) {
+    working = {
+      title: 'YouTube is growing steadily',
+      body: `+${fmt(yt.subscriberGrowth)} subscribers this month is solid momentum. YouTube's algorithm rewards consistency, so keep your upload cadence strong.`
+    };
+  } else if (eaRatio >= 8) {
+    working = {
+      title: 'Email conversion is healthy',
+      body: `Converting ${fmtPct(eaRatio)} of your audience to email is strong. Email subscribers are your most valuable asset — keep your lead magnets front and center.`
+    };
+  } else {
+    working = {
+      title: 'Community retention is solid',
+      body: `With ${fmtPct(cir.activePct || 0)} active members, your Circle community has strong retention. Engaged communities generate word-of-mouth growth on autopilot.`
+    };
+  }
+
+  // Where to Focus
+  let focus = { title: '', body: '' };
+  if (eaRatio < 5 && audience > 0) {
+    focus = {
+      title: 'Audience → Email conversion is weak',
+      body: `Only ${fmtPct(eaRatio)} of your followers are on your email list. This is your biggest leverage point. Add a lead magnet or content upgrade to every piece of content.`
+    };
+  } else if (ceRatio < 20 && emailList > 0) {
+    focus = {
+      title: 'Email → Community conversion needs work',
+      body: `Just ${fmtPct(ceRatio)} of email subscribers have joined your community. Add a dedicated email sequence pitching Circle, or include a community CTA in your regular newsletters.`
+    };
+  } else if (kit.openRate < 25 && kit.openRate > 0) {
+    focus = {
+      title: 'Email open rates need improvement',
+      body: `A ${fmtPct(kit.openRate)} open rate suggests list fatigue or weak subject lines. Test shorter, more curiosity-driven subject lines and clean inactive subscribers quarterly.`
+    };
+  } else if (ig.engagementRate < 2 && ig.engagementRate > 0) {
+    focus = {
+      title: 'Instagram engagement is low',
+      body: `At ${fmtPct(ig.engagementRate)}, your Instagram engagement is below average. Focus on Reels, reply to every comment for the first 30 minutes after posting, and post at consistent times.`
+    };
+  } else {
+    focus = {
+      title: 'Scale your reach',
+      body: 'Your conversion rates are solid. The primary growth lever now is more top-of-funnel reach — more YouTube content, Instagram Reels, or strategic collaborations.'
+    };
+  }
+
+  // This Week's Priority
+  let priority = { title: '', body: '' };
+  if (eaRatio < 5 && audience > 500) {
+    priority = {
+      title: 'Create or refresh your lead magnet',
+      body: `This week: write a 1-page PDF guide or checklist that solves a specific problem for your audience. Link it in your bio, add it to your YouTube descriptions, and mention it in your next video.`
+    };
+  } else if (kit.openRate < 30 && kit.totalSubs > 100) {
+    priority = {
+      title: 'Write one exceptional email',
+      body: `Send one standout email this week — personal, story-driven, with one clear CTA. Quality over frequency. A single great email can re-engage dormant subscribers and lift your rates.`
+    };
+  } else if (ig.posts < 10 || yt.videoCount < 5) {
+    priority = {
+      title: 'Batch-create content this week',
+      body: `Volume builds momentum. Block a 3-hour window to batch-record 3–5 pieces of content. Consistency in the first 90 days is the single biggest predictor of long-term growth.`
+    };
+  } else if (community < 50 && emailList > 200) {
+    priority = {
+      title: 'Invite your email list to your community',
+      body: `Send a dedicated email this week inviting your subscribers to join your Circle community. Offer an exclusive perk for founding members. Your list is warm — use it.`
+    };
+  } else {
+    priority = {
+      title: 'Analyze and double down on what's working',
+      body: `Check which content gets the most engagement this week. Identify the top 3 pieces and ask: how can I make more of this? Double down on the format and topic that resonates most.`
+    };
+  }
+
+  return { working, focus, priority };
+}
+
+function renderInsights() {
+  const insights = generateInsights(state.data);
+
+  const wEl = document.getElementById('insight-working');
+  const fEl = document.getElementById('insight-focus');
+  const pEl = document.getElementById('insight-week');
+
+  setText('insight-working-title', insights.working.title);
+  setText('insight-working-body',  insights.working.body);
+  setText('insight-focus-title',   insights.focus.title);
+  setText('insight-focus-body',    insights.focus.body);
+  setText('insight-week-title',    insights.priority.title);
+  setText('insight-week-body',     insights.priority.body);
+}
+
+// ─── HELPER ──────────────────────────────────────────────
+function setText(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
+
+// ─── ANIMATIONS ──────────────────────────────────────────
+function animateCards() {
+  const cards = document.querySelectorAll('.platform-card, .insight-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        // Staggered delay per card
+        const idx = Array.from(cards).indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, idx * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05 });
+  cards.forEach(card => observer.observe(card));
+}
+
+// ─── INIT ────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  loadSettings();
+  fetchAll();
+  animateCards();
+});
+
+// Keyboard shortcut: Escape closes settings
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeSettings();
+});
+</script>
+</body>
+</html>
