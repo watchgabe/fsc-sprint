@@ -1,4 +1,4 @@
-name: Deploy to fscreative.live/fsc-sprint
+name: Deploy to fscreative.live
 
 on:
   push:
@@ -18,13 +18,11 @@ jobs:
 
       - name: Sync files
         run: |
-          mkdir -p pages-repo/fsc-sprint
           rsync -av --delete \
             --exclude='.git' \
             --exclude='._*' \
             --exclude='.github' \
-            --exclude='.nojekyll' \
-            . pages-repo/fsc-sprint/
+            . pages-repo/
           touch pages-repo/.nojekyll
 
       - name: Commit and push
@@ -32,6 +30,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add fsc-sprint/ .nojekyll
-          git diff --cached --quiet || git commit -m "Deploy fsc-sprint update from watchgabe/fsc-sprint@${{ github.sha }}"
+          git add -A
+          git diff --cached --quiet || git commit -m "Deploy from watchgabe/fsc-sprint@${{ github.sha }}"
           git push
