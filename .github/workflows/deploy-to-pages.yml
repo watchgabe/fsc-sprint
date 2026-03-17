@@ -1,0 +1,36 @@
+name: Deploy to fscreative.live
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout fsc-sprint
+        uses: actions/checkout@v4
+
+      - name: Clone watchgabe.github.io
+        run: |
+          git clone https://x-access-token:${{ secrets.PAGES_TOKEN }}@github.com/watchgabe/watchgabe.github.io.git pages-repo
+
+      - name: Sync files
+        run: |
+          rsync -av --delete \
+            --exclude='.git' \
+            --exclude='._*' \
+            --exclude='.github' \
+            --exclude='pages-repo' \
+            . pages-repo/
+          touch pages-repo/.nojekyll
+
+      - name: Commit and push
+        working-directory: pages-repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Deploy from watchgabe/fsc-sprint@${{ github.sha }}"
+          git push
