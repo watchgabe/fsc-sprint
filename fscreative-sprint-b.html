@@ -388,10 +388,10 @@ h2 .o { color: var(--orange); }
 .roadmap-steps li::before { content: '→'; color: var(--orange); flex-shrink: 0; font-size: 13px; margin-top: 1px; }
 
 /* ─── ROADMAP STEP DESCRIPTORS ─── */
-.roadmap-steps li { flex-direction: column; gap: 3px; }
-.roadmap-steps li::before { margin-top: 3px; align-self: flex-start; }
-.step-title { font-weight: 700; color: var(--text); font-size: 14px; line-height: 1.4; transition: color 0.25s; }
-.step-desc { font-size: 12px; color: var(--dimmer); line-height: 1.5; transition: color 0.25s; }
+.roadmap-steps li { flex-direction: row; align-items: baseline; flex-wrap: wrap; gap: 0; }
+.roadmap-steps li::before { margin-top: 0; align-self: flex-start; flex-shrink: 0; }
+.step-title { font-weight: 700; color: var(--text); font-size: 14px; line-height: 1.5; transition: color 0.25s; margin-right: 4px; white-space: nowrap; }
+.step-desc { font-size: 14px; font-weight: 400; color: var(--dimmer); line-height: 1.5; transition: color 0.25s; }
 
 /* ─── VALUE LIST V2 ─── */
 .value-item-title { font-weight: 700; color: var(--text); transition: color 0.25s; }
@@ -854,6 +854,35 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 
 <div class="wrap">
 
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">The Problem</div>
+      <h2>Your brand<br>is <span class="o">working against</span> you.</h2>
+    </div>
+    <div class="contrast-grid">
+      <div class="contrast-col">
+        <div class="contrast-col-label bad">Without the Sprint</div>
+        <div class="check-list">
+          <div class="check-item"><span class="check-icon x">✕</span> Your brand doesn't reflect the quality of your work</div>
+          <div class="check-item"><span class="check-icon x">✕</span> Your content feels inconsistent because there's no system behind it</div>
+          <div class="check-item"><span class="check-icon x">✕</span> Hours spent creating with no clear positioning or strategy</div>
+          <div class="check-item"><span class="check-icon x">✕</span> Less experienced creators win better opportunities because their brand sends a clearer signal</div>
+        </div>
+      </div>
+      <div class="contrast-col right">
+        <div class="contrast-col-label good">After the Sprint</div>
+        <div class="check-list">
+          <div class="check-item"><span class="check-icon ok">✓</span> A brand that makes the right clients feel like you've been speaking directly to them</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> Clear positioning that signals your value before you say a word</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> A complete content system installed and ready to amplify your brand</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> The brand presence that attracts higher-quality clients and better opportunities</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> Confidence showing up online because your brand finally reflects your level</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- WHO IT'S FOR -->
   <section class="section">
     <div class="section-header">
@@ -886,80 +915,24 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
     </div>
   </section>
 
-  <!-- WHAT'S INSIDE -->
-  <section class="section" id="inside">
+  <!-- INTRODUCING -->
+  <section class="section">
     <div class="section-header">
-      <div class="eyebrow">What's Inside</div>
-      <h2>Here's what you get<br>inside the <span class="o">Sprint</span></h2>
+      <div class="eyebrow">Introducing</div>
+      <h2>Brand Launch<br><span class="o">Sprint</span></h2>
     </div>
-
-    <div class="inside-list">
-
-      <div class="inside-item">
-        <div class="inside-card">
-          <div class="inside-img-wrap">
-            <img src="remove_all_the_copy_and_the_logo_and_make_the_mockups_fill_the_entire_screen_all_it_is_is_a_tight-l_emur3dflq0m6bzut4lv7_1.png" alt="Brand Launch Checklist">
-          </div>
-          <div class="inside-card-body">
-            <div class="inside-num-mobile">01</div>
-            <div class="inside-label">Brand Launch Checklist™</div>
-            <div class="inside-body">Step-by-step guide to walk you through installing your complete personal brand from positioning to visual identity to content system and launch. No guesswork, just execution.</div>
-            <div class="arrow-list">
-              <div class="arrow-item"><span class="arr">→</span> Brand foundation and positioning</div>
-              <div class="arrow-item"><span class="arr">→</span> Visual identity and aesthetic</div>
-              <div class="arrow-item"><span class="arr">→</span> Content system</div>
-              <div class="arrow-item"><span class="arr">→</span> Automated funnel</div>
-              <div class="arrow-item"><span class="arr">→</span> Launch your brand with a clear growth strategy</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="inside-item">
-        <div class="inside-card">
-          <div class="inside-img-wrap">
-            <img src="similar_to_the_second_image_i_downloaded_i_want_to_create_a_live_icon_on_my_image_of_me_which_is_me_8o4djey8awhjp1qls6lp_1.png" alt="Weekly Q&As">
-          </div>
-          <div class="inside-card-body">
-            <div class="inside-num-mobile">02</div>
-            <div class="inside-label">Weekly Q&amp;As</div>
-            <div class="inside-body">Every week we go live so you can get direct answers, brand feedback, and strategy guidance in real time.</div>
-            <div class="arrow-list">
-              <div class="arrow-item"><span class="arr">→</span> Live Q&amp;A and brand feedback</div>
-              <div class="arrow-item"><span class="arr">→</span> Content and positioning reviews</div>
-              <div class="arrow-item"><span class="arr">→</span> 60 days of call access from the day you join</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="inside-item">
-        <div class="inside-card">
-          <div class="inside-img-wrap">
-            <img src="rework_the_first_image_so_that_it_shows_a_little_bit_more_personality_you_can_use_the_screenshots_f_k0zuj8iojehmhinhng9j_1.jpeg" alt="Ask Gabe Channel">
-          </div>
-          <div class="inside-card-body">
-            <div class="inside-num-mobile">03</div>
-            <div class="inside-label">Ask Gabe Channel</div>
-            <div class="inside-body">A dedicated space inside the FSCreative community where you can drop questions at any step of your process and get a direct Loom response from Gabe.</div>
-            <div class="arrow-list">
-              <div class="arrow-item"><span class="arr">→</span> Drop questions on any step of the checklist</div>
-              <div class="arrow-item"><span class="arr">→</span> Receive direct Loom feedback from Gabe</div>
-              <div class="arrow-item"><span class="arr">→</span> Brand, content, and strategy support</div>
-              <div class="arrow-item"><span class="arr">→</span> 60 days access</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <img src="remove_all_the_copy_and_the_logo_and_make_the_mockups_fill_the_entire_screen_all_it_is_is_a_tight-l_emur3dflq0m6bzut4lv7_1.png" alt="Brand Launch Sprint" style="width:100%;border-radius:12px;display:block;margin-bottom:32px;">
+    <div style="max-width:640px;margin:0 auto;text-align:center;">
+      <p style="font-size:16px;color:var(--dim);line-height:1.75;margin-bottom:20px;transition:color 0.25s;">A DWY guided sprint with modules, templates, tools, and accountability to completely transform how you approach your personal brand.</p>
+      <p style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;font-weight:900;text-transform:uppercase;letter-spacing:-0.5px;color:var(--text);line-height:1.1;transition:color 0.25s;">One time build.<br><span style="color:var(--orange)">Lifelong clarity.</span></p>
     </div>
   </section>
 
   <!-- 30-DAY SPRINT CHECKLIST -->
   <section class="section" id="roadmap" style="border-bottom: none;">
     <div class="section-header">
-      <div class="eyebrow">The Checklist</div>
-      <h2>Your 30-Day<br><span class="o">Sprint.</span></h2>
+      <div class="eyebrow">The Transformation</div>
+      <h2>Your 30-Day<br><span class="o">Transformation.</span></h2>
       <p class="section-sub">Each phase builds on the last. Complete them in order and you'll have a premium personal brand — positioned, designed, and ready to launch — in 30 days.</p>
     </div>
 
@@ -1086,6 +1059,75 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
     </div>
   </section>
 
+  <!-- WHAT'S INSIDE -->
+  <section class="section" id="inside">
+    <div class="section-header">
+      <div class="eyebrow">What's Inside</div>
+      <h2>Here's what you get<br>inside the <span class="o">Sprint</span></h2>
+    </div>
+
+    <div class="inside-list">
+
+      <div class="inside-item">
+        <div class="inside-card">
+          <div class="inside-img-wrap">
+            <img src="remove_all_the_copy_and_the_logo_and_make_the_mockups_fill_the_entire_screen_all_it_is_is_a_tight-l_emur3dflq0m6bzut4lv7_1.png" alt="Brand Launch Checklist">
+          </div>
+          <div class="inside-card-body">
+            <div class="inside-num-mobile">01</div>
+            <div class="inside-label">Step-by-Step Guided System</div>
+            <div class="inside-body">Step-by-step guide to walk you through installing your complete personal brand from positioning to visual identity to content system and launch.</div>
+            <div class="arrow-list">
+              <div class="arrow-item"><span class="arr">→</span> Brand foundation and positioning</div>
+              <div class="arrow-item"><span class="arr">→</span> Visual identity and aesthetic</div>
+              <div class="arrow-item"><span class="arr">→</span> Content system</div>
+              <div class="arrow-item"><span class="arr">→</span> Automated funnel</div>
+              <div class="arrow-item"><span class="arr">→</span> Launch your brand with a clear growth strategy</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inside-item">
+        <div class="inside-card">
+          <div class="inside-img-wrap">
+            <img src="similar_to_the_second_image_i_downloaded_i_want_to_create_a_live_icon_on_my_image_of_me_which_is_me_8o4djey8awhjp1qls6lp_1.png" alt="Weekly Q&As">
+          </div>
+          <div class="inside-card-body">
+            <div class="inside-num-mobile">02</div>
+            <div class="inside-label">Weekly Q&amp;As</div>
+            <div class="inside-body">Every week we go live so you can get direct answers, brand feedback, and strategy guidance in real time.</div>
+            <div class="arrow-list">
+              <div class="arrow-item"><span class="arr">→</span> Live Q&amp;A and brand feedback</div>
+              <div class="arrow-item"><span class="arr">→</span> Content and positioning reviews</div>
+              <div class="arrow-item"><span class="arr">→</span> 60 days of call access from the day you join</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inside-item">
+        <div class="inside-card">
+          <div class="inside-img-wrap">
+            <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773797709/Untitled_design123_iaau7u.jpg" alt="Ask Gabe Channel">
+          </div>
+          <div class="inside-card-body">
+            <div class="inside-num-mobile">03</div>
+            <div class="inside-label">Ask Gabe Channel</div>
+            <div class="inside-body">A dedicated space inside the FSCreative community where you can drop questions at any step of your process and get a direct Loom response from Gabe.</div>
+            <div class="arrow-list">
+              <div class="arrow-item"><span class="arr">→</span> Drop questions on any step of the checklist</div>
+              <div class="arrow-item"><span class="arr">→</span> Receive direct Loom feedback from Gabe</div>
+              <div class="arrow-item"><span class="arr">→</span> Brand, content, and strategy support</div>
+              <div class="arrow-item"><span class="arr">→</span> 60 days access</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- WHAT YOU'LL WALK AWAY WITH -->
   <section class="section" style="padding-top: 0;">
     <div class="section-header" style="margin-bottom: 24px;">
@@ -1124,8 +1166,14 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
     <div class="bonus-box">
       <svg class="bonus-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       <div class="bonus-text">
-        <strong>Bonus Included</strong>
-        Creator Confidence Workshop — show up with clarity and confidence on camera. Learn how to batch, script, and deliver content that actually connects.
+        <strong>Bonus: Creator Confidence Workshop</strong>
+        Show up with clarity and confidence on camera. Learn how to batch, script, and deliver content that actually connects.
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px;">
+          <div style="display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--dim);"><span style="color:#4ab874;flex-shrink:0;">→</span><span><strong style="color:var(--text);font-weight:600;">Limiting Beliefs &amp; Rewiring</strong> — Break through the mental patterns that keep you stuck.</span></div>
+          <div style="display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--dim);"><span style="color:#4ab874;flex-shrink:0;">→</span><span><strong style="color:var(--text);font-weight:600;">Core Mindset Shifts</strong> — Adopt the principles that help you show up and grow consistently.</span></div>
+          <div style="display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--dim);"><span style="color:#4ab874;flex-shrink:0;">→</span><span><strong style="color:var(--text);font-weight:600;">On Camera Confidence</strong> — Build clarity and comfort when speaking and creating.</span></div>
+          <div style="display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--dim);"><span style="color:#4ab874;flex-shrink:0;">→</span><span><strong style="color:var(--text);font-weight:600;">Content Execution Exercises</strong> — Use simple drills to develop your voice and get into flow faster.</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -1235,35 +1283,6 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 
   </section>
 
-  <!-- THE PROBLEM -->
-  <section class="section">
-    <div class="section-header">
-      <div class="eyebrow">The Problem</div>
-      <h2>Your brand<br>is <span class="o">working against</span> you.</h2>
-    </div>
-    <div class="contrast-grid">
-      <div class="contrast-col">
-        <div class="contrast-col-label bad">Without the Sprint</div>
-        <div class="check-list">
-          <div class="check-item"><span class="check-icon x">✕</span> Your brand doesn't reflect the quality of your work</div>
-          <div class="check-item"><span class="check-icon x">✕</span> Your content feels inconsistent because there's no system behind it</div>
-          <div class="check-item"><span class="check-icon x">✕</span> Hours spent creating with no clear positioning or strategy</div>
-          <div class="check-item"><span class="check-icon x">✕</span> Less experienced creators win better opportunities because their brand sends a clearer signal</div>
-        </div>
-      </div>
-      <div class="contrast-col right">
-        <div class="contrast-col-label good">After the Sprint</div>
-        <div class="check-list">
-          <div class="check-item"><span class="check-icon ok">✓</span> A brand that makes the right clients feel like you've been speaking directly to them</div>
-          <div class="check-item"><span class="check-icon ok">✓</span> Clear positioning that signals your value before you say a word</div>
-          <div class="check-item"><span class="check-icon ok">✓</span> A complete content system installed and ready to amplify your brand</div>
-          <div class="check-item"><span class="check-icon ok">✓</span> The brand presence that attracts higher-quality clients and better opportunities</div>
-          <div class="check-item"><span class="check-icon ok">✓</span> Confidence showing up online because your brand finally reflects your level</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FAQ -->
   <section class="section">
     <div class="section-header">
@@ -1371,26 +1390,74 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 
       <div class="testimonial-card">
         <div class="testi-header">
-          <div class="testi-avatar">C</div>
+          <div class="testi-avatar">J</div>
           <div>
-            <div class="testi-name">Christopher Douglas</div>
-            <div class="testi-handle">FSCreative Member</div>
+            <div class="testi-name">Joab Teruel</div>
+            <div class="testi-handle">@joabteruel</div>
           </div>
         </div>
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"I feel like a whole new person. It feels like all the things that were holding me back are in the past. It's quite empowering to see how much I was able to change in 30 days with a solid plan and structure. I see the value in all aspects of this — I feel more inclined to keep going. I will be continuing almost all of this in the future. No reason to stop."</div>
+        <div class="testi-quote">"I went from overwhelmed to confident and supported. Before joining, getting started always felt like the hardest part. Now I have clarity, encouragement, and a group of creators who push me forward. Your messaging, support, and step by step systems take away the fear of doing it alone. I finally feel like I have the tools, direction, and community to reach my goals."</div>
       </div>
 
       <div class="testimonial-card">
         <div class="testi-header">
-          <div class="testi-avatar">N</div>
+          <div class="testi-avatar">D</div>
           <div>
-            <div class="testi-name">Nadia Moreno</div>
-            <div class="testi-handle">FSCreative Member</div>
+            <div class="testi-name">Diana Scully</div>
+            <div class="testi-handle">@dianafscully</div>
           </div>
         </div>
         <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"This was a truly transformative experience. I'm fully committed to staying on this path and deeply inspired by all the experiences that have been shared in this community so far. The structure and direction made all the difference."</div>
+        <div class="testi-quote">"The processes and challenges inside this community have done more for my confidence than anything I've tried before. I've always been an observer on social media, not a participant, so using it to market my business felt intimidating. The structure here makes it feel achievable. The Notion workbooks are incredibly helpful because we cover so many ideas and having clear follow up steps keeps everything digestible."</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar">L</div>
+          <div>
+            <div class="testi-name">Lucy Drughieri</div>
+            <div class="testi-handle">@lucila.drughieri</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"FSCreative has been invaluable for organizing my scattered thoughts and helping me discover who I am and what I can create. The resource hub is excellent and studying your editing style and Postcards gives me a real sense of belonging. Before joining I felt lost, now I have a clear roadmap and the confidence to pursue my goals."</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar">T</div>
+          <div>
+            <div class="testi-name">Theresa Reisinger</div>
+            <div class="testi-handle">@theresareisinger</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"Gabe's ability to teach complex techniques in a simple, hands-on way is unmatched. I gained invaluable skills, from mastering light and composition to understanding how to build a strong brand and get clients. He helped me see photography, videography, and social media from both a creative and entrepreneurial perspective. It completely leveled up the way I approach my work."</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar">M</div>
+          <div>
+            <div class="testi-name">Matthew Christie</div>
+            <div class="testi-handle">@adventurematt</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"Working with Gabe was one of the most impactful learning experiences I've had. I've never gotten much out of traditional courses or YouTube videos, but learning directly from him, getting real-time feedback, and seeing exactly how to improve was next-level. I connected with incredible people and left feeling inspired, more confident, and way more capable creatively. I'm still applying what I learned every day."</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar">S</div>
+          <div>
+            <div class="testi-name">Sofia Kalma</div>
+            <div class="testi-handle">@shotby.sof</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"I was immediately inspired by the lifestyle Gabe had built, getting paid to create and travel. He helped me return to the basics of photography and taught skills that go far beyond just hitting record on a phone. More importantly, he created a space where I felt supported to show up online and push past my comfort zone. Before, I wasn't comfortable posting on social media, but now I feel confident, clear, and excited to share my work."</div>
       </div>
 
     </div>
