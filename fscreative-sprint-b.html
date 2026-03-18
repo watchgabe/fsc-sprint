@@ -389,7 +389,7 @@ h2 .o { color: var(--orange); }
 
 /* ─── ROADMAP STEP DESCRIPTORS ─── */
 .roadmap-steps li { flex-direction: row; align-items: baseline; flex-wrap: wrap; gap: 0; }
-.roadmap-steps li::before { margin-top: 0; align-self: flex-start; flex-shrink: 0; }
+.roadmap-steps li::before { margin-top: 0; align-self: flex-start; flex-shrink: 0; margin-right: 6px; }
 .step-title { font-weight: 700; color: var(--text); font-size: 14px; line-height: 1.5; transition: color 0.25s; margin-right: 4px; white-space: nowrap; }
 .step-desc { font-size: 14px; font-weight: 400; color: var(--dimmer); line-height: 1.5; transition: color 0.25s; }
 
@@ -755,6 +755,9 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   .section-header { margin-bottom: 36px; }
   .contrast-grid, .who-grid, .pricing-includes { grid-template-columns: 1fr; }
 
+  /* Roadmap: mobile */
+  .roadmap-bubble { width: 30px; height: 30px; font-size: 12px; }
+
   /* What's Inside: mobile */
   .inside-item { padding: 32px 0; }
   .inside-card { display: block; }
@@ -888,9 +891,9 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   <!-- INTRODUCING -->
   <section class="section" style="text-align:center;">
     <div class="eyebrow" style="margin-bottom:16px;">Introducing</div>
-    <h2 style="font-size:clamp(56px,10vw,120px);line-height:1;margin-bottom:32px;">Brand Launch<br><span class="o">Sprint</span></h2>
-    <img src="remove_all_the_copy_and_the_logo_and_make_the_mockups_fill_the_entire_screen_all_it_is_is_a_tight-l_emur3dflq0m6bzut4lv7_1.png" alt="Brand Launch Sprint" style="width:100%;border-radius:12px;display:block;margin-bottom:36px;">
-    <p style="max-width:600px;margin:0 auto;font-size:16px;color:var(--dim);line-height:1.75;transition:color 0.25s;">A DWY guided sprint with modules, templates, tools, and accountability to completely transform how you approach your personal brand. <strong style="color:var(--text);transition:color 0.25s;">One time build. Lifelong clarity.</strong></p>
+    <h2 style="font-size:clamp(56px,10vw,120px);line-height:1;margin-bottom:20px;">Brand Launch<br><span class="o">Sprint</span></h2>
+    <p style="max-width:600px;margin:0 auto 32px;font-size:16px;color:var(--dim);line-height:1.75;transition:color 0.25s;">A DWY guided sprint with modules, templates, tools, and accountability to completely transform how you approach your personal brand. <strong style="color:var(--text);transition:color 0.25s;">One time build. Lifelong clarity.</strong></p>
+    <img src="remove_all_the_copy_and_the_logo_and_make_the_mockups_fill_the_entire_screen_all_it_is_is_a_tight-l_emur3dflq0m6bzut4lv7_1.png" alt="Brand Launch Sprint" style="width:100%;border-radius:12px;display:block;">
   </section>
 
   <!-- WHO IT'S FOR -->
@@ -943,7 +946,7 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
           <div class="roadmap-title">Creator Foundation</div>
           <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="roadmap-desc">Lock in the strategic foundation of your brand — your audience, mission, values, origin story, and content pillars. Everything you build in the sprint rests on this.</div>
+        <div class="roadmap-desc">Lock in the strategic foundation for your brand.</div>
       </div>
       <div class="roadmap-body">
         <ul class="roadmap-steps">
@@ -1057,10 +1060,10 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   </section>
 
   <!-- WHAT'S INSIDE -->
-  <section class="section" id="inside">
+  <section class="section" id="inside" style="border-bottom:none;">
     <div class="section-header">
       <div class="eyebrow">What's Inside</div>
-      <h2>Here's what you get<br>inside the <span class="o">Sprint</span></h2>
+      <h2>Here's what you get inside the <span class="o">Sprint</span></h2>
     </div>
 
     <div class="inside-list">
