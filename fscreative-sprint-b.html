@@ -387,6 +387,29 @@ h2 .o { color: var(--orange); }
 }
 .roadmap-steps li::before { content: '→'; color: var(--orange); flex-shrink: 0; font-size: 13px; margin-top: 1px; }
 
+/* ─── ROADMAP STEP DESCRIPTORS ─── */
+.roadmap-steps li { flex-direction: column; gap: 3px; }
+.roadmap-steps li::before { margin-top: 3px; align-self: flex-start; }
+.step-title { font-weight: 700; color: var(--text); font-size: 14px; line-height: 1.4; transition: color 0.25s; }
+.step-desc { font-size: 12px; color: var(--dimmer); line-height: 1.5; transition: color 0.25s; }
+
+/* ─── VALUE LIST V2 ─── */
+.value-item-title { font-weight: 700; color: var(--text); transition: color 0.25s; }
+.value-item-sub { color: var(--dim); transition: color 0.25s; }
+
+/* ─── BONUS BOX ─── */
+.bonus-box {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: rgba(62,184,100,0.05);
+  border: 1px solid rgba(62,184,100,0.18);
+  border-radius: 8px; padding: 16px 18px;
+  margin-top: 16px;
+}
+body.light .bonus-box { background: rgba(26,122,58,0.06); border-color: rgba(26,122,58,0.2); }
+.bonus-icon { color: #4ab874; flex-shrink: 0; margin-top: 1px; }
+.bonus-text { font-size: 13px; color: var(--dim); line-height: 1.6; transition: color 0.25s; }
+.bonus-text strong { color: #4ab874; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 11px; font-family: 'Barlow Condensed', sans-serif; display: block; margin-bottom: 4px; }
+
 /* ─── VALUE LIST ─── */
 .value-list {
   border: 1px solid var(--border);
@@ -665,6 +688,46 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 .final-meta .o { color: var(--orange); }
 .final-meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--border2); }
 
+/* ─── TESTIMONIALS ─── */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media(max-width: 768px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+.testimonial-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 28px;
+  display: flex; flex-direction: column; gap: 14px;
+  transition: background 0.25s, border-color 0.25s;
+}
+.testi-header { display: flex; align-items: center; gap: 12px; }
+.testi-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--border2); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 800; color: var(--orange);
+  text-transform: uppercase;
+  border: 1px solid var(--border2);
+  transition: background 0.25s, border-color 0.25s;
+}
+.testi-name {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.5px; color: var(--text); transition: color 0.25s;
+}
+.testi-handle { font-size: 11px; color: var(--dimmer); margin-top: 1px; transition: color 0.25s; }
+.testi-stars { color: #f5a623; font-size: 13px; letter-spacing: 1px; }
+.testi-quote {
+  font-size: 14px; color: var(--dim); line-height: 1.7;
+  transition: color 0.25s;
+}
+
 /* ─── RESPONSIVE ─── */
 @media(max-width: 768px) {
   .wrap { padding: 0 16px; }
@@ -734,7 +797,7 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
         <svg class="icon-sun"  width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
       <a href="https://fscreative.circle.so/checkout/brand-launch-sprinttm">
-        <button class="btn-primary">Join the Sprint — $997</button>
+        <button class="btn-primary">Join the Sprint →</button>
       </a>
     </div>
   </div>
@@ -770,15 +833,15 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-spots-row">
-      <span class="hero-spots-num">1 spot taken —</span><span class="hero-spots-text"> only 4 remaining at this price</span>
+      <span class="hero-spots-num">Only 5 spots</span><span class="hero-spots-text"> available at this price</span>
     </div>
     <h1>Install your <span class="o">premium personal brand</span><br> &amp; content system —<br class="h1-br"> in 30 days.</h1>
     <p class="hero-sub">
-      Clear positioning, cinematic visuals, and efficient systems that turn your personal brand into your highest leverage asset.
+      A focused sprint to get your clear positioning, cinematic visuals, and efficient systems to turn your personal brand into your highest leverage asset.
     </p>
     <div class="hero-cta-group">
       <a href="https://fscreative.circle.so/checkout/brand-launch-sprinttm">
-        <button class="btn-primary">Join the Sprint — $997 →</button>
+        <button class="btn-primary">Join the Sprint →</button>
       </a>
       <a href="#inside">
         <button class="btn-outline">See What's Inside</button>
@@ -902,102 +965,123 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 
     <div class="roadmap">
 
-      <div class="roadmap-item">
-        <div class="roadmap-bubble">01</div>
-        <div class="roadmap-card rm-open">
-          <div class="roadmap-header">
-            <div class="roadmap-header-top">
-              <div class="roadmap-title">Foundation</div>
-              <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-            <div class="roadmap-desc">Lock in the strategic foundation of your brand — your audience, mission, values, origin story, and content pillars. Everything you build in the sprint rests on this.</div>
-          </div>
-          <div class="roadmap-body">
-            <ul class="roadmap-steps">
-              <li>Define Your Avatar</li>
-              <li>Core Mission + Ikigai</li>
-              <li>Your Core Values</li>
-              <li>Content Pillars</li>
-              <li>Map Your Origin Story</li>
-              <li>Brand Mission</li>
-              <li>Conduct Brand Audit</li>
-            </ul>
-          </div>
+  <div class="roadmap-item">
+    <div class="roadmap-bubble">01</div>
+    <div class="roadmap-card rm-open">
+      <div class="roadmap-header">
+        <div class="roadmap-header-top">
+          <div class="roadmap-title">Creator Foundation</div>
+          <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
+        <div class="roadmap-desc">Lock in the strategic foundation of your brand — your audience, mission, values, origin story, and content pillars. Everything you build in the sprint rests on this.</div>
       </div>
+      <div class="roadmap-body">
+        <ul class="roadmap-steps">
+          <li><span class="step-title">Define Your Avatar</span><span class="step-desc">Know exactly who your content is built for so you attract the right audience.</span></li>
+          <li><span class="step-title">Core Mission + Ikigai</span><span class="step-desc">Align your brand with purpose and create from what actually feels authentic to you.</span></li>
+          <li><span class="step-title">Your Core Values</span><span class="step-desc">Define the principles that shape how you show up and build trust and authority.</span></li>
+          <li><span class="step-title">Content Pillars</span><span class="step-desc">Create clear content buckets so you always know what to post.</span></li>
+          <li><span class="step-title">Map Your Origin Story</span><span class="step-desc">Turn your story into something people actually care about.</span></li>
+          <li><span class="step-title">Brand Mission</span><span class="step-desc">Give your brand a reason people want to follow.</span></li>
+          <li><span class="step-title">Conduct Brand Audit</span><span class="step-desc">Identify what's holding your brand back and what to fix next.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-      <div class="roadmap-item">
-        <div class="roadmap-bubble">02</div>
-        <div class="roadmap-card">
-          <div class="roadmap-header">
-            <div class="roadmap-header-top">
-              <div class="roadmap-title">Visual Identity</div>
-              <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-            <div class="roadmap-desc">Design a clear and recognizable visual identity — your aesthetic, creative direction, style system, and visual standards that make your brand instantly recognizable.</div>
-          </div>
-          <div class="roadmap-body">
-            <ul class="roadmap-steps">
-              <li>Creator Moodboard</li>
-              <li>Define Color Palette &amp; Typography</li>
-              <li>Define Visual World</li>
-              <li>Creator Analysis</li>
-              <li>Shot System Blueprint</li>
-              <li>Craft Your Styleguide</li>
-              <li>Content Approach</li>
-            </ul>
-          </div>
+  <div class="roadmap-item">
+    <div class="roadmap-bubble">02</div>
+    <div class="roadmap-card">
+      <div class="roadmap-header">
+        <div class="roadmap-header-top">
+          <div class="roadmap-title">Visual Identity</div>
+          <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
+        <div class="roadmap-desc">Design a clear and recognizable visual identity — your aesthetic, creative direction, style system, and visual standards that make your brand instantly recognizable.</div>
       </div>
+      <div class="roadmap-body">
+        <ul class="roadmap-steps">
+          <li><span class="step-title">Creator Moodboard</span><span class="step-desc">Lock in a clear visual direction so your content stops feeling random.</span></li>
+          <li><span class="step-title">Define Color Palette &amp; Typography</span><span class="step-desc">Create a cohesive look that instantly feels more premium.</span></li>
+          <li><span class="step-title">Define Visual World</span><span class="step-desc">Build a recognizable visual style your audience can identify immediately.</span></li>
+          <li><span class="step-title">Creator Analysis</span><span class="step-desc">Understand what makes high-level creators stand out and apply it to your brand.</span></li>
+          <li><span class="step-title">Shot System Blueprint</span><span class="step-desc">Know exactly how to shoot your content without overthinking it.</span></li>
+          <li><span class="step-title">Craft Your Styleguide</span><span class="step-desc">Create a system you can follow so your visuals stay consistent.</span></li>
+          <li><span class="step-title">Content Approach</span><span class="step-desc">Develop a visual strategy that elevates everything you publish.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-      <div class="roadmap-item">
-        <div class="roadmap-bubble">03</div>
-        <div class="roadmap-card">
-          <div class="roadmap-header">
-            <div class="roadmap-header-top">
-              <div class="roadmap-title">Content System</div>
-              <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-            <div class="roadmap-desc">Install a repeatable content system — from idea to publish. Script, shoot, edit, and batch consistently without starting from scratch every time.</div>
-          </div>
-          <div class="roadmap-body">
-            <ul class="roadmap-steps">
-              <li>Set Up Your Content System</li>
-              <li>Idea Generation</li>
-              <li>Scripting / Storytelling</li>
-              <li>Create Batching Schedule &amp; Workflow</li>
-              <li>Graphic Design</li>
-              <li>Technical Setup</li>
-              <li>Edit Your Content</li>
-              <li>Finding Editing Rhythm</li>
-              <li>Bonus: Creator Confidence Workshop</li>
-            </ul>
-          </div>
+  <div class="roadmap-item">
+    <div class="roadmap-bubble">03</div>
+    <div class="roadmap-card">
+      <div class="roadmap-header">
+        <div class="roadmap-header-top">
+          <div class="roadmap-title">Full Stack OS</div>
+          <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
+        <div class="roadmap-desc">Install a repeatable content system — from idea to publish. Script, shoot, edit, and batch consistently without starting from scratch every time.</div>
       </div>
+      <div class="roadmap-body">
+        <ul class="roadmap-steps">
+          <li><span class="step-title">Set Up Your Content System</span><span class="step-desc">Build a repeatable system so you're no longer starting from scratch.</span></li>
+          <li><span class="step-title">Idea Generation</span><span class="step-desc">Always know what to create next without overthinking it.</span></li>
+          <li><span class="step-title">Scripting / Storytelling</span><span class="step-desc">Turn your ideas into content that actually connects and converts.</span></li>
+          <li><span class="step-title">Create Batching Schedule &amp; Workflow</span><span class="step-desc">Batch your content efficiently instead of creating every day.</span></li>
+          <li><span class="step-title">Graphic Design</span><span class="step-desc">Create clean, consistent visuals that elevate your brand.</span></li>
+          <li><span class="step-title">Technical Setup</span><span class="step-desc">Set up a simple workflow that supports your content process.</span></li>
+          <li><span class="step-title">Edit Your Content</span><span class="step-desc">Produce polished content faster without overediting.</span></li>
+          <li><span class="step-title">Finding Editing Rhythm</span><span class="step-desc">Lock in a consistent style you can replicate every time.</span></li>
+          <li><span class="step-title">Bonus: Creator Confidence Workshop</span><span class="step-desc">Show up with clarity and confidence on camera.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-      <div class="roadmap-item">
-        <div class="roadmap-bubble">04</div>
-        <div class="roadmap-card">
-          <div class="roadmap-header">
-            <div class="roadmap-header-top">
-              <div class="roadmap-title">Launch</div>
-              <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </div>
-            <div class="roadmap-desc">Set up the infrastructure that turns attention into subscribers, subscribers into buyers, and launch it.</div>
-          </div>
-          <div class="roadmap-body">
-            <ul class="roadmap-steps">
-              <li>Optimize Your Bio</li>
-              <li>Automated Sales Funnel</li>
-              <li>Landing Page Creation</li>
-              <li>Lead Magnet Creation</li>
-              <li>Build 7-Day Launch Calendar</li>
-              <li>Set 90-Day Goals</li>
-            </ul>
-          </div>
+  <div class="roadmap-item">
+    <div class="roadmap-bubble">04</div>
+    <div class="roadmap-card">
+      <div class="roadmap-header">
+        <div class="roadmap-header-top">
+          <div class="roadmap-title">Automated Funnel</div>
+          <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
+        <div class="roadmap-desc">Set up the infrastructure that turns attention into subscribers and subscribers into buyers — running automatically while you create.</div>
       </div>
+      <div class="roadmap-body">
+        <ul class="roadmap-steps">
+          <li><span class="step-title">Offer Positioning</span><span class="step-desc">Make your offer clear, desirable, and easy to understand.</span></li>
+          <li><span class="step-title">Lead Capture System</span><span class="step-desc">Turn viewers into subscribers with simple, effective systems.</span></li>
+          <li><span class="step-title">Nurture Flow</span><span class="step-desc">Build trust and connection so your audience warms up to your offer.</span></li>
+          <li><span class="step-title">Conversion System</span><span class="step-desc">Guide your audience from interest to purchase without forcing it.</span></li>
+          <li><span class="step-title">Automation Setup</span><span class="step-desc">Put systems in place that work for you in the background.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="roadmap-item">
+    <div class="roadmap-bubble">05</div>
+    <div class="roadmap-card">
+      <div class="roadmap-header">
+        <div class="roadmap-header-top">
+          <div class="roadmap-title">Launch</div>
+          <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="roadmap-desc">Execute a focused brand launch — optimize your profile, publish your brand content, and build momentum with a 7-day launch calendar.</div>
+      </div>
+      <div class="roadmap-body">
+        <ul class="roadmap-steps">
+          <li><span class="step-title">Profile Optimization</span><span class="step-desc">Make your profile instantly communicate who you are and what you do.</span></li>
+          <li><span class="step-title">Content Rollout Plan</span><span class="step-desc">Know exactly what to post during your launch window.</span></li>
+          <li><span class="step-title">Launch Content Creation</span><span class="step-desc">Create content that builds attention and authority quickly.</span></li>
+          <li><span class="step-title">7-Day Launch System</span><span class="step-desc">Follow a clear plan to build momentum without guessing.</span></li>
+          <li><span class="step-title">Momentum Strategy</span><span class="step-desc">Keep your growth going after the launch ends.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
     </div>
   </section>
@@ -1010,27 +1094,38 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
     <div class="value-list">
       <div class="value-row">
         <div class="value-check">✓</div>
-        <div class="value-item-text">A premium personal brand installed — positioning, visual identity, and aesthetic fully built</div>
+        <div class="value-item-text"><span class="value-item-title">Crystal clear positioning</span> <span class="value-item-sub">So your value is understood before you say a word.</span></div>
       </div>
       <div class="value-row">
         <div class="value-check">✓</div>
-        <div class="value-item-text">A content system that amplifies your brand and creates consistently without starting from scratch</div>
+        <div class="value-item-text"><span class="value-item-title">A premium visual identity</span> <span class="value-item-sub">Cinematic, cohesive content that instantly elevates your brand.</span></div>
       </div>
       <div class="value-row">
         <div class="value-check">✓</div>
-        <div class="value-item-text">An automated funnel that captures audience and moves them toward your offer</div>
+        <div class="value-item-text"><span class="value-item-title">A repeatable content system</span> <span class="value-item-sub">Create consistently without starting from scratch or burning out.</span></div>
       </div>
       <div class="value-row">
         <div class="value-check">✓</div>
-        <div class="value-item-text">A 7-day brand launch plan to announce your rebrand with momentum</div>
+        <div class="value-item-text"><span class="value-item-title">An automated funnel</span> <span class="value-item-sub">Turn attention into subscribers and subscribers into buyers.</span></div>
       </div>
       <div class="value-row">
         <div class="value-check">✓</div>
-        <div class="value-item-text">60 days of creative direction and coaching to make sure you finish and launch</div>
+        <div class="value-item-text"><span class="value-item-title">A 7-day launch plan</span> <span class="value-item-sub">Announce your rebrand with clarity and real momentum.</span></div>
       </div>
       <div class="value-row">
         <div class="value-check">✓</div>
-        <div class="value-item-text">Show up online because your brand finally reflects your level</div>
+        <div class="value-item-text"><span class="value-item-title">60 days of creative direction</span> <span class="value-item-sub">Guidance, feedback, and accountability to make sure you actually execute.</span></div>
+      </div>
+      <div class="value-row">
+        <div class="value-check">✓</div>
+        <div class="value-item-text"><span class="value-item-title">Confidence in your brand</span> <span class="value-item-sub">Show up knowing your content finally reflects your level.</span></div>
+      </div>
+    </div>
+    <div class="bonus-box">
+      <svg class="bonus-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <div class="bonus-text">
+        <strong>Bonus Included</strong>
+        Creator Confidence Workshop — show up with clarity and confidence on camera. Learn how to batch, script, and deliver content that actually connects.
       </div>
     </div>
   </section>
@@ -1056,7 +1151,7 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
           </div>
         </div>
 
-        <p class="price-note">One payment covers the full 30-day sprint plus <strong>60 days of creative direction.</strong> No subscriptions. No hidden fees.</p>
+        <p class="price-note">One payment covers the full 30-day sprint plus <strong>30 days of additional support and creative direction.</strong> No subscriptions. No hidden fees.</p>
 
         <a href="https://fscreative.circle.so/checkout/brand-launch-sprinttm">
           <button class="btn-primary" style="font-size:15px;padding:15px 32px;">
@@ -1071,14 +1166,14 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 
       <!-- TIER PRICING -->
       <div class="tier-section">
-        <p class="tier-note">Price increases every 5 people — 4 spots remaining at this tier.</p>
+        <p class="tier-note">Price increases every 5 people — lock in your rate now.</p>
         <div class="tier-row">
           <div class="tier-row-label">
             <span class="tier-price-label">$997 tier</span>
             <span class="tier-badge current">Current</span>
           </div>
           <div class="tier-segments">
-            <div class="tier-seg active"></div>
+            <div class="tier-seg"></div>
             <div class="tier-seg"></div>
             <div class="tier-seg"></div>
             <div class="tier-seg"></div>
@@ -1241,14 +1336,74 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">From the Community</div>
+      <h2>Creators who<br><span class="o">did the work.</span></h2>
+      <p class="section-sub">Real results from creators who committed to building their brand with clarity, consistency, and the right system.</p>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar">S</div>
+          <div>
+            <div class="testi-name">Srishti Sheshadri</div>
+            <div class="testi-handle">studiosoltera.com</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"I joined FS Creative a couple of weeks ago and I've honestly gotten a lot of value out of it. Content has been a very intimidating space for me for a while — and just going through the frameworks Gabe shares, I've really been able to turn it around and start feeling a little more excited about creating. He's always supporting us and holding us accountable to show up and actually work on our content."</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar">L</div>
+          <div>
+            <div class="testi-name">Lorena Alvarez</div>
+            <div class="testi-handle">FSCreative Member</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"Before FS Creative, I felt more lost and disconnected in my creator journey. The community brought me clarity and accountability. The weekly calls are moments where I can ask Gabe questions and mostly show up. Gabe brings frameworks that help me have more clarity so I can structure my work and get more things done."</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar">C</div>
+          <div>
+            <div class="testi-name">Christopher Douglas</div>
+            <div class="testi-handle">FSCreative Member</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"I feel like a whole new person. It feels like all the things that were holding me back are in the past. It's quite empowering to see how much I was able to change in 30 days with a solid plan and structure. I see the value in all aspects of this — I feel more inclined to keep going. I will be continuing almost all of this in the future. No reason to stop."</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar">N</div>
+          <div>
+            <div class="testi-name">Nadia Moreno</div>
+            <div class="testi-handle">FSCreative Member</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"This was a truly transformative experience. I'm fully committed to staying on this path and deeply inspired by all the experiences that have been shared in this community so far. The structure and direction made all the difference."</div>
+      </div>
+
+    </div>
+  </section>
+
 </div><!-- /wrap -->
 
 <!-- FINAL CTA -->
 <section class="final-section">
   <div style="position:relative;z-index:1;max-width:680px;margin:0 auto;">
     <div class="final-eyebrow">Brand Launch Sprint™</div>
-    <div class="final-headline">Every day your brand feels like nothing, the <span class="o">right clients</span> are landing and leaving.</div>
-    <p class="final-sub">Install your <strong style="color:var(--text)">premium personal brand</strong> — and the content system to amplify it — in 30 days.</p>
+    <div class="final-headline">We know you've thought about it.<br><span class="o">It's time to make it happen.</span></div>
+    <p class="final-sub">Install the system and transform your personal brand forever. Attract the right audience with cinematic content and sustain it with the systems needed to avoid burnout.</p>
     <div class="final-cta-wrap">
       <a href="https://fscreative.circle.so/checkout/brand-launch-sprinttm">
         <button class="btn-primary" style="font-size:15px;padding:15px 36px;">
@@ -1256,16 +1411,7 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
         </button>
       </a>
     </div>
-    <div class="final-meta">
-      <span>One payment</span>
-      <span class="final-meta-dot"></span>
-      <span class="o">30-day sprint</span>
-      <span class="final-meta-dot"></span>
-      <span>60 days of creative direction</span>
-      <span class="final-meta-dot"></span>
-      <span class="o">Guaranteed</span>
-    </div>
-    <p class="final-micro">4 spots remaining at $997</p>
+    <p class="final-micro">One time payment · 60 days access · 30-day sprint · Money back guarantee</p>
   </div>
 </section>
 
