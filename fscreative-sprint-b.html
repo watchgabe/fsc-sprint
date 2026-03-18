@@ -363,7 +363,7 @@ h2 .o { color: var(--orange); }
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 15px; font-weight: 800; color: var(--text); transition: color 0.25s;
 }
-.roadmap-desc { font-size: 13px; color: var(--dim); line-height: 1.55; transition: color 0.25s; text-align: center; }
+.roadmap-desc { font-size: 13px; color: var(--dim); line-height: 1.55; transition: color 0.25s; }
 .roadmap-chevron {
   width: 18px; height: 18px; flex-shrink: 0; color: var(--dimmer);
   transition: transform 0.25s, color 0.25s;
@@ -757,6 +757,8 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 
   /* Roadmap: mobile */
   .roadmap-bubble { width: 30px; height: 30px; font-size: 12px; }
+  .roadmap::before { left: 14px; }
+  .intro-h2 { font-size: 44px !important; }
 
   /* What's Inside: mobile */
   .inside-item { padding: 32px 0; }
@@ -891,9 +893,9 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   <!-- INTRODUCING -->
   <section class="section" style="text-align:center;">
     <div class="eyebrow" style="margin-bottom:16px;">Introducing</div>
-    <h2 style="font-size:clamp(56px,10vw,120px);line-height:1;margin-bottom:20px;">Brand Launch<br><span class="o">Sprint</span></h2>
+    <h2 class="intro-h2" style="font-size:clamp(56px,10vw,120px);line-height:1;margin-bottom:20px;">Brand Launch <span class="o">Sprint™</span></h2>
     <p style="max-width:600px;margin:0 auto 32px;font-size:16px;color:var(--dim);line-height:1.75;transition:color 0.25s;">A DWY guided sprint with modules, templates, tools, and accountability to completely transform how you approach your personal brand. <strong style="color:var(--text);transition:color 0.25s;">One time build. Lifelong clarity.</strong></p>
-    <img src="remove_all_the_copy_and_the_logo_and_make_the_mockups_fill_the_entire_screen_all_it_is_is_a_tight-l_emur3dflq0m6bzut4lv7_1.png" alt="Brand Launch Sprint" style="width:100%;border-radius:12px;display:block;">
+    <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773848359/_Use_the_first_image_as_the_fr_Nano_Banana_Pro_50199_kgrao3.jpg" alt="Brand Launch Sprint" style="width:100%;border-radius:12px;display:block;">
   </section>
 
   <!-- WHO IT'S FOR -->
@@ -970,7 +972,7 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
           <div class="roadmap-title">Visual Identity</div>
           <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="roadmap-desc">Design a clear and recognizable visual identity — your aesthetic, creative direction, style system, and visual standards that make your brand instantly recognizable.</div>
+        <div class="roadmap-desc">Design a recognizable visual identity and style system.</div>
       </div>
       <div class="roadmap-body">
         <ul class="roadmap-steps">
@@ -991,10 +993,10 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
     <div class="roadmap-card">
       <div class="roadmap-header">
         <div class="roadmap-header-top">
-          <div class="roadmap-title">Full Stack OS</div>
+          <div class="roadmap-title">Content System</div>
           <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="roadmap-desc">Install a repeatable content system — from idea to publish. Script, shoot, edit, and batch consistently without starting from scratch every time.</div>
+        <div class="roadmap-desc">Install a repeatable system from idea to publish.</div>
       </div>
       <div class="roadmap-body">
         <ul class="roadmap-steps">
@@ -1020,37 +1022,15 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
           <div class="roadmap-title">Automated Funnel</div>
           <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="roadmap-desc">Set up the infrastructure that turns attention into subscribers and subscribers into buyers — running automatically while you create.</div>
+        <div class="roadmap-desc">Optimize your bio. Automated sales funnel.</div>
       </div>
       <div class="roadmap-body">
         <ul class="roadmap-steps">
-          <li><span class="step-title">Offer Positioning</span><span class="step-desc">Make your offer clear, desirable, and easy to understand.</span></li>
-          <li><span class="step-title">Lead Capture System</span><span class="step-desc">Turn viewers into subscribers with simple, effective systems.</span></li>
-          <li><span class="step-title">Nurture Flow</span><span class="step-desc">Build trust and connection so your audience warms up to your offer.</span></li>
-          <li><span class="step-title">Conversion System</span><span class="step-desc">Guide your audience from interest to purchase without forcing it.</span></li>
-          <li><span class="step-title">Automation Setup</span><span class="step-desc">Put systems in place that work for you in the background.</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="roadmap-item">
-    <div class="roadmap-bubble">05</div>
-    <div class="roadmap-card">
-      <div class="roadmap-header">
-        <div class="roadmap-header-top">
-          <div class="roadmap-title">Launch</div>
-          <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="roadmap-desc">Execute a focused brand launch — optimize your profile, publish your brand content, and build momentum with a 7-day launch calendar.</div>
-      </div>
-      <div class="roadmap-body">
-        <ul class="roadmap-steps">
-          <li><span class="step-title">Profile Optimization</span><span class="step-desc">Make your profile instantly communicate who you are and what you do.</span></li>
-          <li><span class="step-title">Content Rollout Plan</span><span class="step-desc">Know exactly what to post during your launch window.</span></li>
-          <li><span class="step-title">Launch Content Creation</span><span class="step-desc">Create content that builds attention and authority quickly.</span></li>
-          <li><span class="step-title">7-Day Launch System</span><span class="step-desc">Follow a clear plan to build momentum without guessing.</span></li>
-          <li><span class="step-title">Momentum Strategy</span><span class="step-desc">Keep your growth going after the launch ends.</span></li>
+          <li><span class="step-title">Mini Chat Overview</span><span class="step-desc">Set up a simple chat system to convert conversations into leads.</span></li>
+          <li><span class="step-title">Email Marketing</span><span class="step-desc">Build and nurture a list that turns subscribers into buyers.</span></li>
+          <li><span class="step-title">Lead Magnet Creation</span><span class="step-desc">Create a high-value freebie that attracts your ideal audience.</span></li>
+          <li><span class="step-title">7-Day Launch Calendar</span><span class="step-desc">Follow a clear daily plan to build momentum fast.</span></li>
+          <li><span class="step-title">Set 90-Day Goals</span><span class="step-desc">Lock in a clear roadmap so you keep growing after the sprint ends.</span></li>
         </ul>
       </div>
     </div>
@@ -1469,7 +1449,7 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
 <section class="final-section">
   <div style="position:relative;z-index:1;max-width:680px;margin:0 auto;">
     <div class="final-eyebrow">Brand Launch Sprint™</div>
-    <div class="final-headline">We know you've thought about it.<br><span class="o">It's time to make it happen.</span></div>
+    <div class="final-headline">We know you've thought about it. <span class="o">It's time to make it happen.</span></div>
     <p class="final-sub">Install the system and transform your personal brand forever. Attract the right audience with cinematic content and sustain it with the systems needed to avoid burnout.</p>
     <div class="final-cta-wrap">
       <a href="https://fscreative.circle.so/checkout/brand-launch-sprinttm">
