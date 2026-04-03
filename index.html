@@ -218,8 +218,8 @@ h2 .o { color: var(--orange); }
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   text-align: center;
-  padding: 80px 24px;
-  border-bottom: 1px solid var(--border);
+  padding: 80px 24px 32px;
+  border-bottom: none;
   position: relative; overflow: hidden;
   transition: border-color 0.25s;
 }
@@ -873,7 +873,7 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
   </div>
 </section>
 
-<section id="video-section" style="background:var(--bg);border-bottom:1px solid var(--border);padding:48px 24px;">
+<section id="video-section" style="background:var(--bg);padding:0 24px 64px;">
   <!-- placeholder preserves section height when wrapper goes fixed -->
   <div id="video-placeholder" style="max-width:960px;margin:0 auto;aspect-ratio:16/9;display:none;"></div>
   <div id="video-wrapper" style="max-width:960px;margin:0 auto;border-radius:12px;overflow:hidden;aspect-ratio:16/9;transition:box-shadow 0.3s;">
