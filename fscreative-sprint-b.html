@@ -1563,5 +1563,15 @@ footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: bo
     setInterval(tick, 1000);
   })();
 </script>
+<script>
+  document.querySelectorAll('.btn-primary, a[href*="checkout"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'join_sprint_click', {
+        'event_category': 'conversion',
+        'event_label': el.closest('section') ? el.closest('section').id || 'page' : 'nav'
+      });
+    });
+  });
+</script>
 </body>
 </html>
