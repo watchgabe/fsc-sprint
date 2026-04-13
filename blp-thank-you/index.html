@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In — Brand Launch Playbook™</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,900;1,700;1,900&family=Inter:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#1a1a1a;color:#c8c8c8;
+  font-family:'Work Sans',sans-serif;
+  font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;display:flex;flex-direction:column;
+}
+:root{
+  --orange:#F0601B;
+  --heading:#ffffff;
+  --body:#c8c8c8;
+  --muted:#777;
+  --border:#2e2e2e;
+  --bg-card:#222222;
+}
+h1,h2,h3{font-family:'Inter',sans-serif;color:var(--heading)}
+
+/* ─── NAV ─── */
+nav{
+  height:60px;border-bottom:1px solid var(--border);
+  padding:0 40px;display:flex;align-items:center;justify-content:space-between;
+  background:#161616;
+}
+.nav-brand img{height:20px;width:auto;display:block}
+.nav-secure{
+  font-family:'SF Mono','Fira Mono','Courier New',monospace;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  display:flex;align-items:center;gap:6px;
+}
+
+/* ─── CONFIRM BANNER ─── */
+.confirm{
+  background:#0d2e28;border-bottom:1px solid #1a4a40;
+  padding:14px 40px;text-align:center;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.confirm-check{
+  width:22px;height:22px;border-radius:50%;
+  background:#0b473a;border:2px solid #1a7a63;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:#fff;flex-shrink:0;
+}
+.confirm p{
+  font-family:'SF Mono','Fira Mono','Courier New',monospace;
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:#4db896;
+}
+
+/* ─── MAIN LAYOUT ─── */
+.page{max-width:620px;margin:0 auto;padding:80px 40px 100px;flex:1}
+
+/* ─── RECEIPT ─── */
+.receipt{
+  background:var(--bg-card);border:1px solid var(--border);
+  padding:24px 28px;margin-bottom:52px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  border-radius:8px;
+}
+.receipt-left{display:flex;align-items:center;gap:16px}
+.receipt-img{
+  width:52px;height:52px;border-radius:6px;overflow:hidden;
+  border:1px solid var(--border);flex-shrink:0;
+}
+.receipt-img img{width:100%;height:100%;object-fit:cover}
+.receipt-label{
+  font-family:'SF Mono','Fira Mono','Courier New',monospace;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:4px;display:block;
+}
+.receipt-name{font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:var(--heading)}
+.receipt-price{
+  font-family:'Inter',sans-serif;
+  font-size:20px;font-weight:800;color:var(--heading);letter-spacing:-.02em;
+  white-space:nowrap;
+}
+
+/* ─── HEADING ─── */
+.ty-eyebrow{
+  font-family:'SF Mono','Fira Mono','Courier New',monospace;
+  font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:16px;display:block;
+}
+.ty-heading{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(56px,10vw,88px);font-weight:900;
+  text-transform:uppercase;line-height:.92;letter-spacing:-.01em;
+  color:var(--heading);margin-bottom:20px;
+}
+.ty-heading em{color:var(--orange);font-style:italic}
+.ty-sub{
+  font-size:16px;color:var(--body);line-height:1.8;font-weight:300;
+  max-width:480px;margin-bottom:52px;
+}
+
+/* ─── ACCESS BOX ─── */
+.access-box{
+  background:var(--bg-card);border:1px solid var(--border);
+  padding:36px 36px;border-radius:8px;
+}
+.access-label{
+  font-family:'SF Mono','Fira Mono','Courier New',monospace;
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:16px;display:block;
+}
+.access-box h2{
+  font-size:clamp(22px,4vw,28px);font-weight:800;
+  letter-spacing:-.02em;margin-bottom:10px;
+}
+.access-box p{
+  font-size:15px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:28px;
+}
+.btn-access{
+  display:inline-block;
+  background:var(--orange);color:#fff;
+  font-family:'Work Sans',sans-serif;
+  font-size:16px;font-weight:700;
+  padding:15px 36px;border-radius:30px;
+  text-decoration:none;
+  transition:opacity .15s;
+}
+.btn-access:hover{opacity:.85}
+
+.access-note{
+  margin-top:16px;
+  font-family:'SF Mono','Fira Mono','Courier New',monospace;
+  font-size:10px;color:#555;letter-spacing:.08em;text-transform:uppercase;
+}
+
+/* ─── FOOTER ─── */
+footer{
+  background:#111;color:#444;
+  padding:24px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:'SF Mono','Fira Mono','Courier New',monospace;
+  font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+  border-top:1px solid var(--border);
+}
+.footer-brand{color:#666;font-weight:700}
+
+@media(max-width:600px){
+  .page{padding:48px 20px 80px}
+  nav{padding:0 20px}
+  .confirm{padding:12px 20px}
+  .receipt{flex-direction:column;align-items:flex-start;padding:20px;gap:12px}
+  .access-box{padding:24px 20px}
+  footer{flex-direction:column;gap:6px;text-align:center;padding:20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand">
+    <img src="https://fscreative.live/FSC%20Orange%20White%20no%20TM@4x.png" alt="FSCreative">
+  </a>
+  <span class="nav-secure">🔒 &nbsp; Order Confirmed</span>
+</nav>
+
+<div class="confirm">
+  <div class="confirm-check">✓</div>
+  <p>Payment successful — check your email for your receipt</p>
+</div>
+
+<div class="page">
+
+  <div class="receipt">
+    <div class="receipt-left">
+      <div class="receipt-img">
+        <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1774416168/_the_first_is_the_inspriaotn_repkace_the_front_with_the_second_screnshot_and_the_side_with_the_thir_qr2wly2hdce1k9tx00v1_xuogpp.png" alt="Brand Launch Playbook">
+      </div>
+      <div>
+        <span class="receipt-label">Order Confirmed</span>
+        <div class="receipt-name">Brand Launch Playbook™</div>
+      </div>
+    </div>
+    <div class="receipt-price">$97</div>
+  </div>
+
+  <span class="ty-eyebrow">Welcome to FSCreative™</span>
+  <h1 class="ty-heading">You're in.<br><em>Let's build.</em></h1>
+  <p class="ty-sub">Your Brand Launch Playbook is ready and waiting. Log in with the email you used at checkout and you'll have full access to all 5 modules.</p>
+
+  <div class="access-box">
+    <span class="access-label">Your Purchase</span>
+    <h2>Brand Launch Playbook™</h2>
+    <p>5 modules. Every exercise, every framework, every section — built to walk you through your brand from the inside out. It's all yours.</p>
+    <a href="https://brandplaybook.vercel.app/" class="btn-access">Access My Playbook →</a>
+    <div class="access-note">Log in with the email used at checkout</div>
+  </div>
+
+</div>
+
+<footer>
+  <span class="footer-brand">FSCreative™</span>
+  <span>© 2026 All Rights Reserved</span>
+</footer>
+
+</body>
+</html>
