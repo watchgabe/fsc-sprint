@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FSCreative™ Membership — Build a Brand That Actually Tells Your Story</title>
+<meta property="og:title" content="FSCreative™ Membership — Build a Brand That Actually Tells Your Story">
+<meta property="og:description" content="A monthly membership that installs your positioning, visual identity, and content system. $97/month. Ongoing support. A premium brand that actually reflects your story.">
+<meta property="og:type" content="website">
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+/* ─── RESET ─── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* ─── DARK TOKENS (default) ─── */
+:root {
+  --bg:       #0a0a0a;
+  --surface:  #111111;
+  --card:     #161616;
+  --border:   #1f1f1f;
+  --border2:  #2a2a2a;
+  --orange:   #F0601B;
+  --orange2:  #ff6d28;
+  --text:     #ffffff;
+  --dim:      #a0a0a0;
+  --dimmer:   #555555;
+  --green:    #3ab864;
+  --max:      1160px;
+  --nav-bg:   rgba(10,10,10,0.92);
+  --nav-h:    64px;
+  --bar-h:    44px;
+}
+
+/* ─── LIGHT TOKENS ─── */
+body.light {
+  --bg:       #f7f6f4;
+  --surface:  #edecea;
+  --card:     #e2e0dc;
+  --border:   #ccc9c2;
+  --border2:  #b8b4ac;
+  --text:     #0a0a0a;
+  --dim:      #404040;
+  --dimmer:   #888888;
+  --green:    #1a7a3a;
+  --nav-bg:   rgba(247,246,244,0.92);
+}
+
+/* ─── BASE ─── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Barlow', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background 0.25s, color 0.25s;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 9998; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='0.04'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ─── NAV ─── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  border-bottom: 1px solid var(--border);
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px);
+  transition: background 0.25s, border-color 0.25s;
+}
+.nav-inner {
+  max-width: var(--max); margin: 0 auto; padding: 0 32px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.logo-dark  { display: block; }
+.logo-light { display: none; }
+body.light .logo-dark  { display: none; }
+body.light .logo-light { display: block; }
+.nav-right { display: flex; align-items: center; gap: 10px; }
+
+/* theme toggle */
+.theme-toggle {
+  background: none; border: 1px solid var(--border2); border-radius: 6px;
+  padding: 6px 8px; cursor: pointer; color: var(--dimmer);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.2s, color 0.2s;
+}
+.theme-toggle:hover { border-color: var(--border2); color: var(--text); }
+.icon-moon { display: block; }
+.icon-sun  { display: none; }
+body.light .icon-moon { display: none; }
+body.light .icon-sun  { display: block; }
+
+/* ─── BUTTONS ─── */
+.btn-primary {
+  background: var(--orange); color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 2px;
+  border: none; border-radius: 5px; cursor: pointer;
+  padding: 11px 22px; white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: var(--orange2); transform: translateY(-1px); }
+.btn-outline {
+  background: transparent; color: var(--text);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 2px;
+  border: 1px solid var(--border2); border-radius: 5px; cursor: pointer;
+  padding: 10px 22px; white-space: nowrap;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover { border-color: var(--text); }
+
+/* ─── URGENCY BAR ─── */
+.urgency-bar {
+  height: var(--bar-h); overflow: hidden; position: relative;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.25s, border-color 0.25s;
+}
+.bar-panel {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  position: absolute; opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.bar-panel.bar-visible { opacity: 1; position: relative; }
+.bar-countdown { display: flex; align-items: center; gap: 8px; }
+.bar-cd-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 3px; color: var(--dimmer);
+  white-space: nowrap; transition: color 0.25s;
+}
+.bar-cd-timer { display: flex; align-items: center; gap: 2px; }
+.bar-cd-unit { display: flex; flex-direction: column; align-items: center; min-width: 28px; }
+.bar-cd-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 900; color: var(--text); line-height: 1;
+  transition: color 0.25s;
+}
+.bar-cd-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 7px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px; color: var(--dimmer);
+  transition: color 0.25s;
+}
+.bar-cd-sep { font-size: 16px; color: var(--dimmer); padding-bottom: 10px; font-weight: 700; }
+.urgency-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+.bar-guarantee {
+  display: flex; align-items: center; gap: 8px;
+}
+.bar-guar-icon { color: #4ab874; flex-shrink: 0; }
+.bar-guar-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px; color: var(--dimmer);
+  transition: color 0.25s;
+}
+.bar-guar-accent { color: #4ab874; font-weight: 800; }
+
+@keyframes blink {
+  0%,100%{opacity:1} 50%{opacity:0.3}
+}
+
+/* ─── WRAP ─── */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+
+/* ─── SECTION ─── */
+.section { padding: 80px 0; border-bottom: 1px solid var(--border); transition: border-color 0.25s; }
+.section:last-child { border-bottom: none; }
+.section-header { margin-bottom: 48px; }
+.eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 4px; color: var(--orange);
+  margin-bottom: 16px;
+}
+h2 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(32px, 3.6vw, 48px);
+  font-weight: 800; text-transform: none;
+  letter-spacing: -1.2px; line-height: 1.08;
+  color: var(--text); transition: color 0.25s;
+}
+h2 .o {
+  color: var(--orange);
+  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+.section-sub {
+  font-size: 17px; color: var(--dim); max-width: 600px;
+  margin-top: 20px; line-height: 1.65; transition: color 0.25s;
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: calc(100dvh - var(--nav-h) - var(--bar-h));
+  width: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 60px 24px;
+  border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+  transition: border-color 0.25s;
+}
+.hero-inner {
+  width: 100%; max-width: 960px;
+  display: flex; flex-direction: column; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(240,96,27,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-spots-row {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.hero-spots-num { color: var(--orange); font-weight: 800; }
+.hero-spots-text { color: var(--dimmer); font-weight: 600; transition: color 0.25s; }
+
+.hero h1 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  font-size: clamp(44px, 5.6vw, 72px);
+  text-transform: none;
+  letter-spacing: -1.5px; line-height: 1.05;
+  color: var(--text); max-width: 880px;
+  margin: 0 auto 28px;
+  transition: color 0.25s;
+}
+.hero h1 .o {
+  color: var(--orange);
+  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+
+.hero-sub {
+  font-size: 18px; font-weight: 500; color: var(--dim);
+  max-width: 580px; margin: 0 auto 44px; line-height: 1.65;
+  transition: color 0.25s;
+}
+.hero-sub strong { color: var(--text); font-weight: 700; }
+
+.hero-cta-group {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 10px; margin-bottom: 20px;
+  width: 100%; max-width: 560px;
+}
+.hero-micro { font-size: 13px; color: var(--dimmer); letter-spacing: 0.5px; transition: color 0.25s; }
+
+/* ─── VIDEO ─── */
+.video-section { background: var(--bg); border-bottom: 1px solid var(--border); transition: background 0.25s, border-color 0.25s; }
+.video-wrap { max-width: var(--max); margin: 0 auto; padding: 48px 32px; }
+.video-container {
+  width: 100%; max-width: 880px; margin: 0 auto;
+  aspect-ratio: 16/9; border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: background 0.25s, border-color 0.25s;
+}
+.video-container iframe { width: 100%; height: 100%; border: 0; display: block; }
+.video-placeholder {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 14px; cursor: pointer;
+  background:
+    radial-gradient(ellipse 55% 55% at 50% 45%, rgba(240,96,27,0.15) 0%, transparent 65%),
+    linear-gradient(180deg, var(--card) 0%, var(--surface) 100%);
+  color: var(--orange);
+  transition: background 0.25s, color 0.25s;
+  position: relative;
+}
+.video-placeholder::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain2)' opacity='0.06'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.video-play-icon {
+  width: 76px; height: 76px;
+  transition: transform 0.2s ease;
+  filter: drop-shadow(0 6px 24px rgba(240,96,27,0.35));
+  position: relative; z-index: 1;
+}
+.video-placeholder:hover .video-play-icon { transform: scale(1.06); }
+.video-placeholder-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--text);
+  transition: color 0.25s;
+  position: relative; z-index: 1;
+}
+.video-placeholder-sub {
+  font-size: 13px; color: var(--dim);
+  transition: color 0.25s;
+  position: relative; z-index: 1;
+}
+
+/* ─── CONTRAST GRID ─── */
+.contrast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.contrast-col { background: var(--surface); border: 1px solid var(--border); padding: 36px 32px; transition: background 0.25s, border-color 0.25s; }
+.contrast-col.right { background: var(--card); }
+.contrast-col-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;
+}
+.contrast-col-label.bad  { color: var(--dimmer); }
+.contrast-col-label.good { color: var(--orange); }
+.check-list { display: flex; flex-direction: column; gap: 14px; }
+.check-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s; }
+.check-icon { font-size: 13px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+.check-icon.x  { color: var(--dimmer); }
+.check-icon.ok { color: var(--green); }
+
+/* ─── WHAT'S INSIDE ─── */
+.inside-list { display: flex; flex-direction: column; }
+.inside-item {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.25s;
+}
+.inside-item:first-child { border-top: 1px solid var(--border); }
+.inside-item:last-child { border-bottom: none; }
+.inside-num-mobile {
+  display: block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 10px;
+}
+/* Desktop: side-by-side card */
+.inside-card {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: background 0.25s, border-color 0.25s;
+}
+.inside-item:nth-child(odd) .inside-card { grid-template-columns: 2fr 3fr; }
+.inside-item:nth-child(odd) .inside-img-wrap { order: 2; }
+.inside-item:nth-child(odd) .inside-card-body { order: 1; }
+.inside-img-wrap { line-height: 0; }
+.inside-img-wrap img { width: 100%; display: block; aspect-ratio: 21/9; object-fit: cover; border-radius: 10px; }
+.inside-card-body { padding: 28px 36px; display: flex; flex-direction: column; justify-content: center; }
+.inside-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 22px; font-weight: 700;
+  text-transform: none; letter-spacing: -0.4px;
+  color: var(--text); margin-bottom: 12px;
+  transition: color 0.25s;
+}
+.inside-body { font-size: 14px; color: var(--dim); line-height: 1.75; transition: color 0.25s; }
+.arrow-list { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+.arrow-item {
+  font-size: 14px; color: var(--dim); line-height: 1.5;
+  display: flex; gap: 10px; align-items: flex-start;
+  transition: color 0.25s;
+}
+.arrow-item .arr { color: var(--orange); flex-shrink: 0; font-weight: 700; }
+
+/* ─── ROADMAP ─── */
+.roadmap { display: flex; flex-direction: column; gap: 12px; position: relative; }
+.roadmap::before {
+  content: ''; position: absolute;
+  left: 20px; top: 0; bottom: 0; width: 2px;
+  background: var(--border2); z-index: 0;
+}
+.roadmap-item { display: flex; gap: 20px; align-items: flex-start; position: relative; }
+.roadmap-bubble {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--orange); color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 900; letter-spacing: 0.5px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; position: relative; z-index: 1; margin-top: 2px;
+}
+.roadmap-card {
+  flex: 1; border: 1px solid var(--border); border-radius: 10px;
+  overflow: hidden; transition: border-color 0.25s;
+}
+.roadmap-card:hover { border-color: var(--border2); }
+.roadmap-header {
+  display: flex; flex-direction: column;
+  padding: 18px 22px; cursor: pointer; user-select: none; gap: 6px;
+}
+.roadmap-header-top {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.roadmap-title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px; font-weight: 800; color: var(--text); transition: color 0.25s;
+}
+.roadmap-desc { font-size: 13px; color: var(--dim); line-height: 1.55; transition: color 0.25s; }
+.roadmap-chevron {
+  width: 18px; height: 18px; flex-shrink: 0; color: var(--dimmer);
+  transition: transform 0.25s, color 0.25s;
+}
+.roadmap-card.rm-open { background: var(--card); border-color: var(--border2); }
+.roadmap-card.rm-open .roadmap-title { color: var(--orange); }
+.roadmap-card.rm-open .roadmap-chevron { transform: rotate(180deg); color: var(--orange); }
+.roadmap-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.25s ease;
+  padding: 0 22px; border-top: 0px solid var(--border);
+}
+.roadmap-card.rm-open .roadmap-body {
+  max-height: 600px; padding: 16px 22px 20px;
+  border-top: 1px solid var(--border);
+}
+.roadmap-steps { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.roadmap-steps li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s;
+}
+.roadmap-steps li::before { content: '→'; color: var(--orange); flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+
+/* ─── ROADMAP STEP DESCRIPTORS ─── */
+.roadmap-steps li { flex-direction: row; align-items: baseline; flex-wrap: wrap; gap: 0; }
+.roadmap-steps li::before { margin-top: 0; align-self: flex-start; flex-shrink: 0; margin-right: 6px; }
+.step-title { font-weight: 700; color: var(--text); font-size: 14px; line-height: 1.5; transition: color 0.25s; margin-right: 4px; white-space: nowrap; }
+.step-desc { font-size: 14px; font-weight: 400; color: var(--dimmer); line-height: 1.5; transition: color 0.25s; }
+
+/* ─── VALUE LIST V2 ─── */
+.value-item-title { font-weight: 700; color: var(--text); transition: color 0.25s; }
+.value-item-sub { color: var(--dim); transition: color 0.25s; }
+
+/* ─── BONUS BOX ─── */
+.bonus-box {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: rgba(62,184,100,0.05);
+  border: 1px solid rgba(62,184,100,0.18);
+  border-radius: 8px; padding: 16px 18px;
+  margin-top: 16px;
+}
+body.light .bonus-box { background: rgba(26,122,58,0.06); border-color: rgba(26,122,58,0.2); }
+.bonus-icon { color: #4ab874; flex-shrink: 0; margin-top: 1px; }
+.bonus-text { font-size: 13px; color: var(--dim); line-height: 1.6; transition: color 0.25s; }
+.bonus-text strong { color: #4ab874; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 11px; font-family: 'Barlow Condensed', sans-serif; display: block; margin-bottom: 4px; }
+
+/* ─── VALUE LIST ─── */
+.value-list {
+  border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+  background: rgba(62,184,100,0.02);
+  border-color: rgba(62,184,100,0.18);
+  transition: border-color 0.25s;
+}
+body.light .value-list { background: rgba(26,122,58,0.03); border-color: rgba(26,122,58,0.18); }
+.value-row {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 28px;
+  border-bottom: 1px solid rgba(62,184,100,0.12);
+  transition: border-color 0.25s;
+}
+.value-row:last-child { border-bottom: none; }
+.value-check {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: rgba(62,184,100,0.15);
+  border: 1px solid rgba(62,184,100,0.35);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  color: #4ab874;
+  font-size: 11px; font-weight: 900;
+}
+.value-item-text {
+  font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s;
+}
+.value-total-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--text); transition: color 0.25s;
+}
+
+/* ─── WHO ─── */
+.who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.who-col { background: var(--surface); border: 1px solid var(--border); padding: 36px 32px; transition: background 0.25s, border-color 0.25s; }
+.who-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.who-tag.yes { color: var(--orange); }
+.who-tag.no  { color: var(--dimmer); }
+.who-col-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 24px; font-weight: 700; text-transform: none; letter-spacing: -0.5px; margin-bottom: 24px; line-height: 1.2;
+}
+.who-col-label.yes { color: var(--text); }
+.who-col-label.no  { color: var(--dim); }
+.who-list { display: flex; flex-direction: column; gap: 12px; }
+.who-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s; }
+.who-icon { font-size: 13px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+.who-icon.yes { color: var(--green); }
+.who-icon.no  { color: var(--dimmer); }
+
+/* ─── PRICING ─── */
+.pricing-box {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+  max-width: 520px; margin: 0 auto;
+  transition: background 0.25s, border-color 0.25s;
+}
+.pricing-top {
+  padding: 48px 40px; position: relative;
+  transition: border-color 0.25s;
+}
+.pricing-top::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--orange);
+}
+.founding-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px;
+  color: var(--orange); background: rgba(240,96,27,0.1);
+  border: 1px solid rgba(240,96,27,0.25); border-radius: 3px; padding: 5px 12px; margin-bottom: 24px;
+}
+.price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+.price-amount {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 80px; font-weight: 900; line-height: 1; letter-spacing: -3px; color: var(--text);
+  transition: color 0.25s;
+}
+.price-was {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 36px; font-weight: 700; color: var(--dimmer); text-decoration: line-through;
+}
+.price-per { font-size: 15px; font-weight: 600; color: var(--dim); transition: color 0.25s; }
+.price-note { font-size: 14px; color: var(--dim); margin-bottom: 24px; line-height: 1.6; transition: color 0.25s; }
+.price-note strong { color: var(--text); }
+
+.pricing-includes { padding: 28px 40px; display: grid; grid-template-columns: 1fr; gap: 10px; transition: border-color 0.25s; }
+.include-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--dim); transition: color 0.25s; }
+.include-item::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 13px; flex-shrink: 0; }
+
+/* Support bar */
+.support-bar {
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(62,184,100,0.05);
+  border: 1px solid rgba(62,184,100,0.18);
+  border-radius: 8px; padding: 14px 18px;
+  margin: 0 40px 32px;
+}
+body.light .support-bar { background: rgba(26,122,58,0.06); border-color: rgba(26,122,58,0.2); }
+.support-icon { color: #4ab874; flex-shrink: 0; }
+.support-text { font-size: 13px; color: var(--dim); line-height: 1.5; transition: color 0.25s; }
+.support-text strong { color: var(--text); }
+
+/* ─── GUARANTEE ─── */
+.guarantee-box {
+  background: rgba(62,184,100,0.04);
+  border: 1px solid rgba(62,184,100,0.18);
+  border-radius: 10px; padding: 32px 36px;
+  display: flex; flex-direction: column; gap: 10px;
+  max-width: 520px; margin: 12px auto 0;
+  transition: background 0.25s, border-color 0.25s;
+}
+body.light .guarantee-box {
+  background: rgba(26,122,58,0.06);
+  border-color: rgba(26,122,58,0.2);
+}
+.guarantee-label-row {
+  display: flex; align-items: center; gap: 8px;
+}
+.guarantee-icon { flex-shrink: 0; color: #4ab874; }
+body.light .guarantee-icon { color: var(--green); }
+.guarantee-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: #4ab874;
+}
+body.light .guarantee-label { color: var(--green); }
+.guar-headline {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700; line-height: 1.2;
+  letter-spacing: -0.5px; text-transform: none;
+  color: var(--text); margin-bottom: 2px;
+  transition: color 0.25s;
+}
+.guarantee-body { font-size: 14px; color: var(--dim); line-height: 1.65; transition: color 0.25s; }
+
+/* ─── #PRICING CENTER ─── */
+#pricing .section-header { text-align: center; }
+
+/* ─── TIER PRICING ─── */
+.tier-section { padding: 0 40px 32px; }
+.tier-note { font-size: 12px; color: var(--dimmer); margin-bottom: 18px; transition: color 0.25s; }
+.tier-row { margin-bottom: 14px; }
+.tier-row:last-child { margin-bottom: 0; }
+.tier-row-label { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+.tier-price-label { font-size: 13px; font-weight: 600; color: var(--dim); transition: color 0.25s; }
+.tier-badge {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
+  padding: 3px 8px; border-radius: 2px;
+}
+.tier-badge.current { background: rgba(240,96,27,0.12); color: var(--orange); border: 1px solid rgba(240,96,27,0.3); }
+.tier-badge.upcoming { background: transparent; color: var(--dimmer); border: 1px solid var(--border); }
+.tier-segments { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; }
+.tier-seg { height: 4px; border-radius: 2px; background: var(--border2); transition: background 0.25s; }
+.tier-seg.active { background: var(--orange); }
+@media(max-width: 768px) {
+  .tier-section { padding: 0 24px 24px; }
+}
+
+/* ─── FAQ ─── */
+.faq-list { display: flex; flex-direction: column; }
+.faq-item { padding: 22px 0; border-bottom: 1px solid var(--border); transition: border-color 0.25s; cursor: pointer; }
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px; font-weight: 800; text-transform: uppercase; color: var(--text);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  transition: color 0.25s; user-select: none;
+}
+.faq-item.faq-open .faq-q { color: var(--orange); }
+.faq-chevron {
+  width: 16px; height: 16px; flex-shrink: 0; color: var(--dimmer);
+  transition: transform 0.25s, color 0.25s;
+}
+.faq-item.faq-open .faq-chevron { transform: rotate(180deg); color: var(--orange); }
+.faq-a {
+  font-size: 14px; color: var(--dim); line-height: 1.7;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.25s ease;
+  padding: 0;
+}
+.faq-item.faq-open .faq-a { max-height: 400px; padding-top: 12px; }
+
+/* ─── ABOUT ─── */
+.about-inner { display: grid; grid-template-columns: 210px 1fr; gap: 48px; align-items: flex-start; }
+.about-avatar {
+  width: 100%; aspect-ratio: 1/1;
+  border-radius: 12px; border: 2px solid var(--orange);
+  object-fit: cover; display: block;
+  transition: border-color 0.25s;
+}
+.about-name {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 28px; font-weight: 900;
+  color: var(--text); margin-bottom: 4px; transition: color 0.25s;
+}
+.about-role { font-size: 13px; font-weight: 600; color: var(--orange); letter-spacing: 0.5px; margin-bottom: 28px; }
+.about-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 28px; }
+.about-stat {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 16px 14px; text-align: center;
+  transition: background 0.25s, border-color 0.25s;
+}
+.about-stat-val {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 20px; font-weight: 900; color: var(--text);
+  margin-bottom: 4px; transition: color 0.25s;
+}
+.about-stat-label { font-size: 11px; color: var(--dim); line-height: 1.3; transition: color 0.25s; }
+.about-body { font-size: 15px; color: var(--dim); line-height: 1.75; transition: color 0.25s; }
+.about-body p + p { margin-top: 14px; }
+
+/* ─── FINAL CTA ─── */
+.final-section { padding: 100px 24px; text-align: center; position: relative; overflow: hidden; }
+.final-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(240,96,27,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.final-headline {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 800; font-size: clamp(32px, 4.2vw, 52px);
+  text-transform: none; letter-spacing: -1.2px;
+  line-height: 1.08; color: var(--text); margin-bottom: 24px;
+  max-width: 640px; margin-left: auto; margin-right: auto;
+  transition: color 0.25s;
+}
+.final-headline .o {
+  color: var(--orange);
+  font-family: 'Instrument Serif', 'Times New Roman', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+.final-sub { font-size: 17px; color: var(--dim); max-width: 460px; margin: 0 auto 40px; line-height: 1.65; transition: color 0.25s; }
+.final-cta-wrap { display: flex; justify-content: center; }
+.final-micro { font-size: 13px; color: var(--dimmer); margin-top: 14px; transition: color 0.25s; }
+
+/* ─── FOOTER ─── */
+footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: border-color 0.25s; }
+.footer-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-copy { font-size: 12px; color: var(--dimmer); transition: color 0.25s; }
+.footer-link { font-size: 12px; color: var(--dimmer); transition: color 0.15s; }
+.footer-link:hover { color: var(--orange); }
+
+/* ─── H1 DESKTOP LINE BREAKS ─── */
+.h1-br { display: none; }
+@media(min-width: 769px) {
+  .h1-br { display: block; }
+  .hero h1 { font-size: clamp(44px, 5.2vw, 64px); }
+}
+
+/* ─── ANIMATION ─── */
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+.hero { animation: fadeUp 0.6s ease both; }
+
+/* ─── FINAL SECTION ─── */
+.final-section {
+  padding: 100px 24px; text-align: center; position: relative; overflow: hidden;
+  background: var(--surface); border-top: 1px solid var(--border);
+  transition: background 0.25s, border-color 0.25s;
+}
+.final-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(240,96,27,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.final-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 4px; color: var(--orange);
+  margin-bottom: 20px;
+}
+.final-meta {
+  display: flex; align-items: center; justify-content: center; gap: 20px;
+  flex-wrap: wrap; margin-top: 20px; margin-bottom: 8px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px;
+  color: var(--dimmer); transition: color 0.25s;
+}
+.final-meta .o { color: var(--orange); }
+.final-meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--border2); }
+
+/* ─── TESTIMONIALS ─── */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media(max-width: 768px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+.testimonial-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 28px;
+  display: flex; flex-direction: column; gap: 14px;
+  transition: background 0.25s, border-color 0.25s;
+}
+.testi-header { display: flex; align-items: center; gap: 12px; }
+.testi-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--border2); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 800; color: var(--orange);
+  text-transform: uppercase;
+  border: 1px solid var(--border2);
+  transition: background 0.25s, border-color 0.25s;
+  overflow: hidden;
+}
+.testi-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.testi-name {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.5px; color: var(--text); transition: color 0.25s;
+}
+.testi-handle { font-size: 11px; color: var(--dimmer); margin-top: 1px; transition: color 0.25s; }
+.testi-stars { color: #f5a623; font-size: 13px; letter-spacing: 1px; }
+.testi-quote {
+  font-size: 14px; color: var(--dim); line-height: 1.7;
+  transition: color 0.25s;
+}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width: 768px) {
+  .wrap { padding: 0 16px; }
+  .nav-inner { padding: 0 16px; gap: 8px; }
+  .nav-logo-text { font-size: 16px; }
+  .btn-primary { font-size: 12px; padding: 10px 16px; letter-spacing: 1px; }
+  .btn-outline  { font-size: 12px; padding: 9px 16px;  letter-spacing: 1px; }
+  .hero-cta-group { max-width: 100%; }
+
+  .hero { padding: 40px 16px; min-height: calc(100dvh - var(--nav-h) - var(--bar-h)); display: flex; justify-content: center; align-items: center; }
+  .hero h1 { font-size: clamp(32px, 8.2vw, 44px); letter-spacing: -1px; line-height: 1.08; }
+  .hero-sub { font-size: 14px; font-weight: 400; margin-bottom: 32px; }
+
+  .bar-cd-label { font-size: 9px; letter-spacing: 2px; }
+  .bar-cd-num { font-size: 16px; }
+  .bar-cd-sub { font-size: 6px; }
+  .bar-cd-sep { font-size: 13px; padding-bottom: 8px; }
+  .bar-cd-unit { min-width: 24px; }
+  .bar-guar-text { font-size: 10px; letter-spacing: 1.5px; }
+  .bar-guar-icon { width: 12px; height: 12px; }
+
+  .section { padding: 56px 0; }
+  .section-header { margin-bottom: 36px; }
+  .contrast-grid, .who-grid, .pricing-includes { grid-template-columns: 1fr; }
+
+  /* Roadmap: mobile */
+  .roadmap-bubble { width: 30px; height: 30px; font-size: 12px; }
+  .roadmap::before { left: 14px; }
+  .intro-h2 { font-size: 40px !important; line-height: 1.05 !important; }
+
+  /* What's Inside: mobile */
+  .inside-item { padding: 32px 0; }
+  .inside-card { display: block; }
+  .inside-img-wrap img { aspect-ratio: 21/9; border-radius: 0; }
+  .inside-card-body { padding: 20px; display: block; }
+  .inside-item:nth-child(odd) .inside-img-wrap { order: 0; }
+  .inside-item:nth-child(odd) .inside-card-body { order: 0; }
+
+  .about-inner { grid-template-columns: 1fr; }
+  .about-avatar { max-width: 180px; aspect-ratio: 1/1; }
+  .about-stats { grid-template-columns: repeat(3,1fr); gap: 8px; }
+  .about-stat-val { font-size: 16px; }
+  .about-stat-label { font-size: 10px; }
+  .guarantee-box { padding: 28px 20px; }
+  .pricing-top { padding: 32px 24px; }
+  .pricing-includes { padding: 24px 24px; }
+  .support-bar { margin: 0 24px 24px; }
+  footer { padding: 20px 16px; }
+  .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
+  .final-section { padding: 72px 16px; background: var(--surface); }
+  .final-cta-wrap .btn-primary { font-size: 13px; padding: 12px 20px; }
+  .pricing-top .btn-primary {
+    width: 100%; font-size: 13px; padding: 13px 16px;
+    letter-spacing: 1px; white-space: normal; text-align: center;
+  }
+  .value-row { padding: 14px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="https://fscreative.live" class="nav-logo">
+      <img class="logo-dark"  src="/FSC%20Orange%20White%20no%20TM@4x.png" height="18" alt="FSCreative">
+      <img class="logo-light" src="/Dark%20Orange%20No%20TM@4x.png"       height="18" alt="FSCreative">
+    </a>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+        <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+        <svg class="icon-sun"  width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <a href="https://fscreative.circle.so/checkout/fscreative-membership">
+        <button class="btn-primary">Join the Community →</button>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- URGENCY BAR -->
+<div class="urgency-bar">
+  <div class="bar-panel bar-visible" id="bar-panel-cd">
+    <div class="urgency-dot"></div>
+    <div class="bar-countdown">
+      <span class="bar-cd-label">Next Community Call</span>
+      <div class="bar-cd-timer">
+        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-days">--</span><span class="bar-cd-sub">Days</span></div>
+        <div class="bar-cd-sep">:</div>
+        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-hours">--</span><span class="bar-cd-sub">Hours</span></div>
+        <div class="bar-cd-sep">:</div>
+        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-mins">--</span><span class="bar-cd-sub">Mins</span></div>
+        <div class="bar-cd-sep">:</div>
+        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-secs">--</span><span class="bar-cd-sub">Secs</span></div>
+      </div>
+    </div>
+    <div class="urgency-dot"></div>
+  </div>
+  <div class="bar-panel" id="bar-panel-guar">
+    <div class="bar-guarantee">
+      <svg class="bar-guar-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span class="bar-guar-text">FSCreative Guarantee — <span class="bar-guar-accent">Cancel Anytime. No Questions.</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-spots-row">
+      <span class="hero-spots-num">Founding members</span><span class="hero-spots-text"> — lock in $97/month</span>
+    </div>
+    <h1>Build a brand that actually<br class="h1-br"> tells <span class="o">your story.</span></h1>
+    <p class="hero-sub">
+      A monthly community to get your clear positioning, cinematic visuals, and efficient systems to turn your personal brand into your highest leverage asset.
+    </p>
+    <div class="hero-cta-group">
+      <a href="https://fscreative.circle.so/checkout/fscreative-membership">
+        <button class="btn-primary">Join the Community →</button>
+      </a>
+      <a href="#inside">
+        <button class="btn-outline">See What's Inside</button>
+      </a>
+    </div>
+    <p class="hero-micro">$97 per month · Cancel anytime · Ongoing creative direction</p>
+  </div>
+</section>
+
+<!-- VIDEO PLACEHOLDER -->
+<section class="video-section">
+  <div class="video-wrap">
+    <div class="video-container" id="heroVideoContainer">
+      <!-- Replace the src below with your video URL (YouTube, Vimeo, or direct mp4). -->
+      <!-- Example: <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe> -->
+      <div class="video-placeholder" role="button" tabindex="0" aria-label="Play intro video">
+        <svg class="video-play-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+          <circle cx="40" cy="40" r="30" fill="currentColor"/>
+          <polygon points="34,28 34,52 54,40" fill="#0a0a0a"/>
+        </svg>
+        <div class="video-placeholder-label">Watch the intro</div>
+        <div class="video-placeholder-sub">A quick look at what's inside the community</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="wrap">
+
+  <!-- THE PROBLEM -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">The Problem</div>
+      <h2>Your brand<br>is <span class="o">working against</span> you.</h2>
+    </div>
+    <div class="contrast-grid">
+      <div class="contrast-col">
+        <div class="contrast-col-label bad">Without the Community</div>
+        <div class="check-list">
+          <div class="check-item"><span class="check-icon x">✕</span> Your brand doesn't reflect the quality of your work</div>
+          <div class="check-item"><span class="check-icon x">✕</span> Your content feels inconsistent because there's no system behind it</div>
+          <div class="check-item"><span class="check-icon x">✕</span> Hours spent creating with no clear positioning or strategy</div>
+          <div class="check-item"><span class="check-icon x">✕</span> Less experienced creators win better opportunities because their brand sends a clearer signal</div>
+        </div>
+      </div>
+      <div class="contrast-col right">
+        <div class="contrast-col-label good">Inside the Community</div>
+        <div class="check-list">
+          <div class="check-item"><span class="check-icon ok">✓</span> A brand that makes the right clients feel like you've been speaking directly to them</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> Clear positioning that signals your value before you say a word</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> A complete content system installed and ready to amplify your brand</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> The brand presence that attracts higher-quality clients and better opportunities</div>
+          <div class="check-item"><span class="check-icon ok">✓</span> Confidence showing up online because your brand finally reflects your level</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRODUCING -->
+  <section class="section" style="text-align:center; border-bottom:none; padding-bottom:0;">
+    <div class="eyebrow" style="margin-bottom:16px;">Introducing</div>
+    <h2 class="intro-h2" style="font-size:clamp(44px,6.5vw,80px);line-height:1.02;margin-bottom:20px;">FSCreative <span class="o">Membership.</span></h2>
+    <p style="max-width:600px;margin:0 auto 32px;font-size:16px;color:var(--dim);line-height:1.75;transition:color 0.25s;">A DWY community with modules, templates, tools, and accountability to completely transform how you approach your personal brand. <strong style="color:var(--text);transition:color 0.25s;">Build it right. Keep building.</strong></p>
+    <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773848359/_Use_the_first_image_as_the_fr_Nano_Banana_Pro_50199_kgrao3.jpg" alt="FSCreative Membership" style="width:100%;border-radius:12px;display:block;">
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="section" style="border-top:none; padding-top:2px;">
+    <div class="who-grid">
+      <div class="who-col">
+        <div class="who-tag yes">Fit Check</div>
+        <div class="who-col-label yes">You're Perfect<br>For This Community</div>
+        <div class="who-list">
+          <div class="who-item"><span class="who-icon yes">✓</span> You already sell a product, service, or offer — but your brand doesn't match the level of your work</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You've invested time into content but the results don't match the effort</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You know your skills are strong, yet others with weaker work appear more established</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You want a clear system for turning ideas into consistent, high-quality content</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You're ready to show up consistently and build something you're proud of</div>
+          <div class="who-item"><span class="who-icon yes">✓</span> You want coaching and accountability — not just another course to sit on</div>
+        </div>
+      </div>
+      <div class="who-col">
+        <div class="who-tag no">Fit Check</div>
+        <div class="who-col-label no">This Community Is<br>Not for You</div>
+        <div class="who-list">
+          <div class="who-item"><span class="who-icon no">✕</span> You're looking for a quick fix or shortcuts instead of a real system</div>
+          <div class="who-item"><span class="who-icon no">✕</span> Your primary goal is to go viral rather than build lasting brand authority</div>
+          <div class="who-item"><span class="who-icon no">✕</span> You're still in the "thinking about it" stage rather than actively building</div>
+          <div class="who-item"><span class="who-icon no">✕</span> You want someone to do the work for you</div>
+          <div class="who-item"><span class="who-icon no">✕</span> You're not prepared to implement what's inside the checklist</div>
+          <div class="who-item"><span class="who-icon no">✕</span> A $97/month investment in your brand feels financially stressful right now</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSFORMATION ROADMAP -->
+  <section class="section" id="roadmap" style="border-bottom: none;">
+    <div class="section-header">
+      <div class="eyebrow">The Transformation</div>
+      <h2>Your brand<br><span class="o">transformation.</span></h2>
+      <p class="section-sub">Each phase builds on the last. Work through them at your pace inside the community and you'll have a premium personal brand — positioned, designed, and ready to launch.</p>
+    </div>
+
+    <div class="roadmap">
+
+  <div class="roadmap-item">
+    <div class="roadmap-bubble">01</div>
+    <div class="roadmap-card rm-open">
+      <div class="roadmap-header">
+        <div class="roadmap-header-top">
+          <div class="roadmap-title">Creator Foundation</div>
+          <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="roadmap-desc">Lock in the strategic foundation for your brand.</div>
+      </div>
+      <div class="roadmap-body">
+        <ul class="roadmap-steps">
+          <li><span class="step-title">Define Your Avatar</span><span class="step-desc">Know exactly who your content is built for.</span></li>
+          <li><span class="step-title">Core Mission + Ikigai</span><span class="step-desc">Align your brand with authentic purpose.</span></li>
+          <li><span class="step-title">Your Core Values</span><span class="step-desc">Define the principles that shape how you show up.</span></li>
+          <li><span class="step-title">Content Pillars</span><span class="step-desc">Always know what to post.</span></li>
+          <li><span class="step-title">Map Your Origin Story</span><span class="step-desc">Turn your story into something people care about.</span></li>
+          <li><span class="step-title">Brand Mission</span><span class="step-desc">Give your brand a reason people want to follow.</span></li>
+          <li><span class="step-title">Conduct Brand Audit</span><span class="step-desc">Identify what to fix and where to improve.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="roadmap-item">
+    <div class="roadmap-bubble">02</div>
+    <div class="roadmap-card">
+      <div class="roadmap-header">
+        <div class="roadmap-header-top">
+          <div class="roadmap-title">Visual Identity</div>
+          <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="roadmap-desc">Design a recognizable visual identity and style system.</div>
+      </div>
+      <div class="roadmap-body">
+        <ul class="roadmap-steps">
+          <li><span class="step-title">Creator Moodboard</span><span class="step-desc">Lock in a clear visual direction.</span></li>
+          <li><span class="step-title">Define Color Palette &amp; Typography</span><span class="step-desc">Build a cohesive look that feels premium.</span></li>
+          <li><span class="step-title">Define Visual World</span><span class="step-desc">Create a recognizable style your audience can identify.</span></li>
+          <li><span class="step-title">Creator Analysis</span><span class="step-desc">Study what makes high-level creators stand out.</span></li>
+          <li><span class="step-title">Shot System Blueprint</span><span class="step-desc">Know exactly how to shoot your content.</span></li>
+          <li><span class="step-title">Craft Your Styleguide</span><span class="step-desc">Keep your visuals consistent every time.</span></li>
+          <li><span class="step-title">Content Approach</span><span class="step-desc">Develop a visual strategy that elevates your brand.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="roadmap-item">
+    <div class="roadmap-bubble">03</div>
+    <div class="roadmap-card">
+      <div class="roadmap-header">
+        <div class="roadmap-header-top">
+          <div class="roadmap-title">Content System</div>
+          <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="roadmap-desc">Install a repeatable system from idea to publish.</div>
+      </div>
+      <div class="roadmap-body">
+        <ul class="roadmap-steps">
+          <li><span class="step-title">Set Up Your Content System</span><span class="step-desc">Build a repeatable workflow from the ground up.</span></li>
+          <li><span class="step-title">Idea Generation</span><span class="step-desc">Always know what to create next.</span></li>
+          <li><span class="step-title">Scripting / Storytelling</span><span class="step-desc">Turn ideas into content that connects and converts.</span></li>
+          <li><span class="step-title">Batching Schedule &amp; Workflow</span><span class="step-desc">Batch efficiently instead of creating daily.</span></li>
+          <li><span class="step-title">Graphic Design</span><span class="step-desc">Create clean, consistent visuals.</span></li>
+          <li><span class="step-title">Technical Setup</span><span class="step-desc">Build a simple, streamlined workflow.</span></li>
+          <li><span class="step-title">Edit Your Content</span><span class="step-desc">Produce polished content faster.</span></li>
+          <li><span class="step-title">Finding Editing Rhythm</span><span class="step-desc">Lock in a consistent style you can replicate.</span></li>
+          <li><span class="step-title">Bonus: Creator Confidence Workshop</span><span class="step-desc">Show up with clarity and confidence on camera.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="roadmap-item">
+    <div class="roadmap-bubble">04</div>
+    <div class="roadmap-card">
+      <div class="roadmap-header">
+        <div class="roadmap-header-top">
+          <div class="roadmap-title">Launch</div>
+          <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="roadmap-desc">Build the system to execute a focused brand launch.</div>
+      </div>
+      <div class="roadmap-body">
+        <ul class="roadmap-steps">
+          <li><span class="step-title">Mini Chat Overview</span><span class="step-desc">Convert conversations into leads.</span></li>
+          <li><span class="step-title">Email Marketing</span><span class="step-desc">Build a list that turns subscribers into buyers.</span></li>
+          <li><span class="step-title">Lead Magnet Creation</span><span class="step-desc">Create a freebie that attracts your ideal audience.</span></li>
+          <li><span class="step-title">7-Day Launch Calendar</span><span class="step-desc">Follow a clear plan to build momentum fast.</span></li>
+          <li><span class="step-title">Set 90-Day Goals</span><span class="step-desc">Keep growing your brand long-term.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+    </div>
+  </section>
+
+  <!-- WHAT'S INSIDE -->
+  <section class="section" id="inside" style="border-bottom:none;">
+    <div class="section-header">
+      <div class="eyebrow">What's Inside</div>
+      <h2>Here's what you get inside the <span class="o">Community</span></h2>
+    </div>
+
+    <div class="inside-list">
+
+      <div class="inside-item">
+        <div class="inside-card">
+          <div class="inside-img-wrap">
+            <img src="remove_all_the_copy_and_the_logo_and_make_the_mockups_fill_the_entire_screen_all_it_is_is_a_tight-l_emur3dflq0m6bzut4lv7_1.png" alt="Brand Launch Checklist">
+          </div>
+          <div class="inside-card-body">
+            <div class="inside-num-mobile">01</div>
+            <div class="inside-label">Step-by-Step Guided System</div>
+            <div class="inside-body">Step-by-step guide to walk you through installing your complete personal brand from positioning to visual identity to content system and launch.</div>
+            <div class="arrow-list">
+              <div class="arrow-item"><span class="arr">→</span> Brand foundation and positioning</div>
+              <div class="arrow-item"><span class="arr">→</span> Visual identity and aesthetic</div>
+              <div class="arrow-item"><span class="arr">→</span> Content system</div>
+              <div class="arrow-item"><span class="arr">→</span> Automated funnel</div>
+              <div class="arrow-item"><span class="arr">→</span> Launch your brand with a clear growth strategy</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inside-item">
+        <div class="inside-card">
+          <div class="inside-img-wrap">
+            <img src="similar_to_the_second_image_i_downloaded_i_want_to_create_a_live_icon_on_my_image_of_me_which_is_me_8o4djey8awhjp1qls6lp_1.png" alt="Weekly Q&As">
+          </div>
+          <div class="inside-card-body">
+            <div class="inside-num-mobile">02</div>
+            <div class="inside-label">Weekly Q&amp;As</div>
+            <div class="inside-body">Every week we go live so you can get direct answers, brand feedback, and strategy guidance in real time.</div>
+            <div class="arrow-list">
+              <div class="arrow-item"><span class="arr">→</span> Live Q&amp;A and brand feedback</div>
+              <div class="arrow-item"><span class="arr">→</span> Content and positioning reviews</div>
+              <div class="arrow-item"><span class="arr">→</span> Unlimited access for as long as you're a member</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="inside-item">
+        <div class="inside-card">
+          <div class="inside-img-wrap">
+            <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773797709/Untitled_design123_iaau7u.jpg" alt="Ask Gabe Channel">
+          </div>
+          <div class="inside-card-body">
+            <div class="inside-num-mobile">03</div>
+            <div class="inside-label">Ask Gabe Channel</div>
+            <div class="inside-body">A dedicated space inside the FSCreative community where you can drop questions at any step of your process and get a direct Loom response from Gabe.</div>
+            <div class="arrow-list">
+              <div class="arrow-item"><span class="arr">→</span> Drop questions on any step of the checklist</div>
+              <div class="arrow-item"><span class="arr">→</span> Receive direct Loom feedback from Gabe</div>
+              <div class="arrow-item"><span class="arr">→</span> Brand, content, and strategy support</div>
+              <div class="arrow-item"><span class="arr">→</span> Full access every month you're a member</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHAT YOU'LL WALK AWAY WITH -->
+  <section class="section" style="padding-top: 0;">
+    <div class="section-header" style="margin-bottom: 24px;">
+      <div class="eyebrow">What You'll Walk Away With</div>
+    </div>
+    <div class="value-list">
+      <div class="value-row">
+        <div class="value-check">✓</div>
+        <div class="value-item-text"><span class="value-item-title">Crystal clear positioning</span> <span class="value-item-sub">So your value is understood before you say a word.</span></div>
+      </div>
+      <div class="value-row">
+        <div class="value-check">✓</div>
+        <div class="value-item-text"><span class="value-item-title">A premium visual identity</span> <span class="value-item-sub">Cinematic, cohesive content that instantly elevates your brand.</span></div>
+      </div>
+      <div class="value-row">
+        <div class="value-check">✓</div>
+        <div class="value-item-text"><span class="value-item-title">A repeatable content system</span> <span class="value-item-sub">Create consistently without starting from scratch or burning out.</span></div>
+      </div>
+      <div class="value-row">
+        <div class="value-check">✓</div>
+        <div class="value-item-text"><span class="value-item-title">An automated funnel</span> <span class="value-item-sub">Turn attention into subscribers and subscribers into buyers.</span></div>
+      </div>
+      <div class="value-row">
+        <div class="value-check">✓</div>
+        <div class="value-item-text"><span class="value-item-title">A 7-day launch plan</span> <span class="value-item-sub">Announce your rebrand with clarity and real momentum.</span></div>
+      </div>
+      <div class="value-row">
+        <div class="value-check">✓</div>
+        <div class="value-item-text"><span class="value-item-title">Ongoing creative direction</span> <span class="value-item-sub">Guidance, feedback, and accountability every month to make sure you actually execute.</span></div>
+      </div>
+      <div class="value-row">
+        <div class="value-check">✓</div>
+        <div class="value-item-text"><span class="value-item-title">Confidence in your brand</span> <span class="value-item-sub">Show up knowing your content finally reflects your level.</span></div>
+      </div>
+    </div>
+    <div class="bonus-box">
+      <svg class="bonus-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <div class="bonus-text">
+        <strong>Bonus: Creator Confidence Workshop</strong>
+        Show up with clarity and confidence on camera. Learn how to batch, script, and deliver content that actually connects.
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px;">
+          <div style="display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--dim);"><span style="color:#4ab874;flex-shrink:0;">→</span><span><strong style="color:var(--text);font-weight:600;">Limiting Beliefs &amp; Rewiring</strong> — Break through the mental patterns that keep you stuck.</span></div>
+          <div style="display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--dim);"><span style="color:#4ab874;flex-shrink:0;">→</span><span><strong style="color:var(--text);font-weight:600;">Core Mindset Shifts</strong> — Adopt the principles that help you show up and grow consistently.</span></div>
+          <div style="display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--dim);"><span style="color:#4ab874;flex-shrink:0;">→</span><span><strong style="color:var(--text);font-weight:600;">On Camera Confidence</strong> — Build clarity and comfort when speaking and creating.</span></div>
+          <div style="display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--dim);"><span style="color:#4ab874;flex-shrink:0;">→</span><span><strong style="color:var(--text);font-weight:600;">Content Execution Exercises</strong> — Use simple drills to develop your voice and get into flow faster.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <div class="section-header">
+      <div class="eyebrow">Membership Pricing</div>
+      <h2>One simple price.<br><span class="o">Everything included.</span></h2>
+    </div>
+
+    <div class="pricing-box">
+      <div class="pricing-top">
+        <div class="founding-badge">
+          <span class="live-dot" style="width:8px;height:8px;border-radius:50%;background:var(--orange);animation:blink 1.4s infinite;flex-shrink:0;"></span>
+          FSCreative Membership — Founding Rate
+        </div>
+
+        <div class="price-row">
+          <span class="price-amount">$97</span>
+          <div>
+            <div class="price-per">per month</div>
+          </div>
+        </div>
+
+        <p class="price-note">One simple monthly payment covers <strong>everything inside the community — modules, templates, weekly live calls, and direct feedback.</strong> Cancel anytime. No contracts. No hidden fees.</p>
+
+        <a href="https://fscreative.circle.so/checkout/fscreative-membership">
+          <button class="btn-primary" style="font-size:15px;padding:15px 32px;">
+            Join the Community — $97/mo →
+          </button>
+        </a>
+
+        <p style="font-size:13px;color:var(--dimmer);margin-top:14px;transition:color 0.25s;">
+          After joining you'll receive immediate access to the Brand Launch Checklist™ and all community resources. Weekly call schedule sent via email.
+        </p>
+      </div>
+
+      <div class="support-bar">
+        <svg class="support-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="support-text"><strong>Ongoing support every month.</strong> Weekly coaching calls, direct feedback, and community access for as long as you're a member.</div>
+      </div>
+
+      <div class="pricing-includes">
+        <div class="include-item">Brand Launch Checklist™ — all 30 steps</div>
+        <div class="include-item">Weekly live Q&amp;As + full recording library</div>
+        <div class="include-item">Ask Gabe Channel — direct Loom feedback</div>
+        <div class="include-item">Private FSCreative community access</div>
+        <div class="include-item">Content system installed</div>
+        <div class="include-item">Funnel &amp; launch strategy tools</div>
+        <div class="include-item">All future modules, templates &amp; workshops</div>
+      </div>
+    </div>
+
+    <!-- GUARANTEE -->
+    <div class="guarantee-box">
+      <div class="guarantee-label-row">
+        <svg class="guarantee-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="guarantee-label">The FSCreative Guarantee</div>
+      </div>
+      <div class="guar-headline">Show up. Do the work. <span style="color:#4ab874">Cancel anytime.</span></div>
+      <div class="guarantee-body">No contracts, no commitments. Stay as long as the community is helping you build your brand, and cancel with one click whenever you're ready. You only ever pay for the month you're in.</div>
+    </div>
+
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">FAQ</div>
+      <h2>Questions<br><span class="o">answered.</span></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">What exactly is the FSCreative Membership? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">A monthly community for creators and service providers who want to build a premium personal brand. You get the Brand Launch Checklist™ — a 30-step system that walks you through your entire brand build — plus weekly live coaching, direct feedback, and a private community to keep you moving.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What does the $97/month include? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Everything: the Brand Launch Checklist™, all masterclasses, weekly live coaching calls, private community access, the Ask Gabe channel for direct Loom feedback, and every new module, template, and workshop we release — for as long as you're a member.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How quickly will I see results? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Members who work through the checklist and engage on the coaching calls typically achieve brand clarity within the first 2 weeks. A complete transformation — identity, content system, and launch — is realistic within your first 30 to 60 days of active work.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if I'm just getting started? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">The checklist is designed to guide you from the very beginning. The earlier you build your brand correctly, the faster everything compounds. That said, you should be actively building or selling something — this community is about execution, not exploration.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I cancel anytime? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Yes. No contracts, no commitments. Cancel with one click at any time and you won't be billed again. You keep access through the end of your current billing period.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How does the guarantee work? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Simple: stay as long as the community is helping you build, and cancel anytime it isn't. You only pay for the months you actively use. No contracts, no lock-ins, no pressure.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">When are the weekly coaching calls? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <div class="faq-a">Every Tuesday at 5:30 PM CST. All sessions are recorded so you never miss a call even if your schedule conflicts. You'll receive the call link and schedule immediately after joining.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">About</div>
+      <h2>Your <span class="o">coach.</span></h2>
+    </div>
+    <div class="about-inner">
+      <img class="about-avatar" src="/458590589_1534654820461228_4076101104222827177_n.jpg" alt="Gabe">
+      <div>
+        <div class="about-name">Gabe Harris</div>
+        <div class="about-role">Founder, FSCreative™ · @watch.gabe</div>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="about-stat-val">50K+</div>
+            <div class="about-stat-label">Instagram Followers</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-val">35+</div>
+            <div class="about-stat-label">Digital Product Downloads</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-val">10 Yrs</div>
+            <div class="about-stat-label">Branding Agency Experience</div>
+          </div>
+        </div>
+        <div class="about-body">
+          <p>I built FSCreative™ because I kept watching talented creators get overlooked — not because their work wasn't good, but because their brand was working against them. A weak brand doesn't just hurt your aesthetics. It quietly costs you clients, partnerships, and opportunities every single day.</p>
+          <p>I've spent 10 years in branding building brands that don't just look premium — they make the right clients feel an instant connection the moment they land.</p>
+          <p>Inside the community, I work with you directly. You get my frameworks, my feedback, and my attention every week. This isn't a course you buy and forget — it's an ongoing execution environment built to get you a real result.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="eyebrow">From the Community</div>
+      <h2>Creators who<br><span class="o">did the work.</span></h2>
+      <p class="section-sub">Real results from creators who committed to building their brand with clarity, consistency, and the right system.</p>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/srishti_zgfdhy" alt="Srishti Sheshadri"></div>
+          <div>
+            <div class="testi-name">Srishti Sheshadri</div>
+            <div class="testi-handle">studiosoltera.com</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"I joined FS Creative a couple of weeks ago and I've honestly gotten a lot of value out of it. Content has been a very intimidating space for me for a while — and just going through the frameworks Gabe shares, I've really been able to turn it around and start feeling a little more excited about creating. He's always supporting us and holding us accountable to show up and actually work on our content."</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/lorena_p59fdv" alt="Lorena Alvarez"></div>
+          <div>
+            <div class="testi-name">Lorena Alvarez</div>
+            <div class="testi-handle">FSCreative Member</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"Before FS Creative, I felt more lost and disconnected in my creator journey. The community brought me clarity and accountability. The weekly calls are moments where I can ask Gabe questions and mostly show up. Gabe brings frameworks that help me have more clarity so I can structure my work and get more things done."</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/joab_kajmku" alt="Joab Teruel"></div>
+          <div>
+            <div class="testi-name">Joab Teruel</div>
+            <div class="testi-handle">@joabteruel</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"I went from overwhelmed to confident and supported. Before joining, getting started always felt like the hardest part. Now I have clarity, encouragement, and a group of creators who push me forward. Your messaging, support, and step by step systems take away the fear of doing it alone. I finally feel like I have the tools, direction, and community to reach my goals."</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/diana_dclsim" alt="Diana Scully"></div>
+          <div>
+            <div class="testi-name">Diana Scully</div>
+            <div class="testi-handle">@dianafscully</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"The processes and challenges inside this community have done more for my confidence than anything I've tried before. I've always been an observer on social media, not a participant, so using it to market my business felt intimidating. The structure here makes it feel achievable. The Notion workbooks are incredibly helpful because we cover so many ideas and having clear follow up steps keeps everything digestible."</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799125/image_1_tvcief.png" alt="Lucy Drughieri"></div>
+          <div>
+            <div class="testi-name">Lucy Drughieri</div>
+            <div class="testi-handle">@lucila.drughieri</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"FSCreative has been invaluable for organizing my scattered thoughts and helping me discover who I am and what I can create. The resource hub is excellent and studying your editing style and Postcards gives me a real sense of belonging. Before joining I felt lost, now I have a clear roadmap and the confidence to pursue my goals."</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/theresa_axof4n" alt="Theresa Reisinger"></div>
+          <div>
+            <div class="testi-name">Theresa Reisinger</div>
+            <div class="testi-handle">@theresareisinger</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"Gabe's ability to teach complex techniques in a simple, hands-on way is unmatched. I gained invaluable skills, from mastering light and composition to understanding how to build a strong brand and get clients. He helped me see photography, videography, and social media from both a creative and entrepreneurial perspective. It completely leveled up the way I approach my work."</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/matthew_bdohws" alt="Matthew Christie"></div>
+          <div>
+            <div class="testi-name">Matthew Christie</div>
+            <div class="testi-handle">@adventurematt</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"Working with Gabe was one of the most impactful learning experiences I've had. I've never gotten much out of traditional courses or YouTube videos, but learning directly from him, getting real-time feedback, and seeing exactly how to improve was next-level. I connected with incredible people and left feeling inspired, more confident, and way more capable creatively. I'm still applying what I learned every day."</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testi-header">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/sofia_ubrhat" alt="Sofia Kalma"></div>
+          <div>
+            <div class="testi-name">Sofia Kalma</div>
+            <div class="testi-handle">@shotby.sof</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"I was immediately inspired by the lifestyle Gabe had built, getting paid to create and travel. He helped me return to the basics of photography and taught skills that go far beyond just hitting record on a phone. More importantly, he created a space where I felt supported to show up online and push past my comfort zone. Before, I wasn't comfortable posting on social media, but now I feel confident, clear, and excited to share my work."</div>
+      </div>
+
+    </div>
+  </section>
+
+</div><!-- /wrap -->
+
+<!-- FINAL CTA -->
+<section class="final-section">
+  <div style="position:relative;z-index:1;max-width:680px;margin:0 auto;">
+    <div class="final-eyebrow">FSCreative Membership</div>
+    <div class="final-headline">We know you've thought about it. <span class="o">It's time to make it happen.</span></div>
+    <p class="final-sub">Install the system and transform your personal brand. Attract the right audience with cinematic content and sustain it with the systems needed to avoid burnout.</p>
+    <div class="final-cta-wrap">
+      <a href="https://fscreative.circle.so/checkout/fscreative-membership">
+        <button class="btn-primary" style="font-size:15px;padding:15px 36px;">
+          Join the Community — $97/mo →
+        </button>
+      </a>
+    </div>
+    <p class="final-micro">$97 per month · Cancel anytime · Ongoing support · No contracts</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">FSCreative™ — fscreative.live</span>
+    <a class="footer-link" href="https://fscreative.circle.so/checkout/fscreative-membership">Join the Community →</a>
+  </div>
+</footer>
+
+<script>
+  // ── BANNER PANEL ROTATION ──
+  (function() {
+    const panelCd   = document.getElementById('bar-panel-cd');
+    const panelGuar = document.getElementById('bar-panel-guar');
+    let showingCd = true;
+    function swap() {
+      if (showingCd) {
+        panelCd.classList.remove('bar-visible');
+        setTimeout(() => { panelGuar.classList.add('bar-visible'); }, 100);
+      } else {
+        panelGuar.classList.remove('bar-visible');
+        setTimeout(() => { panelCd.classList.add('bar-visible'); }, 100);
+      }
+      showingCd = !showingCd;
+    }
+    setInterval(swap, 6000);
+  })();
+
+  // ── ROADMAP ACCORDION (single-open) ──
+  document.querySelectorAll('.roadmap-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const card = header.closest('.roadmap-card');
+      const isOpen = card.classList.contains('rm-open');
+      document.querySelectorAll('.roadmap-card').forEach(c => c.classList.remove('rm-open'));
+      if (!isOpen) card.classList.add('rm-open');
+    });
+  });
+
+  // ── FAQ ACCORDION (single-open) ──
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('faq-open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('faq-open'));
+      if (!isOpen) item.classList.add('faq-open');
+    });
+  });
+
+  // ── THEME TOGGLE ──
+  const toggle = document.getElementById('themeToggle');
+  if (localStorage.getItem('fsc-theme') === 'light') document.body.classList.add('light');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    localStorage.setItem('fsc-theme', document.body.classList.contains('light') ? 'light' : 'dark');
+  });
+
+  // ── NEXT COMMUNITY CALL COUNTDOWN (Tuesdays 5:30 PM CST) ──
+  (function() {
+    function getChicagoOffsetMin(date) {
+      const utcH = date.getUTCHours();
+      const chH = parseInt(new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Chicago', hour: '2-digit', hour12: false
+      }).format(date));
+      return ((utcH - chH) + 24) % 24 * 60;
+    }
+    function getNextCall() {
+      const now = new Date();
+      const offMin = getChicagoOffsetMin(now);
+      const chNow = new Date(now.getTime() - offMin * 60000);
+      const dow = chNow.getUTCDay();
+      const chH = chNow.getUTCHours();
+      const chM = chNow.getUTCMinutes();
+      let d = (2 - dow + 7) % 7;
+      if (d === 0 && chH * 60 + chM >= 17 * 60 + 30) d = 7;
+      const targetCh = new Date(Date.UTC(
+        chNow.getUTCFullYear(), chNow.getUTCMonth(), chNow.getUTCDate() + d, 17, 30, 0
+      ));
+      const approxUTC = new Date(targetCh.getTime() + offMin * 60000);
+      const offAtTarget = getChicagoOffsetMin(approxUTC);
+      return new Date(targetCh.getTime() + offAtTarget * 60000);
+    }
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function tick() {
+      const diff = getNextCall() - new Date();
+      if (diff <= 0) {
+        ['bar-days','bar-hours','bar-mins','bar-secs'].forEach(id => document.getElementById(id).textContent = '00');
+        return;
+      }
+      const s = Math.floor(diff / 1000);
+      document.getElementById('bar-days').textContent  = pad(Math.floor(s / 86400));
+      document.getElementById('bar-hours').textContent = pad(Math.floor((s % 86400) / 3600));
+      document.getElementById('bar-mins').textContent  = pad(Math.floor((s % 3600) / 60));
+      document.getElementById('bar-secs').textContent  = pad(s % 60);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+</script>
+<script>
+  document.querySelectorAll('.btn-primary, a[href*="checkout"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      gtag('event', 'join_community_click', {
+        'event_category': 'conversion',
+        'event_label': el.closest('section') ? el.closest('section').id || 'page' : 'nav'
+      });
+    });
+  });
+</script>
+</body>
+</html>
