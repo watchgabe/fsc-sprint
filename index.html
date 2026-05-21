@@ -79,9 +79,7 @@ body { min-height: 100vh; overflow-x: hidden; }
 }
 
 .toggle {
-  position: fixed;
-  top: 18px; right: 18px;
-  z-index: 10000;
+  margin-left: auto;
   display: flex; align-items: center; gap: 8px;
   background: var(--card);
   border: 1px solid var(--border);
@@ -89,6 +87,7 @@ body { min-height: 100vh; overflow-x: hidden; }
   padding: 4px 10px 4px 4px;
   cursor: pointer;
   user-select: none;
+  flex-shrink: 0;
   transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 .toggle .thumb {
@@ -723,11 +722,6 @@ footer a { color: var(--orange); text-decoration: none; }
 
 <canvas id="grain"></canvas>
 
-<div class="toggle" id="toggle" role="button" aria-label="Toggle light/dark mode">
-  <span class="thumb"></span>
-  <span class="label" id="toggleLabel">Light</span>
-</div>
-
 <main class="page">
 
   <header class="header">
@@ -737,6 +731,10 @@ footer a { color: var(--orange); text-decoration: none; }
         <span class="wordmark">FSCreative™</span>
         <span class="project">Frictionless OS</span>
       </div>
+    </div>
+    <div class="toggle" id="toggle" role="button" aria-label="Toggle light/dark mode">
+      <span class="thumb"></span>
+      <span class="label" id="toggleLabel">Light</span>
     </div>
   </header>
 
