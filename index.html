@@ -118,25 +118,29 @@ body { min-height: 100vh; overflow-x: hidden; }
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
   padding-bottom: 24px;
   margin-bottom: 28px;
   border-bottom: 1px solid var(--rule);
 }
-.lockup { display: flex; align-items: center; gap: 10px; }
-.lockup img.icon { width: 22px; height: 22px; display: block; }
+.lockup { display: flex; align-items: center; gap: 12px; }
+.lockup img.icon {
+  width: 32px; height: 32px;
+  display: block;
+  flex-shrink: 0;
+}
+.lockup .brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1;
+}
 .lockup .wordmark {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15px;
   letter-spacing: -0.01em;
   color: var(--text);
-}
-.lockup .divider {
-  width: 1px; height: 14px;
-  background: var(--rule);
-  margin: 0 2px;
 }
 .lockup .project {
   font-family: 'Space Mono', monospace;
@@ -144,13 +148,6 @@ body { min-height: 100vh; overflow-x: hidden; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--sub-bright);
-}
-.header .meta {
-  font-family: 'Space Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--sub-faint);
 }
 
 .eyebrow {
@@ -736,11 +733,11 @@ footer a { color: var(--orange); text-decoration: none; }
   <header class="header">
     <div class="lockup">
       <img class="icon" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
-      <span class="wordmark">FSCreative™</span>
-      <span class="divider"></span>
-      <span class="project">Frictionless OS</span>
+      <div class="brand">
+        <span class="wordmark">FSCreative™</span>
+        <span class="project">Frictionless OS</span>
+      </div>
     </div>
-    <div class="meta">v1.0 · Founding Five</div>
   </header>
 
   <!-- HERO -->
@@ -906,7 +903,7 @@ footer a { color: var(--orange); text-decoration: none; }
     <div class="coach">
       <div class="photo" id="coachPhoto">
         <!-- PHOTO PLACEHOLDER: replace src below with Gabe's photo URL (Cloudinary recommended, portrait ~3:4 ratio) -->
-        <img src="https://fscreative.live/hero-portrait.jpg" alt="Gabe Harris" onerror="this.style.display='none'; this.parentNode.innerHTML = 'Photo<br/>Placeholder<br/>132 × 168';" />
+        <img src="hero-portrait.jpg" alt="Gabe Harris" onerror="this.style.display='none'; this.parentNode.innerHTML = 'Photo<br/>Placeholder<br/>132 × 168';" />
       </div>
       <div>
         <div class="who">Founder · FSCreative™</div>
