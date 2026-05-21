@@ -1,1655 +1,1397 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-mode="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- PostHog -->
-<script>
-  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-  posthog.init('phc_rEFnncPc4cewNwrgp2rmYrKcBRjuBsU8K75bxm2Yq9cq', {api_host:'https://us.i.posthog.com', person_profiles:'identified_only'});
-</script>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-291RR55X35"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-291RR55X35');
-</script>
-<title>FSCreative™ Brand Launch Sprint — Install a Premium Personal Brand in 30 Days</title>
-<meta property="og:title" content="FSCreative™ Brand Launch Sprint — Install a Premium Personal Brand in 30 Days">
-<meta property="og:description" content="A focused 30-day challenge that installs your positioning, visual identity, and content system. One payment. 60 days of support. A premium brand on the other side.">
-<meta property="og:type" content="website">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Frictionless OS · A personal brand built for you in 60 days</title>
+<meta name="description" content="A done-for-you personal brand system for creative solopreneurs who already have a real business. Built by Gabe Harris." />
 
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" />
 
 <style>
-/* ─── RESET ─── */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* Shared */
+:root { --max: 720px; }
 
-/* ─── DARK TOKENS (default) ─── */
-:root {
-  --bg:       #0a0a0a;
-  --surface:  #111111;
-  --card:     #161616;
-  --border:   #1f1f1f;
-  --border2:  #2a2a2a;
-  --orange:   #F0601B;
-  --orange2:  #ff6d28;
-  --text:     #ffffff;
-  --dim:      #a0a0a0;
-  --dimmer:   #555555;
-  --green:    #3ab864;
-  --max:      1160px;
-  --nav-bg:   rgba(10,10,10,0.92);
-  --nav-h:    64px;
-  --bar-h:    44px;
+/* Dark mode (default) */
+:root,
+[data-mode="dark"] {
+  --bg:          #061410;
+  --card:        #091a14;
+  --border:      #0f261c;
+  --text:        #ffffff;
+  --sub:         rgba(255,255,255,0.55);
+  --sub-bright:  rgba(255,255,255,0.72);
+  --sub-faint:   rgba(255,255,255,0.38);
+  --orange:      #ee663e;
+  --input-bg:    #040e09;
+  --btn-bg:      #ffffff;
+  --btn-text:    #061410;
+  --social:      rgba(255,255,255,0.30);
+  --foot:        rgba(255,255,255,0.40);
+  --join-bg:     rgba(238,102,62,0.08);
+  --join-border: rgba(238,102,62,0.28);
+  --rule:        rgba(255,255,255,0.08);
 }
 
-/* ─── LIGHT TOKENS ─── */
-body.light {
-  --bg:       #f7f6f4;
-  --surface:  #edecea;
-  --card:     #e2e0dc;
-  --border:   #ccc9c2;
-  --border2:  #b8b4ac;
-  --text:     #0a0a0a;
-  --dim:      #404040;
-  --dimmer:   #888888;
-  --green:    #1a7a3a;
-  --nav-bg:   rgba(247,246,244,0.92);
+/* Light mode */
+[data-mode="light"] {
+  --bg:          #f5f0ea;
+  --card:        #ece6de;
+  --border:      #d8d0c6;
+  --text:        #061410;
+  --sub:         #5a5550;
+  --sub-bright:  #3a3530;
+  --sub-faint:   #7a7570;
+  --orange:      #ee663e;
+  --input-bg:    #f5f0ea;
+  --btn-bg:      #061410;
+  --btn-text:    #ffffff;
+  --social:      #9a9490;
+  --foot:        #7a7570;
+  --join-bg:     rgba(238,102,62,0.06);
+  --join-border: rgba(238,102,62,0.22);
+  --rule:        rgba(6,20,16,0.10);
 }
 
-/* ─── BASE ─── */
-body {
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Barlow', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  transition: background 0.25s, color 0.25s;
-}
-
-body::before {
-  content: '';
-  position: fixed; inset: 0; z-index: 9998; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)' opacity='0.04'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-}
-
-a { color: inherit; text-decoration: none; }
-
-/* ─── NAV ─── */
-nav {
-  position: sticky; top: 0; z-index: 100;
-  border-bottom: 1px solid var(--border);
-  background: var(--nav-bg);
-  backdrop-filter: blur(16px);
-  transition: background 0.25s, border-color 0.25s;
-}
-.nav-inner {
-  max-width: var(--max); margin: 0 auto; padding: 0 32px;
-  height: 64px;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 12px;
-}
-.nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-.logo-dark  { display: block; }
-.logo-light { display: none; }
-body.light .logo-dark  { display: none; }
-body.light .logo-light { display: block; }
-.nav-right { display: flex; align-items: center; gap: 10px; }
-
-/* theme toggle */
-.theme-toggle {
-  background: none; border: 1px solid var(--border2); border-radius: 6px;
-  padding: 6px 8px; cursor: pointer; color: var(--dimmer);
-  display: flex; align-items: center; justify-content: center;
-  transition: border-color 0.2s, color 0.2s;
-}
-.theme-toggle:hover { border-color: var(--border2); color: var(--text); }
-.icon-moon { display: block; }
-.icon-sun  { display: none; }
-body.light .icon-moon { display: none; }
-body.light .icon-sun  { display: block; }
-
-/* ─── BUTTONS ─── */
-.btn-primary {
-  background: var(--orange); color: #fff;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 2px;
-  border: none; border-radius: 5px; cursor: pointer;
-  padding: 11px 22px; white-space: nowrap;
-  transition: background 0.2s, transform 0.15s;
-}
-.btn-primary:hover { background: var(--orange2); transform: translateY(-1px); }
-.btn-outline {
-  background: transparent; color: var(--text);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 13px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 2px;
-  border: 1px solid var(--border2); border-radius: 5px; cursor: pointer;
-  padding: 10px 22px; white-space: nowrap;
-  transition: border-color 0.2s, color 0.2s;
-}
-.btn-outline:hover { border-color: var(--text); }
-
-/* ─── URGENCY BAR ─── */
-.urgency-bar {
-  height: var(--bar-h); overflow: hidden; position: relative;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.25s, border-color 0.25s;
-}
-.bar-panel {
-  display: flex; align-items: center; justify-content: center; gap: 16px;
-  position: absolute; opacity: 0;
-  transition: opacity 0.4s ease;
-}
-.bar-panel.bar-visible { opacity: 1; position: relative; }
-.bar-countdown { display: flex; align-items: center; gap: 8px; }
-.bar-cd-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 10px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 3px; color: var(--dimmer);
-  white-space: nowrap; transition: color 0.25s;
-}
-.bar-cd-timer { display: flex; align-items: center; gap: 2px; }
-.bar-cd-unit { display: flex; flex-direction: column; align-items: center; min-width: 28px; }
-.bar-cd-num {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 20px; font-weight: 900; color: var(--text); line-height: 1;
-  transition: color 0.25s;
-}
-.bar-cd-sub {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 7px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 1px; color: var(--dimmer);
-  transition: color 0.25s;
-}
-.bar-cd-sep { font-size: 16px; color: var(--dimmer); padding-bottom: 10px; font-weight: 700; }
-.urgency-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
-.bar-guarantee {
-  display: flex; align-items: center; gap: 8px;
-}
-.bar-guar-icon { color: #4ab874; flex-shrink: 0; }
-.bar-guar-text {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 2px; color: var(--dimmer);
-  transition: color 0.25s;
-}
-.bar-guar-accent { color: #4ab874; font-weight: 800; }
-
-@keyframes blink {
-  0%,100%{opacity:1} 50%{opacity:0.3}
-}
-
-/* ─── WRAP ─── */
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
-
-/* ─── SECTION ─── */
-.section { padding: 80px 0; border-bottom: 1px solid var(--border); transition: border-color 0.25s; }
-.section:last-child { border-bottom: none; }
-.section-header { margin-bottom: 48px; }
-.eyebrow {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 4px; color: var(--orange);
-  margin-bottom: 16px;
-}
-h2 {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: clamp(36px, 4vw, 56px);
-  font-weight: 900; text-transform: uppercase;
-  letter-spacing: -2px; line-height: 0.93;
-  color: var(--text); transition: color 0.25s;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
-h2 .o { color: var(--orange); }
-.section-sub {
-  font-size: 17px; color: var(--dim); max-width: 600px;
-  margin-top: 20px; line-height: 1.65; transition: color 0.25s;
-}
+body { min-height: 100vh; overflow-x: hidden; }
 
-/* ─── HERO ─── */
-.hero {
-  min-height: calc(100dvh - var(--nav-h) - var(--bar-h));
-  width: 100%;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center;
-  padding: 80px 24px 32px;
-  border-bottom: none;
-  position: relative; overflow: hidden;
-  transition: border-color 0.25s;
-}
-.hero-inner {
-  width: 100%; max-width: 960px;
-  display: flex; flex-direction: column; align-items: center;
-  position: relative; z-index: 1;
-}
-.hero::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(240,96,27,0.08) 0%, transparent 65%);
+#grain {
+  position: fixed; top: 0; left: 0;
+  width: 100vw; height: 100vh;
   pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
 }
-.hero-spots-row {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
-  margin-bottom: 28px;
-}
-.hero-spots-num { color: var(--orange); font-weight: 800; }
-.hero-spots-text { color: var(--dimmer); font-weight: 600; transition: color 0.25s; }
 
+.toggle {
+  position: fixed;
+  top: 18px; right: 18px;
+  z-index: 10000;
+  display: flex; align-items: center; gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 4px 10px 4px 4px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.35s ease, border-color 0.35s ease;
+}
+.toggle .thumb {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: background-color 0.2s;
+}
+[data-mode="light"] .toggle { border-color: rgba(238,102,62,0.6); background: rgba(238,102,62,0.95); }
+[data-mode="light"] .toggle .label { color: #ffffff; }
+.toggle .label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sub-bright);
+}
+
+.page {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 52px 20px 80px;
+  position: relative;
+}
+
+/* Header lockup */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 24px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--rule);
+}
+.lockup { display: flex; align-items: center; gap: 10px; }
+.lockup img.icon { width: 22px; height: 22px; display: block; }
+.lockup .wordmark {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.lockup .divider {
+  width: 1px; height: 14px;
+  background: var(--rule);
+  margin: 0 2px;
+}
+.lockup .project {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sub-bright);
+}
+.header .meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sub-faint);
+}
+
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sub-bright);
+  margin-bottom: 14px;
+}
+
+/* Hero */
+.hero { padding-top: 24px; padding-bottom: 12px; }
 .hero h1 {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 900;
-  font-size: clamp(52px, 6.5vw, 88px);
-  text-transform: uppercase;
-  letter-spacing: -3px; line-height: 0.92;
-  color: var(--text); max-width: 960px;
-  margin: 0 auto 36px;
-  transition: color 0.25s;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 18px;
 }
-.hero h1 .o { color: var(--orange); }
-
-.hero-sub {
-  font-size: 18px; font-weight: 500; color: var(--dim);
-  max-width: 580px; margin: 0 auto 56px; line-height: 1.65;
-  transition: color 0.25s;
+.hero h1 em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--orange);
+  letter-spacing: -0.015em;
 }
-.hero-sub strong { color: var(--text); font-weight: 700; }
-
-.hero-cta-group {
-  display: flex; align-items: center; justify-content: center;
-  flex-wrap: wrap; gap: 10px; margin-bottom: 28px;
-  width: 100%; max-width: 560px;
-}
-.hero-micro { font-size: 13px; color: var(--dimmer); letter-spacing: 0.5px; transition: color 0.25s; }
-
-/* ─── VIDEO ─── */
-.video-section { background: var(--bg); border-bottom: 1px solid var(--border); transition: background 0.25s, border-color 0.25s; }
-.video-wrap { max-width: var(--max); margin: 0 auto; padding: 48px 32px; }
-.video-container { width: 100%; max-width: 800px; margin: 0 auto; aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; }
-.video-container iframe { width: 100%; height: 100%; border: 0; }
-
-/* ─── CONTRAST GRID ─── */
-.contrast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-.contrast-col { background: var(--surface); border: 1px solid var(--border); padding: 36px 32px; transition: background 0.25s, border-color 0.25s; }
-.contrast-col.right { background: var(--card); }
-.contrast-col-label {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px;
-}
-.contrast-col-label.bad  { color: var(--dimmer); }
-.contrast-col-label.good { color: var(--orange); }
-.check-list { display: flex; flex-direction: column; gap: 14px; }
-.check-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s; }
-.check-icon { font-size: 13px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
-.check-icon.x  { color: var(--dimmer); }
-.check-icon.ok { color: var(--green); }
-
-/* ─── WHAT'S INSIDE ─── */
-.inside-list { display: flex; flex-direction: column; }
-.inside-item {
-  padding: 40px 0;
-  border-bottom: 1px solid var(--border);
-  transition: border-color 0.25s;
-}
-.inside-item:first-child { border-top: 1px solid var(--border); }
-.inside-item:last-child { border-bottom: none; }
-.inside-num-mobile {
-  display: block;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 800;
-  letter-spacing: 3px; text-transform: uppercase;
-  color: var(--orange); margin-bottom: 10px;
-}
-/* Desktop: side-by-side card */
-.inside-card {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  align-items: center;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: background 0.25s, border-color 0.25s;
-}
-.inside-item:nth-child(odd) .inside-card { grid-template-columns: 2fr 3fr; }
-.inside-item:nth-child(odd) .inside-img-wrap { order: 2; }
-.inside-item:nth-child(odd) .inside-card-body { order: 1; }
-.inside-img-wrap { line-height: 0; }
-.inside-img-wrap img { width: 100%; display: block; aspect-ratio: 21/9; object-fit: cover; border-radius: 10px; }
-.inside-card-body { padding: 28px 36px; display: flex; flex-direction: column; justify-content: center; }
-.inside-label {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 22px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 0.5px;
-  color: var(--text); margin-bottom: 12px;
-  transition: color 0.25s;
-}
-.inside-body { font-size: 14px; color: var(--dim); line-height: 1.75; transition: color 0.25s; }
-.arrow-list { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
-.arrow-item {
-  font-size: 14px; color: var(--dim); line-height: 1.5;
-  display: flex; gap: 10px; align-items: flex-start;
-  transition: color 0.25s;
-}
-.arrow-item .arr { color: var(--orange); flex-shrink: 0; font-weight: 700; }
-
-/* ─── ROADMAP ─── */
-.roadmap { display: flex; flex-direction: column; gap: 12px; position: relative; }
-.roadmap::before {
-  content: ''; position: absolute;
-  left: 20px; top: 0; bottom: 0; width: 2px;
-  background: var(--border2); z-index: 0;
-}
-.roadmap-item { display: flex; gap: 20px; align-items: flex-start; position: relative; }
-.roadmap-bubble {
-  width: 42px; height: 42px; border-radius: 50%;
-  background: var(--orange); color: #fff;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 15px; font-weight: 900; letter-spacing: 0.5px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; position: relative; z-index: 1; margin-top: 2px;
-}
-.roadmap-card {
-  flex: 1; border: 1px solid var(--border); border-radius: 10px;
-  overflow: hidden; transition: border-color 0.25s;
-}
-.roadmap-card:hover { border-color: var(--border2); }
-.roadmap-header {
-  display: flex; flex-direction: column;
-  padding: 18px 22px; cursor: pointer; user-select: none; gap: 6px;
-}
-.roadmap-header-top {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-}
-.roadmap-title {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 15px; font-weight: 800; color: var(--text); transition: color 0.25s;
-}
-.roadmap-desc { font-size: 13px; color: var(--dim); line-height: 1.55; transition: color 0.25s; }
-.roadmap-chevron {
-  width: 18px; height: 18px; flex-shrink: 0; color: var(--dimmer);
-  transition: transform 0.25s, color 0.25s;
-}
-.roadmap-card.rm-open { background: var(--card); border-color: var(--border2); }
-.roadmap-card.rm-open .roadmap-title { color: var(--orange); }
-.roadmap-card.rm-open .roadmap-chevron { transform: rotate(180deg); color: var(--orange); }
-.roadmap-body {
-  max-height: 0; overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.25s ease;
-  padding: 0 22px; border-top: 0px solid var(--border);
-}
-.roadmap-card.rm-open .roadmap-body {
-  max-height: 600px; padding: 16px 22px 20px;
-  border-top: 1px solid var(--border);
-}
-.roadmap-steps { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-.roadmap-steps li {
-  display: flex; align-items: flex-start; gap: 10px;
-  font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s;
-}
-.roadmap-steps li::before { content: '→'; color: var(--orange); flex-shrink: 0; font-size: 13px; margin-top: 1px; }
-
-/* ─── ROADMAP STEP DESCRIPTORS ─── */
-.roadmap-steps li { flex-direction: row; align-items: baseline; flex-wrap: wrap; gap: 0; }
-.roadmap-steps li::before { margin-top: 0; align-self: flex-start; flex-shrink: 0; margin-right: 6px; }
-.step-title { font-weight: 700; color: var(--text); font-size: 14px; line-height: 1.5; transition: color 0.25s; margin-right: 4px; white-space: nowrap; }
-.step-desc { font-size: 14px; font-weight: 400; color: var(--dimmer); line-height: 1.5; transition: color 0.25s; }
-
-/* ─── VALUE LIST V2 ─── */
-.value-item-title { font-weight: 700; color: var(--text); transition: color 0.25s; }
-.value-item-sub { color: var(--dim); transition: color 0.25s; }
-
-/* ─── BONUS BOX ─── */
-.bonus-box {
-  display: flex; align-items: flex-start; gap: 12px;
-  background: rgba(62,184,100,0.05);
-  border: 1px solid rgba(62,184,100,0.18);
-  border-radius: 8px; padding: 16px 18px;
-  margin-top: 16px;
-}
-body.light .bonus-box { background: rgba(26,122,58,0.06); border-color: rgba(26,122,58,0.2); }
-.bonus-icon { color: #4ab874; flex-shrink: 0; margin-top: 1px; }
-.bonus-text { font-size: 13px; color: var(--dim); line-height: 1.6; transition: color 0.25s; }
-.bonus-text strong { color: #4ab874; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 11px; font-family: 'Barlow Condensed', sans-serif; display: block; margin-bottom: 4px; }
-
-/* ─── VALUE LIST ─── */
-.value-list {
-  border: 1px solid var(--border);
-  border-radius: 10px; overflow: hidden;
-  background: rgba(62,184,100,0.02);
-  border-color: rgba(62,184,100,0.18);
-  transition: border-color 0.25s;
-}
-body.light .value-list { background: rgba(26,122,58,0.03); border-color: rgba(26,122,58,0.18); }
-.value-row {
-  display: flex; align-items: center; gap: 16px;
-  padding: 16px 28px;
-  border-bottom: 1px solid rgba(62,184,100,0.12);
-  transition: border-color 0.25s;
-}
-.value-row:last-child { border-bottom: none; }
-.value-check {
-  width: 22px; height: 22px; border-radius: 50%;
-  background: rgba(62,184,100,0.15);
-  border: 1px solid rgba(62,184,100,0.35);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  color: #4ab874;
-  font-size: 11px; font-weight: 900;
-}
-.value-item-text {
-  font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s;
-}
-.value-total-label {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 13px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;
-  color: var(--text); transition: color 0.25s;
-}
-
-/* ─── WHO ─── */
-.who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-.who-col { background: var(--surface); border: 1px solid var(--border); padding: 36px 32px; transition: background 0.25s, border-color 0.25s; }
-.who-tag {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+.hero .lede {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--sub-bright);
+  max-width: 580px;
   margin-bottom: 8px;
 }
-.who-tag.yes { color: var(--orange); }
-.who-tag.no  { color: var(--dimmer); }
-.who-col-label {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 24px; line-height: 1.1;
-}
-.who-col-label.yes { color: var(--text); }
-.who-col-label.no  { color: var(--dim); }
-.who-list { display: flex; flex-direction: column; gap: 12px; }
-.who-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--dim); line-height: 1.5; transition: color 0.25s; }
-.who-icon { font-size: 13px; font-weight: 900; flex-shrink: 0; margin-top: 1px; }
-.who-icon.yes { color: var(--green); }
-.who-icon.no  { color: var(--dimmer); }
+.hero .lede strong { color: var(--text); font-weight: 700; }
 
-/* ─── PRICING ─── */
-.pricing-box {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 10px; overflow: hidden;
-  max-width: 520px; margin: 0 auto;
-  transition: background 0.25s, border-color 0.25s;
-}
-.pricing-top {
-  padding: 48px 40px; position: relative;
-  transition: border-color 0.25s;
-}
-.pricing-top::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: var(--orange);
-}
-.founding-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px;
-  color: var(--orange); background: rgba(240,96,27,0.1);
-  border: 1px solid rgba(240,96,27,0.25); border-radius: 3px; padding: 5px 12px; margin-bottom: 24px;
-}
-.price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
-.price-amount {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 80px; font-weight: 900; line-height: 1; letter-spacing: -3px; color: var(--text);
-  transition: color 0.25s;
-}
-.price-was {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 36px; font-weight: 700; color: var(--dimmer); text-decoration: line-through;
-}
-.price-per { font-size: 15px; font-weight: 600; color: var(--dim); transition: color 0.25s; }
-.price-note { font-size: 14px; color: var(--dim); margin-bottom: 24px; line-height: 1.6; transition: color 0.25s; }
-.price-note strong { color: var(--text); }
-
-.pricing-includes { padding: 28px 40px; display: grid; grid-template-columns: 1fr; gap: 10px; transition: border-color 0.25s; }
-.include-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--dim); transition: color 0.25s; }
-.include-item::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 13px; flex-shrink: 0; }
-
-/* Support bar */
-.support-bar {
-  display: flex; align-items: center; gap: 12px;
-  background: rgba(62,184,100,0.05);
-  border: 1px solid rgba(62,184,100,0.18);
-  border-radius: 8px; padding: 14px 18px;
-  margin: 0 40px 32px;
-}
-body.light .support-bar { background: rgba(26,122,58,0.06); border-color: rgba(26,122,58,0.2); }
-.support-icon { color: #4ab874; flex-shrink: 0; }
-.support-text { font-size: 13px; color: var(--dim); line-height: 1.5; transition: color 0.25s; }
-.support-text strong { color: var(--text); }
-
-/* ─── GUARANTEE ─── */
-.guarantee-box {
-  background: rgba(62,184,100,0.04);
-  border: 1px solid rgba(62,184,100,0.18);
-  border-radius: 10px; padding: 32px 36px;
-  display: flex; flex-direction: column; gap: 10px;
-  max-width: 520px; margin: 12px auto 0;
-  transition: background 0.25s, border-color 0.25s;
-}
-body.light .guarantee-box {
-  background: rgba(26,122,58,0.06);
-  border-color: rgba(26,122,58,0.2);
-}
-.guarantee-label-row {
-  display: flex; align-items: center; gap: 8px;
-}
-.guarantee-icon { flex-shrink: 0; color: #4ab874; }
-body.light .guarantee-icon { color: var(--green); }
-.guarantee-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: #4ab874;
-}
-body.light .guarantee-label { color: var(--green); }
-.guar-headline {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: clamp(20px, 2.2vw, 28px);
-  font-weight: 900; line-height: 1.05;
-  letter-spacing: -1px; text-transform: uppercase;
-  color: var(--text); margin-bottom: 2px;
-  transition: color 0.25s;
-}
-.guarantee-body { font-size: 14px; color: var(--dim); line-height: 1.65; transition: color 0.25s; }
-
-/* ─── #PRICING CENTER ─── */
-#pricing .section-header { text-align: center; }
-
-/* ─── TIER PRICING ─── */
-.tier-section { padding: 0 40px 32px; }
-.tier-note { font-size: 12px; color: var(--dimmer); margin-bottom: 18px; transition: color 0.25s; }
-.tier-row { margin-bottom: 14px; }
-.tier-row:last-child { margin-bottom: 0; }
-.tier-row-label { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
-.tier-price-label { font-size: 13px; font-weight: 600; color: var(--dim); transition: color 0.25s; }
-.tier-badge {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
-  padding: 3px 8px; border-radius: 2px;
-}
-.tier-badge.current { background: rgba(240,96,27,0.12); color: var(--orange); border: 1px solid rgba(240,96,27,0.3); }
-.tier-badge.upcoming { background: transparent; color: var(--dimmer); border: 1px solid var(--border); }
-.tier-segments { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; }
-.tier-seg { height: 4px; border-radius: 2px; background: var(--border2); transition: background 0.25s; }
-.tier-seg.active { background: var(--orange); }
-@media(max-width: 768px) {
-  .tier-section { padding: 0 24px 24px; }
-}
-
-/* ─── FAQ ─── */
-.faq-list { display: flex; flex-direction: column; }
-.faq-item { padding: 22px 0; border-bottom: 1px solid var(--border); transition: border-color 0.25s; cursor: pointer; }
-.faq-item:first-child { border-top: 1px solid var(--border); }
-.faq-item:last-child { border-bottom: none; }
-.faq-q {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 15px; font-weight: 800; text-transform: uppercase; color: var(--text);
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  transition: color 0.25s; user-select: none;
-}
-.faq-item.faq-open .faq-q { color: var(--orange); }
-.faq-chevron {
-  width: 16px; height: 16px; flex-shrink: 0; color: var(--dimmer);
-  transition: transform 0.25s, color 0.25s;
-}
-.faq-item.faq-open .faq-chevron { transform: rotate(180deg); color: var(--orange); }
-.faq-a {
-  font-size: 14px; color: var(--dim); line-height: 1.7;
-  max-height: 0; overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.25s ease;
-  padding: 0;
-}
-.faq-item.faq-open .faq-a { max-height: 400px; padding-top: 12px; }
-
-/* ─── ABOUT ─── */
-.about-inner { display: grid; grid-template-columns: 210px 1fr; gap: 48px; align-items: flex-start; }
-.about-avatar {
-  width: 100%; aspect-ratio: 1/1;
-  border-radius: 12px; border: 2px solid var(--orange);
-  object-fit: cover; display: block;
-  transition: border-color 0.25s;
-}
-.about-name {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 28px; font-weight: 900;
-  color: var(--text); margin-bottom: 4px; transition: color 0.25s;
-}
-.about-role { font-size: 13px; font-weight: 600; color: var(--orange); letter-spacing: 0.5px; margin-bottom: 28px; }
-.about-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 28px; }
-.about-stat {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 10px; padding: 16px 14px; text-align: center;
-  transition: background 0.25s, border-color 0.25s;
-}
-.about-stat-val {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 20px; font-weight: 900; color: var(--text);
-  margin-bottom: 4px; transition: color 0.25s;
-}
-.about-stat-label { font-size: 11px; color: var(--dim); line-height: 1.3; transition: color 0.25s; }
-.about-body { font-size: 15px; color: var(--dim); line-height: 1.75; transition: color 0.25s; }
-.about-body p + p { margin-top: 14px; }
-
-/* ─── FINAL CTA ─── */
-.final-section { padding: 100px 24px; text-align: center; position: relative; overflow: hidden; }
-.final-section::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(240,96,27,0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-.final-headline {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 900; font-size: clamp(36px, 5vw, 64px);
-  text-transform: uppercase; letter-spacing: -2px;
-  line-height: 0.93; color: var(--text); margin-bottom: 24px;
-  max-width: 600px; margin-left: auto; margin-right: auto;
-  transition: color 0.25s;
-}
-.final-headline .o { color: var(--orange); }
-.final-sub { font-size: 17px; color: var(--dim); max-width: 460px; margin: 0 auto 40px; line-height: 1.65; transition: color 0.25s; }
-.final-cta-wrap { display: flex; justify-content: center; }
-.final-micro { font-size: 13px; color: var(--dimmer); margin-top: 14px; transition: color 0.25s; }
-
-/* ─── FOOTER ─── */
-footer { border-top: 1px solid var(--border); padding: 24px 32px; transition: border-color 0.25s; }
-.footer-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-.footer-copy { font-size: 12px; color: var(--dimmer); transition: color 0.25s; }
-.footer-link { font-size: 12px; color: var(--dimmer); transition: color 0.15s; }
-.footer-link:hover { color: var(--orange); }
-
-/* ─── H1 DESKTOP LINE BREAKS ─── */
-.h1-br { display: none; }
-@media(min-width: 769px) {
-  .h1-br { display: block; }
-  .hero h1 { font-size: clamp(52px, 6vw, 69px); }
-}
-
-/* ─── ANIMATION ─── */
-@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-.hero { animation: fadeUp 0.6s ease both; }
-
-/* ─── FINAL SECTION ─── */
-.final-section {
-  padding: 100px 24px; text-align: center; position: relative; overflow: hidden;
-  background: var(--surface); border-top: 1px solid var(--border);
-  transition: background 0.25s, border-color 0.25s;
-}
-.final-section::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(240,96,27,0.08) 0%, transparent 65%);
-  pointer-events: none;
-}
-.final-eyebrow {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 4px; color: var(--orange);
-  margin-bottom: 20px;
-}
-.final-meta {
-  display: flex; align-items: center; justify-content: center; gap: 20px;
-  flex-wrap: wrap; margin-top: 20px; margin-bottom: 8px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px;
-  color: var(--dimmer); transition: color 0.25s;
-}
-.final-meta .o { color: var(--orange); }
-.final-meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--border2); }
-
-/* ─── TESTIMONIALS ─── */
-.testimonials-grid {
+.statrow {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 28px;
 }
-@media(max-width: 768px) {
-  .testimonials-grid { grid-template-columns: 1fr; }
-}
-.testimonial-card {
+.stat {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px 28px;
-  display: flex; flex-direction: column; gap: 14px;
-  transition: background 0.25s, border-color 0.25s;
+  border-radius: 14px;
+  padding: 16px 14px;
 }
-.testi-header { display: flex; align-items: center; gap: 12px; }
-.testi-avatar {
-  width: 40px; height: 40px; border-radius: 50%;
-  background: var(--border2); flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 15px; font-weight: 800; color: var(--orange);
+.stat .num {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.stat .lbl {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  border: 1px solid var(--border2);
-  transition: background 0.25s, border-color 0.25s;
+  color: var(--sub);
+}
+
+section { margin-top: 52px; }
+.section-head { margin-bottom: 22px; }
+.section-head h2 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  line-height: 1.15;
+}
+.section-head h2 em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--orange);
+}
+.section-head p {
+  color: var(--sub-bright);
+  font-size: 14px;
+  max-width: 580px;
+  line-height: 1.6;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 20px;
+  transition: background-color 0.35s ease, border-color 0.35s ease, filter 0.2s ease;
+}
+.card + .card { margin-top: 8px; }
+.card .ttl {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  margin-top: 12px;
+  line-height: 1.25;
+}
+.card .desc { color: var(--sub-bright); font-size: 13.5px; margin-top: 10px; line-height: 1.6; }
+.card ul { margin-top: 16px; list-style: none; }
+.card li {
+  padding: 10px 0;
+  border-top: 1px solid var(--rule);
+  font-size: 13.5px;
+  color: var(--sub-bright);
+  display: flex;
+  gap: 12px;
+  line-height: 1.55;
+}
+.card li strong {
+  font-weight: 700;
+  color: var(--text);
+  min-width: 168px;
+  display: inline-block;
+}
+
+.card.featured {
+  background: var(--join-bg);
+  border-color: var(--join-border);
+}
+.card.featured .ttl { color: var(--orange); }
+
+/* Who-it's-for checklist */
+.checklist { display: grid; grid-template-columns: 1fr; gap: 0; }
+.checklist .item {
+  padding: 18px 0;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  gap: 14px;
+}
+.checklist .item:first-child { border-top: 1px solid var(--rule); }
+.checklist .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+.checklist .item .body { color: var(--sub-bright); font-size: 14px; line-height: 1.6; }
+.checklist .item .body strong { color: var(--text); font-weight: 700; }
+
+/* Phase head row */
+.phase-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+.phase-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  border: 1px solid var(--join-border);
+  background: var(--join-bg);
+  border-radius: 100px;
+  padding: 5px 10px;
+}
+.phase-weeks {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sub);
+}
+
+/* Timeline */
+.timeline {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 20px;
+  margin-bottom: 14px;
+}
+.timeline .track {
+  position: relative;
+  height: 4px;
+  background: var(--input-bg);
+  border-radius: 100px;
+  margin: 30px 0 14px;
+}
+.timeline .fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--orange) 0%, rgba(238,102,62,0.4) 100%);
+  border-radius: 100px;
+}
+.timeline .nodes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 18px;
+}
+.timeline .node {
+  text-align: left;
+}
+.timeline .node .w {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 6px;
+}
+.timeline .node .t {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+/* Math */
+.math {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
   overflow: hidden;
 }
-.testi-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.testi-name {
+.math .mrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+}
+.math .mrow:first-child { border-top: 0; }
+.math .mrow .l { color: var(--sub-bright); }
+.math .mrow .r {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.10em;
+  color: var(--text);
+}
+.math .final {
+  background: var(--join-bg);
+  border-top: 1px solid var(--join-border);
+  padding: 22px 20px;
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.math .final .lbl {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.math .final .num {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 13px; font-weight: 800; text-transform: uppercase;
-  letter-spacing: 0.5px; color: var(--text); transition: color 0.25s;
+  font-weight: 700;
+  font-size: 38px;
+  letter-spacing: -0.025em;
+  color: var(--text);
 }
-.testi-handle { font-size: 11px; color: var(--dimmer); margin-top: 1px; transition: color 0.25s; }
-.testi-stars { color: #f5a623; font-size: 13px; letter-spacing: 1px; }
-.testi-quote {
-  font-size: 14px; color: var(--dim); line-height: 1.7;
-  transition: color 0.25s;
+.math .final .strike {
+  color: var(--sub-faint);
+  text-decoration: line-through;
+  font-size: 18px;
+  margin-left: 10px;
+  font-weight: 400;
 }
 
-/* ─── RESPONSIVE ─── */
-@media(max-width: 768px) {
-  .wrap { padding: 0 16px; }
-  .nav-inner { padding: 0 16px; gap: 8px; }
-  .nav-logo-text { font-size: 16px; }
-  .btn-primary { font-size: 12px; padding: 10px 16px; letter-spacing: 1px; }
-  .btn-outline  { font-size: 12px; padding: 9px 16px;  letter-spacing: 1px; }
-  .hero-cta-group { max-width: 100%; }
+.pricegrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+.pricegrid .opt {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 14px;
+}
+.pricegrid .opt .lbl {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sub);
+  margin-bottom: 8px;
+}
+.pricegrid .opt .v {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+.pricegrid .opt .note {
+  font-size: 11px;
+  color: var(--sub);
+  margin-top: 6px;
+}
+.pricegrid .opt.best { background: var(--join-bg); border-color: var(--join-border); }
+.pricegrid .opt.best .v { color: var(--orange); }
 
-  .hero { padding: 40px 16px; min-height: calc(100dvh - var(--nav-h) - var(--bar-h)); display: flex; justify-content: center; align-items: center; }
-  .hero h1 { font-size: clamp(34px, 9.5vw, 50px); letter-spacing: -1.5px; }
-  .hero-sub { font-size: 14px; font-weight: 400; margin-bottom: 32px; }
+/* Coach section */
+.coach {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 20px;
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+.coach .photo {
+  width: 132px;
+  height: 168px;
+  border-radius: 12px;
+  background: var(--input-bg);
+  border: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  color: var(--sub-faint);
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  overflow: hidden;
+}
+.coach .photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 11px;
+  display: block;
+}
+.coach .who {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 6px;
+}
+.coach .name {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.coach .role {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sub);
+  margin-bottom: 14px;
+}
+.coach p {
+  color: var(--sub-bright);
+  font-size: 13.5px;
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+.coach p:last-child { margin-bottom: 0; }
+.coach .credits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 16px;
+}
+.coach .credit {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.coach .credit .n {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.coach .credit .l {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sub);
+  margin-top: 2px;
+}
 
-  .bar-cd-label { font-size: 9px; letter-spacing: 2px; }
-  .bar-cd-num { font-size: 16px; }
-  .bar-cd-sub { font-size: 6px; }
-  .bar-cd-sep { font-size: 13px; padding-bottom: 8px; }
-  .bar-cd-unit { min-width: 24px; }
-  .bar-guar-text { font-size: 10px; letter-spacing: 1.5px; }
-  .bar-guar-icon { width: 12px; height: 12px; }
+/* Testimonials */
+.quotes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.quote {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 20px;
+}
+.quote .stars {
+  color: var(--orange);
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.quote p {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.quote .who {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sub);
+}
+.quote .who .name { color: var(--text); }
 
-  .section { padding: 56px 0; }
-  .section-header { margin-bottom: 36px; }
-  .contrast-grid, .who-grid, .pricing-includes { grid-template-columns: 1fr; }
+.disclaimer {
+  margin-top: 14px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sub-faint);
+  text-align: center;
+}
 
-  /* Roadmap: mobile */
-  .roadmap-bubble { width: 30px; height: 30px; font-size: 12px; }
-  .roadmap::before { left: 14px; }
-  .intro-h2 { font-size: 44px !important; }
+/* CTA */
+.cta {
+  background: var(--join-bg);
+  border: 1px solid var(--join-border);
+  border-radius: 14px;
+  padding: 36px 22px;
+  text-align: center;
+  margin-top: 32px;
+}
+.cta h3 {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 30px;
+  color: var(--orange);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.cta p {
+  color: var(--sub-bright);
+  font-size: 14px;
+  margin-bottom: 22px;
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+.cta .btn {
+  display: inline-block;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 14px 26px;
+  border-radius: 100px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  transition: filter 0.2s ease;
+}
+.cta .btn:hover { filter: brightness(1.06); }
+.cta .alt {
+  display: block;
+  margin-top: 16px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sub);
+  text-decoration: none;
+}
+.cta .alt a { color: var(--orange); text-decoration: none; }
+.cta .meta {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.cta .meta span {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sub-faint);
+}
 
-  /* What's Inside: mobile */
-  .inside-item { padding: 32px 0; }
-  .inside-card { display: block; }
-  .inside-img-wrap img { aspect-ratio: 21/9; border-radius: 0; }
-  .inside-card-body { padding: 20px; display: block; }
-  .inside-item:nth-child(odd) .inside-img-wrap { order: 0; }
-  .inside-item:nth-child(odd) .inside-card-body { order: 0; }
+/* Promise */
+.promise {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 22px;
+}
+.promise h3 {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--orange);
+  margin-bottom: 12px;
+  letter-spacing: -0.005em;
+}
+.promise p {
+  color: var(--sub-bright);
+  font-size: 14px;
+  line-height: 1.6;
+}
 
-  .about-inner { grid-template-columns: 1fr; }
-  .about-avatar { max-width: 180px; aspect-ratio: 1/1; }
-  .about-stats { grid-template-columns: repeat(3,1fr); gap: 8px; }
-  .about-stat-val { font-size: 16px; }
-  .about-stat-label { font-size: 10px; }
-  .guarantee-box { padding: 28px 20px; }
-  .pricing-top { padding: 32px 24px; }
-  .pricing-includes { padding: 24px 24px; }
-  .support-bar { margin: 0 24px 24px; }
-  footer { padding: 20px 16px; }
-  .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
-  .final-section { padding: 72px 16px; background: var(--surface); }
-  .final-cta-wrap .btn-primary { font-size: 13px; padding: 12px 20px; }
-  .pricing-top .btn-primary {
-    width: 100%; font-size: 13px; padding: 13px 16px;
-    letter-spacing: 1px; white-space: normal; text-align: center;
-  }
-  .value-row { padding: 14px 20px; }
+footer {
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+footer .l, footer .r {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--foot);
+}
+footer a { color: var(--orange); text-decoration: none; }
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 34px; }
+  .section-head h2 { font-size: 22px; }
+  .statrow { grid-template-columns: 1fr; }
+  .pricegrid { grid-template-columns: 1fr; }
+  .quotes { grid-template-columns: 1fr; }
+  .timeline .nodes { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .coach { grid-template-columns: 1fr; }
+  .coach .photo { width: 100%; height: 220px; }
+  .coach .credits { grid-template-columns: 1fr; }
+  .card li { flex-direction: column; gap: 4px; }
+  .card li strong { min-width: 0; }
+  .math .final .num { font-size: 32px; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="https://fscreative.live" class="nav-logo">
-      <img class="logo-dark"  src="FSC Orange White no TM@4x.png" height="18" alt="FSCreative">
-      <img class="logo-light" src="Dark Orange No TM@4x.png"       height="18" alt="FSCreative">
-    </a>
-    <div class="nav-right">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
-        <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
-        <svg class="icon-sun"  width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      </button>
-      <a href="https://fscreative.circle.so/checkout/brand-launch-sprinttm">
-        <button class="btn-primary">Join the Sprint →</button>
-      </a>
-    </div>
-  </div>
-</nav>
+<canvas id="grain"></canvas>
 
-<!-- URGENCY BAR -->
-<div class="urgency-bar">
-  <div class="bar-panel bar-visible" id="bar-panel-cd">
-    <div class="urgency-dot"></div>
-    <div class="bar-countdown">
-      <span class="bar-cd-label">Next Sprint Call</span>
-      <div class="bar-cd-timer">
-        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-days">--</span><span class="bar-cd-sub">Days</span></div>
-        <div class="bar-cd-sep">:</div>
-        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-hours">--</span><span class="bar-cd-sub">Hours</span></div>
-        <div class="bar-cd-sep">:</div>
-        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-mins">--</span><span class="bar-cd-sub">Mins</span></div>
-        <div class="bar-cd-sep">:</div>
-        <div class="bar-cd-unit"><span class="bar-cd-num" id="bar-secs">--</span><span class="bar-cd-sub">Secs</span></div>
-      </div>
-    </div>
-    <div class="urgency-dot"></div>
-  </div>
-  <div class="bar-panel" id="bar-panel-guar">
-    <div class="bar-guarantee">
-      <svg class="bar-guar-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <span class="bar-guar-text">Brand Launch Guarantee — <span class="bar-guar-accent">Do The Work. Get The Result.</span></span>
-    </div>
-  </div>
+<div class="toggle" id="toggle" role="button" aria-label="Toggle light/dark mode">
+  <span class="thumb"></span>
+  <span class="label" id="toggleLabel">Light</span>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-spots-row">
-      <span class="hero-spots-num">Only 5 spots</span><span class="hero-spots-text"> available at this price</span>
+<main class="page">
+
+  <header class="header">
+    <div class="lockup">
+      <img class="icon" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
+      <span class="wordmark">FSCreative™</span>
+      <span class="divider"></span>
+      <span class="project">Frictionless OS</span>
     </div>
-    <h1>Install your <span class="o">premium personal brand</span><br> &amp; content system —<br class="h1-br"> in 30 days.</h1>
-    <p class="hero-sub">
-      A focused sprint to get your clear positioning, cinematic visuals, and efficient systems to turn your personal brand into your highest leverage asset.
-    </p>
-    <div class="hero-cta-group">
-      <a href="https://fscreative.circle.so/checkout/brand-launch-sprinttm">
-        <button class="btn-primary">Join the Sprint →</button>
-      </a>
-      <a href="#inside">
-        <button class="btn-outline">See What's Inside</button>
-      </a>
-    </div>
-    <p class="hero-micro">One payment · 30-day sprint · 60 days of creative direction</p>
-  </div>
-</section>
+    <div class="meta">v1.0 · Founding Five</div>
+  </header>
 
-<section id="video-section" style="background:var(--bg);padding:0 24px 64px;">
-  <!-- placeholder preserves section height when wrapper goes fixed -->
-  <div id="video-placeholder" style="max-width:960px;margin:0 auto;aspect-ratio:16/9;display:none;"></div>
-  <div id="video-wrapper" style="max-width:960px;margin:0 auto;border-radius:12px;overflow:hidden;aspect-ratio:16/9;transition:box-shadow 0.3s;">
-    <iframe id="yt-iframe" src="https://www.youtube.com/embed/LbHahq8K2KA" style="width:100%;height:100%;border:none;display:block;" allowfullscreen allow="picture-in-picture"></iframe>
-    <button id="pip-close" onclick="closePip()" title="Close mini player" style="display:none;position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,0.7);border:none;color:#fff;font-size:16px;line-height:1;cursor:pointer;z-index:10001;align-items:center;justify-content:center;">×</button>
-  </div>
-</section>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">Done-For-You · 60 Days · 5 Founding Spots</div>
+    <h1>A personal brand <em>built around</em> the business you already run.</h1>
+    <p class="lede"><strong>Frictionless OS</strong> is a 60-day done-for-you build. I install the strategy, visual identity, content system, and funnel that turn your existing practice into a brand the right clients come to. You don't become a creator. You become an authority.</p>
 
-<style>
-#video-wrapper { position: relative; }
-#video-wrapper.pip {
-  position: fixed !important;
-  bottom: 24px; right: 24px;
-  width: 320px; height: 180px;
-  max-width: none !important;
-  margin: 0 !important;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.55);
-  z-index: 10000;
-  aspect-ratio: auto !important;
-  transition: box-shadow 0.3s;
-}
-#video-wrapper.pip #pip-close { display: flex !important; }
-#video-wrapper.pip iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
-</style>
-
-<script>
-(function() {
-  var wrapper = document.getElementById('video-wrapper');
-  var placeholder = document.getElementById('video-placeholder');
-  var dismissed = false;
-  var hasBeenVisible = false; // only PiP after user has actually scrolled to/past the video
-
-  window.closePip = function() {
-    dismissed = true;
-    wrapper.classList.remove('pip');
-    placeholder.style.display = 'none';
-  };
-
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        // user has seen the video — enable PiP from here on
-        hasBeenVisible = true;
-        dismissed = false;
-        wrapper.classList.remove('pip');
-        placeholder.style.display = 'none';
-      } else if (hasBeenVisible && !dismissed) {
-        // only activate PiP if they've scrolled past it (not before seeing it)
-        var rect = wrapper.getBoundingClientRect();
-        if (rect.top < 0) { // scrolled past — video is above viewport
-          placeholder.style.width = rect.width + 'px';
-          placeholder.style.display = 'block';
-          wrapper.classList.add('pip');
-        }
-        // if video is below viewport (not yet reached), do nothing
-      }
-    });
-  }, { threshold: 0.15 });
-
-  observer.observe(document.getElementById('video-section'));
-})();
-</script>
-
-<div class="wrap">
-
-  <!-- THE PROBLEM -->
-  <section class="section">
-    <div class="section-header">
-      <div class="eyebrow">The Problem</div>
-      <h2>Your brand<br>is <span class="o">working against</span> you.</h2>
-    </div>
-    <div class="contrast-grid">
-      <div class="contrast-col">
-        <div class="contrast-col-label bad">Without the Sprint</div>
-        <div class="check-list">
-          <div class="check-item"><span class="check-icon x">✕</span> Your brand doesn't reflect the quality of your work</div>
-          <div class="check-item"><span class="check-icon x">✕</span> Your content feels inconsistent because there's no system behind it</div>
-          <div class="check-item"><span class="check-icon x">✕</span> Hours spent creating with no clear positioning or strategy</div>
-          <div class="check-item"><span class="check-icon x">✕</span> Less experienced creators win better opportunities because their brand sends a clearer signal</div>
-        </div>
+    <div class="statrow">
+      <div class="stat">
+        <div class="num">60</div>
+        <div class="lbl">Day Build</div>
       </div>
-      <div class="contrast-col right">
-        <div class="contrast-col-label good">After the Sprint</div>
-        <div class="check-list">
-          <div class="check-item"><span class="check-icon ok">✓</span> A brand that makes the right clients feel like you've been speaking directly to them</div>
-          <div class="check-item"><span class="check-icon ok">✓</span> Clear positioning that signals your value before you say a word</div>
-          <div class="check-item"><span class="check-icon ok">✓</span> A complete content system installed and ready to amplify your brand</div>
-          <div class="check-item"><span class="check-icon ok">✓</span> The brand presence that attracts higher-quality clients and better opportunities</div>
-          <div class="check-item"><span class="check-icon ok">✓</span> Confidence showing up online because your brand finally reflects your level</div>
-        </div>
+      <div class="stat">
+        <div class="num">5</div>
+        <div class="lbl">Founding Spots</div>
+      </div>
+      <div class="stat">
+        <div class="num">$5K</div>
+        <div class="lbl">Founding Rate</div>
       </div>
     </div>
-  </section>
-
-  <!-- INTRODUCING -->
-  <section class="section" style="text-align:center; border-bottom:none; padding-bottom:0;">
-    <div class="eyebrow" style="margin-bottom:16px;">Introducing</div>
-    <h2 class="intro-h2" style="font-size:clamp(56px,10vw,120px);line-height:1;margin-bottom:20px;">Brand Launch <span class="o">Sprint™</span></h2>
-    <p style="max-width:600px;margin:0 auto 32px;font-size:16px;color:var(--dim);line-height:1.75;transition:color 0.25s;">A DWY guided sprint with modules, templates, tools, and accountability to completely transform how you approach your personal brand. <strong style="color:var(--text);transition:color 0.25s;">One time build. Lifelong clarity.</strong></p>
-    <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773848359/_Use_the_first_image_as_the_fr_Nano_Banana_Pro_50199_kgrao3.jpg" alt="Brand Launch Sprint" style="width:100%;border-radius:12px;display:block;">
   </section>
 
   <!-- WHO IT'S FOR -->
-  <section class="section" style="border-top:none; padding-top:2px;">
-    <div class="who-grid">
-      <div class="who-col">
-        <div class="who-tag yes">Fit Check</div>
-        <div class="who-col-label yes">You're Perfect<br>For This Sprint</div>
-        <div class="who-list">
-          <div class="who-item"><span class="who-icon yes">✓</span> You already sell a product, service, or offer — but your brand doesn't match the level of your work</div>
-          <div class="who-item"><span class="who-icon yes">✓</span> You've invested time into content but the results don't match the effort</div>
-          <div class="who-item"><span class="who-icon yes">✓</span> You know your skills are strong, yet others with weaker work appear more established</div>
-          <div class="who-item"><span class="who-icon yes">✓</span> You want a clear system for turning ideas into consistent, high-quality content</div>
-          <div class="who-item"><span class="who-icon yes">✓</span> You're ready to commit 30 days to building something you're proud of</div>
-          <div class="who-item"><span class="who-icon yes">✓</span> You want coaching and accountability — not just another course to sit on</div>
-        </div>
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Who It's For</div>
+      <h2>You've built something <em>real</em>. Now you want the right clients to find you.</h2>
+      <p>This is for creative solopreneurs: architects, designers, consultants, coaches, photographers. You have an offer, you have clients, you have proof. What you don't have is a personal brand that's doing anything for you.</p>
+    </div>
+
+    <div class="checklist">
+      <div class="item">
+        <div class="dot"></div>
+        <div class="body"><strong>You already sell a product, service, or offer.</strong> But you don't have a brand that matches the level of your work.</div>
       </div>
-      <div class="who-col">
-        <div class="who-tag no">Fit Check</div>
-        <div class="who-col-label no">This Sprint Is<br>Not for You</div>
-        <div class="who-list">
-          <div class="who-item"><span class="who-icon no">✕</span> You're looking for a quick fix or shortcuts instead of a real system</div>
-          <div class="who-item"><span class="who-icon no">✕</span> Your primary goal is to go viral rather than build lasting brand authority</div>
-          <div class="who-item"><span class="who-icon no">✕</span> You're still in the "thinking about it" stage rather than actively building</div>
-          <div class="who-item"><span class="who-icon no">✕</span> You want someone to do the work for you</div>
-          <div class="who-item"><span class="who-icon no">✕</span> You're not prepared to implement what's inside the checklist</div>
-          <div class="who-item"><span class="who-icon no">✕</span> A $997 investment in your brand feels financially stressful right now</div>
-        </div>
+      <div class="item">
+        <div class="dot"></div>
+        <div class="body"><strong>You've invested time into content.</strong> But the results don't match the effort. You're posting and nothing's moving.</div>
+      </div>
+      <div class="item">
+        <div class="dot"></div>
+        <div class="body"><strong>You're just starting out, or your brand is beginning to take shape.</strong> Maybe a few hundred followers. That's the starting line, and it's fine.</div>
+      </div>
+      <div class="item">
+        <div class="dot"></div>
+        <div class="body"><strong>You don't have time to learn another system.</strong> You want someone who's done this to come in and set it up for you.</div>
+      </div>
+      <div class="item">
+        <div class="dot"></div>
+        <div class="body"><strong>You care how your brand looks.</strong> Cinematic, distinctive, premium. Not templates, not AI-generic. It has to feel like you on your best day.</div>
+      </div>
+      <div class="item">
+        <div class="dot"></div>
+        <div class="body"><strong>You're ready to choose the projects you take on.</strong> Inbound leads, on your terms, asking about the kind of work you actually want to do.</div>
       </div>
     </div>
   </section>
 
-  <!-- 30-DAY SPRINT CHECKLIST -->
-  <section class="section" id="roadmap" style="border-bottom: none;">
-    <div class="section-header">
-      <div class="eyebrow">The Transformation</div>
-      <h2>Your 30-Day<br><span class="o">Transformation.</span></h2>
-      <p class="section-sub">Each phase builds on the last. Complete them in order and you'll have a premium personal brand — positioned, designed, and ready to launch — in 30 days.</p>
+  <!-- WHAT YOU GET (PHASES) -->
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">What Gets Built</div>
+      <h2>Four phases. <em>Eight weeks.</em> Everything installed before launch.</h2>
+      <p>Strategy first. System second. Content last. Most people building a personal brand start by posting before they know who they're talking to. Frictionless OS flips the order.</p>
     </div>
 
-    <div class="roadmap">
-
-  <div class="roadmap-item">
-    <div class="roadmap-bubble">01</div>
-    <div class="roadmap-card rm-open">
-      <div class="roadmap-header">
-        <div class="roadmap-header-top">
-          <div class="roadmap-title">Creator Foundation</div>
-          <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="roadmap-desc">Lock in the strategic foundation for your brand.</div>
-      </div>
-      <div class="roadmap-body">
-        <ul class="roadmap-steps">
-          <li><span class="step-title">Define Your Avatar</span><span class="step-desc">Know exactly who your content is built for.</span></li>
-          <li><span class="step-title">Core Mission + Ikigai</span><span class="step-desc">Align your brand with authentic purpose.</span></li>
-          <li><span class="step-title">Your Core Values</span><span class="step-desc">Define the principles that shape how you show up.</span></li>
-          <li><span class="step-title">Content Pillars</span><span class="step-desc">Always know what to post.</span></li>
-          <li><span class="step-title">Map Your Origin Story</span><span class="step-desc">Turn your story into something people care about.</span></li>
-          <li><span class="step-title">Brand Mission</span><span class="step-desc">Give your brand a reason people want to follow.</span></li>
-          <li><span class="step-title">Conduct Brand Audit</span><span class="step-desc">Identify what to fix and where to improve.</span></li>
-        </ul>
+    <!-- Timeline visual -->
+    <div class="timeline">
+      <div class="eyebrow" style="margin-bottom: 0;">Build Timeline</div>
+      <div class="track"><div class="fill"></div></div>
+      <div class="nodes">
+        <div class="node"><div class="w">Weeks 1–3</div><div class="t">Brand Foundation</div></div>
+        <div class="node"><div class="w">Weeks 3–5</div><div class="t">Content System</div></div>
+        <div class="node"><div class="w">Weeks 5–7</div><div class="t">Funnel</div></div>
+        <div class="node"><div class="w">Weeks 7–8</div><div class="t">Launch</div></div>
       </div>
     </div>
-  </div>
 
-  <div class="roadmap-item">
-    <div class="roadmap-bubble">02</div>
-    <div class="roadmap-card">
-      <div class="roadmap-header">
-        <div class="roadmap-header-top">
-          <div class="roadmap-title">Visual Identity</div>
-          <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="roadmap-desc">Design a recognizable visual identity and style system.</div>
+    <!-- Phase 01 -->
+    <div class="card">
+      <div class="phase-head">
+        <span class="phase-tag">Phase 01 · Brand Foundation</span>
+        <span class="phase-weeks">Weeks 1–3</span>
       </div>
-      <div class="roadmap-body">
-        <ul class="roadmap-steps">
-          <li><span class="step-title">Creator Moodboard</span><span class="step-desc">Lock in a clear visual direction.</span></li>
-          <li><span class="step-title">Define Color Palette &amp; Typography</span><span class="step-desc">Build a cohesive look that feels premium.</span></li>
-          <li><span class="step-title">Define Visual World</span><span class="step-desc">Create a recognizable style your audience can identify.</span></li>
-          <li><span class="step-title">Creator Analysis</span><span class="step-desc">Study what makes high-level creators stand out.</span></li>
-          <li><span class="step-title">Shot System Blueprint</span><span class="step-desc">Know exactly how to shoot your content.</span></li>
-          <li><span class="step-title">Craft Your Styleguide</span><span class="step-desc">Keep your visuals consistent every time.</span></li>
-          <li><span class="step-title">Content Approach</span><span class="step-desc">Develop a visual strategy that elevates your brand.</span></li>
-        </ul>
-      </div>
+      <div class="ttl">The AI brand brain and your visual identity.</div>
+      <ul>
+        <li><strong>Brand Blueprint</strong> ICP, content pillars, competitor read, positioning, and voice. All documented and loaded into the AI tools that power your content.</li>
+        <li><strong>Visual Identity</strong> Full brand kit. Colors, typography, moodboard, visual system. Built in Canva so you can use it from Day 1.</li>
+        <li><strong>Shot System Blueprint</strong> A repeatable visual recipe. Framing, lighting, environment. Your content looks like you every time.</li>
+        <li><strong>Avatar &amp; Market Research</strong> Your dream client mapped in detail. A read on where the gaps in your market are.</li>
+      </ul>
     </div>
-  </div>
 
-  <div class="roadmap-item">
-    <div class="roadmap-bubble">03</div>
-    <div class="roadmap-card">
-      <div class="roadmap-header">
-        <div class="roadmap-header-top">
-          <div class="roadmap-title">Content System</div>
-          <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="roadmap-desc">Install a repeatable system from idea to publish.</div>
+    <!-- Phase 02 -->
+    <div class="card">
+      <div class="phase-head">
+        <span class="phase-tag">Phase 02 · Content System</span>
+        <span class="phase-weeks">Weeks 3–5</span>
       </div>
-      <div class="roadmap-body">
-        <ul class="roadmap-steps">
-          <li><span class="step-title">Set Up Your Content System</span><span class="step-desc">Build a repeatable workflow from the ground up.</span></li>
-          <li><span class="step-title">Idea Generation</span><span class="step-desc">Always know what to create next.</span></li>
-          <li><span class="step-title">Scripting / Storytelling</span><span class="step-desc">Turn ideas into content that connects and converts.</span></li>
-          <li><span class="step-title">Batching Schedule &amp; Workflow</span><span class="step-desc">Batch efficiently instead of creating daily.</span></li>
-          <li><span class="step-title">Graphic Design</span><span class="step-desc">Create clean, consistent visuals.</span></li>
-          <li><span class="step-title">Technical Setup</span><span class="step-desc">Build a simple, streamlined workflow.</span></li>
-          <li><span class="step-title">Edit Your Content</span><span class="step-desc">Produce polished content faster.</span></li>
-          <li><span class="step-title">Finding Editing Rhythm</span><span class="step-desc">Lock in a consistent style you can replicate.</span></li>
-          <li><span class="step-title">Bonus: Creator Confidence Workshop</span><span class="step-desc">Show up with clarity and confidence on camera.</span></li>
-        </ul>
-      </div>
+      <div class="ttl">The AI-powered engine. Idea to posted, on repeat.</div>
+      <ul>
+        <li><strong>Content Dashboard</strong> Your pillars, calendar, and batching workflow in one place.</li>
+        <li><strong>Idea-to-Content Engine</strong> Voice notes and half-ideas in. Polished content in your voice out.</li>
+        <li><strong>Idea Capture</strong> Voice memo to idea bank to ready-to-shoot. Nothing gets lost.</li>
+        <li><strong>AI Prompt Library</strong> Pre-loaded with your Brand Blueprint. Hooks, captions, scripts, repurposing.</li>
+        <li><strong>Loom Walkthrough</strong> Full system tour so you know how every piece works.</li>
+      </ul>
     </div>
-  </div>
 
-  <div class="roadmap-item">
-    <div class="roadmap-bubble">04</div>
-    <div class="roadmap-card">
-      <div class="roadmap-header">
-        <div class="roadmap-header-top">
-          <div class="roadmap-title">Launch</div>
-          <svg class="roadmap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="roadmap-desc">Build the system to execute a focused brand launch.</div>
+    <!-- Phase 03 -->
+    <div class="card">
+      <div class="phase-head">
+        <span class="phase-tag">Phase 03 · Funnel</span>
+        <span class="phase-weeks">Weeks 5–7</span>
       </div>
-      <div class="roadmap-body">
-        <ul class="roadmap-steps">
-          <li><span class="step-title">Mini Chat Overview</span><span class="step-desc">Convert conversations into leads.</span></li>
-          <li><span class="step-title">Email Marketing</span><span class="step-desc">Build a list that turns subscribers into buyers.</span></li>
-          <li><span class="step-title">Lead Magnet Creation</span><span class="step-desc">Create a freebie that attracts your ideal audience.</span></li>
-          <li><span class="step-title">7-Day Launch Calendar</span><span class="step-desc">Follow a clear plan to build momentum fast.</span></li>
-          <li><span class="step-title">Set 90-Day Goals</span><span class="step-desc">Keep growing long after the sprint ends.</span></li>
-        </ul>
-      </div>
+      <div class="ttl">Followers into leads. Leads into clients.</div>
+      <ul>
+        <li><strong>Lead Magnet</strong> A real resource your dream client wants. Designed and written.</li>
+        <li><strong>ManyChat Automation</strong> Comment triggers and DM flows. Tested and live.</li>
+        <li><strong>Email Platform</strong> Full setup. Your list captures leads from Day 1.</li>
+        <li><strong>Welcome Sequence</strong> A 7-email automation that introduces you, builds trust, and warms leads up to your offer.</li>
+        <li><strong>Profile &amp; Bio</strong> Bio rewritten, link-in-bio audited, first impression dialed.</li>
+      </ul>
     </div>
-  </div>
 
+    <!-- Phase 04 -->
+    <div class="card">
+      <div class="phase-head">
+        <span class="phase-tag">Phase 04 · Launch</span>
+        <span class="phase-weeks">Weeks 7–8</span>
+      </div>
+      <div class="ttl">Switch flipped. 30 days of content ready to ship.</div>
+      <ul>
+        <li><strong>Full System Launch</strong> Brand kit, content system, funnel, automations. All live.</li>
+        <li><strong>30 Pre-Approved Ideas</strong> A month of content mapped: angles, hooks, format. You film and ship.</li>
+        <li><strong>3 Anchor Posts Scripted</strong> Your story, your positioning, your authority piece. Ready to film.</li>
+        <li><strong>Content Training</strong> Filming, audio, editing, batching. 1-on-1, recorded for reference.</li>
+        <li><strong>Day 60 Check-In</strong> We assess what's landing, what isn't, and where to go next.</li>
+        <li><strong>Full Handoff</strong> Every asset, prompt, template, doc, and workflow. Yours forever.</li>
+      </ul>
+    </div>
+
+    <!-- Optional retainer add-on -->
+    <div class="card featured">
+      <div class="phase-head">
+        <span class="phase-tag">Optional · After Day 60</span>
+        <span class="phase-weeks">Monthly Retainer</span>
+      </div>
+      <div class="ttl">Ongoing Content Partnership.</div>
+      <p class="desc">When the build is done, the system runs on its own. If you'd rather not run it alone, founding clients can step into a monthly retainer where I keep producing with you: strategy, content production, posting cadence, and optimization. Founding clients lock in founding rate on this work for life. Skip it and Frictionless OS still works as designed.</p>
     </div>
   </section>
 
-  <!-- WHAT'S INSIDE -->
-  <section class="section" id="inside" style="border-bottom:none;">
-    <div class="section-header">
-      <div class="eyebrow">What's Inside</div>
-      <h2>Here's what you get inside the <span class="o">Sprint</span></h2>
+  <!-- COACH -->
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Who's Building It</div>
+      <h2>You're not buying a course. <em>You're hiring me to build it.</em></h2>
     </div>
 
-    <div class="inside-list">
-
-      <div class="inside-item">
-        <div class="inside-card">
-          <div class="inside-img-wrap">
-            <img src="remove_all_the_copy_and_the_logo_and_make_the_mockups_fill_the_entire_screen_all_it_is_is_a_tight-l_emur3dflq0m6bzut4lv7_1.png" alt="Brand Launch Checklist">
-          </div>
-          <div class="inside-card-body">
-            <div class="inside-num-mobile">01</div>
-            <div class="inside-label">Step-by-Step Guided System</div>
-            <div class="inside-body">Step-by-step guide to walk you through installing your complete personal brand from positioning to visual identity to content system and launch.</div>
-            <div class="arrow-list">
-              <div class="arrow-item"><span class="arr">→</span> Brand foundation and positioning</div>
-              <div class="arrow-item"><span class="arr">→</span> Visual identity and aesthetic</div>
-              <div class="arrow-item"><span class="arr">→</span> Content system</div>
-              <div class="arrow-item"><span class="arr">→</span> Automated funnel</div>
-              <div class="arrow-item"><span class="arr">→</span> Launch your brand with a clear growth strategy</div>
-            </div>
-          </div>
-        </div>
+    <div class="coach">
+      <div class="photo" id="coachPhoto">
+        <!-- PHOTO PLACEHOLDER: replace src below with Gabe's photo URL (Cloudinary recommended, portrait ~3:4 ratio) -->
+        <img src="https://fscreative.live/hero-portrait.jpg" alt="Gabe Harris" onerror="this.style.display='none'; this.parentNode.innerHTML = 'Photo<br/>Placeholder<br/>132 × 168';" />
       </div>
-
-      <div class="inside-item">
-        <div class="inside-card">
-          <div class="inside-img-wrap">
-            <img src="similar_to_the_second_image_i_downloaded_i_want_to_create_a_live_icon_on_my_image_of_me_which_is_me_8o4djey8awhjp1qls6lp_1.png" alt="Weekly Q&As">
-          </div>
-          <div class="inside-card-body">
-            <div class="inside-num-mobile">02</div>
-            <div class="inside-label">Weekly Q&amp;As</div>
-            <div class="inside-body">Every week we go live so you can get direct answers, brand feedback, and strategy guidance in real time.</div>
-            <div class="arrow-list">
-              <div class="arrow-item"><span class="arr">→</span> Live Q&amp;A and brand feedback</div>
-              <div class="arrow-item"><span class="arr">→</span> Content and positioning reviews</div>
-              <div class="arrow-item"><span class="arr">→</span> 60 days of call access from the day you join</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="inside-item">
-        <div class="inside-card">
-          <div class="inside-img-wrap">
-            <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773797709/Untitled_design123_iaau7u.jpg" alt="Ask Gabe Channel">
-          </div>
-          <div class="inside-card-body">
-            <div class="inside-num-mobile">03</div>
-            <div class="inside-label">Ask Gabe Channel</div>
-            <div class="inside-body">A dedicated space inside the FSCreative community where you can drop questions at any step of your process and get a direct Loom response from Gabe.</div>
-            <div class="arrow-list">
-              <div class="arrow-item"><span class="arr">→</span> Drop questions on any step of the checklist</div>
-              <div class="arrow-item"><span class="arr">→</span> Receive direct Loom feedback from Gabe</div>
-              <div class="arrow-item"><span class="arr">→</span> Brand, content, and strategy support</div>
-              <div class="arrow-item"><span class="arr">→</span> 60 days access</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- WHAT YOU'LL WALK AWAY WITH -->
-  <section class="section" style="padding-top: 0;">
-    <div class="section-header" style="margin-bottom: 24px;">
-      <div class="eyebrow">What You'll Walk Away With</div>
-    </div>
-    <div class="value-list">
-      <div class="value-row">
-        <div class="value-check">✓</div>
-        <div class="value-item-text"><span class="value-item-title">Crystal clear positioning</span> <span class="value-item-sub">So your value is understood before you say a word.</span></div>
-      </div>
-      <div class="value-row">
-        <div class="value-check">✓</div>
-        <div class="value-item-text"><span class="value-item-title">A premium visual identity</span> <span class="value-item-sub">Cinematic, cohesive content that instantly elevates your brand.</span></div>
-      </div>
-      <div class="value-row">
-        <div class="value-check">✓</div>
-        <div class="value-item-text"><span class="value-item-title">A repeatable content system</span> <span class="value-item-sub">Create consistently without starting from scratch or burning out.</span></div>
-      </div>
-      <div class="value-row">
-        <div class="value-check">✓</div>
-        <div class="value-item-text"><span class="value-item-title">An automated funnel</span> <span class="value-item-sub">Turn attention into subscribers and subscribers into buyers.</span></div>
-      </div>
-      <div class="value-row">
-        <div class="value-check">✓</div>
-        <div class="value-item-text"><span class="value-item-title">A 7-day launch plan</span> <span class="value-item-sub">Announce your rebrand with clarity and real momentum.</span></div>
-      </div>
-      <div class="value-row">
-        <div class="value-check">✓</div>
-        <div class="value-item-text"><span class="value-item-title">60 days of creative direction</span> <span class="value-item-sub">Guidance, feedback, and accountability to make sure you actually execute.</span></div>
-      </div>
-      <div class="value-row">
-        <div class="value-check">✓</div>
-        <div class="value-item-text"><span class="value-item-title">Confidence in your brand</span> <span class="value-item-sub">Show up knowing your content finally reflects your level.</span></div>
-      </div>
-    </div>
-    <div class="bonus-box">
-      <svg class="bonus-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      <div class="bonus-text">
-        <strong>Bonus: Creator Confidence Workshop</strong>
-        Show up with clarity and confidence on camera. Learn how to batch, script, and deliver content that actually connects.
-        <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px;">
-          <div style="display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--dim);"><span style="color:#4ab874;flex-shrink:0;">→</span><span><strong style="color:var(--text);font-weight:600;">Limiting Beliefs &amp; Rewiring</strong> — Break through the mental patterns that keep you stuck.</span></div>
-          <div style="display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--dim);"><span style="color:#4ab874;flex-shrink:0;">→</span><span><strong style="color:var(--text);font-weight:600;">Core Mindset Shifts</strong> — Adopt the principles that help you show up and grow consistently.</span></div>
-          <div style="display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--dim);"><span style="color:#4ab874;flex-shrink:0;">→</span><span><strong style="color:var(--text);font-weight:600;">On Camera Confidence</strong> — Build clarity and comfort when speaking and creating.</span></div>
-          <div style="display:flex;gap:8px;align-items:baseline;font-size:13px;color:var(--dim);"><span style="color:#4ab874;flex-shrink:0;">→</span><span><strong style="color:var(--text);font-weight:600;">Content Execution Exercises</strong> — Use simple drills to develop your voice and get into flow faster.</span></div>
+      <div>
+        <div class="who">Founder · FSCreative™</div>
+        <div class="name">Gabe Harris</div>
+        <div class="role">@watch.gabe</div>
+        <p>I built FSCreative because I kept watching talented people get overlooked. Not because the work wasn't good. Because the brand was working against them. A weak brand quietly costs you clients, partnerships, and opportunities every day you don't fix it.</p>
+        <p>I've spent 10 years in branding building identities that don't just look premium. They make the right clients feel something the moment they land. Inside Frictionless OS, I work with you directly. My frameworks, my feedback, my attention for 60 days. This isn't a course you buy and forget. It's a build.</p>
+        <div class="credits">
+          <div class="credit"><div class="n">50K+</div><div class="l">Instagram</div></div>
+          <div class="credit"><div class="n">10 yrs</div><div class="l">Branding</div></div>
+          <div class="credit"><div class="n">35K+</div><div class="l">Digital Downloads</div></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PRICING -->
-  <section class="section" id="pricing">
-    <div class="section-header">
-      <div class="eyebrow">Sprint Pricing</div>
-      <h2>One payment.<br><span class="o">Everything included.</span></h2>
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Pricing</div>
+      <h2>Straight pricing. <em>No fake urgency.</em></h2>
+      <p>Founding rate is locked at $5,000 for the first 5 clients. After the cohort closes, setup goes to $7,500. The 5-spot cap isn't a marketing line. It's what fits in my calendar while doing the work right.</p>
     </div>
 
-    <div class="pricing-box">
-      <div class="pricing-top">
-        <div class="founding-badge">
-          <span class="live-dot" style="width:8px;height:8px;border-radius:50%;background:var(--orange);animation:blink 1.4s infinite;flex-shrink:0;"></span>
-          Brand Launch Sprint™ — Limited Spots
+    <div class="math">
+      <div class="mrow"><span class="l">Phase 01 · Brand Foundation</span><span class="r">Included</span></div>
+      <div class="mrow"><span class="l">Phase 02 · Content System</span><span class="r">Included</span></div>
+      <div class="mrow"><span class="l">Phase 03 · Funnel</span><span class="r">Included</span></div>
+      <div class="mrow"><span class="l">Phase 04 · Launch &amp; 30-Day Roadmap</span><span class="r">Included</span></div>
+      <div class="mrow"><span class="l">Founding Rate on Ongoing Retainer (for life)</span><span class="r">Included</span></div>
+      <div class="mrow"><span class="l">Visual Identity Deep-Dive (first 3 clients)</span><span class="r">Included</span></div>
+      <div class="final">
+        <div>
+          <div class="lbl">Founding Rate · First 5 Clients</div>
         </div>
-
-        <div class="price-row">
-          <span class="price-amount">$997</span>
-          <div>
-            <div class="price-per">one-time payment</div>
-          </div>
+        <div>
+          <span class="num">$5,000</span><span class="strike">$7,500</span>
         </div>
-
-        <p class="price-note">One payment covers the full 30-day sprint plus <strong>30 days of additional support and creative direction.</strong> No subscriptions. No hidden fees.</p>
-
-        <a href="https://fscreative.circle.so/checkout/brand-launch-sprinttm">
-          <button class="btn-primary" style="font-size:15px;padding:15px 32px;">
-            Join the Sprint — $997 →
-          </button>
-        </a>
-
-        <p style="font-size:13px;color:var(--dimmer);margin-top:14px;transition:color 0.25s;">
-          After joining you'll receive immediate access to the Brand Launch Checklist™ and onboarding. Sprint call schedule sent via email.
-        </p>
-      </div>
-
-      <!-- TIER PRICING -->
-      <div class="tier-section">
-        <p class="tier-note">Price increases every 5 people — lock in your rate now.</p>
-        <div class="tier-row">
-          <div class="tier-row-label">
-            <span class="tier-price-label">$997 tier</span>
-            <span class="tier-badge current">Current</span>
-          </div>
-          <div class="tier-segments">
-            <div class="tier-seg"></div>
-            <div class="tier-seg"></div>
-            <div class="tier-seg"></div>
-            <div class="tier-seg"></div>
-            <div class="tier-seg"></div>
-          </div>
-        </div>
-        <div class="tier-row">
-          <div class="tier-row-label">
-            <span class="tier-price-label">$1,497 tier</span>
-            <span class="tier-badge upcoming">Next</span>
-          </div>
-          <div class="tier-segments">
-            <div class="tier-seg"></div>
-            <div class="tier-seg"></div>
-            <div class="tier-seg"></div>
-            <div class="tier-seg"></div>
-            <div class="tier-seg"></div>
-          </div>
-        </div>
-        <div class="tier-row">
-          <div class="tier-row-label">
-            <span class="tier-price-label">$1,997 tier</span>
-            <span class="tier-badge upcoming">Final</span>
-          </div>
-          <div class="tier-segments">
-            <div class="tier-seg"></div>
-            <div class="tier-seg"></div>
-            <div class="tier-seg"></div>
-            <div class="tier-seg"></div>
-            <div class="tier-seg"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="support-bar">
-        <svg class="support-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <div class="support-text"><strong>60-day support window included.</strong> Weekly coaching calls + community access for 60 days from the day you join.</div>
-      </div>
-
-      <div class="pricing-includes">
-        <div class="include-item">Brand Launch Checklist™ — all 30 steps</div>
-        <div class="include-item">Weekly Q&amp;As + recordings (60 days)</div>
-        <div class="include-item">Ask Gabe Channel — direct Loom feedback</div>
-        <div class="include-item">Private FSCreative community (60 days)</div>
-        <div class="include-item">Content system installed</div>
-        <div class="include-item">Funnel &amp; launch strategy tools</div>
       </div>
     </div>
 
-    <!-- GUARANTEE -->
-    <div class="guarantee-box">
-      <div class="guarantee-label-row">
-        <svg class="guarantee-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <div class="guarantee-label">The Brand Launch Guarantee</div>
+    <div class="pricegrid">
+      <div class="opt best">
+        <div class="lbl">Pay in Full</div>
+        <div class="v">$4,500</div>
+        <div class="note">Save $500</div>
       </div>
-      <div class="guar-headline">Do the work. Get the result. <span style="color:#4ab874">Or your money back.</span></div>
-      <div class="guarantee-body">Complete the Brand Launch Checklist™ in full. If you don't feel confident launching your premium personal brand and content system after completing it, submit your completed checklist to receive a full refund. No questions asked.</div>
-    </div>
-
-  </section>
-
-  <!-- FAQ -->
-  <section class="section">
-    <div class="section-header">
-      <div class="eyebrow">FAQ</div>
-      <h2>Questions<br><span class="o">answered.</span></h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q">What exactly is the Brand Launch Sprint™? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-        <div class="faq-a">A focused 30-day challenge where you complete the Brand Launch Checklist™ — a 30-step system that walks you through building your entire premium personal brand. You get masterclass training, weekly coaching calls, and community support to make sure you actually finish it.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What does the $997 include? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-        <div class="faq-a">Everything: the Brand Launch Checklist™, Sprint Masterclasses, weekly live coaching calls, private community access, and 60 full days of support from the day you join. One payment. No subscriptions.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">How quickly will I see results? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-        <div class="faq-a">Participants who work through the checklist and engage on the coaching calls typically achieve brand clarity within the first 2 weeks. A complete transformation — identity, content system, and launch — happens inside the full 30-day sprint.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What if I'm just getting started? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-        <div class="faq-a">The checklist is designed to guide you from the very beginning. The earlier you build your brand correctly, the faster everything compounds. That said, you should be actively building or selling something — this sprint is about execution, not exploration.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">What does 60 days of support mean? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-        <div class="faq-a">From the day you join, you have 60 days of access to weekly live coaching calls, the private community, and all sprint materials. The 30-day checklist is your primary sprint, and the extra 30 days ensures you have the support to fully implement and launch.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">How does the guarantee work? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-        <div class="faq-a">Complete the Brand Launch Checklist™ in full. If you don't feel confident launching your premium personal brand and content system after doing the work, submit your completed checklist and receive a full refund. Simple as that.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">When are the weekly coaching calls? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-        <div class="faq-a">Every Tuesday at 5:30 PM CST. All sessions are recorded so you never miss a call even if your schedule conflicts. You'll receive the call link and schedule immediately after joining.</div>
+      <div class="opt">
+        <div class="lbl">Two Payments</div>
+        <div class="v">$2,500 × 2</div>
+        <div class="note">Over 30 days</div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="section">
-    <div class="section-header">
-      <div class="eyebrow">About</div>
-      <h2>Your <span class="o">Coach.</span></h2>
+  <!-- PROOF -->
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Proof</div>
+      <h2>What clients say about <em>working with me.</em></h2>
+      <p>Frictionless OS is the new high-ticket build. These quotes are from members of my existing FSCreative community and 1-on-1 clients. The Done-For-You install is a deeper version of the same system, run by me directly.</p>
     </div>
-    <div class="about-inner">
-      <img class="about-avatar" src="458590589_1534654820461228_4076101104222827177_n.jpg" alt="Gabe">
-      <div>
-        <div class="about-name">Gabe Harris</div>
-        <div class="about-role">Founder, FSCreative™ · @watch.gabe</div>
-        <div class="about-stats">
-          <div class="about-stat">
-            <div class="about-stat-val">50K+</div>
-            <div class="about-stat-label">Instagram Followers</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat-val">35+</div>
-            <div class="about-stat-label">Digital Product Downloads</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat-val">10 Yrs</div>
-            <div class="about-stat-label">Branding Agency Experience</div>
-          </div>
-        </div>
-        <div class="about-body">
-          <p>I built FSCreative™ because I kept watching talented creators get overlooked — not because their work wasn't good, but because their brand was working against them. A weak brand doesn't just hurt your aesthetics. It quietly costs you clients, partnerships, and opportunities every single day.</p>
-          <p>I've spent 10 years in branding building brands that don't just look premium — they make the right clients feel an instant connection the moment they land.</p>
-          <p>Inside the sprint, I work with you directly. You get my frameworks, my feedback, and my attention every week. This isn't a course you buy and forget. It's a 30-day execution environment built to get you a result.</p>
-        </div>
+
+    <div class="quotes">
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"Gabe's ability to teach complex techniques in a simple, hands-on way is unmatched. He helped me see photography, videography, and social media from both a creative and entrepreneurial perspective. It completely changed the way I approach my work."</p>
+        <div class="who"><span class="name">Theresa Reisinger</span> · @theresareisinger</div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"Working with Gabe was one of the most impactful learning experiences I've had. Real-time feedback, exactly how to improve, next-level. I left feeling inspired, more confident, and way more capable creatively. I'm still applying what I learned every day."</p>
+        <div class="who"><span class="name">Matthew Christie</span> · @adventurematt</div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"Content has been intimidating for me for a while, and just going through the frameworks Gabe shares, I've been able to turn it around and start feeling more excited about creating. He's always supporting us and holding us accountable to actually work on our content."</p>
+        <div class="who"><span class="name">Srishti Sheshadri</span> · studiosoltera.com</div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"Before joining, getting started always felt like the hardest part. Now I have clarity, encouragement, and a group of creators who push me forward. The step by step systems take away the fear of doing it alone. I finally have the tools and direction to reach my goals."</p>
+        <div class="who"><span class="name">Joab Teruel</span> · @joabteruel</div>
+      </div>
+    </div>
+    <div class="disclaimer">From FSCreative Community Members · 2025–2026</div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">The Promise</div>
+      <h2>We make it work. <em>Period.</em></h2>
+    </div>
+
+    <div class="promise">
+      <p>If at any point in the 60 days something isn't landing, we rebuild it. If by Week 3, when the Brand Foundation is done, you still don't feel like this is unmistakably you, you get a full refund. No friction, no extraction process. This isn't a money-back-if-you're-unhappy promise. It's a we're-going-to-make-this-work promise.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="cta">
+      <div class="eyebrow">Next Step</div>
+      <h3>Book a strategy call.</h3>
+      <p>30 minutes. No pitch, no pressure. A real conversation about whether this makes sense for you right now. If it's not a fit, I'll tell you. If it is, we talk about the build.</p>
+      <a class="btn" href="https://calendly.com/golocalgroup/watchgabe" target="_blank" rel="noopener">Book Your Strategy Call →</a>
+      <span class="alt">Questions first? DM <a href="https://instagram.com/watch.gabe" target="_blank" rel="noopener">@watch.gabe</a></span>
+      <div class="meta">
+        <span>5 Founding Spots</span>
+        <span>·</span>
+        <span>$5,000 Rate</span>
+        <span>·</span>
+        <span>60-Day Build</span>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="section">
-    <div class="section-header">
-      <div class="eyebrow">From the Community</div>
-      <h2>Creators who<br><span class="o">did the work.</span></h2>
-      <p class="section-sub">Real results from creators who committed to building their brand with clarity, consistency, and the right system.</p>
-    </div>
-    <div class="testimonials-grid">
+  <footer>
+    <div class="l">FSCreative™ · Frictionless OS · 2026</div>
+    <div class="r">Built by <a href="https://instagram.com/watch.gabe" target="_blank" rel="noopener">@watch.gabe</a></div>
+  </footer>
 
-      <div class="testimonial-card">
-        <div class="testi-header">
-          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/srishti_zgfdhy" alt="Srishti Sheshadri"></div>
-          <div>
-            <div class="testi-name">Srishti Sheshadri</div>
-            <div class="testi-handle">studiosoltera.com</div>
-          </div>
-        </div>
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"I joined FS Creative a couple of weeks ago and I've honestly gotten a lot of value out of it. Content has been a very intimidating space for me for a while — and just going through the frameworks Gabe shares, I've really been able to turn it around and start feeling a little more excited about creating. He's always supporting us and holding us accountable to show up and actually work on our content."</div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testi-header">
-          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/lorena_p59fdv" alt="Lorena Alvarez"></div>
-          <div>
-            <div class="testi-name">Lorena Alvarez</div>
-            <div class="testi-handle">FSCreative Member</div>
-          </div>
-        </div>
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"Before FS Creative, I felt more lost and disconnected in my creator journey. The community brought me clarity and accountability. The weekly calls are moments where I can ask Gabe questions and mostly show up. Gabe brings frameworks that help me have more clarity so I can structure my work and get more things done."</div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testi-header">
-          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/joab_kajmku" alt="Joab Teruel"></div>
-          <div>
-            <div class="testi-name">Joab Teruel</div>
-            <div class="testi-handle">@joabteruel</div>
-          </div>
-        </div>
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"I went from overwhelmed to confident and supported. Before joining, getting started always felt like the hardest part. Now I have clarity, encouragement, and a group of creators who push me forward. Your messaging, support, and step by step systems take away the fear of doing it alone. I finally feel like I have the tools, direction, and community to reach my goals."</div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testi-header">
-          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/diana_dclsim" alt="Diana Scully"></div>
-          <div>
-            <div class="testi-name">Diana Scully</div>
-            <div class="testi-handle">@dianafscully</div>
-          </div>
-        </div>
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"The processes and challenges inside this community have done more for my confidence than anything I've tried before. I've always been an observer on social media, not a participant, so using it to market my business felt intimidating. The structure here makes it feel achievable. The Notion workbooks are incredibly helpful because we cover so many ideas and having clear follow up steps keeps everything digestible."</div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testi-header">
-          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799125/image_1_tvcief.png" alt="Lucy Drughieri"></div>
-          <div>
-            <div class="testi-name">Lucy Drughieri</div>
-            <div class="testi-handle">@lucila.drughieri</div>
-          </div>
-        </div>
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"FSCreative has been invaluable for organizing my scattered thoughts and helping me discover who I am and what I can create. The resource hub is excellent and studying your editing style and Postcards gives me a real sense of belonging. Before joining I felt lost, now I have a clear roadmap and the confidence to pursue my goals."</div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testi-header">
-          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/theresa_axof4n" alt="Theresa Reisinger"></div>
-          <div>
-            <div class="testi-name">Theresa Reisinger</div>
-            <div class="testi-handle">@theresareisinger</div>
-          </div>
-        </div>
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"Gabe's ability to teach complex techniques in a simple, hands-on way is unmatched. I gained invaluable skills, from mastering light and composition to understanding how to build a strong brand and get clients. He helped me see photography, videography, and social media from both a creative and entrepreneurial perspective. It completely leveled up the way I approach my work."</div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testi-header">
-          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/matthew_bdohws" alt="Matthew Christie"></div>
-          <div>
-            <div class="testi-name">Matthew Christie</div>
-            <div class="testi-handle">@adventurematt</div>
-          </div>
-        </div>
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"Working with Gabe was one of the most impactful learning experiences I've had. I've never gotten much out of traditional courses or YouTube videos, but learning directly from him, getting real-time feedback, and seeing exactly how to improve was next-level. I connected with incredible people and left feeling inspired, more confident, and way more capable creatively. I'm still applying what I learned every day."</div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="testi-header">
-          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/sofia_ubrhat" alt="Sofia Kalma"></div>
-          <div>
-            <div class="testi-name">Sofia Kalma</div>
-            <div class="testi-handle">@shotby.sof</div>
-          </div>
-        </div>
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"I was immediately inspired by the lifestyle Gabe had built, getting paid to create and travel. He helped me return to the basics of photography and taught skills that go far beyond just hitting record on a phone. More importantly, he created a space where I felt supported to show up online and push past my comfort zone. Before, I wasn't comfortable posting on social media, but now I feel confident, clear, and excited to share my work."</div>
-      </div>
-
-    </div>
-  </section>
-
-</div><!-- /wrap -->
-
-<!-- FINAL CTA -->
-<section class="final-section">
-  <div style="position:relative;z-index:1;max-width:680px;margin:0 auto;">
-    <div class="final-eyebrow">Brand Launch Sprint™</div>
-    <div class="final-headline">We know you've thought about it. <span class="o">It's time to make it happen.</span></div>
-    <p class="final-sub">Install the system and transform your personal brand forever. Attract the right audience with cinematic content and sustain it with the systems needed to avoid burnout.</p>
-    <div class="final-cta-wrap">
-      <a href="https://fscreative.circle.so/checkout/brand-launch-sprinttm">
-        <button class="btn-primary" style="font-size:15px;padding:15px 36px;">
-          Join the Sprint — $997 →
-        </button>
-      </a>
-    </div>
-    <p class="final-micro">One time payment · 60 days access · 30-day sprint · Money back guarantee</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <span class="footer-copy">FSCreative™ — fscreative.live</span>
-    <a class="footer-link" href="https://fscreative.circle.so/checkout/brand-launch-sprinttm">Join the Sprint →</a>
-  </div>
-</footer>
+</main>
 
 <script>
-  // ── BANNER PANEL ROTATION ──
-  (function() {
-    const panelCd   = document.getElementById('bar-panel-cd');
-    const panelGuar = document.getElementById('bar-panel-guar');
-    let showingCd = true;
-    function swap() {
-      if (showingCd) {
-        panelCd.classList.remove('bar-visible');
-        setTimeout(() => { panelGuar.classList.add('bar-visible'); }, 100);
+const toggle = document.getElementById('toggle');
+const toggleLabel = document.getElementById('toggleLabel');
+const html = document.documentElement;
+function applyMode(mode) {
+  html.setAttribute('data-mode', mode);
+  toggleLabel.textContent = mode === 'dark' ? 'Light' : 'Dark';
+}
+applyMode('dark');
+toggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-mode') || 'dark';
+  applyMode(current === 'dark' ? 'light' : 'dark');
+});
+
+(function grainOverlay(){
+  const c = document.getElementById('grain');
+  const ctx = c.getContext('2d');
+  function resize(){ c.width = window.innerWidth; c.height = window.innerHeight; draw(); }
+  function draw(){
+    const w = c.width, h = c.height;
+    const img = ctx.createImageData(w, h);
+    const d = img.data;
+    for (let i = 0; i < d.length; i += 4) {
+      const v = (Math.random() * 255) | 0;
+      d[i] = v; d[i+1] = v; d[i+2] = v; d[i+3] = 255;
+    }
+    ctx.putImageData(img, 0, 0);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+})();
+</script>
+
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
       } else {
-        panelGuar.classList.remove('bar-visible');
-        setTimeout(() => { panelCd.classList.add('bar-visible'); }, 100);
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
       }
-      showingCd = !showingCd;
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
     }
-    setInterval(swap, 6000);
-  })();
+  }
 
-  // ── ROADMAP ACCORDION (single-open) ──
-  document.querySelectorAll('.roadmap-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const card = header.closest('.roadmap-card');
-      const isOpen = card.classList.contains('rm-open');
-      document.querySelectorAll('.roadmap-card').forEach(c => c.classList.remove('rm-open'));
-      if (!isOpen) card.classList.add('rm-open');
-    });
-  });
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
 
-  // ── FAQ ACCORDION (single-open) ──
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.querySelector('.faq-q').addEventListener('click', () => {
-      const isOpen = item.classList.contains('faq-open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('faq-open'));
-      if (!isOpen) item.classList.add('faq-open');
-    });
-  });
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
 
-  // ── THEME TOGGLE ──
-  const toggle = document.getElementById('themeToggle');
-  if (localStorage.getItem('fsc-theme') === 'light') document.body.classList.add('light');
-  toggle.addEventListener('click', () => {
-    document.body.classList.toggle('light');
-    localStorage.setItem('fsc-theme', document.body.classList.contains('light') ? 'light' : 'dark');
-  });
-
-  // ── NEXT SPRINT CALL COUNTDOWN (Tuesdays 5:30 PM CST) ──
-  (function() {
-    function getChicagoOffsetMin(date) {
-      const utcH = date.getUTCHours();
-      const chH = parseInt(new Intl.DateTimeFormat('en-US', {
-        timeZone: 'America/Chicago', hour: '2-digit', hour12: false
-      }).format(date));
-      return ((utcH - chH) + 24) % 24 * 60;
-    }
-    function getNextCall() {
-      const now = new Date();
-      const offMin = getChicagoOffsetMin(now);
-      const chNow = new Date(now.getTime() - offMin * 60000);
-      const dow = chNow.getUTCDay();
-      const chH = chNow.getUTCHours();
-      const chM = chNow.getUTCMinutes();
-      let d = (2 - dow + 7) % 7;
-      if (d === 0 && chH * 60 + chM >= 17 * 60 + 30) d = 7;
-      const targetCh = new Date(Date.UTC(
-        chNow.getUTCFullYear(), chNow.getUTCMonth(), chNow.getUTCDate() + d, 17, 30, 0
-      ));
-      const approxUTC = new Date(targetCh.getTime() + offMin * 60000);
-      const offAtTarget = getChicagoOffsetMin(approxUTC);
-      return new Date(targetCh.getTime() + offAtTarget * 60000);
-    }
-    function pad(n) { return String(n).padStart(2, '0'); }
-    function tick() {
-      const diff = getNextCall() - new Date();
-      if (diff <= 0) {
-        ['bar-days','bar-hours','bar-mins','bar-secs'].forEach(id => document.getElementById(id).textContent = '00');
-        return;
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
       }
-      const s = Math.floor(diff / 1000);
-      document.getElementById('bar-days').textContent  = pad(Math.floor(s / 86400));
-      document.getElementById('bar-hours').textContent = pad(Math.floor((s % 86400) / 3600));
-      document.getElementById('bar-mins').textContent  = pad(Math.floor((s % 3600) / 60));
-      document.getElementById('bar-secs').textContent  = pad(s % 60);
+    } catch (_error) {
+      dataUri = null;
     }
-    tick();
-    setInterval(tick, 1000);
-  })();
-</script>
-<script>
-  document.querySelectorAll('.btn-primary, a[href*="checkout"]').forEach(function(el) {
-    el.addEventListener('click', function() {
-      gtag('event', 'join_sprint_click', {
-        'event_category': 'conversion',
-        'event_label': el.closest('section') ? el.closest('section').id || 'page' : 'nav'
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
       });
-    });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
   });
-</script>
-</body>
+})();
+
+
+</script></body>
 </html>
