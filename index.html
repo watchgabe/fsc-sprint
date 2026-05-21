@@ -460,14 +460,17 @@ section { margin-top: 52px; }
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 24px 20px;
-  display: grid;
-  grid-template-columns: 132px 1fr;
-  gap: 22px;
-  align-items: start;
+}
+.coach-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
 }
 .coach .photo {
-  width: 132px;
-  height: 168px;
+  width: 104px;
+  height: 138px;
+  flex-shrink: 0;
   border-radius: 12px;
   background: transparent;
   display: flex;
@@ -488,6 +491,7 @@ section { margin-top: 52px; }
   border-radius: 12px;
   display: block;
 }
+.coach-id { min-width: 0; }
 .coach .who {
   font-family: 'Space Mono', monospace;
   font-size: 9px;
@@ -509,7 +513,6 @@ section { margin-top: 52px; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--sub);
-  margin-bottom: 14px;
 }
 .coach p {
   color: var(--sub-bright);
@@ -707,10 +710,6 @@ footer a { color: var(--orange); text-decoration: none; }
   .pricegrid { grid-template-columns: 1fr; }
   .quotes { grid-template-columns: 1fr; }
   .timeline .nodes { grid-template-columns: 1fr 1fr; gap: 14px; }
-  .coach { grid-template-columns: 1fr; justify-items: center; }
-  .coach .photo { width: 60%; max-width: 240px; height: auto; aspect-ratio: 3 / 4; }
-  .coach > div:last-child { width: 100%; }
-  .coach .credits { grid-template-columns: 1fr; }
   .card li { flex-direction: column; gap: 4px; }
   .card li strong { min-width: 0; }
   .math .final .num { font-size: 32px; }
@@ -898,14 +897,17 @@ footer a { color: var(--orange); text-decoration: none; }
     </div>
 
     <div class="coach">
-      <div class="photo" id="coachPhoto">
-        <!-- PHOTO PLACEHOLDER: replace src below with Gabe's photo URL (Cloudinary recommended, portrait ~3:4 ratio) -->
-        <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/w_800,f_auto,q_auto/v1779403129/DSCF5597_3_feqde5.jpg" alt="Gabe Harris" onerror="this.style.display='none'; this.parentNode.innerHTML = 'Photo<br/>Placeholder<br/>132 × 168';" />
+      <div class="coach-head">
+        <div class="photo" id="coachPhoto">
+          <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/w_800,f_auto,q_auto/v1779403129/DSCF5597_3_feqde5.jpg" alt="Gabe Harris" onerror="this.style.display='none'; this.parentNode.innerHTML = 'Photo<br/>Placeholder';" />
+        </div>
+        <div class="coach-id">
+          <div class="who">Founder · FSCreative™</div>
+          <div class="name">Gabe Harris</div>
+          <div class="role">@watch.gabe</div>
+        </div>
       </div>
-      <div>
-        <div class="who">Founder · FSCreative™</div>
-        <div class="name">Gabe Harris</div>
-        <div class="role">@watch.gabe</div>
+      <div class="coach-body">
         <p>I built FSCreative because I kept watching talented people get overlooked. Not because the work wasn't good. Because the brand was working against them. A weak brand quietly costs you clients, partnerships, and opportunities every day you don't fix it.</p>
         <p>I've spent 10 years in branding building identities that don't just look premium. They make the right clients feel something the moment they land. Inside Frictionless OS, I work with you directly. My frameworks, my feedback, my attention for 60 days. This isn't a course you buy and forget. It's a build.</p>
         <div class="credits">
