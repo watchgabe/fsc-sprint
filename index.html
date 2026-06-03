@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Frictionless OS · A personal brand built for you in 60 days</title>
-<meta name="description" content="A done-for-you personal brand system for creative solopreneurs who already have a real business. Built by Gabe Harris." />
+<meta name="description" content="A done-with-you personal brand system for creative solopreneurs who already have a real business. Built by Gabe Harris." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -128,6 +128,14 @@ body { min-height: 100vh; overflow-x: hidden; }
   display: block;
   flex-shrink: 0;
 }
+.lockup img.logo {
+  height: 32px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+[data-mode="dark"] .lockup img.logo--for-light { display: none; }
+[data-mode="light"] .lockup img.logo--for-dark { display: none; }
 .lockup .brand {
   display: flex;
   flex-direction: column;
@@ -724,11 +732,8 @@ footer a { color: var(--orange); text-decoration: none; }
 
   <header class="header">
     <div class="lockup">
-      <img class="icon" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
-      <div class="brand">
-        <span class="wordmark">FSCreative™</span>
-        <span class="project">Frictionless OS</span>
-      </div>
+      <img class="logo logo--for-dark" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" alt="FSCreative" />
+      <img class="logo logo--for-light" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549022/Asset_2_4x_fs8lwl.png" alt="FSCreative" />
     </div>
     <div class="toggle" id="toggle" role="button" aria-label="Toggle light/dark mode">
       <span class="thumb"></span>
@@ -738,9 +743,9 @@ footer a { color: var(--orange); text-decoration: none; }
 
   <!-- HERO -->
   <section class="hero">
-    <div class="eyebrow">Done-For-You · 60 Days · 5 Founding Spots</div>
+    <div class="eyebrow">Done-With-You · 60 Days · 5 Founding Spots</div>
     <h1>A personal brand <em>built around</em> the business you already run.</h1>
-    <p class="lede"><strong>Frictionless OS</strong> is a 60-day done-for-you build. I install the strategy, visual identity, content system, and funnel that turn your existing practice into a brand the right clients come to. You don't become a creator. You become an authority.</p>
+    <p class="lede"><strong>Frictionless OS</strong> is a 60-day done-with-you build. I install the strategy, visual identity, content system, and funnel that turn your existing practice into a brand the right clients come to. You don't become a creator. You become an authority.</p>
 
     <div class="statrow">
       <div class="stat">
@@ -963,7 +968,7 @@ footer a { color: var(--orange); text-decoration: none; }
     <div class="section-head">
       <div class="eyebrow">Proof</div>
       <h2>What clients say about <em>working with me.</em></h2>
-      <p>Frictionless OS is the new high-ticket build. These quotes are from members of my existing FSCreative community and 1-on-1 clients. The Done-For-You install is a deeper version of the same system, run by me directly.</p>
+      <p>Frictionless OS is the new high-ticket build. These quotes are from members of my existing FSCreative community and 1-on-1 clients. The Done-With-You install is a deeper version of the same system, run by me directly.</p>
     </div>
 
     <div class="quotes">
