@@ -1,0 +1,41 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//FSCreative//AI Brain Workshop//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Chicago
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0600
+TZOFFSETTO:-0500
+TZNAME:CDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0600
+TZNAME:CST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:fscreative-workshop-20260628@fscreative.live
+DTSTAMP:20260528T000000Z
+DTSTART;TZID=America/Chicago:20260628T100000
+DTEND;TZID=America/Chicago:20260628T113000
+SUMMARY:Build An AI-Powered Content Creation System That Doesn't F*cking Suck
+DESCRIPTION:Hosted by Gabe Harris (@watch.gabe).\n\nJoin Zoom: https://us04web.zoom.us/j/78078203853?pwd=qIqCDU3ETrzg6obfbiC718igjifK6g.1\n\nMeeting ID: 780 7820 3853\nPasscode: 7LKjru\n\nWhat to prep:\n- Claude Code installed (claude.com/claude-code)\n- Your Brand Blueprint PDF on hand\n- Optional: a 5-min voice-memo session recorded (Wispr Flow or any voice-to-text)
+LOCATION:Zoom — https://us04web.zoom.us/j/78078203853?pwd=qIqCDU3ETrzg6obfbiC718igjifK6g.1
+URL:https://us04web.zoom.us/j/78078203853?pwd=qIqCDU3ETrzg6obfbiC718igjifK6g.1
+ORGANIZER;CN=Gabe Harris:mailto:info@watchgabe.com
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:FSCreative Workshop starting in 10 minutes
+END:VALARM
+END:VEVENT
+END:VCALENDAR
