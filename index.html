@@ -727,26 +727,34 @@ footer a { color: var(--orange); text-decoration: none; }
 #site-nav { position: sticky; top: 16px; z-index: 1000; padding: 0 20px; }
 .sn-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 24px; height: 60px; background: var(--card); border: 1px solid var(--border); border-radius: 100px; padding: 8px 10px 8px 22px; box-shadow: 0 6px 32px rgba(0,0,0,0.12); }
 .sn-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; text-decoration: none; color: inherit; }
-.sn-logo img { display: block; }
-.sn-logo-icon { display: none; width: 28px; height: 28px; }
-.sn-logo-full { height: 22px; width: auto; }
+.sn-logo img { display: none; }
+.sn-logo-full { display: block; height: 22px; width: auto; }
 [data-mode="dark"] .sn-logo-full-light { display: none; }
 [data-mode="light"] .sn-logo-full-dark { display: none; }
+.sn-in { position: relative; }
 .sn-links { display: flex; align-items: center; gap: 26px; margin-left: 24px; }
-.sn-link { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--sub-bright); text-decoration: none; transition: color .2s; padding: 4px 0; }
-.sn-link:hover { color: var(--text); }
-.sn-link.active { color: var(--text); }
-.sn-r { display: flex; align-items: center; gap: 12px; flex-shrink: 0; margin-left: auto; }
+.sn-link { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--text); text-decoration: none; transition: opacity .2s; padding: 4px 0; }
+.sn-link:hover { opacity: .7; }
+.sn-link.active { opacity: 1; }
+.sn-r { display: flex; align-items: center; gap: 14px; flex-shrink: 0; margin-left: auto; }
+.sn-tagline { font-family: 'Space Mono', monospace; font-size: 10px; line-height: 1.4; color: var(--sub-bright); text-align: right; max-width: 180px; letter-spacing: .01em; }
 .sn-book { display: inline-flex; align-items: center; gap: 6px; padding: 11px 22px; border-radius: 100px; background: #ee663e; color: #fff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: -.01em; border: none; cursor: pointer; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
 .sn-book:hover { background: #e0552e; color: #fff; transform: translateY(-1px); }
+.sn-hamburger { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 10px 8px; }
+.sn-hamburger span { width: 18px; height: 2px; background: var(--text); border-radius: 1px; transition: transform .2s; }
 .sn-toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; background: none; border: none; padding: 0; flex-shrink: 0; }
 .sn-toggle .thumb { width: 18px; height: 18px; border-radius: 50%; background: #fff; }
 .sn-toggle .label { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub-bright); }
 @media (max-width: 768px) {
-  .sn-links { display: none; }
-  .sn-in { gap: 12px; height: 56px; padding-left: 16px; }
-  .sn-logo-icon { display: block; }
+  .sn-in { gap: 12px; height: 56px; padding-left: 18px; }
+  .sn-logo-icon { display: block !important; width: 26px; height: 26px; }
   .sn-logo-full { display: none !important; }
+  .sn-tagline { display: none; }
+  .sn-hamburger { display: flex; }
+  .sn-links { position: absolute; top: calc(100% + 10px); left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; margin: 0; background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 8px 14px; display: none; box-shadow: 0 8px 32px rgba(0,0,0,0.22); }
+  .sn-links.open { display: flex; }
+  .sn-links .sn-link { padding: 12px 4px; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .sn-links .sn-link:last-child { border-bottom: none; }
 }
 </style>
 </head>
@@ -767,7 +775,9 @@ footer a { color: var(--orange); text-decoration: none; }
       <a href="/freebies" class="sn-link">Freebies</a>
     </div>
     <div class="sn-r">
+      <span class="sn-tagline">Do you want to work one-on-one with Gabe? Book a call.</span>
       <a href="https://calendly.com/golocalgroup/watchgabe" class="sn-book" target="_blank">Book a Call</a>
+      <button class="sn-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
       <div class="sn-toggle toggle" id="toggle" role="button" aria-label="Toggle light/dark mode">
         <span class="thumb"></span>
         <span class="label" id="toggleLabel">Light</span>
@@ -775,6 +785,14 @@ footer a { color: var(--orange); text-decoration: none; }
     </div>
   </div>
 </nav>
+
+<script>
+  (function(){
+    const h = document.getElementById('hamburger');
+    const l = document.querySelector('.sn-links');
+    if (h && l) h.addEventListener('click', () => l.classList.toggle('open'));
+  })();
+</script>
 
 <main class="page">
 
