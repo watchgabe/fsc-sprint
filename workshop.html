@@ -300,15 +300,18 @@
     #site-nav { position: sticky; top: 16px; z-index: 1000; padding: 0 20px; }
     .sn-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 24px; height: 60px; background: var(--card); border: 1px solid var(--border); border-radius: 100px; padding: 8px 10px 8px 22px; box-shadow: 0 6px 32px rgba(0,0,0,0.12); }
     .sn-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; text-decoration: none; color: inherit; }
-    .sn-logo img { width: 26px; height: 26px; }
-    .sn-logo .sn-wm { font-weight: 700; font-size: 14px; letter-spacing: -.01em; color: var(--text); }
+    .sn-logo img { display: block; }
+    .sn-logo-icon { display: none; width: 28px; height: 28px; }
+    .sn-logo-full { height: 22px; width: auto; }
+    [data-mode="dark"] .sn-logo-full-light { display: none; }
+    [data-mode="light"] .sn-logo-full-dark { display: none; }
     .sn-links { display: flex; align-items: center; gap: 26px; margin-left: 24px; }
     .sn-link { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--sub-bright); text-decoration: none; transition: color .2s; padding: 4px 0; }
     .sn-link:hover { color: var(--text); }
     .sn-link.active { color: var(--text); }
     .sn-r { display: flex; align-items: center; gap: 12px; flex-shrink: 0; margin-left: auto; }
-    .sn-book { display: inline-flex; align-items: center; gap: 6px; padding: 11px 22px; border-radius: 100px; background: #c5fb45; color: #061410; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: -.01em; border: none; cursor: pointer; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
-    .sn-book:hover { background: #b5eb35; color: #061410; transform: translateY(-1px); }
+    .sn-book { display: inline-flex; align-items: center; gap: 6px; padding: 11px 22px; border-radius: 100px; background: #ee663e; color: #fff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: -.01em; border: none; cursor: pointer; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
+    .sn-book:hover { background: #e0552e; color: #fff; transform: translateY(-1px); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -326,8 +329,9 @@
       .ag-time { grid-column: 2; justify-self: start; }
       .wf-grid { grid-template-columns: 1fr; }
       .sn-links { display: none; }
-      .sn-brand .sb-p { display: none; }
-      .sn-in { gap: 12px; height: 56px; }
+      .sn-in { gap: 12px; height: 56px; padding-left: 16px; }
+      .sn-logo-icon { display: block; }
+      .sn-logo-full { display: none !important; }
     }
   </style>
 </head>
@@ -346,8 +350,9 @@
 <nav id="site-nav">
   <div class="sn-in">
     <a href="/" class="sn-logo">
-      <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
-      <span class="sn-wm">FSCreative&#8482;</span>
+      <img class="sn-logo-icon" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
+      <img class="sn-logo-full sn-logo-full-dark" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" alt="FSCreative" />
+      <img class="sn-logo-full sn-logo-full-light" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549022/Asset_2_4x_fs8lwl.png" alt="FSCreative" />
     </a>
     <div class="sn-links">
       <a href="/workshop" class="sn-link active">Workshops</a>

@@ -20,7 +20,7 @@
       --sub:        rgba(255,255,255,0.36);
       --sub-bright: rgba(255,255,255,0.58);
       --orange:     #ee663e;
-      --lime:       #c5fb45;
+      --lime:       #ee663e;
       --foot:       rgba(255,255,255,0.15);
       --join-bg:    rgba(238,102,62,0.07);
       --join-bdr:   rgba(238,102,62,0.26);
@@ -33,7 +33,7 @@
       --sub:        #7a7570;
       --sub-bright: #4a4540;
       --orange:     #ee663e;
-      --lime:       #c5fb45;
+      --lime:       #ee663e;
       --foot:       #b0a89e;
       --join-bg:    rgba(238,102,62,0.05);
       --join-bdr:   rgba(238,102,62,0.20);
@@ -52,15 +52,18 @@
     #site-nav { position: sticky; top: 16px; z-index: 1000; padding: 0 20px; }
     .sn-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 24px; height: 60px; background: var(--card); border: 1px solid var(--border); border-radius: 100px; padding: 8px 10px 8px 22px; box-shadow: 0 6px 32px rgba(0,0,0,0.12); }
     .sn-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; text-decoration: none; color: inherit; }
-    .sn-logo img { width: 26px; height: 26px; }
-    .sn-logo .sn-wm { font-weight: 700; font-size: 14px; letter-spacing: -.01em; color: var(--text); }
+    .sn-logo img { display: block; }
+    .sn-logo-icon { display: none; width: 28px; height: 28px; }
+    .sn-logo-full { height: 22px; width: auto; }
+    [data-mode="dark"] .sn-logo-full-light { display: none; }
+    [data-mode="light"] .sn-logo-full-dark { display: none; }
     .sn-links { display: flex; align-items: center; gap: 26px; margin-left: 24px; }
     .sn-link { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--sub-bright); text-decoration: none; transition: color .2s; padding: 4px 0; }
     .sn-link:hover { color: var(--text); }
     .sn-link.active { color: var(--text); }
     .sn-r { display: flex; align-items: center; gap: 12px; flex-shrink: 0; margin-left: auto; }
-    .sn-book { display: inline-flex; align-items: center; gap: 6px; padding: 11px 22px; border-radius: 100px; background: var(--lime); color: #061410; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: -.01em; border: none; cursor: pointer; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
-    .sn-book:hover { background: #b5eb35; color: #061410; transform: translateY(-1px); }
+    .sn-book { display: inline-flex; align-items: center; gap: 6px; padding: 11px 22px; border-radius: 100px; background: var(--orange); color: #fff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: -.01em; border: none; cursor: pointer; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
+    .sn-book:hover { background: #e0552e; color: #fff; transform: translateY(-1px); }
     .sn-toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; background: none; border: none; padding: 0; flex-shrink: 0; }
     .sn-tg-label { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
     .sn-tg-track { width: 32px; height: 17px; border-radius: 100px; background: var(--border); position: relative; transition: background .25s; flex-shrink: 0; }
@@ -83,7 +86,7 @@
     /* SOCIAL PILLS */
     #social { padding: 24px 24px 56px; max-width: 720px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
     .soc-pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 100px; background: var(--card); border: 1px solid var(--border); color: var(--text); text-decoration: none; font-size: 13px; font-weight: 600; transition: border-color .2s, background .2s; }
-    .soc-pill:hover { border-color: var(--lime); background: rgba(197,251,69,0.06); }
+    .soc-pill:hover { border-color: var(--orange); background: rgba(238,102,62,0.06); }
     .soc-pill svg { width: 14px; height: 14px; fill: var(--text); }
 
     /* RESOURCES */
@@ -96,10 +99,10 @@
     .res-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -.025em; color: var(--text); line-height: 1.15; }
     .res-desc { font-size: 14px; line-height: 1.6; color: var(--sub-bright); }
     .res-action { margin-top: auto; padding-top: 6px; }
-    .res-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 100px; background: var(--lime); color: #061410; font-size: 13px; font-weight: 700; text-decoration: none; transition: background .2s, transform .2s; }
-    .res-btn:hover { background: #b5eb35; transform: translateY(-1px); }
+    .res-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 100px; background: var(--orange); color: #fff; font-size: 13px; font-weight: 700; text-decoration: none; transition: background .2s, transform .2s; }
+    .res-btn:hover { background: #e0552e; transform: translateY(-1px); }
     .res-btn.outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
-    .res-btn.outline:hover { background: var(--card); border-color: var(--lime); color: var(--text); }
+    .res-btn.outline:hover { background: var(--card); border-color: var(--orange); color: var(--text); }
 
     .res-list { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 14px 6px; display: flex; flex-direction: column; }
     .res-list-pre { padding: 14px 22px 10px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
@@ -110,7 +113,7 @@
     .res-list-item .rli-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 3px; line-height: 1.25; }
     .res-list-item .rli-desc { font-size: 12px; line-height: 1.45; color: var(--sub-bright); }
     .res-list-item .rli-arrow { width: 32px; height: 32px; border-radius: 50%; background: var(--bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--sub-bright); font-size: 14px; flex-shrink: 0; transition: background .2s, color .2s; }
-    .res-list-item:hover .rli-arrow { background: var(--lime); color: #061410; border-color: var(--lime); }
+    .res-list-item:hover .rli-arrow { background: var(--orange); color: #fff; border-color: var(--orange); }
 
     /* FOOTER */
     #footer { padding: 60px 24px 56px; text-align: center; }
@@ -125,7 +128,9 @@
     }
     @media (max-width: 768px) {
       .sn-links { display: none; }
-      .sn-in { gap: 12px; height: 56px; padding-left: 18px; }
+      .sn-in { gap: 12px; height: 56px; padding-left: 16px; }
+      .sn-logo-icon { display: block; }
+      .sn-logo-full { display: none !important; }
       #hero { padding: 56px 20px 36px; }
       .h-eyebrow { font-size: 9px; padding: 6px 14px; }
       .h-sub { font-size: 16px; }
@@ -140,8 +145,9 @@
 <nav id="site-nav">
   <div class="sn-in">
     <a href="/" class="sn-logo">
-      <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
-      <span class="sn-wm">FSCreative&#8482;</span>
+      <img class="sn-logo-icon" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
+      <img class="sn-logo-full sn-logo-full-dark" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" alt="FSCreative" />
+      <img class="sn-logo-full sn-logo-full-light" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549022/Asset_2_4x_fs8lwl.png" alt="FSCreative" />
     </a>
     <div class="sn-links">
       <a href="/workshop" class="sn-link">Workshops</a>
