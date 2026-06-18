@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cinematic Storyteller Blueprint &middot; FSCreative&#8482;</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img { display: block; max-width: 100%; }
+
+    :root, [data-mode="dark"] {
+      --bg:         #061410;
+      --card:       #091a14;
+      --border:     #0f261c;
+      --text:       #ffffff;
+      --sub:        rgba(255,255,255,0.36);
+      --sub-bright: rgba(255,255,255,0.58);
+      --orange:     #ee663e;
+      --lime:       #c5fb45;
+      --foot:       rgba(255,255,255,0.15);
+      --join-bg:    rgba(238,102,62,0.07);
+      --join-bdr:   rgba(238,102,62,0.26);
+    }
+    [data-mode="light"] {
+      --bg:         #f5f0ea;
+      --card:       #ede7df;
+      --border:     #d6cec4;
+      --text:       #061410;
+      --sub:        #7a7570;
+      --sub-bright: #4a4540;
+      --orange:     #ee663e;
+      --lime:       #c5fb45;
+      --foot:       #b0a89e;
+      --join-bg:    rgba(238,102,62,0.05);
+      --join-bdr:   rgba(238,102,62,0.20);
+    }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px; line-height: 1.6;
+      transition: background .35s, color .35s; overflow-x: hidden;
+    }
+
+    #grain { position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: .022; }
+
+    /* ── UNIFIED SITE NAV (floating pill) ── */
+    #site-nav { position: sticky; top: 16px; z-index: 1000; padding: 0 20px; }
+    .sn-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 24px; height: 60px; background: var(--card); border: 1px solid var(--border); border-radius: 100px; padding: 8px 10px 8px 22px; box-shadow: 0 6px 32px rgba(0,0,0,0.12); }
+    .sn-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; text-decoration: none; color: inherit; }
+    .sn-logo img { width: 26px; height: 26px; }
+    .sn-logo .sn-wm { font-weight: 700; font-size: 14px; letter-spacing: -.01em; color: var(--text); }
+    .sn-links { display: flex; align-items: center; gap: 26px; margin-left: 24px; }
+    .sn-link { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--sub-bright); text-decoration: none; transition: color .2s; padding: 4px 0; }
+    .sn-link:hover { color: var(--text); }
+    .sn-link.active { color: var(--text); }
+    .sn-r { display: flex; align-items: center; gap: 12px; flex-shrink: 0; margin-left: auto; }
+    .sn-book { display: inline-flex; align-items: center; gap: 6px; padding: 11px 22px; border-radius: 100px; background: var(--lime); color: #061410; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: -.01em; border: none; cursor: pointer; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
+    .sn-book:hover { background: #b5eb35; color: #061410; transform: translateY(-1px); }
+    .sn-toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; background: none; border: none; padding: 0; flex-shrink: 0; }
+    .sn-tg-label { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+    .sn-tg-track { width: 32px; height: 17px; border-radius: 100px; background: var(--border); position: relative; transition: background .25s; flex-shrink: 0; }
+    [data-mode="light"] .sn-tg-track { background: var(--orange); }
+    .sn-tg-thumb { position: absolute; top: 2.5px; left: 2.5px; width: 12px; height: 12px; border-radius: 50%; background: #fff; transition: transform .25s; }
+    [data-mode="light"] .sn-tg-thumb { transform: translateX(15px); }
+
+    /* HERO */
+    #hero { padding: 88px 24px 56px; max-width: 1080px; margin: 0 auto; text-align: center; }
+    .h-eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 100px; background: #000; color: #fff; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 32px; border: 1px solid rgba(255,255,255,0.08); }
+    .h-eyebrow .he-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--lime); }
+    [data-mode="light"] .h-eyebrow { background: #061410; color: #fff; border-color: transparent; }
+    .h-h1 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(44px, 7.5vw, 96px); letter-spacing: -.045em; line-height: .98; color: var(--text); margin-bottom: 36px; max-width: 1000px; margin-left: auto; margin-right: auto; }
+    .h-h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--orange); }
+    .h-sub { font-size: 19px; line-height: 1.55; color: var(--sub-bright); max-width: 760px; margin: 0 auto 24px; }
+    .h-sub strong { font-weight: 700; color: var(--text); }
+    .h-story { display: inline-flex; align-items: center; gap: 6px; color: var(--sub-bright); font-size: 14px; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 4px; }
+    .h-story:hover { color: var(--text); }
+
+    /* SOCIAL PILLS */
+    #social { padding: 24px 24px 56px; max-width: 720px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .soc-pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 100px; background: var(--card); border: 1px solid var(--border); color: var(--text); text-decoration: none; font-size: 13px; font-weight: 600; transition: border-color .2s, background .2s; }
+    .soc-pill:hover { border-color: var(--lime); background: rgba(197,251,69,0.06); }
+    .soc-pill svg { width: 14px; height: 14px; fill: var(--text); }
+
+    /* RESOURCES */
+    #resources { padding: 24px 24px 80px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .res-col { display: flex; flex-direction: column; gap: 18px; }
+    .res-card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 30px 28px; display: flex; flex-direction: column; gap: 14px; transition: border-color .2s, transform .2s; }
+    .res-card:hover { border-color: var(--lime); transform: translateY(-2px); }
+    .res-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--lime); display: inline-flex; align-items: center; gap: 6px; }
+    .res-tag.premium { color: var(--orange); }
+    .res-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: -.025em; color: var(--text); line-height: 1.15; }
+    .res-desc { font-size: 14px; line-height: 1.6; color: var(--sub-bright); }
+    .res-action { margin-top: auto; padding-top: 6px; }
+    .res-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 100px; background: var(--lime); color: #061410; font-size: 13px; font-weight: 700; text-decoration: none; transition: background .2s, transform .2s; }
+    .res-btn:hover { background: #b5eb35; transform: translateY(-1px); }
+    .res-btn.outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .res-btn.outline:hover { background: var(--card); border-color: var(--lime); color: var(--text); }
+
+    .res-list { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 14px 6px; display: flex; flex-direction: column; }
+    .res-list-pre { padding: 14px 22px 10px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+    .res-list-item { display: grid; grid-template-columns: 1fr 32px; gap: 14px; align-items: center; padding: 14px 22px; border-top: 1px solid var(--border); text-decoration: none; color: inherit; transition: background .2s; }
+    .res-list-item:hover { background: rgba(255,255,255,0.02); }
+    [data-mode="light"] .res-list-item:hover { background: rgba(0,0,0,0.02); }
+    .res-list-item .rli-meta {}
+    .res-list-item .rli-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 3px; line-height: 1.25; }
+    .res-list-item .rli-desc { font-size: 12px; line-height: 1.45; color: var(--sub-bright); }
+    .res-list-item .rli-arrow { width: 32px; height: 32px; border-radius: 50%; background: var(--bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--sub-bright); font-size: 14px; flex-shrink: 0; transition: background .2s, color .2s; }
+    .res-list-item:hover .rli-arrow { background: var(--lime); color: #061410; border-color: var(--lime); }
+
+    /* FOOTER */
+    #footer { padding: 60px 24px 56px; text-align: center; }
+    .footer-in { max-width: 720px; margin: 0 auto; }
+    .footer-tag { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 19px; color: var(--text); margin-bottom: 14px; }
+    .footer-sign { font-size: 14px; color: var(--sub-bright); margin-bottom: 24px; }
+    .footer-copy { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--foot); }
+
+    @media (max-width: 900px) {
+      #resources { grid-template-columns: 1fr; }
+      .h-h1 { font-size: clamp(38px, 9vw, 64px); }
+    }
+    @media (max-width: 768px) {
+      .sn-links { display: none; }
+      .sn-in { gap: 12px; height: 56px; padding-left: 18px; }
+      #hero { padding: 56px 20px 36px; }
+      .h-eyebrow { font-size: 9px; padding: 6px 14px; }
+      .h-sub { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="grain"></canvas>
+
+<!-- SITE NAV -->
+<nav id="site-nav">
+  <div class="sn-in">
+    <a href="/" class="sn-logo">
+      <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
+      <span class="sn-wm">FSCreative&#8482;</span>
+    </a>
+    <div class="sn-links">
+      <a href="/workshop" class="sn-link">Workshops</a>
+      <a href="/freebies" class="sn-link">Freebies</a>
+    </div>
+    <div class="sn-r">
+      <a href="https://calendly.com/golocalgroup/watchgabe" class="sn-book" target="_blank">Book a Call</a>
+      <button class="sn-toggle" id="toggle" aria-label="Toggle theme">
+        <span class="sn-tg-label" id="tg-label">Light</span>
+        <span class="sn-tg-track"><span class="sn-tg-thumb"></span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="h-eyebrow"><span class="he-dot"></span>For Creatives With $10K+/Month Offers</div>
+  <h1 class="h-h1">Cinematic Storyteller <em>Blueprint</em></h1>
+  <p class="h-sub">The same system behind a <strong>$15M agency</strong>, <strong>50K+ followers</strong>, and 10 years of category-defining brand work. Installed in your business with your voice, your offer, your brand.</p>
+  <a href="#story" class="h-story">Read my story &rarr;</a>
+</section>
+
+<!-- SOCIAL PILLS -->
+<section id="social">
+  <a href="https://instagram.com/watch.gabe" class="soc-pill" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.5 1s.8.9 1 1.5c.2.4.3 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-1 1.5s-.9.8-1.5 1c-.4.2-1 .3-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.5-1s-.8-.9-1-1.5c-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 1-1.5s.9-.8 1.5-1c.4-.2 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.3-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.3 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.3 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.3.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .3-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.3-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.3-1.2-.1-1.6-.1-4.7-.1zm0 3.1c2.7 0 4.9 2.2 4.9 4.9s-2.2 4.9-4.9 4.9-4.9-2.2-4.9-4.9 2.2-4.9 4.9-4.9zm0 8.1c1.8 0 3.2-1.4 3.2-3.2s-1.4-3.2-3.2-3.2-3.2 1.4-3.2 3.2 1.4 3.2 3.2 3.2zm6.3-8.3c0 .6-.5 1.1-1.1 1.1-.6 0-1.1-.5-1.1-1.1 0-.6.5-1.1 1.1-1.1.6 0 1.1.5 1.1 1.1z"/></svg>
+    Instagram
+  </a>
+  <a href="https://tiktok.com/@watch.gabe" class="soc-pill" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M19.6 6.9c-1.5-.3-2.6-1.6-2.7-3.1V3h-3.3v13.2c0 1.4-1.2 2.6-2.6 2.6s-2.6-1.2-2.6-2.6 1.2-2.6 2.6-2.6c.3 0 .5 0 .8.1V10.4c-.3 0-.5-.1-.8-.1-3.2 0-5.9 2.6-5.9 5.9 0 3.2 2.6 5.9 5.9 5.9 3.2 0 5.9-2.6 5.9-5.9V9c1.2.9 2.7 1.4 4.3 1.4V7.1c-.5 0-1-.1-1.6-.2z"/></svg>
+    TikTok
+  </a>
+  <a href="https://youtube.com/@watch.gabe" class="soc-pill" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M23 7.4s-.2-1.5-.9-2.2c-.9-.9-1.9-.9-2.3-1C16.5 4 12 4 12 4s-4.5 0-7.8.2c-.5.1-1.5.1-2.3 1-.7.7-.9 2.2-.9 2.2S.8 9.2.8 11v1.7c0 1.8.2 3.6.2 3.6s.2 1.5.9 2.2c.9.9 2 .9 2.5 1 1.8.2 7.6.2 7.6.2s4.5 0 7.8-.2c.5-.1 1.5-.1 2.3-1 .7-.7.9-2.2.9-2.2s.2-1.8.2-3.6V11c0-1.8-.2-3.6-.2-3.6zM9.7 14.6V8.4l6 3.1-6 3.1z"/></svg>
+    YouTube
+  </a>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <!-- LEFT COLUMN: featured cards -->
+  <div class="res-col">
+    <div class="res-card">
+      <span class="res-tag premium">&#9679; This Sunday &middot; $17</span>
+      <h3 class="res-title">Build An AI Content System That Doesn&#8217;t Suck</h3>
+      <p class="res-desc">90-minute live workshop. You install your AI brain on your laptop, in your voice, by minute 90. Live + 7-day replay. 50 seats only.</p>
+      <div class="res-action">
+        <a href="/workshop" class="res-btn">Save Your Seat &rarr;</a>
+      </div>
+    </div>
+    <div class="res-card">
+      <span class="res-tag">&#9679; Free Download</span>
+      <h3 class="res-title">The Cinematic Storyteller&#8217;s Guide</h3>
+      <p class="res-desc">10-chapter field guide on shooting your life cinematically. Gear levels, settings, shot lists, archive systems. The actual playbook.</p>
+      <div class="res-action">
+        <a href="https://guide.fscreative.live" class="res-btn outline" target="_blank">Get the Guide &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN: more resources -->
+  <div class="res-col">
+    <div class="res-list">
+      <p class="res-list-pre">More Free Resources</p>
+      <a href="https://quiz.fscreative.live" class="res-list-item" target="_blank">
+        <div class="rli-meta">
+          <div class="rli-title">Iconic Brand Diagnostic</div>
+          <div class="rli-desc">5-minute quiz that scores your brand against the iconic-brand framework.</div>
+        </div>
+        <div class="rli-arrow">&rarr;</div>
+      </a>
+      <a href="https://blueprint.fscreative.live" class="res-list-item" target="_blank">
+        <div class="rli-meta">
+          <div class="rli-title">The Brand Blueprint</div>
+          <div class="rli-desc">The 4-phase install structure I use with every client. Free walk-through.</div>
+        </div>
+        <div class="rli-arrow">&rarr;</div>
+      </a>
+      <a href="https://identity.fscreative.live" class="res-list-item" target="_blank">
+        <div class="rli-meta">
+          <div class="rli-title">Visual World Workbook</div>
+          <div class="rli-desc">Build the visual identity layer of your brand. Worksheets, prompts, examples.</div>
+        </div>
+        <div class="rli-arrow">&rarr;</div>
+      </a>
+      <a href="https://tools.fscreative.live" class="res-list-item" target="_blank">
+        <div class="rli-meta">
+          <div class="rli-title">FSCreative Tools</div>
+          <div class="rli-desc">The toolstack I actually run. Curated, no affiliate links, what works in 2026.</div>
+        </div>
+        <div class="rli-arrow">&rarr;</div>
+      </a>
+      <a href="https://analyze.fscreative.live" class="res-list-item" target="_blank">
+        <div class="rli-meta">
+          <div class="rli-title">Creator Research Lab</div>
+          <div class="rli-desc">Analyze any creator&#8217;s strategy, patterns, and content engine. Free tool.</div>
+        </div>
+        <div class="rli-arrow">&rarr;</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-in">
+    <p class="footer-tag">Your brand should sound like you built it. Not like everyone else&#8217;s.</p>
+    <p class="footer-sign">Keep creating,<br/>Gabe</p>
+    <p class="footer-copy">&copy; FSCreative&#8482; &nbsp;&middot;&nbsp; @watch.gabe</p>
+  </div>
+</footer>
+
+<script>
+  // Theme
+  const html = document.documentElement;
+  const tog = document.getElementById('toggle');
+  const tgLabel = document.getElementById('tg-label');
+  function applyTheme() {
+    const dark = html.getAttribute('data-mode') === 'dark';
+    if (tgLabel) tgLabel.textContent = dark ? 'Light' : 'Dark';
+  }
+  if (tog) {
+    tog.addEventListener('click', () => {
+      html.setAttribute('data-mode', html.getAttribute('data-mode') === 'dark' ? 'light' : 'dark');
+      applyTheme();
+    });
+  }
+  applyTheme();
+
+  // Grain
+  (function() {
+    const c = document.getElementById('grain');
+    const ctx = c.getContext('2d');
+    let f = 0;
+    const resize = () => { c.width = innerWidth; c.height = innerHeight; };
+    const draw = () => {
+      const img = ctx.createImageData(c.width, c.height);
+      for (let i = 0; i < img.data.length; i += 4) {
+        const v = Math.random() * 255 | 0;
+        img.data[i] = img.data[i+1] = img.data[i+2] = v; img.data[i+3] = 255;
+      }
+      ctx.putImageData(img, 0, 0);
+    };
+    const loop = () => { if (++f % 3 === 0) draw(); requestAnimationFrame(loop); };
+    window.addEventListener('resize', resize);
+    resize(); loop();
+  })();
+</script>
+</body>
+</html>

@@ -296,21 +296,19 @@
     .anchor-line span { display: block; }
     .anchor-flip { color: var(--orange); margin-top: 6px; }
 
-    /* ── UNIFIED SITE NAV ── */
-    #site-nav { position: sticky; top: 0; z-index: 1000; background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px; transition: background .35s; }
-    .sn-in { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; gap: 24px; height: 64px; }
+    /* ── UNIFIED SITE NAV (floating pill) ── */
+    #site-nav { position: sticky; top: 16px; z-index: 1000; padding: 0 20px; }
+    .sn-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 24px; height: 60px; background: var(--card); border: 1px solid var(--border); border-radius: 100px; padding: 8px 10px 8px 22px; box-shadow: 0 6px 32px rgba(0,0,0,0.12); }
     .sn-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; text-decoration: none; color: inherit; }
-    .sn-logo img { width: 28px; height: 28px; }
-    .sn-brand { display: flex; flex-direction: column; gap: 1px; line-height: 1; }
-    .sn-brand .sb-w { font-weight: 700; font-size: 13px; letter-spacing: -.01em; color: var(--text); }
-    .sn-brand .sb-p { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub-bright); }
+    .sn-logo img { width: 26px; height: 26px; }
+    .sn-logo .sn-wm { font-weight: 700; font-size: 14px; letter-spacing: -.01em; color: var(--text); }
     .sn-links { display: flex; align-items: center; gap: 26px; margin-left: 24px; }
-    .sn-link { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 500; color: var(--sub-bright); text-decoration: none; transition: color .2s; padding: 4px 0; }
+    .sn-link { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--sub-bright); text-decoration: none; transition: color .2s; padding: 4px 0; }
     .sn-link:hover { color: var(--text); }
     .sn-link.active { color: var(--text); }
-    .sn-r { display: flex; align-items: center; gap: 14px; flex-shrink: 0; margin-left: auto; }
-    .sn-book { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; border-radius: 100px; background: var(--orange); color: #fff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: -.01em; border: none; cursor: pointer; text-decoration: none; transition: opacity .2s; white-space: nowrap; }
-    .sn-book:hover { opacity: .88; color: #fff; }
+    .sn-r { display: flex; align-items: center; gap: 12px; flex-shrink: 0; margin-left: auto; }
+    .sn-book { display: inline-flex; align-items: center; gap: 6px; padding: 11px 22px; border-radius: 100px; background: #c5fb45; color: #061410; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: -.01em; border: none; cursor: pointer; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
+    .sn-book:hover { background: #b5eb35; color: #061410; transform: translateY(-1px); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -349,19 +347,14 @@
   <div class="sn-in">
     <a href="/" class="sn-logo">
       <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
-      <div class="sn-brand">
-        <span class="sb-w">FSCreative&#8482;</span>
-        <span class="sb-p">Frictionless OS</span>
-      </div>
+      <span class="sn-wm">FSCreative&#8482;</span>
     </a>
     <div class="sn-links">
-      <a href="/" class="sn-link">Home</a>
       <a href="/workshop" class="sn-link active">Workshops</a>
       <a href="/freebies" class="sn-link">Freebies</a>
-      <a href="/next" class="sn-link">Work Together</a>
     </div>
     <div class="sn-r">
-      <a href="https://calendly.com/golocalgroup/watchgabe" class="sn-book" target="_blank">Book a Call &rarr;</a>
+      <a href="https://calendly.com/golocalgroup/watchgabe" class="sn-book" target="_blank">Book a Call</a>
       <button class="toggle" id="toggle" aria-label="Toggle theme" style="background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;padding:0;">
         <span class="tg-label" id="tg-label">Light</span>
         <span class="tg-track"><span class="tg-thumb"></span></span>
