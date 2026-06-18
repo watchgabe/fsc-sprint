@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FSCreative&#8482; Workshop | Build An AI Content System That Doesn&#8217;t Suck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img { display: block; max-width: 100%; }
+
+    :root { --max: 720px; --col: 1080px; }
+
+    :root, [data-mode="dark"] {
+      --bg:         #061410;
+      --card:       #091a14;
+      --border:     #0f261c;
+      --text:       #ffffff;
+      --sub:        rgba(255,255,255,0.36);
+      --sub-bright: rgba(255,255,255,0.58);
+      --orange:     #ee663e;
+      --btn-bg:     #ffffff;
+      --btn-text:   #061410;
+      --foot:       rgba(255,255,255,0.15);
+      --join-bg:    rgba(238,102,62,0.07);
+      --join-bdr:   rgba(238,102,62,0.26);
+      --ticket-bg:  #091a14;
+    }
+    [data-mode="light"] {
+      --bg:         #f5f0ea;
+      --card:       #ede7df;
+      --border:     #d6cec4;
+      --text:       #061410;
+      --sub:        #7a7570;
+      --sub-bright: #4a4540;
+      --orange:     #ee663e;
+      --btn-bg:     #061410;
+      --btn-text:   #ffffff;
+      --foot:       #b0a89e;
+      --join-bg:    rgba(238,102,62,0.05);
+      --join-bdr:   rgba(238,102,62,0.20);
+      --ticket-bg:  #e8e1d8;
+    }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px; line-height: 1.6;
+      transition: background .35s, color .35s; overflow-x: hidden;
+    }
+
+    #grain { position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: .022; }
+    #progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: var(--orange); z-index: 10001; transition: width .1s linear; }
+
+    .label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub-bright); }
+    .sec-pre { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); margin-bottom: 22px; }
+    .sec-pre::before { content: '// '; }
+    .wrap { max-width: var(--col); margin: 0 auto; padding: 0 24px; }
+    .wrap-n { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* ── TOP URGENCY BAR ── */
+    #urgency-bar {
+      background: var(--orange);
+      padding: 9px 16px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      white-space: nowrap; overflow: hidden;
+    }
+    .ub-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.7); animation: pulse 2s infinite; flex-shrink: 0; }
+    .ub-text { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    /* ── NAV ── */
+    #nav { position: sticky; top: 0; z-index: 1000; background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px; transition: background .35s; }
+    .nav-in { max-width: var(--col); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 58px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .nav-logo img { width: 26px; height: 26px; }
+    .nav-brand { display: flex; flex-direction: column; gap: 1px; line-height: 1; }
+    .nav-brand .nw { font-weight: 700; font-size: 13px; letter-spacing: -.01em; color: var(--text); }
+    .nav-brand .np { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub-bright); }
+    .nav-meta { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub-bright); }
+    .nav-r { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+    .btn-nav { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 100px; background: var(--orange); color: #fff; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; border: none; cursor: pointer; text-decoration: none; transition: opacity .2s; }
+    .btn-nav:hover { opacity: .85; }
+    .toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; background: none; border: none; padding: 0; flex-shrink: 0; }
+    .tg-label { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+    .tg-track { width: 32px; height: 17px; border-radius: 100px; background: var(--border); position: relative; transition: background .25s; flex-shrink: 0; }
+    [data-mode="light"] .tg-track { background: var(--orange); }
+    .tg-thumb { position: absolute; top: 2.5px; left: 2.5px; width: 12px; height: 12px; border-radius: 50%; background: #fff; transition: transform .25s; }
+    [data-mode="light"] .tg-thumb { transform: translateX(15px); }
+
+    /* ── BTN PRIMARY ── */
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 100px; background: var(--btn-bg); color: var(--btn-text); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 14px; letter-spacing: -.01em; border: none; cursor: pointer; text-decoration: none; transition: opacity .2s, transform .2s; }
+    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+
+    /* ── §2 HERO ── */
+    #hero { padding: 72px 24px 64px; max-width: var(--col); margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 48px; align-items: start; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 5px 13px; border-radius: 100px; border: 1px solid var(--border); margin-bottom: 26px; }
+    .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; }
+
+    .hero-h1 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(26px, 3.6vw, 46px); letter-spacing: -.03em; line-height: 1.06; color: var(--text); margin-bottom: 18px; }
+    .hero-h1 .curse { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--text); }
+
+    .hero-sub { font-size: 17px; line-height: 1.6; color: var(--sub-bright); max-width: 500px; margin-bottom: 32px; }
+    .hero-meta { margin-top: 14px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); }
+
+    /* ── §3 COUNTDOWN -- Tom's style ── */
+    .cd-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+
+    /* top strip */
+    .cd-topstrip { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px 0; }
+    .cd-live { display: flex; align-items: center; gap: 7px; font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub-bright); }
+    .cd-live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; flex-shrink: 0; }
+    .cd-tz { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+
+    /* date headline -- Tom's big treatment */
+    .cd-date-headline { padding: 10px 20px 4px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -.03em; line-height: 1.1; color: var(--text); }
+    .cd-date-headline em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--orange); font-size: 28px; }
+    .cd-date-sub { padding: 0 20px 16px; font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); }
+
+    .cd-rule { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* timer */
+    .cd-timer-row { display: grid; grid-template-columns: 1fr 1px 1fr 1px 1fr; padding: 18px 20px 14px; gap: 0; }
+    .cd-u { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .cd-n { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 42px; letter-spacing: -.05em; line-height: 1; color: var(--text); }
+    .cd-l { font-family: 'Space Mono', monospace; font-size: 7px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+    .cd-vsep { background: var(--border); width: 1px; align-self: stretch; margin: 4px 0; }
+
+    /* seats bar */
+    .cd-seats-area { padding: 0 20px 16px; display: flex; flex-direction: column; gap: 6px; }
+    .cd-seats-row { display: flex; align-items: center; justify-content: space-between; }
+    .cd-seats-label { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .13em; text-transform: uppercase; color: var(--sub); }
+    .cd-seats-count { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); }
+    .cd-seats-track { width: 100%; height: 2px; border-radius: 100px; background: var(--border); overflow: hidden; }
+    .cd-seats-fill { height: 100%; border-radius: 100px; background: var(--orange); width: 6%; }
+
+    /* price row */
+    .cd-price-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px 18px; border-top: 1px solid var(--border); }
+    .cd-seat-lbl { font-family: 'Space Mono', monospace; font-size: 7px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); margin-bottom: 4px; }
+    .cd-price-display { display: flex; align-items: baseline; gap: 3px; }
+    .cd-dollar { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--sub-bright); }
+    .cd-amount { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 38px; letter-spacing: -.04em; line-height: 1; color: var(--text); }
+    .cd-once { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 15px; color: var(--sub-bright); margin-left: 2px; }
+    .btn-grab { display: inline-flex; align-items: center; gap: 7px; padding: 11px 22px; border-radius: 100px; border: 1px solid var(--border); color: var(--text); font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; background: transparent; cursor: pointer; text-decoration: none; transition: border-color .2s, color .2s, background .2s; }
+    .btn-grab:hover { border-color: var(--orange); color: var(--orange); background: rgba(238,102,62,.06); }
+
+    /* ── §4 PROBLEM ── */
+    #problem { padding: 80px 24px; max-width: var(--col); margin: 0 auto; display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: start; }
+    .prob-h2 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(20px, 2.5vw, 28px); letter-spacing: -.025em; line-height: 1.2; color: var(--text); margin-bottom: 26px; }
+    .prob-body { font-size: 16px; line-height: 1.78; color: var(--sub-bright); }
+    .prob-body p { margin-bottom: 18px; }
+    .prob-body p:last-child { margin-bottom: 0; }
+    .prob-photo { border-radius: 14px; overflow: hidden; width: 300px; height: 400px; border: 1px solid var(--border); flex-shrink: 0; }
+    .prob-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+
+    /* ── §5 WALK AWAY ── */
+    #walkaway { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 24px; }
+    .wa-inner { max-width: var(--col); margin: 0 auto; }
+    .wa-h2 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(20px, 2.6vw, 28px); letter-spacing: -.025em; line-height: 1.2; color: var(--text); margin-bottom: 10px; max-width: 640px; }
+    .wa-intro { font-size: 15px; color: var(--sub-bright); margin-bottom: 36px; max-width: 560px; }
+    .wa-items { display: flex; flex-direction: column; margin-bottom: 40px; }
+    .wa-item { display: grid; grid-template-columns: 28px 1fr; gap: 16px; align-items: start; padding: 18px 0; border-bottom: 1px solid var(--border); }
+    .wa-item:first-child { border-top: 1px solid var(--border); }
+    .wa-bullet { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); margin-top: 7px; flex-shrink: 0; }
+    .wa-text { font-size: 15px; line-height: 1.6; color: var(--text); }
+    .wa-text strong { font-weight: 700; }
+    .wa-mechanism { background: var(--join-bg); border: 1px solid var(--join-bdr); border-radius: 12px; padding: 18px 22px; margin-bottom: 36px; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 16px; line-height: 1.65; color: var(--sub-bright); }
+
+    /* ── §6 AGENDA ── */
+    #agenda { padding: 80px 24px; max-width: var(--col); margin: 0 auto; }
+    .ag-h2 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(20px, 2.5vw, 28px); letter-spacing: -.025em; color: var(--text); margin-bottom: 8px; }
+    .ag-sub { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 17px; color: var(--sub-bright); margin-bottom: 40px; }
+    .ag-list { display: flex; flex-direction: column; }
+    .ag-item { display: grid; grid-template-columns: 40px 1fr auto; gap: 16px; align-items: start; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .ag-item:first-child { border-top: 1px solid var(--border); }
+    .ag-num { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .1em; color: var(--orange); padding-top: 3px; }
+    .ag-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: -.015em; color: var(--text); margin-bottom: 4px; }
+    .ag-desc { font-size: 13px; line-height: 1.6; color: var(--sub-bright); }
+    .ag-time { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); border: 1px solid var(--border); border-radius: 100px; padding: 3px 10px; white-space: nowrap; margin-top: 4px; flex-shrink: 0; }
+    .ag-closer { margin-top: 24px; padding: 18px 22px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; font-size: 14px; color: var(--sub-bright); }
+    .ag-closer strong { color: var(--text); }
+
+    /* ── §7 INCLUDED ── */
+    #included { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 24px; }
+    .inc-inner { max-width: var(--col); margin: 0 auto; }
+    .inc-h2 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(20px, 2.5vw, 28px); letter-spacing: -.025em; color: var(--text); margin-bottom: 36px; }
+    .inc-list { display: flex; flex-direction: column; margin-bottom: 32px; }
+    .inc-item { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--border); }
+    .inc-item:first-child { border-top: 1px solid var(--border); }
+    .inc-idx { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .1em; color: var(--sub); }
+    .inc-name { font-size: 15px; color: var(--text); }
+    .inc-name strong { font-weight: 700; }
+
+    /* ── §8 TESTIMONIALS ── */
+    #testimonials { padding: 80px 24px; max-width: var(--col); margin: 0 auto; }
+    .testi-h2 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(20px, 2.5vw, 28px); letter-spacing: -.025em; color: var(--text); margin-bottom: 6px; }
+    .testi-sub { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 17px; color: var(--sub-bright); margin-bottom: 36px; }
+    .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .testi-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 26px 22px; display: flex; flex-direction: column; gap: 18px; }
+    .testi-top { display: flex; align-items: center; gap: 14px; }
+    .testi-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 14px; color: var(--sub-bright); overflow: hidden; }
+    .testi-avatar img { width: 44px; height: 44px; object-fit: cover; border-radius: 50%; display: block; }
+    .testi-meta {}
+    .testi-name { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 13px; color: var(--text); }
+    .testi-handle { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .1em; color: var(--sub); margin-top: 2px; }
+    .testi-q { font-size: 14px; line-height: 1.7; color: var(--sub-bright); }
+    .testi-q::before { content: '\201C'; }
+    .testi-q::after  { content: '\201D'; }
+    .testi-note { margin-top: 22px; font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--sub); text-align: center; }
+
+    /* ── §9 TICKET ── */
+    #ticket { padding: 72px 24px; max-width: var(--max); margin: 0 auto; }
+    .ticket-wrap { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--ticket-bg); }
+    .ticket-head { background: var(--card); border-bottom: 1px solid var(--border); padding: 11px 22px; display: flex; align-items: center; justify-content: space-between; }
+    .ticket-head span { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+    .ticket-body { padding: 32px 28px; }
+    .ticket-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -.02em; color: var(--text); margin-bottom: 6px; line-height: 1.2; }
+    .ticket-title .curse { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--text); }
+    .ticket-details { display: flex; flex-direction: column; gap: 9px; margin: 22px 0; }
+    .ticket-row { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--sub-bright); }
+    .ticket-row .ic { font-size: 12px; width: 16px; flex-shrink: 0; }
+    .ticket-divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+    .ticket-price-row { display: flex; align-items: center; justify-content: space-between; }
+    .ticket-price { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 44px; letter-spacing: -.04em; color: var(--text); line-height: 1; }
+    .ticket-price span { font-size: 18px; color: var(--sub-bright); margin-right: 2px; }
+    .ticket-footer { background: var(--card); border-top: 1px dashed var(--border); padding: 10px 22px; text-align: center; font-family: 'Space Mono', monospace; font-size: 7px; letter-spacing: .22em; text-transform: uppercase; color: var(--sub); }
+
+    /* ── §10 TIMEZONES ── */
+    #timezone { padding: 40px 24px; max-width: var(--max); margin: 0 auto; text-align: center; }
+    .tz-line { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub-bright); margin-bottom: 10px; }
+    .tz-note { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--sub); }
+
+    /* ── §11 FAQ ── */
+    #faq { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 24px; }
+    .faq-inner { max-width: var(--max); margin: 0 auto; }
+    .faq-h2 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(20px, 2.5vw, 28px); letter-spacing: -.025em; color: var(--text); margin-bottom: 36px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:first-of-type { border-top: 1px solid var(--border); }
+    .faq-q { width: 100%; background: none; border: none; padding: 20px 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; text-align: left; }
+    .faq-q-text { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: -.01em; color: var(--text); }
+    .faq-icon { font-family: 'Space Mono', monospace; font-size: 16px; color: var(--orange); flex-shrink: 0; transition: transform .25s; line-height: 1; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .faq-a-inner { padding: 0 0 20px; font-size: 14px; line-height: 1.72; color: var(--sub-bright); }
+    .faq-a-inner strong { color: var(--text); }
+
+    /* ── §12 BIO ── */
+    #bio { padding: 80px 24px; max-width: var(--col); margin: 0 auto; }
+    .bio-inner { display: grid; grid-template-columns: 260px 1fr; gap: 56px; align-items: start; }
+    .bio-img { border-radius: 14px; overflow: hidden; width: 260px; height: 346px; border: 1px solid var(--border); flex-shrink: 0; }
+    .bio-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .bio-h2 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(20px, 2.5vw, 28px); letter-spacing: -.025em; color: var(--text); margin-bottom: 3px; }
+    .bio-handle { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); margin-bottom: 22px; }
+    .bio-handle span { color: var(--orange); }
+    .bio-body { font-size: 15px; line-height: 1.76; color: var(--sub-bright); }
+    .bio-body p { margin-bottom: 15px; }
+    .bio-body p:last-child { margin-bottom: 0; }
+
+    /* ── FOOTER ── */
+    #footer { padding: 60px 24px 56px; text-align: center; }
+    .footer-in { max-width: var(--max); margin: 0 auto; }
+    .footer-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 18px; }
+    .footer-logo img { height: 20px; }
+    .footer-tag { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 19px; color: var(--text); margin-bottom: 9px; }
+    .footer-ev { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub-bright); margin-bottom: 26px; }
+    .footer-cd { margin-top: 26px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .footer-copy { margin-top: 18px; padding-bottom: 8px; font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--foot); }
+
+    /* ── STICKY BAR ── */
+    #sbar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background: var(--card); border-top: 1px solid var(--border); padding: 11px 24px; transform: translateY(100%); transition: transform .4s ease, background .35s; }
+    #sbar.vis { transform: translateY(0); }
+    .sbar-in { max-width: var(--col); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .sbar-cd { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub-bright); }
+
+    /* ── §5b WHO IT'S FOR ── */
+    #who-for { padding: 80px 24px; max-width: var(--col); margin: 0 auto; }
+    .wf-h2 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(20px, 2.5vw, 28px); letter-spacing: -.025em; line-height: 1.2; color: var(--text); margin-bottom: 36px; max-width: 640px; }
+    .wf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .wf-col { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 26px; }
+    .wf-col-yes { background: var(--join-bg); border-color: var(--join-bdr); }
+    .wf-col-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 18px; }
+    .wf-col-yes .wf-col-label { color: var(--orange); }
+    .wf-col-no .wf-col-label { color: var(--sub); }
+    .wf-list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+    .wf-list li { font-size: 14px; line-height: 1.6; color: var(--text); padding-left: 16px; position: relative; }
+    .wf-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%; background: var(--orange); }
+    .wf-col-no .wf-list li::before { background: var(--sub-bright); opacity: .55; }
+
+    /* ── §8b PRICE ANCHOR ── */
+    #anchor { padding: 24px 24px 8px; max-width: var(--max); margin: 0 auto; text-align: center; }
+    .anchor-wrap { background: var(--join-bg); border: 1px solid var(--join-bdr); border-radius: 14px; padding: 28px 30px; }
+    .anchor-line { font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(17px, 2.1vw, 22px); line-height: 1.55; color: var(--text); }
+    .anchor-line span { display: block; }
+    .anchor-flip { color: var(--orange); margin-top: 6px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; padding: 48px 20px 52px; gap: 28px; }
+      .cd-card { max-width: 420px; }
+    }
+    @media (max-width: 768px) {
+      #problem { grid-template-columns: 1fr; gap: 36px; }
+      .prob-photo { width: 100%; height: 420px; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .bio-inner { grid-template-columns: 1fr; }
+      .bio-img { width: 100%; height: 400px; }
+      .nav-meta { display: none; }
+      .ag-item { grid-template-columns: 32px 1fr; }
+      .ag-time { grid-column: 2; justify-self: start; }
+      .wf-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="grain"></canvas>
+<div id="progress"></div>
+
+<!-- URGENCY BAR -- seats only, no button -->
+<div id="urgency-bar">
+  <span class="ub-dot"></span>
+  <span class="ub-text">LIVE WORKSHOP &nbsp;&middot;&nbsp; 47 OF 50 SEATS REMAINING</span>
+</div>
+
+<!-- §1 NAV -->
+<nav id="nav">
+  <div class="nav-in">
+    <div class="nav-logo">
+      <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
+      <div class="nav-brand">
+        <span class="nw">FSCreative&#8482;</span>
+        <span class="np">Workshop</span>
+      </div>
+    </div>
+    <span class="nav-meta">SUN JUNE 28 &middot; 10AM CT &middot; $17</span>
+    <div class="nav-r">
+      <a href="https://luma.com/fgisu9xp" class="btn-nav" target="_blank">Save Your Seat &rarr;</a>
+      <button class="toggle" id="toggle" aria-label="Toggle theme">
+        <span class="tg-label" id="tg-label">Light</span>
+        <span class="tg-track"><span class="tg-thumb"></span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- §2 HERO -->
+<section id="hero">
+  <div>
+    <div class="hero-badge">
+      <span class="hero-dot"></span>
+      <span class="label">Live Workshop &middot; Sun June 28 &middot; 10AM CT &middot; 90 Min</span>
+    </div>
+    <h1 class="hero-h1">Build An AI-Powered Content Creation System That <span class="curse">Doesn&#8217;t F*cking Suck</span></h1>
+    <p class="hero-sub">90 minutes. You walk out with the system installed, running, and producing content that sounds unmistakably like you.</p>
+    <a href="https://luma.com/fgisu9xp" class="btn-primary" target="_blank">Save Your Seat &rarr; $17</a>
+    <p class="hero-meta">90 minutes &middot; Live + 7-day replay &middot; Hosted by Gabe Harris (@watch.gabe)</p>
+  </div>
+
+  <!-- §3 COUNTDOWN -- Tom's style -->
+  <div class="cd-card">
+    <div class="cd-topstrip">
+      <div class="cd-live"><span class="cd-live-dot"></span> Workshop Starts In</div>
+      <span class="cd-tz">CT</span>
+    </div>
+    <div class="cd-date-headline">Sunday <em>28 June</em> 2026</div>
+    <div class="cd-date-sub">10:00 AM Mexico City &middot; 90 minutes live</div>
+    <hr class="cd-rule" />
+    <div class="cd-timer-row">
+      <div class="cd-u"><span class="cd-n" id="cd-d">00</span><span class="cd-l">Days</span></div>
+      <div class="cd-vsep"></div>
+      <div class="cd-u"><span class="cd-n" id="cd-h">00</span><span class="cd-l">Hours</span></div>
+      <div class="cd-vsep"></div>
+      <div class="cd-u"><span class="cd-n" id="cd-m">00</span><span class="cd-l">Mins</span></div>
+    </div>
+    <div class="cd-seats-area">
+      <div class="cd-seats-row">
+        <span class="cd-seats-label">Seats Remaining</span>
+        <span class="cd-seats-count">47 of 50</span>
+      </div>
+      <div class="cd-seats-track"><div class="cd-seats-fill"></div></div>
+    </div>
+    <div class="cd-price-row">
+      <div>
+        <div class="cd-seat-lbl">Your Seat</div>
+        <div class="cd-price-display">
+          <span class="cd-dollar">$</span>
+          <span class="cd-amount">17</span>
+          <span class="cd-once">one-time</span>
+        </div>
+      </div>
+      <a href="https://luma.com/fgisu9xp" class="btn-grab" target="_blank">Grab it &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- §4 PROBLEM -->
+<section id="problem">
+  <div>
+    <p class="sec-pre">The problem</p>
+    <h2 class="prob-h2">Everybody&#8217;s using the same prompts. And it shows.</h2>
+    <div class="prob-body">
+      <p>Everybody&#8217;s using the same prompts to develop thirty-day content strategies in seconds. They&#8217;re killing the em dashes and hitting post without even doing a full read. The result is completely soulless content that, whether they know it or not, is killing their credibility.</p>
+      <p>AI content production has gone to infinity. The problem is no longer quantity in content. The problem is achieving the quantity without sacrificing your quality.</p>
+      <p>Content that looks unmistakably like you, through both the messaging and the visuals, and makes potential customers feel like you&#8217;re talking directly to them.</p>
+      <p>This workshop will help you fix that.</p>
+    </div>
+  </div>
+  <div class="prob-photo">
+    <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1781116231/1_vksadx.jpg" alt="Gabe Harris" />
+  </div>
+</section>
+
+<!-- §5 WHAT YOU WALK AWAY WITH -->
+<section id="walkaway">
+  <div class="wa-inner">
+    <p class="sec-pre">What you walk away with</p>
+    <h2 class="wa-h2">In 90 minutes you&#8217;ll have a content system that produces output that sounds unmistakably like you, even when AI is doing the heavy lifting.</h2>
+    <p class="wa-intro">That means:</p>
+    <div class="wa-items">
+      <div class="wa-item">
+        <div><div class="wa-bullet"></div></div>
+        <span class="wa-text"><strong>AI that writes in your actual voice</strong>, not in a way that could live on any other creative&#8217;s feed</span>
+      </div>
+      <div class="wa-item">
+        <div><div class="wa-bullet"></div></div>
+        <span class="wa-text"><strong>A repeatable system</strong> for producing content faster without dropping quality</span>
+      </div>
+      <div class="wa-item">
+        <div><div class="wa-bullet"></div></div>
+        <span class="wa-text"><strong>A rule that protects your voice</strong> from getting watered down by every creator you study</span>
+      </div>
+      <div class="wa-item">
+        <div><div class="wa-bullet"></div></div>
+        <span class="wa-text"><strong>A way to anchor every piece of content</strong> to a real moment in your life so nothing you publish feels generic</span>
+      </div>
+    </div>
+    <a href="https://luma.com/fgisu9xp" class="btn-primary" target="_blank">Save Your Seat &rarr; $17</a>
+  </div>
+</section>
+
+<!-- §5b WHO IT'S FOR -->
+<section id="who-for">
+  <div>
+    <p class="sec-pre">Who this workshop is for</p>
+    <h2 class="wf-h2">Be honest with yourself before you book the seat.</h2>
+    <div class="wf-grid">
+      <div class="wf-col wf-col-yes">
+        <div class="wf-col-label">It&#8217;s for you if</div>
+        <ul class="wf-list">
+          <li>You run a real business (architecture, design, photography, consulting, coaching) and your work is good but invisible.</li>
+          <li>You&#8217;re already at $10K+/mo and your bottleneck isn&#8217;t talent or offer. It&#8217;s distribution.</li>
+          <li>You&#8217;ve used AI for content and watched it sound like everyone else&#8217;s. You want yours to sound like yours.</li>
+        </ul>
+      </div>
+      <div class="wf-col wf-col-no">
+        <div class="wf-col-label">It&#8217;s not for you if</div>
+        <ul class="wf-list">
+          <li>You&#8217;re trying to become a content creator or chase virality.</li>
+          <li>You want AI to generate volume so you can post 5x/day.</li>
+          <li>You don&#8217;t have a working offer yet. Build that first. This workshop won&#8217;t fix it.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §6 THE 90 MINUTES -->
+<section id="agenda">
+  <div class="wrap">
+    <p class="sec-pre">The 90 Minutes</p>
+    <h2 class="ag-h2">Six blocks. No fluff.</h2>
+    <p class="ag-sub">You walk out with a working system, not a slide deck and a wishlist.</p>
+    <div class="ag-list">
+      <div class="ag-item">
+        <span class="ag-num">01</span>
+        <div>
+          <div class="ag-title">Why AI content sucks for most creatives</div>
+          <div class="ag-desc">The slop epidemic, the cost of staying in it, the 5 attributes of a premium brand and what you&#8217;re actually aiming for.</div>
+        </div>
+        <span class="ag-time">10 min</span>
+      </div>
+      <div class="ag-item">
+        <span class="ag-num">02</span>
+        <div>
+          <div class="ag-title">The system that fixes it</div>
+          <div class="ag-desc">Live tour of a working content system that sounds like its owner. You see what&#8217;s possible before you build yours.</div>
+        </div>
+        <span class="ag-time">15 min</span>
+      </div>
+      <div class="ag-item">
+        <span class="ag-num">03</span>
+        <div>
+          <div class="ag-title">The voice-protection rule</div>
+          <div class="ag-desc">Once you give your AI a brain, the failure mode isn&#8217;t bad output. It&#8217;s contamination from every other creator you study. This block teaches the rule that protects voice integrity even when you&#8217;re feeding inspiration in.</div>
+        </div>
+        <span class="ag-time">15 min</span>
+      </div>
+      <div class="ag-item">
+        <span class="ag-num">04</span>
+        <div>
+          <div class="ag-title">Generating ideas from real moments</div>
+          <div class="ag-desc">The anchor framework: every idea tied to something that actually happened to you, so nothing reads generic.</div>
+        </div>
+        <span class="ag-time">15 min</span>
+      </div>
+      <div class="ag-item">
+        <span class="ag-num">05</span>
+        <div>
+          <div class="ag-title">Live install</div>
+          <div class="ag-desc">You build it. On your computer. With me. By the end of this block, your system is live.</div>
+        </div>
+        <span class="ag-time">20 min</span>
+      </div>
+      <div class="ag-item">
+        <span class="ag-num">06</span>
+        <div>
+          <div class="ag-title">Live Q&amp;A</div>
+          <div class="ag-desc">Live, on camera. Real questions, real answers.</div>
+        </div>
+        <span class="ag-time">15 min</span>
+      </div>
+    </div>
+    <div class="ag-closer"><strong>You walk out with a working system, not a slide deck and a wishlist.</strong></div>
+  </div>
+</section>
+
+<!-- §7 INCLUDED -->
+<section id="included">
+  <div class="inc-inner">
+    <p class="sec-pre">Included With Your Seat</p>
+    <h2 class="inc-h2">Everything you need. Nothing you don&#8217;t.</h2>
+    <div class="inc-list">
+      <div class="inc-item">
+        <span class="inc-idx">01</span>
+        <span class="inc-name">The <strong>90-minute live workshop</strong> + 15 minutes of live Q&amp;A</span>
+      </div>
+      <div class="inc-item">
+        <span class="inc-idx">02</span>
+        <span class="inc-name"><strong>7-day replay access</strong></span>
+      </div>
+      <div class="inc-item">
+        <span class="inc-idx">03</span>
+        <span class="inc-name">The complete written <strong>AI Content System Installation</strong> guide (full step-by-step)</span>
+      </div>
+      <div class="inc-item">
+        <span class="inc-idx">04</span>
+        <span class="inc-name">The <strong>Starter Zip</strong>: folder skeleton + the governance file</span>
+      </div>
+      <div class="inc-item">
+        <span class="inc-idx">05</span>
+        <span class="inc-name">The <strong>voice-protection one-pager</strong></span>
+      </div>
+      <div class="inc-item">
+        <span class="inc-idx">06</span>
+        <span class="inc-name"><strong>Q&amp;A recording</strong></span>
+      </div>
+    </div>
+    <a href="https://luma.com/fgisu9xp" class="btn-primary" target="_blank">Save Your Seat &rarr; $17</a>
+  </div>
+</section>
+
+<!-- §8 TESTIMONIALS -->
+<section id="testimonials">
+  <div class="wrap">
+    <p class="sec-pre">What they&#8217;re saying</p>
+    <h2 class="testi-h2">Real feedback. Unedited.</h2>
+    <p class="testi-sub">From FSCreative community members and 1-on-1 clients.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799121/theresa_axof4n.jpg" alt="Theresa Reisinger"></div>
+          <div class="testi-meta">
+            <div class="testi-name">Theresa Reisinger</div>
+            <div class="testi-handle">@theresareisinger</div>
+          </div>
+        </div>
+        <p class="testi-q">Gabe&#8217;s ability to teach complex techniques in a simple, hands-on way is unmatched. He helped me see photography, videography, and social media from both a creative and entrepreneurial perspective. It completely changed the way I approach my work.</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/matthew_bdohws.jpg" alt="Matthew Christie"></div>
+          <div class="testi-meta">
+            <div class="testi-name">Matthew Christie</div>
+            <div class="testi-handle">@adventurematt</div>
+          </div>
+        </div>
+        <p class="testi-q">Working with Gabe was one of the most impactful learning experiences I&#8217;ve had. Real-time feedback, exactly how to improve, next-level. I left feeling inspired, more confident, and way more capable creatively. I&#8217;m still applying what I learned every day.</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/srishti_zgfdhy.jpg" alt="Srishti Sheshadri"></div>
+          <div class="testi-meta">
+            <div class="testi-name">Srishti Sheshadri</div>
+            <div class="testi-handle">studiosoltera.com</div>
+          </div>
+        </div>
+        <p class="testi-q">Content has been intimidating for me for a while, and just going through the frameworks Gabe shares, I&#8217;ve been able to turn it around and start feeling more excited about creating. He&#8217;s always supporting us and holding us accountable to actually work on our content.</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799119/joab_kajmku.png" alt="Joab Teruel"></div>
+          <div class="testi-meta">
+            <div class="testi-name">Joab Teruel</div>
+            <div class="testi-handle">@joabteruel</div>
+          </div>
+        </div>
+        <p class="testi-q">Before joining, getting started always felt like the hardest part. Now I have clarity, encouragement, and a group of creators who push me forward. The step by step systems take away the fear of doing it alone. I finally have the tools and direction to reach my goals.</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/lorena_p59fdv.jpg" alt="Lorena Alvarez"></div>
+          <div class="testi-meta">
+            <div class="testi-name">Lorena Alvarez</div>
+            <div class="testi-handle">@lo_alvarez</div>
+          </div>
+        </div>
+        <p class="testi-q">I finally had clarity on how to structure my work and actually get things done. Not random tips everywhere, but a real framework, organized, all in one place. Having someone walk you through it step by step, with the accountability to keep showing up, is what makes the difference.</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799125/image_1_tvcief.png" alt="Lucy Drughieri"></div>
+          <div class="testi-meta">
+            <div class="testi-name">Lucy Drughieri</div>
+            <div class="testi-handle">@lucila.drughieri</div>
+          </div>
+        </div>
+        <p class="testi-q">The Creator Aesthetic Builder has been invaluable for organizing my random thoughts in one place, helping me discover who I am and what I can create. Before the workshop, I felt lost. Now I have a clear roadmap to achieve my goals.</p>
+      </div>
+    </div>
+    <p class="testi-note">These quotes are from FSCreative community members and 1-on-1 clients.</p>
+  </div>
+</section>
+
+<!-- §8b PRICE ANCHOR -->
+<section id="anchor">
+  <div class="anchor-wrap">
+    <p class="anchor-line">
+      <span>The system this workshop installs is the same one I install in $5,000 1-on-1 brand builds.</span>
+      <span class="anchor-flip">Today, you get it for $17 and a Sunday morning.</span>
+    </p>
+  </div>
+</section>
+
+<!-- §9 TICKET -->
+<section id="ticket">
+  <p class="sec-pre" style="text-align:center;margin-bottom:22px;">Your Seat</p>
+  <div class="ticket-wrap">
+    <div class="ticket-head">
+      <span>FSCreative&#8482; &middot; Workshop &middot; June 2026</span>
+      <span>Non-Transferable</span>
+    </div>
+    <div class="ticket-body">
+      <div class="ticket-title">Build an AI Content System That <span class="curse">Doesn&#8217;t F*cking Suck</span></div>
+      <div class="ticket-details">
+        <div class="ticket-row"><span class="ic">&#128197;</span> Sunday, June 28, 2026</div>
+        <div class="ticket-row"><span class="ic">&#128336;</span> 10:00 AM CT &middot; 90 min + 15 min Q&amp;A</div>
+        <div class="ticket-row"><span class="ic">&#127909;</span> Live on Zoom &middot; 7-day replay included</div>
+      </div>
+      <hr class="ticket-divider" />
+      <div class="ticket-price-row">
+        <div class="ticket-price"><span>$</span>17</div>
+        <a href="https://luma.com/fgisu9xp" class="btn-primary" target="_blank">Save Your Seat &rarr;</a>
+      </div>
+    </div>
+    <div class="ticket-footer">Admit One &middot; Admit One &middot; Admit One &middot; Admit One &middot; Admit One &middot; Bring to Zoom</div>
+  </div>
+</section>
+
+<!-- §10 TIMEZONES -->
+<section id="timezone">
+  <p class="tz-line">8:00 AM PT &nbsp;&middot;&nbsp; 10:00 AM CT &nbsp;&middot;&nbsp; 11:00 AM ET &nbsp;&middot;&nbsp; 4:00 PM BST</p>
+  <p class="tz-note">Replay in your inbox within 24 hours if you can&#8217;t make it live.</p>
+</section>
+
+<!-- §11 FAQ -->
+<section id="faq">
+  <div class="faq-inner">
+    <p class="sec-pre">FAQ</p>
+    <h2 class="faq-h2">Questions.</h2>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Do I need to have Claude Code set up?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Yes. You&#8217;ll want <strong>Claude Code installed before the workshop</strong>. The live install block is built around it. If you don&#8217;t have it yet, it&#8217;s free to set up and takes about 10 minutes. Instructions will be sent with your confirmation email.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Do I need AI experience?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Not required, but recommended. If you&#8217;ve used ChatGPT or Claude at a basic level (writing prompts, generating copy), you&#8217;re ready. This workshop isn&#8217;t about prompting basics. It&#8217;s about building a system on top of whatever you already know.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What exactly happens during the &#8220;live install&#8221;?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">You&#8217;ll build your actual AI content system during the workshop, on your computer, with me walking through it live. By the end of that block, the system is running. You&#8217;re not watching me build mine. You&#8217;re building yours.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Will there be a replay?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Yes. You get a 7-day replay. That said, the live build and Q&amp;A are better in real time. Show up if you can. The replay will be in your inbox within 24 hours.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Is this just about writing captions?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">No. The system handles captions, but that&#8217;s a byproduct. What you&#8217;re building is a structured brain that knows your voice, your audience, and your strategy, so that any output it produces (captions, emails, scripts, threads) sounds unmistakably like you.</div></div>
+    </div>
+
+
+
+  </div>
+</section>
+
+<!-- §12 BIO -->
+<section id="bio">
+  <div class="bio-inner">
+    <div class="bio-img">
+      <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1779403129/DSCF5597_3_feqde5.jpg" alt="Gabe Harris" />
+    </div>
+    <div>
+      <p class="sec-pre">Built by</p>
+      <h2 class="bio-h2">Gabe Harris</h2>
+      <p class="bio-handle"><span>@watch.gabe</span> &middot; Founder of FSCreative</p>
+      <div class="bio-body">
+        <p>10+ years building brands. First for clients, including Crux Cigars, a 2019 rebrand that other cigar brands started imitating within a year. Then for myself: 50K+ followers built from zero after I left Dallas, posting travel photos and figuring out the system as I went.</p>
+        <p>I&#8217;ve spent the last year obsessively building AI content systems. Along the way I was fortunate to partner with companies like <strong>Perplexity</strong> and <strong>ElevenLabs</strong>, paid partnerships where I was literally learning and building content creation systems on their platforms. I got paid to figure this out. This workshop is what I figured out.</p>
+        <p>If your AI sounds like everyone else&#8217;s, that&#8217;s because you haven&#8217;t given it a brain. Sunday, I&#8217;ll show you how.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-in">
+    <div class="footer-logo">
+      <img id="foot-wm" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" alt="FSCreative" />
+    </div>
+    <p class="footer-tag">Your content should sound like you built it. Not like everyone else&#8217;s.</p>
+    <p class="footer-ev">Sunday, June 28 &middot; 10AM CT &middot; $17</p>
+    <a href="https://luma.com/fgisu9xp" class="btn-primary" style="display:inline-flex;" target="_blank">Save Your Seat &rarr;</a>
+    <div class="footer-cd"><span>&#9201; Starts in &nbsp;</span><strong id="foot-cd"></strong></div>
+    <p class="footer-copy">&copy; FSCreative&#8482; &nbsp;&middot;&nbsp; @watch.gabe</p>
+  </div>
+</footer>
+
+<!-- STICKY BAR -->
+<div id="sbar">
+  <div class="sbar-in">
+    <div class="sbar-cd"><strong id="sbar-cd">Loading...</strong> left</div>
+    <a href="https://luma.com/fgisu9xp" class="btn-nav" target="_blank">Save Your Seat &middot; $17 &rarr;</a>
+  </div>
+</div>
+
+<script>
+  // ── Theme ──
+  const html = document.documentElement;
+  const tog = document.getElementById('toggle');
+  const tgLabel = document.getElementById('tg-label');
+  const footWm = document.getElementById('foot-wm');
+  function applyTheme() {
+    const dark = html.getAttribute('data-mode') === 'dark';
+    footWm.src = dark
+      ? 'https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png'
+      : 'https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549022/Asset_2_4x_fs8lwl.png';
+    tgLabel.textContent = dark ? 'Light' : 'Dark';
+  }
+  tog.addEventListener('click', () => {
+    html.setAttribute('data-mode', html.getAttribute('data-mode') === 'dark' ? 'light' : 'dark');
+    applyTheme();
+  });
+  applyTheme();
+
+  // ── Scroll ──
+  const prog = document.getElementById('progress');
+  const sbar = document.getElementById('sbar');
+  window.addEventListener('scroll', () => {
+    prog.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+    sbar.classList.toggle('vis', window.scrollY > window.innerHeight * 0.4);
+  });
+
+  // ── Countdown -- Sun June 28 2026 10AM CT = 15:00 UTC ──
+  const TARGET = new Date('2026-06-28T15:00:00Z');
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function tick() {
+    const diff = TARGET - Date.now();
+    const setCompact = (msg) => {
+      ['foot-cd','sbar-cd'].forEach(id => { const e = document.getElementById(id); if(e) e.textContent = msg; });
+    };
+    if (diff <= 0) { setCompact('Live now!'); return; }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const dEl = document.getElementById('cd-d'); if(dEl) dEl.textContent = pad(d);
+    const hEl = document.getElementById('cd-h'); if(hEl) hEl.textContent = pad(h);
+    const mEl = document.getElementById('cd-m'); if(mEl) mEl.textContent = pad(m);
+    setCompact(d + 'D ' + pad(h) + 'H ' + pad(m) + 'M ' + pad(s) + 'S');
+  }
+  tick(); setInterval(tick, 1000);
+
+  // ── FAQ accordion ──
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-a');
+    const icon = btn.querySelector('.faq-icon');
+    const isOpen = item.classList.contains('open');
+    // close all
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-a').style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+
+  // ── Grain ──
+  (function() {
+    const c = document.getElementById('grain');
+    const ctx = c.getContext('2d');
+    let f = 0;
+    const resize = () => { c.width = innerWidth; c.height = innerHeight; };
+    const draw = () => {
+      const img = ctx.createImageData(c.width, c.height);
+      for (let i = 0; i < img.data.length; i += 4) {
+        const v = Math.random() * 255 | 0;
+        img.data[i] = img.data[i+1] = img.data[i+2] = v; img.data[i+3] = 255;
+      }
+      ctx.putImageData(img, 0, 0);
+    };
+    const loop = () => { if (++f % 3 === 0) draw(); requestAnimationFrame(loop); };
+    window.addEventListener('resize', resize);
+    resize(); loop();
+  })();
+</script>
+</body>
+</html>

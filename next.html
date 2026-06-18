@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You&#8217;re In &middot; FSCreative&#8482; Workshop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img { display: block; max-width: 100%; }
+
+    :root { --max: 720px; --col: 1080px; }
+
+    :root, [data-mode="dark"] {
+      --bg:         #061410;
+      --card:       #091a14;
+      --border:     #0f261c;
+      --text:       #ffffff;
+      --sub:        rgba(255,255,255,0.36);
+      --sub-bright: rgba(255,255,255,0.58);
+      --orange:     #ee663e;
+      --btn-bg:     #ffffff;
+      --btn-text:   #061410;
+      --foot:       rgba(255,255,255,0.15);
+      --join-bg:    rgba(238,102,62,0.07);
+      --join-bdr:   rgba(238,102,62,0.26);
+    }
+    [data-mode="light"] {
+      --bg:         #f5f0ea;
+      --card:       #ede7df;
+      --border:     #d6cec4;
+      --text:       #061410;
+      --sub:        #7a7570;
+      --sub-bright: #4a4540;
+      --orange:     #ee663e;
+      --btn-bg:     #061410;
+      --btn-text:   #ffffff;
+      --foot:       #b0a89e;
+      --join-bg:    rgba(238,102,62,0.05);
+      --join-bdr:   rgba(238,102,62,0.20);
+    }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px; line-height: 1.6;
+      transition: background .35s, color .35s; overflow-x: hidden;
+    }
+
+    #grain { position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: .022; }
+
+    .label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub-bright); }
+    .sec-pre { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); margin-bottom: 22px; }
+    .sec-pre::before { content: '// '; }
+
+    /* NAV */
+    #nav { position: sticky; top: 0; z-index: 1000; background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px; transition: background .35s; }
+    .nav-in { max-width: var(--col); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 58px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .nav-logo img { width: 26px; height: 26px; }
+    .nav-brand { display: flex; flex-direction: column; gap: 1px; line-height: 1; }
+    .nav-brand .nw { font-weight: 700; font-size: 13px; letter-spacing: -.01em; color: var(--text); }
+    .nav-brand .np { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub-bright); }
+    .nav-meta { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub-bright); }
+    .toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; background: none; border: none; padding: 0; flex-shrink: 0; }
+    .tg-label { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+    .tg-track { width: 32px; height: 17px; border-radius: 100px; background: var(--border); position: relative; transition: background .25s; flex-shrink: 0; }
+    [data-mode="light"] .tg-track { background: var(--orange); }
+    .tg-thumb { position: absolute; top: 2.5px; left: 2.5px; width: 12px; height: 12px; border-radius: 50%; background: #fff; transition: transform .25s; }
+    [data-mode="light"] .tg-thumb { transform: translateX(15px); }
+
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 100px; background: var(--btn-bg); color: var(--btn-text); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 14px; letter-spacing: -.01em; border: none; cursor: pointer; text-decoration: none; transition: opacity .2s, transform .2s; }
+    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+
+    .btn-cal { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 100px; border: 1px solid var(--border); color: var(--text); font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; background: transparent; cursor: pointer; text-decoration: none; transition: border-color .2s, color .2s; }
+    .btn-cal:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* HERO */
+    #hero { padding: 96px 24px 56px; max-width: var(--col); margin: 0 auto; text-align: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 5px 13px; border-radius: 100px; border: 1px solid var(--border); margin-bottom: 26px; }
+    .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    .hero-h1 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(40px, 6vw, 80px); letter-spacing: -.04em; line-height: 1.02; color: var(--text); margin-bottom: 22px; }
+    .hero-h1 .curse { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--orange); }
+    .hero-sub { font-size: 17px; line-height: 1.6; color: var(--sub-bright); max-width: 580px; margin: 0 auto 28px; }
+    .hero-meta { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); }
+
+    /* DETAILS CARD */
+    #details { padding: 24px 24px 16px; max-width: var(--max); margin: 0 auto; }
+    .det-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 28px 22px; }
+    .det-row { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .det-row:last-of-type { border-bottom: none; }
+    .det-row .ic { font-size: 14px; width: 18px; flex-shrink: 0; }
+    .det-row strong { font-weight: 700; }
+    .det-cal-row { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+
+    /* PREP */
+    #prep { padding: 64px 24px; max-width: var(--max); margin: 0 auto; }
+    .prep-h2 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(22px, 2.8vw, 30px); letter-spacing: -.025em; line-height: 1.2; color: var(--text); margin-bottom: 8px; }
+    .prep-sub { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 17px; color: var(--sub-bright); margin-bottom: 30px; }
+    .prep-list { display: flex; flex-direction: column; }
+    .prep-item { display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; padding: 18px 0; border-bottom: 1px solid var(--border); }
+    .prep-item:first-child { border-top: 1px solid var(--border); }
+    .prep-num { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .1em; color: var(--orange); padding-top: 3px; }
+    .prep-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: -.01em; color: var(--text); margin-bottom: 4px; }
+    .prep-desc { font-size: 13px; line-height: 1.6; color: var(--sub-bright); }
+    .prep-desc a { color: var(--orange); text-decoration: none; }
+    .prep-desc a:hover { text-decoration: underline; }
+    .prep-mechanism { margin-top: 30px; background: var(--join-bg); border: 1px solid var(--join-bdr); border-radius: 12px; padding: 18px 22px; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 16px; line-height: 1.65; color: var(--sub-bright); }
+
+    /* REPLAY */
+    #replay { padding: 24px 24px 48px; max-width: var(--max); margin: 0 auto; }
+    .rep-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px 26px; text-align: center; }
+    .rep-pre { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); margin-bottom: 8px; }
+    .rep-body { font-size: 14px; color: var(--sub-bright); line-height: 1.65; }
+
+    /* CTA */
+    #cta { padding: 48px 24px 56px; max-width: var(--max); margin: 0 auto; text-align: center; }
+    .cta-line { font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(18px, 2.2vw, 22px); color: var(--text); margin-bottom: 20px; line-height: 1.4; }
+    .cta-handle { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 100px; border: 1px solid var(--border); color: var(--text); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 14px; text-decoration: none; transition: border-color .2s, color .2s; }
+    .cta-handle:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* FOOTER */
+    #footer { padding: 40px 24px 56px; text-align: center; }
+    .footer-in { max-width: var(--max); margin: 0 auto; }
+    .footer-tag { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 17px; color: var(--text); margin-bottom: 14px; }
+    .footer-sign { font-size: 14px; color: var(--sub-bright); margin-bottom: 30px; }
+    .footer-copy { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--foot); }
+
+    @media (max-width: 768px) {
+      .nav-meta { display: none; }
+      #hero { padding: 64px 20px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="grain"></canvas>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-in">
+    <div class="nav-logo">
+      <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
+      <div class="nav-brand">
+        <span class="nw">FSCreative&#8482;</span>
+        <span class="np">Workshop</span>
+      </div>
+    </div>
+    <span class="nav-meta">SUN JUNE 28 &middot; 10AM CT</span>
+    <button class="toggle" id="toggle" aria-label="Toggle theme">
+      <span class="tg-label" id="tg-label">Light</span>
+      <span class="tg-track"><span class="tg-thumb"></span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-badge">
+    <span class="hero-dot"></span>
+    <span class="label">Confirmed &middot; Workshop Seat Reserved</span>
+  </div>
+  <h1 class="hero-h1">You&#8217;re <span class="curse">in.</span></h1>
+  <p class="hero-sub">Sunday June 28 at 10AM CT. We install your AI brain that morning. The Zoom link, the replay, and everything else lands in your inbox.</p>
+  <p class="hero-meta">90 Minutes Live &middot; 7-Day Replay &middot; Hosted by Gabe Harris</p>
+</section>
+
+<!-- WORKSHOP DETAILS CARD -->
+<section id="details">
+  <div class="det-card">
+    <div class="det-row"><span class="ic">&#128197;</span> <span><strong>Sunday, June 28, 2026</strong></span></div>
+    <div class="det-row"><span class="ic">&#128336;</span> <span>10:00 AM CT &middot; 90 min + 15 min Q&amp;A</span></div>
+    <div class="det-row"><span class="ic">&#127909;</span> <span>Live on Zoom &middot; Link arrives 1 hour before</span></div>
+    <div class="det-row"><span class="ic">&#127916;</span> <span>7-day replay sent within 24 hours</span></div>
+    <div class="det-cal-row">
+      <a href="#" class="btn-cal" id="cal-google">Add to Google Calendar &rarr;</a>
+      <a href="#" class="btn-cal" id="cal-ical">Add to Apple Calendar &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- PREP -->
+<section id="prep">
+  <p class="sec-pre">Before Sunday</p>
+  <h2 class="prep-h2">Bring these 5 things so your brain runs by minute 90.</h2>
+  <p class="prep-sub">Skip these and you'll watch the install instead of doing it. Bring them and you walk out with a working system.</p>
+  <div class="prep-list">
+    <div class="prep-item">
+      <span class="prep-num">01</span>
+      <div>
+        <div class="prep-title">Claude Code installed on your laptop</div>
+        <div class="prep-desc">The whole install runs in Claude Code. Free to set up, ~10 minutes. <a href="https://docs.claude.com/en/docs/claude-code/setup" target="_blank">Setup guide &rarr;</a></div>
+      </div>
+    </div>
+    <div class="prep-item">
+      <span class="prep-num">02</span>
+      <div>
+        <div class="prep-title">3 to 5 captions you&#8217;ve written that feel like YOU</div>
+        <div class="prep-desc">Voice samples. Doesn&#8217;t matter if they&#8217;re long or short. The system reads them to learn how you sound.</div>
+      </div>
+    </div>
+    <div class="prep-item">
+      <span class="prep-num">03</span>
+      <div>
+        <div class="prep-title">Your current bio or about page</div>
+        <div class="prep-desc">Instagram, LinkedIn, your website. Whatever you currently use to describe what you do.</div>
+      </div>
+    </div>
+    <div class="prep-item">
+      <span class="prep-num">04</span>
+      <div>
+        <div class="prep-title">3 past clients or projects you&#8217;ve loved</div>
+        <div class="prep-desc">What about them was the right fit. This is how we teach the system what to pull in.</div>
+      </div>
+    </div>
+    <div class="prep-item">
+      <span class="prep-num">05</span>
+      <div>
+        <div class="prep-title">5 to 10 types of people you do NOT want to work with</div>
+        <div class="prep-desc">The reverse ICP. Just as important as the right fit. Be specific.</div>
+      </div>
+    </div>
+  </div>
+  <div class="prep-mechanism">
+    Most people skip the prep, then ask why their AI sounds generic. The prep IS the voice. Take 20 minutes between now and Sunday to gather it.
+  </div>
+</section>
+
+<!-- REPLAY NOTE -->
+<section id="replay">
+  <div class="rep-card">
+    <p class="rep-pre">If you can&#8217;t make it live</p>
+    <p class="rep-body">The replay lands in your inbox within 24 hours. Watch it on your schedule, do the install, then DM me your brain when it&#8217;s running.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <p class="cta-line">Questions between now and Sunday? Hit me on Instagram.</p>
+  <a href="https://ig.me/m/watch.gabe" class="cta-handle" target="_blank">DM @watch.gabe &rarr;</a>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-in">
+    <p class="footer-tag">See you Sunday.</p>
+    <p class="footer-sign">Keep creating,<br/>Gabe</p>
+    <p class="footer-copy">&copy; FSCreative&#8482; &nbsp;&middot;&nbsp; @watch.gabe</p>
+  </div>
+</footer>
+
+<script>
+  // Theme
+  const html = document.documentElement;
+  const tog = document.getElementById('toggle');
+  const tgLabel = document.getElementById('tg-label');
+  function applyTheme() {
+    const dark = html.getAttribute('data-mode') === 'dark';
+    tgLabel.textContent = dark ? 'Light' : 'Dark';
+  }
+  tog.addEventListener('click', () => {
+    html.setAttribute('data-mode', html.getAttribute('data-mode') === 'dark' ? 'light' : 'dark');
+    applyTheme();
+  });
+  applyTheme();
+
+  // Calendar links (Sun June 28 2026 10AM CT = 15:00 UTC, 90 min)
+  const calTitle = 'FSCreative Workshop: Build Your AI Content System';
+  const calDesc = 'Live 90-minute install. Zoom link arrives 1 hour before. Prep: claude.ai/code installed, 3-5 voice samples, bio, 3 ideal clients, 5-10 wrong-fit clients.';
+  const calStart = '20260628T150000Z';
+  const calEnd = '20260628T170000Z';
+  document.getElementById('cal-google').href =
+    'https://www.google.com/calendar/render?action=TEMPLATE'
+    + '&text=' + encodeURIComponent(calTitle)
+    + '&dates=' + calStart + '/' + calEnd
+    + '&details=' + encodeURIComponent(calDesc);
+  // .ics download
+  const ics = [
+    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//FSCreative//Workshop//EN','BEGIN:VEVENT',
+    'UID:fsc-workshop-2026-06-28@fscreative.live',
+    'DTSTAMP:' + calStart,
+    'DTSTART:' + calStart,
+    'DTEND:' + calEnd,
+    'SUMMARY:' + calTitle,
+    'DESCRIPTION:' + calDesc.replace(/,/g, '\\,'),
+    'END:VEVENT','END:VCALENDAR'
+  ].join('\r\n');
+  document.getElementById('cal-ical').href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+
+  // Grain
+  (function() {
+    const c = document.getElementById('grain');
+    const ctx = c.getContext('2d');
+    let f = 0;
+    const resize = () => { c.width = innerWidth; c.height = innerHeight; };
+    const draw = () => {
+      const img = ctx.createImageData(c.width, c.height);
+      for (let i = 0; i < img.data.length; i += 4) {
+        const v = Math.random() * 255 | 0;
+        img.data[i] = img.data[i+1] = img.data[i+2] = v; img.data[i+3] = 255;
+      }
+      ctx.putImageData(img, 0, 0);
+    };
+    const loop = () => { if (++f % 3 === 0) draw(); requestAnimationFrame(loop); };
+    window.addEventListener('resize', resize);
+    resize(); loop();
+  })();
+</script>
+</body>
+</html>
