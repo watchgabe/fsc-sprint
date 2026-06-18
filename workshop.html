@@ -296,6 +296,22 @@
     .anchor-line span { display: block; }
     .anchor-flip { color: var(--orange); margin-top: 6px; }
 
+    /* ── UNIFIED SITE NAV ── */
+    #site-nav { position: sticky; top: 0; z-index: 1000; background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 24px; transition: background .35s; }
+    .sn-in { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; gap: 24px; height: 64px; }
+    .sn-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; text-decoration: none; color: inherit; }
+    .sn-logo img { width: 28px; height: 28px; }
+    .sn-brand { display: flex; flex-direction: column; gap: 1px; line-height: 1; }
+    .sn-brand .sb-w { font-weight: 700; font-size: 13px; letter-spacing: -.01em; color: var(--text); }
+    .sn-brand .sb-p { font-family: 'Space Mono', monospace; font-size: 7.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub-bright); }
+    .sn-links { display: flex; align-items: center; gap: 26px; margin-left: 24px; }
+    .sn-link { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 500; color: var(--sub-bright); text-decoration: none; transition: color .2s; padding: 4px 0; }
+    .sn-link:hover { color: var(--text); }
+    .sn-link.active { color: var(--text); }
+    .sn-r { display: flex; align-items: center; gap: 14px; flex-shrink: 0; margin-left: auto; }
+    .sn-book { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; border-radius: 100px; background: var(--orange); color: #fff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: -.01em; border: none; cursor: pointer; text-decoration: none; transition: opacity .2s; white-space: nowrap; }
+    .sn-book:hover { opacity: .88; color: #fff; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       #hero { grid-template-columns: 1fr; padding: 48px 20px 52px; gap: 28px; }
@@ -311,6 +327,9 @@
       .ag-item { grid-template-columns: 32px 1fr; }
       .ag-time { grid-column: 2; justify-self: start; }
       .wf-grid { grid-template-columns: 1fr; }
+      .sn-links { display: none; }
+      .sn-brand .sb-p { display: none; }
+      .sn-in { gap: 12px; height: 56px; }
     }
   </style>
 </head>
@@ -325,20 +344,25 @@
   <span class="ub-text">LIVE WORKSHOP &nbsp;&middot;&nbsp; 47 OF 50 SEATS REMAINING</span>
 </div>
 
-<!-- §1 NAV -->
-<nav id="nav">
-  <div class="nav-in">
-    <div class="nav-logo">
+<!-- §1 SITE NAV -->
+<nav id="site-nav">
+  <div class="sn-in">
+    <a href="/" class="sn-logo">
       <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
-      <div class="nav-brand">
-        <span class="nw">FSCreative&#8482;</span>
-        <span class="np">Workshop</span>
+      <div class="sn-brand">
+        <span class="sb-w">FSCreative&#8482;</span>
+        <span class="sb-p">Frictionless OS</span>
       </div>
+    </a>
+    <div class="sn-links">
+      <a href="/" class="sn-link">Home</a>
+      <a href="/workshop" class="sn-link active">Workshops</a>
+      <a href="/freebies" class="sn-link">Freebies</a>
+      <a href="/next" class="sn-link">Work Together</a>
     </div>
-    <span class="nav-meta">SUN JUNE 28 &middot; 10AM CT &middot; $17</span>
-    <div class="nav-r">
-      <a href="https://luma.com/fgisu9xp" class="btn-nav" target="_blank">Save Your Seat &rarr;</a>
-      <button class="toggle" id="toggle" aria-label="Toggle theme">
+    <div class="sn-r">
+      <a href="https://calendly.com/golocalgroup/watchgabe" class="sn-book" target="_blank">Book a Call &rarr;</a>
+      <button class="toggle" id="toggle" aria-label="Toggle theme" style="background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;padding:0;">
         <span class="tg-label" id="tg-label">Light</span>
         <span class="tg-track"><span class="tg-thumb"></span></span>
       </button>
