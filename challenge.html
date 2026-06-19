@@ -34,7 +34,35 @@
       overflow-x: hidden;
     }
 
+    #grain { position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: .025; }
+
     .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── TOP HEADER BAR ── */
+    #topbar { background: var(--card); border-bottom: 1px solid var(--card-2); padding: 12px 24px; position: sticky; top: 0; z-index: 100; }
+    .tb-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 14px 24px; flex-wrap: wrap; }
+    .tb-text { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub-bright); display: inline-flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .tb-pill { display: inline-flex; align-items: center; gap: 6px; }
+    .tb-pill .tb-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
+    .tb-pill strong { color: var(--text); }
+    .tb-countdown { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; border-radius: 100px; background: var(--bg); border: 1px solid var(--card-2); font-family: 'Space Mono', monospace; font-size: 10px; color: var(--text); letter-spacing: .04em; }
+    .tb-cd-label { color: var(--orange); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; }
+    .tb-time { font-weight: 700; }
+
+    /* ── STICKY BOTTOM CTA ── */
+    #sbar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background: var(--card); border-top: 1px solid var(--card-2); padding: 12px 24px; transform: translateY(105%); transition: transform .4s ease; }
+    #sbar.vis { transform: translateY(0); }
+    .sbar-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .sbar-cd { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub-bright); }
+    .sbar-cd strong { color: var(--text); font-weight: 700; }
+    .sbar-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 100px; background: var(--orange); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: -.01em; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
+    .sbar-btn:hover { background: var(--orange-d); color: #fff; transform: translateY(-1px); }
+
+    /* ── SOUND FAMILIAR SECTION ── */
+    #sound { padding: 96px 24px; max-width: 1200px; margin: 0 auto; }
+    .sf-h2 { font-size: clamp(36px, 5.5vw, 64px); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin-bottom: 36px; max-width: 1100px; }
+    .sf-body { font-size: 18px; line-height: 1.7; color: var(--sub-bright); max-width: 760px; display: flex; flex-direction: column; gap: 20px; }
+    .sf-body strong { color: var(--text); font-weight: 700; }
 
     /* ── BRAND BAR (logo only, no nav) ── */
     #brand-bar { padding: 28px 24px 0; max-width: 1200px; margin: 0 auto; }
@@ -174,6 +202,24 @@
 </head>
 <body>
 
+<canvas id="grain"></canvas>
+
+<!-- TOP HEADER BAR -->
+<div id="topbar">
+  <div class="tb-in">
+    <span class="tb-text">
+      <span class="tb-pill"><span class="tb-dot"></span><strong>Live Cohort</strong></span>
+      <span class="tb-pill"><strong>July 20, 2026</strong></span>
+      <span class="tb-pill"><strong>$997</strong> One-time</span>
+      <span class="tb-pill">100% Money-Back</span>
+    </span>
+    <span class="tb-countdown">
+      <span class="tb-cd-label">Starts In</span>
+      <span class="tb-time"><span id="tb-d">00</span>D : <span id="tb-h">00</span>H : <span id="tb-m">00</span>M : <span id="tb-s">00</span>S</span>
+    </span>
+  </div>
+</div>
+
 <!-- BRAND BAR (logo only) -->
 <div id="brand-bar">
   <a href="/" class="bb-logo">
@@ -196,12 +242,23 @@
       <div class="sp-text"><strong>100+ students</strong> trained by Gabe</div>
     </div>
   </div>
-  <span class="eyebrow"><span class="e-dot"></span>Live Cohort &middot; Starts July 20, 2026</span>
   <h1 class="h-h1">Install A Cinematic Personal Brand &amp; Content System in 60 Days</h1>
   <p class="h-sub">We build your content system that sounds like you, feels like you, and saves you hours every week.</p>
   <div class="h-cta-row">
-    <a href="https://calendly.com/golocalgroup/watchgabe" target="_blank" class="btn-primary">Join the Challenge &rarr;</a>
+    <a href="https://buy.stripe.com/5kQ7sLduy0mZ5uWddQgA80j" target="_blank" class="btn-primary">Join the Challenge &rarr;</a>
     <span class="h-price"><strong>$997</strong> &middot; One-time</span>
+  </div>
+</section>
+
+<!-- SOUND FAMILIAR -->
+<section id="sound">
+  <p class="sec-pre">// Sound familiar?</p>
+  <h2 class="sf-h2">Your work is great, but your brand doesn&#8217;t reflect it.</h2>
+  <div class="sf-body">
+    <p>You&#8217;ve built a real offer, your clients love you, and revenue is coming in. But now you&#8217;re ready to ramp things up.</p>
+    <p>You&#8217;re ready to be able to actually choose the projects you want to work with. And (like everybody else) you&#8217;ve probably realized that building your personal brand is the best way to achieve this new goal.</p>
+    <p>But you&#8217;re also not like everybody else because you actually give a f*ck about the content that goes out. You want to put out content that you&#8217;re proud to show people, not only because it&#8217;s going to educate them, but because it&#8217;s going to reflect the value that they would get if they decide to work with you.</p>
+    <p>You want the content that represents you to look like the authority in your niche.</p>
   </div>
 </section>
 
@@ -438,7 +495,7 @@
     <p class="fcta-pre">Live Cohort &middot; Starts July 20, 2026</p>
     <h2 class="fcta-h">Join the challenge.</h2>
     <p class="fcta-sub">60 days. The system, installed. Your brand, built. No cap on spots, but the cohort kicks off July 20 &mdash; in or out.</p>
-    <a href="https://calendly.com/golocalgroup/watchgabe" target="_blank" class="btn-primary" style="background:var(--orange);">Join the Challenge &mdash; $997 &rarr;</a>
+    <a href="https://buy.stripe.com/5kQ7sLduy0mZ5uWddQgA80j" target="_blank" class="btn-primary" style="background:var(--orange);">Join the Challenge &mdash; $997 &rarr;</a>
     <p class="fcta-meta">One-time &middot; 60-day install &middot; Full guarantee through Week 3</p>
   </div>
 </section>
@@ -448,7 +505,16 @@
   <p class="bottom-copy">&copy; FSCreative&#8482; &middot; @watch.gabe</p>
 </div>
 
+<!-- STICKY BOTTOM CTA -->
+<div id="sbar">
+  <div class="sbar-in">
+    <span class="sbar-cd"><strong id="sbar-cd">Loading&hellip;</strong> Left</span>
+    <a href="https://buy.stripe.com/5kQ7sLduy0mZ5uWddQgA80j" target="_blank" class="sbar-btn">Join the Challenge &middot; $997 &rarr;</a>
+  </div>
+</div>
+
 <script>
+  // FAQ accordion
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
     const answer = item.querySelector('.faq-a');
@@ -462,6 +528,54 @@
       answer.style.maxHeight = answer.scrollHeight + 'px';
     }
   }
+
+  // Countdown — target July 20, 2026 at 10AM CT (15:00 UTC)
+  const TARGET = new Date('2026-07-20T15:00:00Z');
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function tick() {
+    const diff = TARGET - Date.now();
+    if (diff <= 0) {
+      const sbarCd = document.getElementById('sbar-cd');
+      if (sbarCd) sbarCd.textContent = 'Cohort is live!';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const setText = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = pad(val); };
+    setText('tb-d', d); setText('tb-h', h); setText('tb-m', m); setText('tb-s', s);
+    const sbarCd = document.getElementById('sbar-cd');
+    if (sbarCd) sbarCd.textContent = d + 'D ' + pad(h) + 'H ' + pad(m) + 'M ' + pad(s) + 'S';
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // Sticky bottom bar — appears after hero
+  const sbar = document.getElementById('sbar');
+  window.addEventListener('scroll', () => {
+    sbar.classList.toggle('vis', window.scrollY > window.innerHeight * 0.6);
+  });
+
+  // Grain texture
+  (function() {
+    const c = document.getElementById('grain');
+    if (!c) return;
+    const ctx = c.getContext('2d');
+    let f = 0;
+    const resize = () => { c.width = innerWidth; c.height = innerHeight; };
+    const draw = () => {
+      const img = ctx.createImageData(c.width, c.height);
+      for (let i = 0; i < img.data.length; i += 4) {
+        const v = Math.random() * 255 | 0;
+        img.data[i] = img.data[i+1] = img.data[i+2] = v; img.data[i+3] = 255;
+      }
+      ctx.putImageData(img, 0, 0);
+    };
+    const loop = () => { if (++f % 3 === 0) draw(); requestAnimationFrame(loop); };
+    window.addEventListener('resize', resize);
+    resize(); loop();
+  })();
 </script>
 </body>
 </html>
