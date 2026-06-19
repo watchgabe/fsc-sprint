@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply &middot; FSCreative&#8482;</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; }
+
+    :root { --max: 720px; --col: 1200px; }
+
+    :root, [data-mode="light"] {
+      --bg:         #faf8f4;
+      --card:       #ffffff;
+      --card-2:     #f3efe7;
+      --border:     #e6dfd2;
+      --border-2:   #cfc6b3;
+      --text:       #0a0a0a;
+      --sub:        #5a5550;
+      --sub-bright: #2a2520;
+      --orange:     #ee663e;
+      --orange-d:   #e0552e;
+      --foot:       #888076;
+      --black:      #0a0a0a;
+    }
+    [data-mode="dark"] {
+      --bg:         #0a0a0a;
+      --card:       #131311;
+      --card-2:     #1a1a17;
+      --border:     #232320;
+      --border-2:   #38382f;
+      --text:       #ffffff;
+      --sub:        rgba(255,255,255,0.55);
+      --sub-bright: rgba(255,255,255,0.85);
+      --orange:     #ee663e;
+      --orange-d:   #e0552e;
+      --foot:       rgba(255,255,255,0.30);
+      --black:      #0a0a0a;
+    }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px; line-height: 1.55;
+      transition: background .35s, color .35s; overflow-x: hidden;
+    }
+
+    /* ── SITE NAV (floating pill) ── */
+    #site-nav { position: sticky; top: 16px; z-index: 1000; padding: 0 20px; }
+    .sn-in { position: relative; max-width: var(--col); margin: 0 auto; display: flex; align-items: center; gap: 24px; height: 60px; background: var(--card); border: 1px solid var(--border); border-radius: 100px; padding: 8px 10px 8px 22px; box-shadow: 0 6px 32px rgba(0,0,0,0.06); }
+    .sn-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; text-decoration: none; color: inherit; }
+    .sn-logo img { display: none; }
+    .sn-logo-full { display: block; height: 22px; width: auto; }
+    [data-mode="dark"] .sn-logo-full-light { display: none; }
+    [data-mode="light"] .sn-logo-full-dark { display: none; }
+    .sn-links { display: flex; align-items: center; gap: 26px; margin-left: 24px; }
+    .sn-link { font-size: 13px; font-weight: 600; color: var(--text); text-decoration: none; transition: opacity .2s; padding: 4px 0; }
+    .sn-link:hover { opacity: .7; }
+    .sn-r { display: flex; align-items: center; gap: 14px; flex-shrink: 0; margin-left: auto; }
+    .sn-tagline { font-family: 'Space Mono', monospace; font-size: 10px; line-height: 1.4; color: var(--sub); text-align: right; max-width: 180px; letter-spacing: .01em; }
+    .sn-book { display: inline-flex; align-items: center; gap: 6px; padding: 11px 22px; border-radius: 100px; background: var(--orange); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: -.01em; border: none; cursor: pointer; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
+    .sn-book:hover { background: var(--orange-d); color: #fff; transform: translateY(-1px); }
+    .sn-hamburger { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 10px 8px; }
+    .sn-hamburger span { width: 18px; height: 2px; background: var(--text); border-radius: 1px; }
+
+    /* ── SHARED ── */
+    .wrap { max-width: var(--col); margin: 0 auto; padding: 0 24px; }
+    .wrap-n { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 100px; background: var(--black); color: #fff; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow .e-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; border-radius: 100px; background: var(--orange); color: #fff; font-size: 15px; font-weight: 700; letter-spacing: -.01em; border: none; cursor: pointer; text-decoration: none; transition: background .2s, transform .2s; }
+    .btn-primary:hover { background: var(--orange-d); transform: translateY(-1px); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; border-radius: 100px; background: transparent; color: var(--text); border: 1px solid var(--border-2); font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; transition: border-color .2s, background .2s; }
+    .btn-outline:hover { border-color: var(--orange); background: rgba(238,102,62,0.04); }
+    .h2 { font-size: clamp(32px, 4.5vw, 56px); font-weight: 800; letter-spacing: -.035em; line-height: 1.04; color: var(--text); }
+    .h2 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--orange); }
+    .sec-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); }
+
+    /* ── HERO ── */
+    #hero { padding: 88px 24px 56px; max-width: var(--col); margin: 0 auto; text-align: center; }
+    .h-eyebrow-wrap { margin-bottom: 32px; }
+    .h-h1 { font-size: clamp(48px, 8vw, 104px); font-weight: 800; letter-spacing: -.045em; line-height: .96; color: var(--text); margin-bottom: 24px; max-width: 1100px; margin-left: auto; margin-right: auto; }
+    .h-h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--orange); }
+    .h-sub { font-size: 19px; line-height: 1.55; color: var(--sub-bright); max-width: 720px; margin: 0 auto 36px; }
+    .h-sub strong { font-weight: 700; color: var(--text); }
+    .h-cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .h-meta { margin-top: 18px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+
+    /* ── VIDEO PLACEHOLDER ── */
+    #video { padding: 0 24px 64px; max-width: 960px; margin: 0 auto; }
+    .vid-frame { aspect-ratio: 16/9; background: var(--black); border-radius: 24px; overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform .25s; box-shadow: 0 18px 60px rgba(0,0,0,0.12); }
+    .vid-frame:hover { transform: scale(1.005); }
+    .vid-frame::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(238,102,62,0.18), transparent 60%); }
+    .vid-play { width: 84px; height: 84px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; color: #fff; box-shadow: 0 8px 32px rgba(238,102,62,0.4); position: relative; z-index: 1; transition: transform .25s; }
+    .vid-frame:hover .vid-play { transform: scale(1.08); }
+    .vid-play svg { width: 28px; height: 28px; margin-left: 4px; }
+    .vid-label { position: absolute; bottom: 22px; left: 26px; right: 26px; display: flex; align-items: center; justify-content: space-between; color: rgba(255,255,255,0.85); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; z-index: 1; }
+    .vid-label .vl-tag { display: inline-flex; align-items: center; gap: 6px; }
+    .vid-label .vl-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+
+    /* ── SOCIAL PROOF ── */
+    #proof { padding: 56px 24px 80px; max-width: var(--col); margin: 0 auto; }
+    .proof-pre { text-align: center; margin-bottom: 36px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); }
+    .proof-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+    .proof-card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 24px 18px; text-align: center; }
+    .proof-avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--card-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-weight: 700; color: var(--sub-bright); font-size: 18px; overflow: hidden; }
+    .proof-avatar img { width: 64px; height: 64px; object-fit: cover; border-radius: 50%; }
+    .proof-name { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .proof-company { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); margin-bottom: 6px; }
+    .proof-stat { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 18px; color: var(--orange); }
+
+    /* ── PROBLEM ── */
+    #problem { padding: 80px 24px; background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .prob-in { max-width: 920px; margin: 0 auto; text-align: center; }
+    .prob-pre { margin-bottom: 22px; }
+    .prob-body { margin-top: 28px; font-size: 19px; line-height: 1.7; color: var(--sub-bright); max-width: 760px; margin-left: auto; margin-right: auto; }
+    .prob-body p { margin-bottom: 18px; }
+    .prob-body strong { color: var(--text); font-weight: 700; }
+
+    /* ── DELIVERABLES ── */
+    #deliverables { padding: 80px 24px; max-width: var(--col); margin: 0 auto; }
+    .del-head { text-align: center; margin-bottom: 56px; }
+    .del-head .h2 { max-width: 820px; margin: 18px auto 0; }
+    .del-grid { display: flex; flex-direction: column; gap: 14px; }
+    .del-item { display: grid; grid-template-columns: 90px 1fr; gap: 22px; align-items: start; padding: 28px 30px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; transition: border-color .2s, transform .2s; }
+    .del-item:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .del-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 56px; line-height: .9; color: var(--orange); }
+    .del-title { font-size: 22px; font-weight: 700; letter-spacing: -.02em; color: var(--text); margin-bottom: 10px; line-height: 1.2; }
+    .del-desc { font-size: 15px; line-height: 1.65; color: var(--sub-bright); }
+
+    /* ── MID CTA ── */
+    #mid-cta { padding: 80px 24px; max-width: 960px; margin: 0 auto; text-align: center; }
+    .mid-pre { margin-bottom: 22px; }
+    .mid-h { font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -.035em; line-height: 1.08; color: var(--text); margin-bottom: 18px; max-width: 780px; margin-left: auto; margin-right: auto; }
+    .mid-h em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--orange); }
+    .mid-sub { font-size: 16px; color: var(--sub-bright); margin-bottom: 28px; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .mid-qualifier { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 100px; background: var(--card-2); border: 1px solid var(--border); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); margin-bottom: 24px; }
+    .mid-qualifier .mq-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { padding: 80px 24px; max-width: var(--col); margin: 0 auto; }
+    .testi-head { text-align: center; margin-bottom: 48px; }
+    .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .testi-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 30px 28px; display: flex; flex-direction: column; gap: 18px; }
+    .testi-quote { font-size: 16px; line-height: 1.7; color: var(--text); }
+    .testi-quote::before { content: '\201C'; color: var(--orange); font-family: 'Instrument Serif', serif; font-size: 30px; line-height: 0; vertical-align: -10px; margin-right: 4px; }
+    .testi-meta { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+    .testi-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--card-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--sub-bright); font-size: 13px; flex-shrink: 0; overflow: hidden; }
+    .testi-avatar img { width: 44px; height: 44px; object-fit: cover; }
+    .testi-name { font-size: 13px; font-weight: 700; color: var(--text); }
+    .testi-handle { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .1em; color: var(--sub); margin-top: 2px; }
+
+    /* ── DISCLAIMER ── */
+    #disclaimer { padding: 56px 24px; max-width: 920px; margin: 0 auto; }
+    .disc-card { background: var(--card-2); border: 1px solid var(--border); border-radius: 16px; padding: 24px 28px; }
+    .disc-pre { margin-bottom: 12px; }
+    .disc-body { font-size: 12px; line-height: 1.7; color: var(--sub); }
+
+    /* ── WHAT IT'S NOT ── */
+    #not { padding: 80px 24px; max-width: var(--col); margin: 0 auto; }
+    .not-head { text-align: center; margin-bottom: 48px; }
+    .not-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .not-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 32px 30px; position: relative; }
+    .not-x { position: absolute; top: 22px; right: 26px; width: 28px; height: 28px; border-radius: 50%; background: var(--card-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--sub); font-size: 14px; font-weight: 700; }
+    .not-pre { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); margin-bottom: 14px; }
+    .not-title { font-size: 24px; font-weight: 800; letter-spacing: -.025em; color: var(--text); margin-bottom: 14px; line-height: 1.1; }
+    .not-desc { font-size: 14px; line-height: 1.65; color: var(--sub-bright); }
+
+    /* ── FAQ ── */
+    #faq { padding: 80px 24px; max-width: 920px; margin: 0 auto; }
+    .faq-head { text-align: center; margin-bottom: 40px; }
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: border-color .2s; }
+    .faq-item.open { border-color: var(--orange); }
+    .faq-q { width: 100%; background: none; border: none; padding: 22px 26px; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; text-align: left; }
+    .faq-q-text { font-size: 16px; font-weight: 700; color: var(--text); letter-spacing: -.01em; }
+    .faq-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--card-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--orange); font-size: 18px; flex-shrink: 0; line-height: 1; transition: transform .25s, background .2s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--orange); color: #fff; border-color: var(--orange); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .faq-a-inner { padding: 0 26px 22px; font-size: 14px; line-height: 1.7; color: var(--sub-bright); }
+
+    /* ── FOOTER CTA ── */
+    #footer-cta { padding: 80px 24px; max-width: var(--col); margin: 0 auto; }
+    .fcta-card { background: var(--black); color: #fff; border-radius: 28px; padding: 72px 48px; text-align: center; overflow: hidden; position: relative; }
+    .fcta-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 20%, rgba(238,102,62,0.18), transparent 50%); pointer-events: none; }
+    .fcta-pre { position: relative; z-index: 1; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 18px; display: inline-flex; align-items: center; gap: 8px; }
+    .fcta-pre::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    .fcta-h { position: relative; z-index: 1; font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; margin-bottom: 22px; max-width: 800px; margin-left: auto; margin-right: auto; color: #fff; }
+    .fcta-h em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--orange); }
+    .fcta-sub { position: relative; z-index: 1; font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 32px; max-width: 580px; margin-left: auto; margin-right: auto; }
+    .fcta-card .btn-primary { position: relative; z-index: 1; }
+
+    /* ── GLOBAL FOOTER ── */
+    #footer { padding: 64px 24px 32px; border-top: 1px solid var(--border); }
+    .foot-in { max-width: var(--col); margin: 0 auto; }
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; padding-bottom: 40px; }
+    .foot-logo { height: 24px; margin-bottom: 16px; }
+    .foot-tag { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 16px; color: var(--text); line-height: 1.4; max-width: 280px; }
+    .foot-h { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); margin-bottom: 14px; }
+    .foot-list { display: flex; flex-direction: column; gap: 10px; }
+    .foot-link { color: var(--text); font-size: 14px; text-decoration: none; transition: opacity .2s; }
+    .foot-link:hover { opacity: .6; }
+    .foot-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 24px; border-top: 1px solid var(--border); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); }
+    .foot-bottom .fb-legal { display: flex; gap: 24px; }
+    .foot-bottom .fb-legal a { color: var(--sub); text-decoration: none; }
+    .foot-bottom .fb-legal a:hover { color: var(--text); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .proof-grid { grid-template-columns: repeat(3, 1fr); }
+      .proof-grid .proof-card:nth-child(n+4) { display: none; }
+      .not-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .foot-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    }
+    @media (max-width: 768px) {
+      .sn-in { gap: 12px; height: 56px; padding-left: 18px; }
+      .sn-logo-icon { display: block !important; width: 26px; height: 26px; }
+      .sn-logo-full { display: none !important; }
+      .sn-tagline { display: none; }
+      .sn-hamburger { display: flex; }
+      .sn-links { position: absolute; top: calc(100% + 10px); left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; margin: 0; background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 8px 14px; display: none; box-shadow: 0 8px 32px rgba(0,0,0,0.10); }
+      .sn-links.open { display: flex; }
+      .sn-links .sn-link { padding: 12px 4px; border-bottom: 1px solid var(--border); font-size: 14px; }
+      .sn-links .sn-link:last-child { border-bottom: none; }
+      .del-item { grid-template-columns: 60px 1fr; gap: 14px; padding: 22px 22px; }
+      .del-num { font-size: 40px; }
+      .fcta-card { padding: 48px 28px; }
+      .foot-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<nav id="site-nav">
+  <div class="sn-in">
+    <a href="/" class="sn-logo">
+      <img class="sn-logo-icon" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
+      <img class="sn-logo-full sn-logo-full-dark" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" alt="FSCreative" />
+      <img class="sn-logo-full sn-logo-full-light" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549022/Asset_2_4x_fs8lwl.png" alt="FSCreative" />
+    </a>
+    <div class="sn-links">
+      <a href="/workshop" class="sn-link">Workshops</a>
+      <a href="/freebies" class="sn-link">Freebies</a>
+    </div>
+    <div class="sn-r">
+      <span class="sn-tagline">Do you want to work one-on-one with Gabe? Book a call.</span>
+      <a href="#apply" class="sn-book">Apply Now</a>
+      <button class="sn-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="h-eyebrow-wrap"><span class="eyebrow"><span class="e-dot"></span>By Application Only &middot; 5 Spots This Month</span></div>
+  <h1 class="h-h1">We Install Your <em>Cinematic</em> Personal Brand. Done With You. In 60 Days.</h1>
+  <p class="h-sub">For <strong>creative entrepreneurs</strong> doing $10K/month to $5M/year who have a real offer but a brand that doesn't pull. We install the system that turns your work into a brand the right clients come to.</p>
+  <div class="h-cta-row">
+    <a href="#apply" class="btn-primary">Apply for the Install &rarr;</a>
+    <a href="#video" class="btn-outline">Watch the 3-min Walkthrough</a>
+  </div>
+  <p class="h-meta">5 founding spots &middot; $5K &middot; 60-day install &middot; Week 3 refund</p>
+</section>
+
+<!-- VIDEO PLACEHOLDER -->
+<section id="video">
+  <div class="vid-frame" id="video-frame">
+    <div class="vid-play">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+    <div class="vid-label">
+      <span class="vl-tag"><span class="vl-dot"></span>3-Min Walkthrough &middot; Gabe Harris</span>
+      <span>0:00 / 3:14</span>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF / FOUNDER CARDS -->
+<section id="proof">
+  <p class="proof-pre">Trusted by operators &middot; agency clients &middot; founding cohort</p>
+  <div class="proof-grid">
+    <div class="proof-card">
+      <div class="proof-avatar">CC</div>
+      <div class="proof-name">Crux Cigars</div>
+      <div class="proof-company">Anchor client &middot; 2019&ndash;</div>
+      <div class="proof-stat">Category-defining</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-avatar">IR</div>
+      <div class="proof-name">Israel Rodriguez</div>
+      <div class="proof-company">Architect &middot; Netherlands</div>
+      <div class="proof-stat">1.5K &rarr; built brand</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-avatar">GH</div>
+      <div class="proof-name">Gabe Harris</div>
+      <div class="proof-company">FSCreative &middot; Founder</div>
+      <div class="proof-stat">50K+ followers</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-avatar">P</div>
+      <div class="proof-name">Perplexity</div>
+      <div class="proof-company">Paid partnership</div>
+      <div class="proof-stat">AI content build</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-avatar">EL</div>
+      <div class="proof-name">ElevenLabs</div>
+      <div class="proof-company">Paid partnership</div>
+      <div class="proof-stat">Voice system build</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM NARRATIVE -->
+<section id="problem">
+  <div class="prob-in">
+    <p class="sec-pre prob-pre">// The actual problem</p>
+    <h2 class="h2">Your work is good. Your brand isn&#8217;t pulling. <em>That&#8217;s a system problem.</em></h2>
+    <div class="prob-body">
+      <p>You don&#8217;t need more content advice. You don&#8217;t need another course on hooks. You don&#8217;t need an AI tool that makes you sound like every other creator on the timeline.</p>
+      <p>You need <strong>the infrastructure</strong> that turns your existing work into a brand the right clients come to. Voice, ICP, content engine, visual identity, funnel, automation, accountability. Built around YOUR business, not from a template.</p>
+      <p>Most creatives running real offers are invisible despite being great. The build closes that gap.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section id="deliverables">
+  <div class="del-head">
+    <p class="sec-pre">// What gets installed</p>
+    <h2 class="h2">Six things you walk out with on day 60.</h2>
+  </div>
+  <div class="del-grid">
+    <div class="del-item">
+      <span class="del-num">01</span>
+      <div>
+        <div class="del-title">Onboarding Intensive &middot; Week 1</div>
+        <div class="del-desc">2-hour deep dive into your business, your offer, your ICP, and the gap between your work and your current brand. You leave with the install map.</div>
+      </div>
+    </div>
+    <div class="del-item">
+      <span class="del-num">02</span>
+      <div>
+        <div class="del-title">AI Brain Installed &middot; Week 1&ndash;2</div>
+        <div class="del-desc">Voice doc, ICP doc, strategic clarity doc, brand assets &mdash; loaded into your Claude project. The strategic core every other piece runs on.</div>
+      </div>
+    </div>
+    <div class="del-item">
+      <span class="del-num">03</span>
+      <div>
+        <div class="del-title">Visual Identity Build &middot; Week 2&ndash;3</div>
+        <div class="del-desc">Brand identity that matches the level of your work. Color, type, lockup, template kit. Refundable here if it doesn&#8217;t feel unmistakably you.</div>
+      </div>
+    </div>
+    <div class="del-item">
+      <span class="del-num">04</span>
+      <div>
+        <div class="del-title">Cinematic Content System &middot; Week 3&ndash;5</div>
+        <div class="del-desc">Shot list, gear setup, edit workflow, posting cadence, and templates &mdash; the system that produces premium content from your real work.</div>
+      </div>
+    </div>
+    <div class="del-item">
+      <span class="del-num">05</span>
+      <div>
+        <div class="del-title">Funnel + Automations &middot; Week 5&ndash;7</div>
+        <div class="del-desc">Lead magnet, email sequences, CRM hookup, automations &mdash; the pipeline that turns audience into qualified conversations.</div>
+      </div>
+    </div>
+    <div class="del-item">
+      <span class="del-num">06</span>
+      <div>
+        <div class="del-title">Weekly Accountability &middot; All 60 Days</div>
+        <div class="del-desc">Direct Slack access. Weekly 1:1 with Gabe. The thing that makes the system actually ship instead of sit unused.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MID CTA -->
+<section id="mid-cta">
+  <p class="sec-pre mid-pre">// The bet</p>
+  <h2 class="mid-h">Build the most <em>unmistakably yours</em> brand on the internet.</h2>
+  <p class="mid-sub">Done WITH you. 60 days. 5 founding spots this month. By application only because the install is high-intensity for both of us.</p>
+  <div class="mid-qualifier"><span class="mq-dot"></span>5 spots/month &middot; By application only</div>
+  <div><a href="#apply" class="btn-primary">Apply Now &rarr;</a></div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testi-head">
+    <p class="sec-pre">// What clients say</p>
+    <h2 class="h2" style="max-width:680px;margin:18px auto 0;">Real feedback. Unedited.</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <p class="testi-quote">Gabe&#8217;s ability to teach complex techniques in a simple, hands-on way is unmatched. It completely changed the way I approach my work.</p>
+      <div class="testi-meta">
+        <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799121/theresa_axof4n.jpg" alt="Theresa" /></div>
+        <div>
+          <div class="testi-name">Theresa Reisinger</div>
+          <div class="testi-handle">@theresareisinger</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-quote">Working with Gabe was one of the most impactful learning experiences I&#8217;ve had. Real-time feedback, exactly how to improve, next-level.</p>
+      <div class="testi-meta">
+        <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/matthew_bdohws.jpg" alt="Matthew" /></div>
+        <div>
+          <div class="testi-name">Matthew Christie</div>
+          <div class="testi-handle">@adventurematt</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-quote">I finally had clarity on how to structure my work and actually get things done. Not random tips everywhere &mdash; a real framework, organized, all in one place.</p>
+      <div class="testi-meta">
+        <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/lorena_p59fdv.jpg" alt="Lorena" /></div>
+        <div>
+          <div class="testi-name">Lorena Alvarez</div>
+          <div class="testi-handle">@lo_alvarez</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-quote">Before joining, getting started always felt like the hardest part. Now I have clarity, encouragement, and step-by-step systems.</p>
+      <div class="testi-meta">
+        <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799119/joab_kajmku.png" alt="Joab" /></div>
+        <div>
+          <div class="testi-name">Joab Teruel</div>
+          <div class="testi-handle">@joabteruel</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section id="disclaimer">
+  <div class="disc-card">
+    <p class="sec-pre disc-pre">// Earnings disclaimer</p>
+    <p class="disc-body">[Placeholder &mdash; legal copy goes here. Standard pattern: results vary, prior results don&#8217;t guarantee future outcomes, no income guarantee, your investment of time and effort is required, this is a service business not a get-rich scheme, etc. Replace with your standard legal language before launch.]</p>
+  </div>
+</section>
+
+<!-- WHAT IT'S NOT -->
+<section id="not">
+  <div class="not-head">
+    <p class="sec-pre">// What it isn&#8217;t</p>
+    <h2 class="h2" style="max-width:780px;margin:18px auto 0;">Not a Course. Not an Agency. Not a Mastermind.</h2>
+  </div>
+  <div class="not-grid">
+    <div class="not-card">
+      <div class="not-x">&times;</div>
+      <p class="not-pre">Not a course</p>
+      <h3 class="not-title">Not a Course</h3>
+      <p class="not-desc">Every framework, every playbook, every template you need is already free on the internet. You don&#8217;t have a knowledge problem. You have an installation problem.</p>
+    </div>
+    <div class="not-card">
+      <div class="not-x">&times;</div>
+      <p class="not-pre">Not an agency</p>
+      <h3 class="not-title">Not an Agency</h3>
+      <p class="not-desc">Agencies hold your brand hostage. The day they leave, everything stops. You&#8217;ve built nothing. You&#8217;re renting someone else&#8217;s execution. We install systems you own.</p>
+    </div>
+    <div class="not-card">
+      <div class="not-x">&times;</div>
+      <p class="not-pre">Not a mastermind</p>
+      <h3 class="not-title">Not a Mastermind</h3>
+      <p class="not-desc">Group calls and accountability circles don&#8217;t install a content system. They install opinions. The build is hands-on infrastructure work, not group therapy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-head">
+    <p class="sec-pre">// Common questions</p>
+    <h2 class="h2" style="max-width:600px;margin:18px auto 0;">The honest answers.</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What if I&#8217;m already past $100K/month?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">[Placeholder &mdash; honest answer in Gabe&#8217;s voice. The install works at any scale; the bottleneck is execution time, not size.]</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">How much access do I get to Gabe directly?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">[Placeholder &mdash; weekly 1:1 + Slack DM access throughout the 60-day install. This is the differentiator vs. cohort programs.]</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What does this actually cost?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">[Placeholder &mdash; $5K founding rate for the first 5. Goes to $7,500 standard after the founding cohort fills.]</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Is there a guarantee?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">[Placeholder &mdash; full refund through Week 3 if it doesn&#8217;t feel unmistakably you. After that, you&#8217;re in.]</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Who is this NOT for?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">[Placeholder &mdash; not for people without a working offer, not for people chasing virality or sponsorship deals, not for people who want AI to generate volume.]</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section id="footer-cta">
+  <div class="fcta-card" id="apply">
+    <p class="fcta-pre">Apply for the founding cohort</p>
+    <h2 class="fcta-h">Build a brand that pulls. <em>Done with you. 60 days.</em></h2>
+    <p class="fcta-sub">Application takes about 4 minutes. If you&#8217;re a fit, we&#8217;ll book the strategy call from there.</p>
+    <a href="https://calendly.com/golocalgroup/watchgabe" target="_blank" class="btn-primary" style="background:var(--orange);">Apply Now &rarr;</a>
+  </div>
+</section>
+
+<!-- GLOBAL FOOTER -->
+<footer id="footer">
+  <div class="foot-in">
+    <div class="foot-grid">
+      <div>
+        <img class="foot-logo sn-logo-full-light" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549022/Asset_2_4x_fs8lwl.png" alt="FSCreative" />
+        <img class="foot-logo sn-logo-full-dark" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" alt="FSCreative" style="display:none;" />
+        <p class="foot-tag">Your brand should sound like you built it. Not like everyone else&#8217;s.</p>
+      </div>
+      <div>
+        <p class="foot-h">Pages</p>
+        <div class="foot-list">
+          <a href="/" class="foot-link">Home</a>
+          <a href="/workshop" class="foot-link">Workshops</a>
+          <a href="/freebies" class="foot-link">Freebies</a>
+          <a href="/apply" class="foot-link">Apply</a>
+        </div>
+      </div>
+      <div>
+        <p class="foot-h">Social</p>
+        <div class="foot-list">
+          <a href="https://instagram.com/watch.gabe" target="_blank" class="foot-link">Instagram</a>
+          <a href="https://tiktok.com/@watch.gabe" target="_blank" class="foot-link">TikTok</a>
+          <a href="https://youtube.com/@watch.gabe" target="_blank" class="foot-link">YouTube</a>
+        </div>
+      </div>
+      <div>
+        <p class="foot-h">Newsletter</p>
+        <p style="font-size:13px;color:var(--sub-bright);margin-bottom:14px;line-height:1.55;">Get the system breakdowns I send weekly. No fluff.</p>
+        <a href="/freebies" class="btn-outline" style="padding:10px 18px;font-size:12px;">Subscribe &rarr;</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; FSCreative&#8482; 2026 &middot; @watch.gabe</span>
+      <div class="fb-legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-a').style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+
+  // Mobile hamburger
+  (function(){
+    const h = document.getElementById('hamburger');
+    const l = document.querySelector('.sn-links');
+    if (h && l) h.addEventListener('click', () => l.classList.toggle('open'));
+  })();
+
+  // Video placeholder click
+  document.getElementById('video-frame').addEventListener('click', () => {
+    alert('Video placeholder. Replace with your Loom/Wistia/YouTube embed.');
+  });
+</script>
+</body>
+</html>
