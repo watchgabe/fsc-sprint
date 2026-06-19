@@ -111,7 +111,10 @@
     .del-item { display: grid; grid-template-columns: 90px 1fr; gap: 22px; align-items: start; padding: 28px 30px; background: var(--card); border-radius: 20px; transition: transform .2s; }
     .del-item:hover { transform: translateY(-2px); }
     .del-num { font-size: 36px; font-weight: 700; line-height: .9; color: var(--orange); letter-spacing: -.03em; }
-    .del-title { font-size: 22px; font-weight: 700; letter-spacing: -.02em; color: var(--text); margin-bottom: 10px; line-height: 1.2; }
+    .del-title-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+    .del-title { font-size: 22px; font-weight: 700; letter-spacing: -.02em; color: var(--text); line-height: 1.2; }
+    .del-tag { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 100px; background: var(--card-2); font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); flex-shrink: 0; white-space: nowrap; }
+    .del-tag-you { background: rgba(238,102,62,0.12); color: var(--orange); }
     .del-desc { font-size: 15px; line-height: 1.65; color: var(--sub-bright); }
 
     /* ── MID CTA ── */
@@ -216,12 +219,13 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="h-eyebrow-wrap"><span class="eyebrow"><span class="e-dot"></span>By Application Only &middot; 5 Spots This Month</span></div>
-  <h1 class="h-h1">We build you a systemized personal brand.</h1>
-  <p class="h-sub">For creative entrepreneurs who have a real offer but a brand that isn&#8217;t pulling. Done with you. 60 days.</p>
+  <div class="h-eyebrow-wrap"><span class="eyebrow"><span class="e-dot"></span>Apply Now</span></div>
+  <h1 class="h-h1">We Install Your Cinematic Personal Brand &amp; Content System in 60 Days</h1>
+  <p class="h-sub">We work 1-on-1 with you to install a content system that sounds like you, feels like you, and saves you hours every week.</p>
   <div class="h-cta-row">
-    <a href="#apply" class="btn-primary">Apply Now &rarr;</a>
+    <a href="#apply" class="btn-primary">Apply for the Install &rarr;</a>
   </div>
+  <p class="h-meta">5 founding spots &middot; 60-day install</p>
 </section>
 
 <!-- VIDEO PLACEHOLDER -->
@@ -237,50 +241,17 @@
   </div>
 </section>
 
-<!-- SOCIAL PROOF / FOUNDER CARDS -->
-<section id="proof">
-  <p class="proof-pre">Trusted by operators &middot; agency clients &middot; founding cohort</p>
-  <div class="proof-grid">
-    <div class="proof-card">
-      <div class="proof-avatar">CC</div>
-      <div class="proof-name">Crux Cigars</div>
-      <div class="proof-company">Anchor client &middot; 2019&ndash;</div>
-      <div class="proof-stat">Category-defining</div>
-    </div>
-    <div class="proof-card">
-      <div class="proof-avatar">IR</div>
-      <div class="proof-name">Israel Rodriguez</div>
-      <div class="proof-company">Architect &middot; Netherlands</div>
-      <div class="proof-stat">1.5K &rarr; built brand</div>
-    </div>
-    <div class="proof-card">
-      <div class="proof-avatar">GH</div>
-      <div class="proof-name">Gabe Harris</div>
-      <div class="proof-company">FSCreative &middot; Founder</div>
-      <div class="proof-stat">50K+ followers</div>
-    </div>
-    <div class="proof-card">
-      <div class="proof-avatar">P</div>
-      <div class="proof-name">Perplexity</div>
-      <div class="proof-company">Paid partnership</div>
-      <div class="proof-stat">AI content build</div>
-    </div>
-    <div class="proof-card">
-      <div class="proof-avatar">EL</div>
-      <div class="proof-name">ElevenLabs</div>
-      <div class="proof-company">Paid partnership</div>
-      <div class="proof-stat">Voice system build</div>
-    </div>
-  </div>
-</section>
 
 <!-- PROBLEM NARRATIVE -->
 <section id="problem">
   <div class="prob-in">
-    <p class="sec-pre prob-pre">// The actual problem</p>
-    <h2 class="h2">Your work is good. Your brand isn&#8217;t pulling. That&#8217;s a system problem.</h2>
+    <p class="sec-pre prob-pre">Sound familiar?</p>
+    <h2 class="h2">Your work is great, but your brand doesn&#8217;t reflect it.</h2>
     <div class="prob-body">
-      <p>You don&#8217;t need more content advice. You need the infrastructure that turns your work into a brand the right clients come to. Built around YOUR business. Not from a template.</p>
+      <p>You&#8217;ve built a real offer, your clients love you, and revenue is coming in. But now you&#8217;re ready to ramp things up.</p>
+      <p>You&#8217;re ready to be able to actually choose the projects you want to work with. And (like everybody else) you&#8217;ve probably realized that building your personal brand is the best way to achieve this new goal.</p>
+      <p>But you&#8217;re also not like everybody else because you actually give a f*ck about the content that goes out. You want to put out content that you&#8217;re proud to show people, not only because it&#8217;s going to educate them, but because it&#8217;s going to reflect the value that they would get if they decide to work with you.</p>
+      <p>You want the content that represents you to look like the authority in your niche.</p>
     </div>
   </div>
 </section>
@@ -295,50 +266,81 @@
     <div class="del-item">
       <span class="del-num">01</span>
       <div>
-        <div class="del-title">Your Brand Blueprint</div>
-        <div class="del-desc">You answer the questions you&#8217;ve never been asked &mdash; avatar, journey, situation. We get the context to build the system around you.</div>
+        <div class="del-title-row">
+          <span class="del-title">Your Brand Blueprint</span>
+          <span class="del-tag del-tag-you">You do it</span>
+        </div>
+        <div class="del-desc">You&#8217;ll complete an exercise that pushes you to answer questions you&#8217;ve probably never been asked about your avatar, your journey, your situation &mdash; which simultaneously gives me and my team the entire context we need to build the system around YOU.</div>
       </div>
     </div>
     <div class="del-item">
       <span class="del-num">02</span>
       <div>
-        <div class="del-title">90-Minute Onboarding Call</div>
-        <div class="del-desc">We review avatar, positioning, and competitor research. You walk out with strategic clarity.</div>
+        <div class="del-title-row">
+          <span class="del-title">90-Minute Onboarding Call</span>
+          <span class="del-tag">Together</span>
+        </div>
+        <div class="del-desc">Next, you&#8217;ll be onboarded where we review: avatar description, positioning doc, and competitor research. You walk out with strategic clarity on who you&#8217;re for, what you stand for, and where you sit in the market.</div>
       </div>
     </div>
     <div class="del-item">
       <span class="del-num">03</span>
       <div>
-        <div class="del-title">Install Your Frictionless OS</div>
-        <div class="del-desc">The AI content system that captures your thoughts, generates ideas, and stores them in your Notion dashboard.</div>
+        <div class="del-title-row">
+          <span class="del-title">Install Your Frictionless OS</span>
+          <span class="del-tag">Together</span>
+        </div>
+        <div class="del-desc">The AI-powered content creation system that actually knows who you are, can quickly capture your thoughts, generate endless ideas, and automatically store them in a dedicated dashboard. Everything powered by a growing content brain that lives directly on your desktop and understands everything about you.</div>
       </div>
     </div>
     <div class="del-item">
       <span class="del-num">04</span>
       <div>
-        <div class="del-title">Custom Hook Engine</div>
-        <div class="del-desc">Drop in a rambling, an idea, or a script. Get a tested hook back. Built on proven content from your competitors.</div>
+        <div class="del-title-row">
+          <span class="del-title">Build Your Custom Hook Engine</span>
+          <span class="del-tag">My team does it</span>
+        </div>
+        <div class="del-desc">We&#8217;ll build you a dedicated hook engine based on proven content from your competitors and your industry. Drop in a simple idea, rambling, or full script &mdash; get back a powerful &amp; proven hook that we can use and test.</div>
       </div>
     </div>
     <div class="del-item">
       <span class="del-num">05</span>
       <div>
-        <div class="del-title">Your First 30 Scripts</div>
-        <div class="del-desc">30 ready-to-shoot scripts. Not 30 ideas. Built using proven styles from your closest competitors.</div>
+        <div class="del-title-row">
+          <span class="del-title">An Entire Month of Scripts</span>
+          <span class="del-tag">My team does it</span>
+        </div>
+        <div class="del-desc">We&#8217;ll analyze what&#8217;s working best for the competitors closest to you. Using proven styles, topics, and techniques, you&#8217;ll walk out with 30 ready-to-shoot scripts &amp; storyboards &mdash; not 30 ideas, 30 videos ready for production.</div>
       </div>
     </div>
     <div class="del-item">
       <span class="del-num">06</span>
       <div>
-        <div class="del-title">Your Visual Identity</div>
-        <div class="del-desc">Fonts, colors, treatment, templates. So you know exactly how to shoot content that doesn&#8217;t suck.</div>
+        <div class="del-title-row">
+          <span class="del-title">Your Visual Identity</span>
+          <span class="del-tag">My team does it</span>
+        </div>
+        <div class="del-desc">A custom visual identity with your fonts, colors, color grades and plug &amp; play templates built directly in Canva for quick and easy access.</div>
       </div>
     </div>
     <div class="del-item">
       <span class="del-num">07</span>
       <div>
-        <div class="del-title">Content Coaching</div>
-        <div class="del-desc">Smartphone or pro camera. Cinematic shooting, B-roll, storage, upload &mdash; the full workflow.</div>
+        <div class="del-title-row">
+          <span class="del-title">Content Coaching</span>
+          <span class="del-tag">Together</span>
+        </div>
+        <div class="del-desc">You&#8217;ll learn how to shoot professional content with whatever gear you have &mdash; smartphone or actual camera, doesn&#8217;t matter. The full rundown: cinematic shooting, B-roll capture, storage, upload, the whole workflow. Along with a proven system to stay consistent and access to content editing services to act as a full stop.</div>
+      </div>
+    </div>
+    <div class="del-item">
+      <span class="del-num">08</span>
+      <div>
+        <div class="del-title-row">
+          <span class="del-title">Community Access</span>
+          <span class="del-tag">Together</span>
+        </div>
+        <div class="del-desc">Access to creatives on the same path as you, on the same level as you, and some even ahead of you. Weekly calls, Q&amp;A&#8217;s, and trainings to keep you up to speed on all of the trends.</div>
       </div>
     </div>
   </div>
@@ -347,8 +349,8 @@
 <!-- MID CTA -->
 <section id="mid-cta">
   <p class="sec-pre mid-pre">// The bet</p>
-  <h2 class="mid-h">Build the brand your work deserves.</h2>
-  <p class="mid-sub">Done with you. 60 days. 5 founding spots this month.</p>
+  <h2 class="mid-h">Build the most unmistakably yours brand on the internet.</h2>
+  <p class="mid-sub">Done WITH you. 60 days. 5 founding spots this month. By application only because the install is high-intensity for both of us.</p>
   <div class="mid-qualifier"><span class="mq-dot"></span>5 spots/month &middot; By application only</div>
   <div><a href="#apply" class="btn-primary">Apply Now &rarr;</a></div>
 </section>
@@ -403,13 +405,6 @@
   </div>
 </section>
 
-<!-- DISCLAIMER -->
-<section id="disclaimer">
-  <div class="disc-card">
-    <p class="sec-pre disc-pre">// Earnings disclaimer</p>
-    <p class="disc-body">[Placeholder &mdash; legal copy goes here. Standard pattern: results vary, prior results don&#8217;t guarantee future outcomes, no income guarantee, your investment of time and effort is required, this is a service business not a get-rich scheme, etc. Replace with your standard legal language before launch.]</p>
-  </div>
-</section>
 
 <!-- WHAT IT'S NOT -->
 <section id="not">
@@ -422,19 +417,19 @@
       <div class="not-x">&times;</div>
       <p class="not-pre">Not a course</p>
       <h3 class="not-title">Not a Course</h3>
-      <p class="not-desc">You don&#8217;t have a knowledge problem. You have an installation problem.</p>
+      <p class="not-desc">Every framework, every playbook, every template you need is already free on the internet. You don&#8217;t have a knowledge problem. You have an installation problem.</p>
     </div>
     <div class="not-card">
       <div class="not-x">&times;</div>
       <p class="not-pre">Not an agency</p>
       <h3 class="not-title">Not an Agency</h3>
-      <p class="not-desc">Agencies leave, everything stops. You&#8217;ve built nothing. We install systems you own.</p>
+      <p class="not-desc">Agencies hold your brand hostage. The day they leave, everything stops. You&#8217;ve built nothing. You&#8217;re renting someone else&#8217;s execution. We install systems you own.</p>
     </div>
     <div class="not-card">
       <div class="not-x">&times;</div>
       <p class="not-pre">Not a mastermind</p>
       <h3 class="not-title">Not a Mastermind</h3>
-      <p class="not-desc">Group calls install opinions. We install infrastructure.</p>
+      <p class="not-desc">Group calls and accountability circles don&#8217;t install a content system. They install opinions. The build is hands-on infrastructure work, not group therapy.</p>
     </div>
   </div>
 </section>
@@ -472,7 +467,7 @@
         <span class="faq-q-text">Is there a guarantee?</span>
         <span class="faq-icon">+</span>
       </button>
-      <div class="faq-a"><div class="faq-a-inner">[Placeholder &mdash; full refund through Week 3 if it doesn&#8217;t feel unmistakably you. After that, you&#8217;re in.]</div></div>
+      <div class="faq-a"><div class="faq-a-inner">If at any point in the 60 days something isn&#8217;t landing, we rebuild it. If by Week 3, when the Brand Foundation is done, you don&#8217;t love what we&#8217;ve built, you get a full refund. No friction, no extraction process. This isn&#8217;t a money-back-if-you&#8217;re-unhappy promise. It&#8217;s a we&#8217;re-going-to-make-this-work promise.</div></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
@@ -489,53 +484,11 @@
   <div class="fcta-card" id="apply">
     <p class="fcta-pre">Apply for the founding cohort</p>
     <h2 class="fcta-h">Build a brand that pulls. Done with you. 60 days.</h2>
-    <p class="fcta-sub">Apply now. If you&#8217;re a fit, we&#8217;ll book the call from there.</p>
+    <p class="fcta-sub">Application takes about 4 minutes. If you&#8217;re a fit, we&#8217;ll book the strategy call from there.</p>
     <a href="https://calendly.com/golocalgroup/watchgabe" target="_blank" class="btn-primary" style="background:var(--orange);">Apply Now &rarr;</a>
   </div>
 </section>
 
-<!-- GLOBAL FOOTER -->
-<footer id="footer">
-  <div class="foot-in">
-    <div class="foot-grid">
-      <div>
-        <img class="foot-logo sn-logo-full-light" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549022/Asset_2_4x_fs8lwl.png" alt="FSCreative" />
-        <img class="foot-logo sn-logo-full-dark" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" alt="FSCreative" style="display:none;" />
-        <p class="foot-tag">Your brand should sound like you built it. Not like everyone else&#8217;s.</p>
-      </div>
-      <div>
-        <p class="foot-h">Pages</p>
-        <div class="foot-list">
-          <a href="/" class="foot-link">Home</a>
-          <a href="/workshop" class="foot-link">Workshops</a>
-          <a href="/freebies" class="foot-link">Freebies</a>
-          <a href="/apply" class="foot-link">Apply</a>
-        </div>
-      </div>
-      <div>
-        <p class="foot-h">Social</p>
-        <div class="foot-list">
-          <a href="https://instagram.com/watch.gabe" target="_blank" class="foot-link">Instagram</a>
-          <a href="https://tiktok.com/@watch.gabe" target="_blank" class="foot-link">TikTok</a>
-          <a href="https://youtube.com/@watch.gabe" target="_blank" class="foot-link">YouTube</a>
-        </div>
-      </div>
-      <div>
-        <p class="foot-h">Newsletter</p>
-        <p style="font-size:13px;color:var(--sub-bright);margin-bottom:14px;line-height:1.55;">Get the system breakdowns I send weekly. No fluff.</p>
-        <a href="/freebies" class="btn-outline" style="padding:10px 18px;font-size:12px;">Subscribe &rarr;</a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>&copy; FSCreative&#8482; 2026 &middot; @watch.gabe</span>
-      <div class="fb-legal">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Contact</a>
-      </div>
-    </div>
-  </div>
-</footer>
 
 <script>
   // FAQ toggle
