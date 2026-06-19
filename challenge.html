@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Challenge &middot; FSCreative&#8482;</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; }
+
+    :root, [data-mode="light"] {
+      --bg:         #faf8f4;
+      --card:       #ffffff;
+      --card-2:     #f3efe7;
+      --text:       #0a0a0a;
+      --sub:        #5a5550;
+      --sub-bright: #2a2520;
+      --orange:     #ee663e;
+      --orange-d:   #e0552e;
+      --foot:       #888076;
+      --black:      #0a0a0a;
+      --green:      #071a12;
+    }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px; line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── BRAND BAR (logo only, no nav) ── */
+    #brand-bar { padding: 28px 24px 0; max-width: 1200px; margin: 0 auto; }
+    .bb-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+    .bb-logo img { height: 26px; width: auto; display: block; }
+
+    /* ── HERO ── */
+    #hero { padding: 56px 24px 24px; max-width: 1200px; margin: 0 auto; text-align: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 100px; background: var(--black); color: #fff; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 32px; }
+    .eyebrow .e-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    .h-h1 { font-size: clamp(44px, 7.5vw, 96px); font-weight: 800; letter-spacing: -.045em; line-height: .98; color: var(--text); margin-bottom: 24px; max-width: 1100px; margin-left: auto; margin-right: auto; }
+    .h-sub { font-size: 19px; line-height: 1.55; color: var(--sub-bright); max-width: 760px; margin: 0 auto 36px; }
+    .h-cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; align-items: center; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 16px 34px; border-radius: 100px; background: var(--orange); color: #fff; font-size: 15px; font-weight: 700; letter-spacing: -.01em; border: none; cursor: pointer; text-decoration: none; transition: background .2s, transform .2s; }
+    .btn-primary:hover { background: var(--orange-d); transform: translateY(-1px); }
+    .h-price { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+    .h-price strong { color: var(--text); font-weight: 700; }
+
+    /* ── SCHEDULE STRIP ── */
+    #schedule { padding: 36px 24px 24px; max-width: 1200px; margin: 0 auto; }
+    .sched-card { background: var(--card); border-radius: 24px; padding: 28px 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: center; }
+    .sched-cell { display: flex; flex-direction: column; gap: 6px; }
+    .sched-cell:not(:last-child) { border-right: 1px solid var(--card-2); padding-right: 24px; }
+    .sched-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+    .sched-value { font-size: 22px; font-weight: 700; letter-spacing: -.02em; color: var(--text); line-height: 1.1; }
+
+    /* ── PROMISE / IN 60 DAYS ── */
+    #promise { padding: 88px 24px; max-width: 920px; margin: 0 auto; text-align: center; }
+    .sec-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; }
+    .h2 { font-size: clamp(32px, 4.5vw, 56px); font-weight: 800; letter-spacing: -.035em; line-height: 1.04; color: var(--text); }
+    .promise-sub { margin-top: 24px; font-size: 18px; line-height: 1.6; color: var(--sub-bright); max-width: 720px; margin-left: auto; margin-right: auto; }
+
+    /* ── WHAT YOU BUILD (8 deliverables) ── */
+    #build { padding: 24px 24px 88px; max-width: 1200px; margin: 0 auto; }
+    .build-head { text-align: center; margin-bottom: 48px; }
+    .build-h { font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -.035em; line-height: 1.08; color: var(--text); }
+    .build-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .build-card { background: var(--card); border-radius: 22px; padding: 30px 30px; display: flex; flex-direction: column; gap: 12px; transition: transform .2s; }
+    .build-card:hover { transform: translateY(-3px); }
+    .bc-top { display: flex; align-items: center; gap: 14px; justify-content: space-between; }
+    .bc-num { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; color: var(--orange); font-weight: 700; }
+    .bc-tag { display: inline-flex; align-items: center; padding: 4px 11px; border-radius: 100px; background: var(--card-2); font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); }
+    .bc-tag-you { background: rgba(238,102,62,0.12); color: var(--orange); }
+    .bc-title { font-size: 22px; font-weight: 700; letter-spacing: -.02em; color: var(--text); line-height: 1.2; }
+    .bc-desc { font-size: 14px; line-height: 1.65; color: var(--sub-bright); }
+
+    /* ── WEEKLY BREAKDOWN ── */
+    #breakdown { padding: 88px 24px; background: var(--card); }
+    .bd-inner { max-width: 1200px; margin: 0 auto; }
+    .bd-head { text-align: center; margin-bottom: 56px; }
+    .bd-h { font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -.035em; line-height: 1.08; color: var(--text); }
+    .bd-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .bd-card { background: var(--bg); border-radius: 20px; padding: 26px 24px; }
+    .bd-week { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 14px; }
+    .bd-title { font-size: 18px; font-weight: 700; letter-spacing: -.02em; color: var(--text); line-height: 1.2; margin-bottom: 10px; }
+    .bd-desc { font-size: 13px; line-height: 1.6; color: var(--sub-bright); }
+    .bd-placeholder { display: inline-block; margin-top: 8px; padding: 3px 8px; border-radius: 4px; background: rgba(238,102,62,0.1); color: var(--orange); font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
+
+    /* ── WHO IT'S FOR ── */
+    #who { padding: 88px 24px; max-width: 1200px; margin: 0 auto; }
+    .who-head { text-align: center; margin-bottom: 48px; }
+    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .who-card { background: var(--card); border-radius: 22px; padding: 32px 32px; }
+    .who-card-no { background: var(--card-2); }
+    .who-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; display: inline-flex; align-items: center; gap: 6px; }
+    .who-card-no .who-label { color: var(--sub); }
+    .who-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .who-list li { font-size: 15px; line-height: 1.55; color: var(--text); padding-left: 18px; position: relative; }
+    .who-list li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    .who-card-no .who-list li::before { background: var(--sub); opacity: .5; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { padding: 88px 24px; background: var(--card); }
+    .testi-inner { max-width: 1200px; margin: 0 auto; }
+    .testi-head { text-align: center; margin-bottom: 48px; }
+    .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .testi-card { background: var(--bg); border-radius: 22px; padding: 30px 28px; display: flex; flex-direction: column; gap: 18px; }
+    .testi-quote { font-size: 16px; line-height: 1.7; color: var(--text); }
+    .testi-meta { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+    .testi-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--card-2); overflow: hidden; flex-shrink: 0; }
+    .testi-avatar img { width: 44px; height: 44px; object-fit: cover; }
+    .testi-name { font-size: 13px; font-weight: 700; color: var(--text); }
+    .testi-handle { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .1em; color: var(--sub); margin-top: 2px; }
+
+    /* ── FAQ ── */
+    #faq { padding: 88px 24px; max-width: 920px; margin: 0 auto; }
+    .faq-head { text-align: center; margin-bottom: 40px; }
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { background: var(--card); border-radius: 18px; overflow: hidden; }
+    .faq-q { width: 100%; background: none; border: none; padding: 22px 26px; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; text-align: left; }
+    .faq-q-text { font-size: 16px; font-weight: 700; color: var(--text); letter-spacing: -.01em; }
+    .faq-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--card-2); display: flex; align-items: center; justify-content: center; color: var(--orange); font-size: 18px; flex-shrink: 0; line-height: 1; transition: transform .25s, background .2s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--orange); color: #fff; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .faq-a-inner { padding: 0 26px 22px; font-size: 14px; line-height: 1.7; color: var(--sub-bright); }
+
+    /* ── FOOTER CTA ── */
+    #footer-cta { padding: 80px 24px; max-width: 1200px; margin: 0 auto; }
+    .fcta-card { background: var(--black); color: #fff; border-radius: 32px; padding: 80px 48px; text-align: center; position: relative; overflow: hidden; }
+    .fcta-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 25% 20%, rgba(238,102,62,0.2), transparent 50%); pointer-events: none; }
+    .fcta-pre { position: relative; z-index: 1; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 18px; display: inline-flex; align-items: center; gap: 8px; }
+    .fcta-pre::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    .fcta-h { position: relative; z-index: 1; font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; margin-bottom: 22px; max-width: 800px; margin-left: auto; margin-right: auto; color: #fff; }
+    .fcta-sub { position: relative; z-index: 1; font-size: 17px; color: rgba(255,255,255,0.7); margin-bottom: 32px; max-width: 580px; margin-left: auto; margin-right: auto; }
+    .fcta-meta { position: relative; z-index: 1; margin-top: 20px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+
+    /* ── BOTTOM ── */
+    #bottom { padding: 32px 24px 48px; text-align: center; }
+    .bottom-copy { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--foot); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .sched-card { grid-template-columns: repeat(2, 1fr); gap: 22px 18px; }
+      .sched-cell:not(:last-child) { border-right: none; padding-right: 0; }
+      .sched-cell:nth-child(odd) { border-right: 1px solid var(--card-2); padding-right: 18px; }
+      .build-grid { grid-template-columns: 1fr; }
+      .bd-grid { grid-template-columns: repeat(2, 1fr); }
+      .who-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .sched-card { grid-template-columns: 1fr; }
+      .sched-cell { border-right: none !important; padding-right: 0 !important; }
+      .bd-grid { grid-template-columns: 1fr; }
+      .fcta-card { padding: 56px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- BRAND BAR (logo only) -->
+<div id="brand-bar">
+  <a href="/" class="bb-logo">
+    <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549022/Asset_2_4x_fs8lwl.png" alt="FSCreative" />
+  </a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <span class="eyebrow"><span class="e-dot"></span>Live Cohort &middot; Starts July 20, 2026</span>
+  <h1 class="h-h1">[ASK GABE — challenge headline]</h1>
+  <p class="h-sub">[ASK GABE — challenge promise in 1&ndash;2 sentences. Example: &ldquo;60 days to install your AI-powered content system, your visual identity, and your first 30 ready-to-shoot scripts. Built with you, not for you.&rdquo;]</p>
+  <div class="h-cta-row">
+    <a href="https://calendly.com/golocalgroup/watchgabe" target="_blank" class="btn-primary">Join the Challenge &rarr;</a>
+    <span class="h-price"><strong>$997</strong> &middot; One-time</span>
+  </div>
+</section>
+
+<!-- SCHEDULE STRIP -->
+<section id="schedule">
+  <div class="sched-card">
+    <div class="sched-cell">
+      <span class="sched-label">Starts</span>
+      <span class="sched-value">July 20, 2026</span>
+    </div>
+    <div class="sched-cell">
+      <span class="sched-label">Duration</span>
+      <span class="sched-value">60 Days</span>
+    </div>
+    <div class="sched-cell">
+      <span class="sched-label">Format</span>
+      <span class="sched-value">Live + Async</span>
+    </div>
+    <div class="sched-cell">
+      <span class="sched-label">Spots</span>
+      <span class="sched-value">No cap</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE / IN 60 DAYS -->
+<section id="promise">
+  <p class="sec-pre">// The Promise</p>
+  <h2 class="h2">In 60 days, your personal brand machine is built.</h2>
+  <p class="promise-sub">[ASK GABE — one paragraph on the transformation. What does the creative entrepreneur walk out of the 60 days with that they didn&#8217;t have on day 1? Keep it concrete.]</p>
+</section>
+
+<!-- WHAT YOU BUILD (8 deliverables — same as apply page) -->
+<section id="build">
+  <div class="build-head">
+    <p class="sec-pre">// What You&#8217;ll Build</p>
+    <h2 class="build-h">Eight tangible things you walk out with.</h2>
+  </div>
+  <div class="build-grid">
+    <div class="build-card">
+      <div class="bc-top"><span class="bc-num">01</span><span class="bc-tag bc-tag-you">You do it</span></div>
+      <h3 class="bc-title">Your Brand Blueprint</h3>
+      <p class="bc-desc">You&#8217;ll complete an exercise that pushes you to answer questions you&#8217;ve probably never been asked about your avatar, your journey, your situation &mdash; which simultaneously gives me and my team the entire context we need to build the system around YOU.</p>
+    </div>
+    <div class="build-card">
+      <div class="bc-top"><span class="bc-num">02</span><span class="bc-tag">Together</span></div>
+      <h3 class="bc-title">90-Minute Onboarding Call</h3>
+      <p class="bc-desc">Next, you&#8217;ll be onboarded where we review: avatar description, positioning doc, and competitor research. You walk out with strategic clarity on who you&#8217;re for, what you stand for, and where you sit in the market.</p>
+    </div>
+    <div class="build-card">
+      <div class="bc-top"><span class="bc-num">03</span><span class="bc-tag">Together</span></div>
+      <h3 class="bc-title">Install Your Frictionless OS</h3>
+      <p class="bc-desc">The AI-powered content creation system that actually knows who you are, can quickly capture your thoughts, generate endless ideas, and automatically store them in a dedicated dashboard. Everything powered by a growing content brain that lives directly on your desktop and understands everything about you.</p>
+    </div>
+    <div class="build-card">
+      <div class="bc-top"><span class="bc-num">04</span><span class="bc-tag">My team does it</span></div>
+      <h3 class="bc-title">Build Your Custom Hook Engine</h3>
+      <p class="bc-desc">We&#8217;ll build you a dedicated hook engine based on proven content from your competitors and your industry. Drop in a simple idea, rambling, or full script &mdash; get back a powerful &amp; proven hook that we can use and test.</p>
+    </div>
+    <div class="build-card">
+      <div class="bc-top"><span class="bc-num">05</span><span class="bc-tag">My team does it</span></div>
+      <h3 class="bc-title">An Entire Month of Scripts</h3>
+      <p class="bc-desc">We&#8217;ll analyze what&#8217;s working best for the competitors closest to you. Using proven styles, topics, and techniques, you&#8217;ll walk out with 30 ready-to-shoot scripts &amp; storyboards &mdash; not 30 ideas, 30 videos ready for production.</p>
+    </div>
+    <div class="build-card">
+      <div class="bc-top"><span class="bc-num">06</span><span class="bc-tag">My team does it</span></div>
+      <h3 class="bc-title">Your Visual Identity</h3>
+      <p class="bc-desc">A custom visual identity with your fonts, colors, color grades and plug &amp; play templates built directly in Canva for quick and easy access.</p>
+    </div>
+    <div class="build-card">
+      <div class="bc-top"><span class="bc-num">07</span><span class="bc-tag">Together</span></div>
+      <h3 class="bc-title">Content Coaching</h3>
+      <p class="bc-desc">You&#8217;ll learn how to shoot professional content with whatever gear you have &mdash; smartphone or actual camera, doesn&#8217;t matter. The full rundown: cinematic shooting, B-roll capture, storage, upload, the whole workflow. Along with a proven system to stay consistent and access to content editing services to act as a full stop.</p>
+    </div>
+    <div class="build-card">
+      <div class="bc-top"><span class="bc-num">08</span><span class="bc-tag">Together</span></div>
+      <h3 class="bc-title">Community Access</h3>
+      <p class="bc-desc">Access to creatives on the same path as you, on the same level as you, and some even ahead of you. Weekly calls, Q&amp;A&#8217;s, and trainings to keep you up to speed on all of the trends.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WEEKLY BREAKDOWN -->
+<section id="breakdown">
+  <div class="bd-inner">
+    <div class="bd-head">
+      <p class="sec-pre">// The 60-Day Roadmap</p>
+      <h2 class="bd-h">Week by week, here&#8217;s what gets built.</h2>
+    </div>
+    <div class="bd-grid">
+      <div class="bd-card">
+        <div class="bd-week">Weeks 1&ndash;2</div>
+        <div class="bd-title">Foundation</div>
+        <p class="bd-desc">Blueprint exercise, onboarding call, positioning + avatar locked in. Frictionless OS installed.</p>
+        <span class="bd-placeholder">Ask Gabe to confirm</span>
+      </div>
+      <div class="bd-card">
+        <div class="bd-week">Weeks 3&ndash;4</div>
+        <div class="bd-title">System Build</div>
+        <p class="bd-desc">Hook engine built. First batch of scripts delivered. Visual identity wrapped.</p>
+        <span class="bd-placeholder">Ask Gabe to confirm</span>
+      </div>
+      <div class="bd-card">
+        <div class="bd-week">Weeks 5&ndash;6</div>
+        <div class="bd-title">Production</div>
+        <p class="bd-desc">Content coaching kicks in. You shoot your first batch of cinematic content using the system.</p>
+        <span class="bd-placeholder">Ask Gabe to confirm</span>
+      </div>
+      <div class="bd-card">
+        <div class="bd-week">Weeks 7&ndash;8</div>
+        <div class="bd-title">Launch &amp; Refine</div>
+        <p class="bd-desc">Content goes live, system gets refined, community feedback rolls in. You leave with a running brand machine.</p>
+        <span class="bd-placeholder">Ask Gabe to confirm</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section id="who">
+  <div class="who-head">
+    <p class="sec-pre">// Who this is for</p>
+    <h2 class="h2" style="max-width:760px;margin:0 auto;">Be honest with yourself before you join.</h2>
+  </div>
+  <div class="who-grid">
+    <div class="who-card">
+      <div class="who-label">It&#8217;s for you if</div>
+      <ul class="who-list">
+        <li>You run a real business (architecture, design, photography, consulting, coaching) and your work is good but invisible.</li>
+        <li>You&#8217;re already past $10K/month and your bottleneck isn&#8217;t talent or offer. It&#8217;s distribution.</li>
+        <li>You&#8217;ve used AI for content and watched it sound like everyone else&#8217;s. You want yours to sound like yours.</li>
+      </ul>
+    </div>
+    <div class="who-card who-card-no">
+      <div class="who-label">It&#8217;s not for you if</div>
+      <ul class="who-list">
+        <li>You&#8217;re trying to become a content creator or chase virality.</li>
+        <li>You want AI to generate volume so you can post 5x/day.</li>
+        <li>You don&#8217;t have a working offer yet. Build that first. This challenge won&#8217;t fix it.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testi-inner">
+    <div class="testi-head">
+      <p class="sec-pre">// What past students say</p>
+      <h2 class="h2" style="max-width:600px;margin:0 auto;">Real feedback. Unedited.</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="testi-quote">&ldquo;Gabe&#8217;s ability to teach complex techniques in a simple, hands-on way is unmatched. It completely changed the way I approach my work.&rdquo;</p>
+        <div class="testi-meta">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799121/theresa_axof4n.jpg" alt="Theresa" /></div>
+          <div>
+            <div class="testi-name">Theresa Reisinger</div>
+            <div class="testi-handle">@theresareisinger</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">&ldquo;Working with Gabe was one of the most impactful learning experiences I&#8217;ve had. Real-time feedback, exactly how to improve, next-level.&rdquo;</p>
+        <div class="testi-meta">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/matthew_bdohws.jpg" alt="Matthew" /></div>
+          <div>
+            <div class="testi-name">Matthew Christie</div>
+            <div class="testi-handle">@adventurematt</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">&ldquo;I finally had clarity on how to structure my work and actually get things done. Not random tips everywhere &mdash; a real framework, organized, all in one place.&rdquo;</p>
+        <div class="testi-meta">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/lorena_p59fdv.jpg" alt="Lorena" /></div>
+          <div>
+            <div class="testi-name">Lorena Alvarez</div>
+            <div class="testi-handle">@lo_alvarez</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">&ldquo;Before joining, getting started always felt like the hardest part. Now I have clarity, encouragement, and step-by-step systems.&rdquo;</p>
+        <div class="testi-meta">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799119/joab_kajmku.png" alt="Joab" /></div>
+          <div>
+            <div class="testi-name">Joab Teruel</div>
+            <div class="testi-handle">@joabteruel</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-head">
+    <p class="sec-pre">// Common questions</p>
+    <h2 class="h2" style="max-width:600px;margin:0 auto;">The honest answers.</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">When does the challenge start?</span><span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">July 20, 2026. The 60-day clock starts on day one. You&#8217;ll get all access details, your Brand Blueprint, and the prep doc within 24 hours of joining.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How much time per week does this take?</span><span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">[ASK GABE &mdash; estimated weekly time commitment. The Frictionless OS install + Hook Engine + 30 scripts is real work. Most students who finish put in 6&ndash;8 hours/week.]</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What if I&#8217;m not technical?</span><span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">[ASK GABE &mdash; the system requires Claude / a basic AI workflow setup, but no coding. Confirm what tech skills are required.]</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Is there a guarantee?</span><span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">If at any point in the 60 days something isn&#8217;t landing, we rebuild it. If by Week 3, when the Brand Foundation is done, you don&#8217;t love what we&#8217;ve built, you get a full refund. No friction, no extraction process. This isn&#8217;t a money-back-if-you&#8217;re-unhappy promise. It&#8217;s a we&#8217;re-going-to-make-this-work promise.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What if I miss a session?</span><span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">[ASK GABE &mdash; replay policy, async catch-up, etc.]</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Who is this NOT for?</span><span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">If you don&#8217;t have a working offer yet, build that first. If you&#8217;re chasing virality or sponsorship deals, this is the wrong room. If you want AI to generate volume so you can post 5x/day, also wrong room. This is for creatives with a real business who want a brand that pulls.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section id="footer-cta">
+  <div class="fcta-card">
+    <p class="fcta-pre">Live Cohort &middot; Starts July 20, 2026</p>
+    <h2 class="fcta-h">Join the challenge.</h2>
+    <p class="fcta-sub">60 days. The system, installed. Your brand, built. No cap on spots, but the cohort kicks off July 20 &mdash; in or out.</p>
+    <a href="https://calendly.com/golocalgroup/watchgabe" target="_blank" class="btn-primary" style="background:var(--orange);">Join the Challenge &mdash; $997 &rarr;</a>
+    <p class="fcta-meta">One-time &middot; 60-day install &middot; Full guarantee through Week 3</p>
+  </div>
+</section>
+
+<!-- BOTTOM -->
+<div id="bottom">
+  <p class="bottom-copy">&copy; FSCreative&#8482; &middot; @watch.gabe</p>
+</div>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-a').style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+</script>
+</body>
+</html>
