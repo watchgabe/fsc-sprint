@@ -196,27 +196,23 @@
     .bottom-copy { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--foot); }
 
     /* ── "GET" SECTION (light inversion) ── */
-    #get { background: #f3efe7; color: #0a0a0a; padding: 96px 24px; }
-    .get-inner { max-width: 1200px; margin: 0 auto; }
-    .get-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #7a7570; margin-bottom: 20px; }
-    .get-h { font-size: clamp(40px, 6vw, 72px); font-weight: 800; letter-spacing: -.04em; line-height: 1.0; color: #0a0a0a; margin-bottom: 56px; max-width: 1100px; }
+    #get { background: #f3efe7; color: #061410; padding: 96px 24px; }
+    .get-inner { max-width: 920px; margin: 0 auto; }
+    .get-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.45); margin-bottom: 20px; }
+    .get-h { font-size: clamp(36px, 5.5vw, 60px); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; color: #061410; margin-bottom: 48px; }
     .get-list { display: flex; flex-direction: column; margin-bottom: 24px; }
-    .get-item { padding: 32px 0; border-bottom: 1px solid #d8cfbf; }
-    .get-item:first-child { border-top: 1px solid #d8cfbf; }
-    .get-item-title { font-size: clamp(22px, 3vw, 32px); font-weight: 800; letter-spacing: -.025em; color: #0a0a0a; margin-bottom: 10px; line-height: 1.15; }
-    .get-item-desc { font-size: 15px; line-height: 1.65; color: #5a5550; max-width: 780px; }
+    .get-item { padding: 28px 0; border-bottom: 1px solid rgba(6,20,16,0.10); }
+    .get-item:first-child { border-top: 1px solid rgba(6,20,16,0.10); }
+    .get-item-title { font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; letter-spacing: -.02em; color: #061410; margin-bottom: 8px; line-height: 1.2; }
+    .get-item-desc { font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.65); }
     .get-block-wrap { margin-top: 72px; }
-    .get-block-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #7a7570; margin-bottom: 16px; }
-    .get-block-h { font-size: clamp(26px, 3.4vw, 38px); font-weight: 800; letter-spacing: -.03em; line-height: 1.12; color: #0a0a0a; margin-bottom: 28px; max-width: 880px; }
-    .get-method-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
-    .get-method-card { background: #ffffff; border-radius: 18px; padding: 24px 22px; display: flex; flex-direction: column; gap: 10px; }
-    .get-method-num { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; color: #ee663e; font-weight: 700; }
-    .get-method-title { font-size: 15px; font-weight: 700; color: #0a0a0a; letter-spacing: -.01em; line-height: 1.25; }
-    .get-build-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .get-build-card { background: #ffffff; border-radius: 22px; padding: 36px 32px; display: flex; flex-direction: column; gap: 12px; }
+    .get-block-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.45); margin-bottom: 16px; }
+    .get-block-h { font-size: clamp(26px, 3.4vw, 38px); font-weight: 800; letter-spacing: -.03em; line-height: 1.12; color: #061410; margin-bottom: 28px; }
+    .get-build-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .get-build-card { background: #faf7f0; border-radius: 18px; padding: 30px 28px; display: flex; flex-direction: column; gap: 10px; }
     .get-build-num { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; color: #ee663e; font-weight: 700; }
-    .get-build-title { font-size: 22px; font-weight: 800; letter-spacing: -.025em; color: #0a0a0a; line-height: 1.2; }
-    .get-build-desc { font-size: 14px; line-height: 1.65; color: #5a5550; }
+    .get-build-title { font-size: 18px; font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; }
+    .get-build-desc { font-size: 13px; line-height: 1.6; color: rgba(6,20,16,0.65); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -400,33 +396,6 @@
       <div class="get-item">
         <h3 class="get-item-title">Private community</h3>
         <p class="get-item-desc">Architects, designers, photographers, consultants, coaches &mdash; creatives at your level, building in the same room.</p>
-      </div>
-    </div>
-
-    <div class="get-block-wrap">
-      <p class="get-block-pre">// The method</p>
-      <h3 class="get-block-h">How the 60 days actually run.</h3>
-      <div class="get-method-grid">
-        <div class="get-method-card">
-          <span class="get-method-num">01</span>
-          <span class="get-method-title">Onboarding Session</span>
-        </div>
-        <div class="get-method-card">
-          <span class="get-method-num">02</span>
-          <span class="get-method-title">8 Weekly Workshops</span>
-        </div>
-        <div class="get-method-card">
-          <span class="get-method-num">03</span>
-          <span class="get-method-title">60-Minute 1:1 Session</span>
-        </div>
-        <div class="get-method-card">
-          <span class="get-method-num">04</span>
-          <span class="get-method-title">On-Demand 1:1 Support</span>
-        </div>
-        <div class="get-method-card">
-          <span class="get-method-num">05</span>
-          <span class="get-method-title">Community Access</span>
-        </div>
       </div>
     </div>
 
