@@ -92,11 +92,10 @@
 
     /* ── SCHEDULE STRIP ── */
     #schedule { padding: 36px 24px 24px; max-width: 1200px; margin: 0 auto; }
-    .sched-card { background: var(--card); border-radius: 24px; padding: 28px 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: center; }
-    .sched-cell { display: flex; flex-direction: column; gap: 6px; }
-    .sched-cell:not(:last-child) { border-right: 1px solid var(--card-2); padding-right: 24px; }
-    .sched-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
-    .sched-value { font-size: 22px; font-weight: 700; letter-spacing: -.02em; color: var(--text); line-height: 1.1; }
+    .sched-card { background: transparent; padding: 28px 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; align-items: start; }
+    .sched-cell { display: flex; flex-direction: column; gap: 10px; }
+    .sched-value { font-size: clamp(38px, 5.5vw, 64px); font-weight: 800; letter-spacing: -.035em; color: var(--text); line-height: .95; }
+    .sched-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub); }
 
     /* ── PROMISE / IN 60 DAYS ── */
     #promise { padding: 88px 24px; max-width: 920px; margin: 0 auto; text-align: center; }
@@ -253,20 +252,20 @@
 <section id="schedule">
   <div class="sched-card">
     <div class="sched-cell">
+      <span class="sched-value">July 20</span>
       <span class="sched-label">Starts</span>
-      <span class="sched-value">July 20, 2026</span>
     </div>
     <div class="sched-cell">
-      <span class="sched-label">Duration</span>
       <span class="sched-value">60 Days</span>
+      <span class="sched-label">Duration</span>
     </div>
     <div class="sched-cell">
+      <span class="sched-value">Cohort</span>
       <span class="sched-label">Format</span>
-      <span class="sched-value">Live + Async</span>
     </div>
     <div class="sched-cell">
-      <span class="sched-label">Money Back If Conditions Met</span>
       <span class="sched-value">100%</span>
+      <span class="sched-label">Money Back Guarantee</span>
     </div>
   </div>
 </section>
