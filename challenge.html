@@ -195,6 +195,29 @@
     #bottom { padding: 32px 24px 48px; text-align: center; }
     .bottom-copy { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--foot); }
 
+    /* ── "GET" SECTION (light inversion) ── */
+    #get { background: #f3efe7; color: #0a0a0a; padding: 96px 24px; }
+    .get-inner { max-width: 1200px; margin: 0 auto; }
+    .get-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #7a7570; margin-bottom: 20px; }
+    .get-h { font-size: clamp(40px, 6vw, 72px); font-weight: 800; letter-spacing: -.04em; line-height: 1.0; color: #0a0a0a; margin-bottom: 56px; max-width: 1100px; }
+    .get-list { display: flex; flex-direction: column; margin-bottom: 24px; }
+    .get-item { padding: 32px 0; border-bottom: 1px solid #d8cfbf; }
+    .get-item:first-child { border-top: 1px solid #d8cfbf; }
+    .get-item-title { font-size: clamp(22px, 3vw, 32px); font-weight: 800; letter-spacing: -.025em; color: #0a0a0a; margin-bottom: 10px; line-height: 1.15; }
+    .get-item-desc { font-size: 15px; line-height: 1.65; color: #5a5550; max-width: 780px; }
+    .get-block-wrap { margin-top: 72px; }
+    .get-block-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #7a7570; margin-bottom: 16px; }
+    .get-block-h { font-size: clamp(26px, 3.4vw, 38px); font-weight: 800; letter-spacing: -.03em; line-height: 1.12; color: #0a0a0a; margin-bottom: 28px; max-width: 880px; }
+    .get-method-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .get-method-card { background: #ffffff; border-radius: 18px; padding: 24px 22px; display: flex; flex-direction: column; gap: 10px; }
+    .get-method-num { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; color: #ee663e; font-weight: 700; }
+    .get-method-title { font-size: 15px; font-weight: 700; color: #0a0a0a; letter-spacing: -.01em; line-height: 1.25; }
+    .get-build-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .get-build-card { background: #ffffff; border-radius: 22px; padding: 36px 32px; display: flex; flex-direction: column; gap: 12px; }
+    .get-build-num { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; color: #ee663e; font-weight: 700; }
+    .get-build-title { font-size: 22px; font-weight: 800; letter-spacing: -.025em; color: #0a0a0a; line-height: 1.2; }
+    .get-build-desc { font-size: 14px; line-height: 1.65; color: #5a5550; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .sched-card { grid-template-columns: repeat(2, 1fr); gap: 28px 18px; padding: 28px 28px; }
@@ -203,12 +226,18 @@
       .bd-grid { grid-template-columns: repeat(2, 1fr); }
       .who-grid { grid-template-columns: 1fr; }
       .testi-grid { grid-template-columns: 1fr; }
+      .get-method-grid { grid-template-columns: repeat(2, 1fr); }
+      .get-build-grid { grid-template-columns: 1fr; }
+      .tldr-card { padding: 40px 32px; }
     }
     @media (max-width: 600px) {
       .sched-card { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; text-align: center; }
       .sched-cell { align-items: center; }
       .bd-grid { grid-template-columns: 1fr; }
       .fcta-card { padding: 56px 28px; }
+      .get-method-grid { grid-template-columns: 1fr; }
+      #get { padding: 64px 20px; }
+      .tldr-card { padding: 32px 24px; }
     }
   </style>
 </head>
@@ -341,59 +370,96 @@
   </div>
 </section>
 
-<!-- PROMISE / IN 60 DAYS -->
-<section id="promise">
-  <p class="sec-pre">// The Promise</p>
-  <h2 class="h2">In 60 days, your personal brand machine is built.</h2>
-  <p class="promise-sub">[ASK GABE — one paragraph on the transformation. What does the creative entrepreneur walk out of the 60 days with that they didn&#8217;t have on day 1? Keep it concrete.]</p>
-</section>
+<!-- GET (Promise + Live Program + Method + Build) -->
+<section id="get">
+  <div class="get-inner">
+    <p class="get-pre">// In 60 days, your personal brand machine is built</p>
+    <h2 class="get-h">Here&#8217;s everything you get.</h2>
 
-<!-- WHAT YOU BUILD (8 deliverables — same as apply page) -->
-<section id="build">
-  <div class="build-head">
-    <p class="sec-pre">// What You&#8217;ll Build</p>
-    <h2 class="build-h">Eight tangible things you walk out with.</h2>
-  </div>
-  <div class="build-grid">
-    <div class="build-card">
-      <div class="bc-top"><span class="bc-num">01</span><span class="bc-tag bc-tag-you">You do it</span></div>
-      <h3 class="bc-title">Your Brand Blueprint</h3>
-      <p class="bc-desc">You&#8217;ll complete an exercise that pushes you to answer questions you&#8217;ve probably never been asked about your avatar, your journey, your situation &mdash; which simultaneously gives me and my team the entire context we need to build the system around YOU.</p>
+    <div class="get-list">
+      <div class="get-item">
+        <h3 class="get-item-title">Weekly live calls with me</h3>
+        <p class="get-item-desc">Every week we&#8217;re on Zoom together. Real-time questions, real-time feedback, real-time work on your brand.</p>
+      </div>
+      <div class="get-item">
+        <h3 class="get-item-title">Weekly masterclasses live with me</h3>
+        <p class="get-item-desc">Deep dives on the actual skills &mdash; shooting, editing, hook writing, brand positioning. Live, recorded, archived.</p>
+      </div>
+      <div class="get-item">
+        <h3 class="get-item-title">Weekly Q&amp;A</h3>
+        <p class="get-item-desc">Open floor. Bring your actual content, your actual hooks, your actual problems. We solve them in the room.</p>
+      </div>
+      <div class="get-item">
+        <h3 class="get-item-title">On-demand 1:1 support &middot; Ask Gabe</h3>
+        <p class="get-item-desc">DM me directly throughout the 60 days. No gating, no setter, no waiting on a ticket queue.</p>
+      </div>
+      <div class="get-item">
+        <h3 class="get-item-title">Full Masterclass Vault</h3>
+        <p class="get-item-desc">Everything I&#8217;ve built &mdash; the full library, available the moment you join. No drip, no staged unlock.</p>
+      </div>
+      <div class="get-item">
+        <h3 class="get-item-title">Private community</h3>
+        <p class="get-item-desc">Architects, designers, photographers, consultants, coaches &mdash; creatives at your level, building in the same room.</p>
+      </div>
     </div>
-    <div class="build-card">
-      <div class="bc-top"><span class="bc-num">02</span><span class="bc-tag">Together</span></div>
-      <h3 class="bc-title">90-Minute Onboarding Call</h3>
-      <p class="bc-desc">Next, you&#8217;ll be onboarded where we review: avatar description, positioning doc, and competitor research. You walk out with strategic clarity on who you&#8217;re for, what you stand for, and where you sit in the market.</p>
+
+    <div class="get-block-wrap">
+      <p class="get-block-pre">// The method</p>
+      <h3 class="get-block-h">How the 60 days actually run.</h3>
+      <div class="get-method-grid">
+        <div class="get-method-card">
+          <span class="get-method-num">01</span>
+          <span class="get-method-title">Onboarding Session</span>
+        </div>
+        <div class="get-method-card">
+          <span class="get-method-num">02</span>
+          <span class="get-method-title">8 Weekly Workshops</span>
+        </div>
+        <div class="get-method-card">
+          <span class="get-method-num">03</span>
+          <span class="get-method-title">60-Minute 1:1 Session</span>
+        </div>
+        <div class="get-method-card">
+          <span class="get-method-num">04</span>
+          <span class="get-method-title">On-Demand 1:1 Support</span>
+        </div>
+        <div class="get-method-card">
+          <span class="get-method-num">05</span>
+          <span class="get-method-title">Community Access</span>
+        </div>
+      </div>
     </div>
-    <div class="build-card">
-      <div class="bc-top"><span class="bc-num">03</span><span class="bc-tag">Together</span></div>
-      <h3 class="bc-title">Install Your Frictionless OS</h3>
-      <p class="bc-desc">The AI-powered content creation system that actually knows who you are, can quickly capture your thoughts, generate endless ideas, and automatically store them in a dedicated dashboard. Everything powered by a growing content brain that lives directly on your desktop and understands everything about you.</p>
-    </div>
-    <div class="build-card">
-      <div class="bc-top"><span class="bc-num">04</span><span class="bc-tag">My team does it</span></div>
-      <h3 class="bc-title">Build Your Custom Hook Engine</h3>
-      <p class="bc-desc">We&#8217;ll build you a dedicated hook engine based on proven content from your competitors and your industry. Drop in a simple idea, rambling, or full script &mdash; get back a powerful &amp; proven hook that we can use and test.</p>
-    </div>
-    <div class="build-card">
-      <div class="bc-top"><span class="bc-num">05</span><span class="bc-tag">My team does it</span></div>
-      <h3 class="bc-title">An Entire Month of Scripts</h3>
-      <p class="bc-desc">We&#8217;ll analyze what&#8217;s working best for the competitors closest to you. Using proven styles, topics, and techniques, you&#8217;ll walk out with 30 ready-to-shoot scripts &amp; storyboards &mdash; not 30 ideas, 30 videos ready for production.</p>
-    </div>
-    <div class="build-card">
-      <div class="bc-top"><span class="bc-num">06</span><span class="bc-tag">My team does it</span></div>
-      <h3 class="bc-title">Your Visual Identity</h3>
-      <p class="bc-desc">A custom visual identity with your fonts, colors, color grades and plug &amp; play templates built directly in Canva for quick and easy access.</p>
-    </div>
-    <div class="build-card">
-      <div class="bc-top"><span class="bc-num">07</span><span class="bc-tag">Together</span></div>
-      <h3 class="bc-title">Content Coaching</h3>
-      <p class="bc-desc">You&#8217;ll learn how to shoot professional content with whatever gear you have &mdash; smartphone or actual camera, doesn&#8217;t matter. The full rundown: cinematic shooting, B-roll capture, storage, upload, the whole workflow. Along with a proven system to stay consistent and access to content editing services to act as a full stop.</p>
-    </div>
-    <div class="build-card">
-      <div class="bc-top"><span class="bc-num">08</span><span class="bc-tag">Together</span></div>
-      <h3 class="bc-title">Community Access</h3>
-      <p class="bc-desc">Access to creatives on the same path as you, on the same level as you, and some even ahead of you. Weekly calls, Q&amp;A&#8217;s, and trainings to keep you up to speed on all of the trends.</p>
+
+    <div class="get-block-wrap">
+      <p class="get-block-pre">// What gets installed</p>
+      <h3 class="get-block-h">Five things built around your business.</h3>
+      <div class="get-build-grid">
+        <div class="get-build-card">
+          <span class="get-build-num">01</span>
+          <h4 class="get-build-title">Your Brand Blueprint</h4>
+          <p class="get-build-desc">Avatar, journey, situation &mdash; the strategic core we build everything around. You answer the questions you&#8217;ve never been asked.</p>
+        </div>
+        <div class="get-build-card">
+          <span class="get-build-num">02</span>
+          <h4 class="get-build-title">Frictionless OS Installed</h4>
+          <p class="get-build-desc">An AI content brain that knows your voice, your ICP, your strategy. Captures your thoughts, generates ideas, stores everything in your Notion dashboard.</p>
+        </div>
+        <div class="get-build-card">
+          <span class="get-build-num">03</span>
+          <h4 class="get-build-title">Custom Hook Engine</h4>
+          <p class="get-build-desc">Drop in a rambling, an idea, or a full script. Get back a tested, proven hook. Built on what&#8217;s working for your closest competitors.</p>
+        </div>
+        <div class="get-build-card">
+          <span class="get-build-num">04</span>
+          <h4 class="get-build-title">An Entire Month of Scripts</h4>
+          <p class="get-build-desc">30 ready-to-shoot scripts and storyboards. Built using proven styles and topics from the creatives closest to your niche.</p>
+        </div>
+        <div class="get-build-card">
+          <span class="get-build-num">05</span>
+          <h4 class="get-build-title">Your Visual Identity</h4>
+          <p class="get-build-desc">Fonts, colors, color grades, and plug &amp; play Canva templates. Built so you know exactly how to shoot content that doesn&#8217;t suck.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
