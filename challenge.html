@@ -92,9 +92,9 @@
 
     /* ── SCHEDULE STRIP ── */
     #schedule { padding: 36px 24px 24px; max-width: 1200px; margin: 0 auto; }
-    .sched-card { background: transparent; padding: 28px 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; align-items: start; }
-    .sched-cell { display: flex; flex-direction: column; gap: 10px; }
-    .sched-value { font-size: clamp(38px, 5.5vw, 64px); font-weight: 800; letter-spacing: -.035em; color: var(--text); line-height: .95; }
+    .sched-card { background: var(--card); border-radius: 24px; padding: 36px 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; align-items: start; }
+    .sched-cell { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+    .sched-value { font-size: clamp(28px, 3.6vw, 44px); font-weight: 800; letter-spacing: -.03em; color: var(--text); line-height: 1.0; white-space: nowrap; }
     .sched-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub); }
 
     /* ── PROMISE / IN 60 DAYS ── */
@@ -183,17 +183,16 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .sched-card { grid-template-columns: repeat(2, 1fr); gap: 22px 18px; }
-      .sched-cell:not(:last-child) { border-right: none; padding-right: 0; }
-      .sched-cell:nth-child(odd) { border-right: 1px solid var(--card-2); padding-right: 18px; }
+      .sched-card { grid-template-columns: repeat(2, 1fr); gap: 28px 18px; padding: 28px 28px; }
+      .sched-value { font-size: clamp(28px, 6vw, 40px); }
       .build-grid { grid-template-columns: 1fr; }
       .bd-grid { grid-template-columns: repeat(2, 1fr); }
       .who-grid { grid-template-columns: 1fr; }
       .testi-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
-      .sched-card { grid-template-columns: 1fr; }
-      .sched-cell { border-right: none !important; padding-right: 0 !important; }
+      .sched-card { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; text-align: center; }
+      .sched-cell { align-items: center; }
       .bd-grid { grid-template-columns: 1fr; }
       .fcta-card { padding: 56px 28px; }
     }
@@ -260,7 +259,7 @@
       <span class="sched-label">Duration</span>
     </div>
     <div class="sched-cell">
-      <span class="sched-value">Cohort</span>
+      <span class="sched-value">Live + Async</span>
       <span class="sched-label">Format</span>
     </div>
     <div class="sched-cell">
