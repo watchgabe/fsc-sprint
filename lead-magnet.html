@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- [SWAP] Page title -->
+  <title>[MAGNET NAME] &middot; FSCreative&#8482;</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; }
+    input { font: inherit; }
+
+    :root, [data-mode="dark"] {
+      --bg:         #061410;
+      --card:       #091a14;
+      --card-2:     #0f261c;
+      --text:       #ffffff;
+      --sub:        rgba(255,255,255,0.45);
+      --sub-bright: rgba(255,255,255,0.72);
+      --orange:     #ee663e;
+      --orange-d:   #e0552e;
+      --foot:       rgba(255,255,255,0.25);
+      --black:      #000000;
+      --gold:       #fbbf24;
+    }
+
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px; line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    #grain { position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: .025; }
+
+    /* ── BRAND BAR ── */
+    #brand-bar { padding: 28px 24px 0; max-width: 1080px; margin: 0 auto; }
+    .bb-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+    .bb-logo img { height: 24px; width: auto; display: block; }
+
+    /* ── HERO ── */
+    #hero { padding: 48px 24px 64px; max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px; border-radius: 100px; background: var(--black); color: #fff; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 22px; }
+    .eyebrow .e-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--orange); }
+    .h-h1 { font-size: clamp(36px, 4.6vw, 60px); font-weight: 800; letter-spacing: -.035em; line-height: 1.02; color: var(--text); margin-bottom: 18px; }
+    .h-sub { font-size: 17px; line-height: 1.6; color: var(--sub-bright); margin-bottom: 28px; }
+    .h-sub strong { color: var(--text); font-weight: 700; }
+
+    /* ── FORM ── */
+    .form-wrap { display: flex; flex-direction: column; gap: 10px; max-width: 460px; }
+    .form-row { display: flex; gap: 8px; }
+    .form-input { flex: 1; padding: 14px 18px; border-radius: 100px; background: var(--card); border: 1px solid var(--card-2); color: var(--text); font-size: 14px; outline: none; transition: border-color .2s; }
+    .form-input:focus { border-color: var(--orange); }
+    .form-input::placeholder { color: var(--sub); }
+    .form-btn { padding: 14px 26px; border-radius: 100px; background: var(--orange); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: -.01em; border: none; cursor: pointer; transition: background .2s, transform .2s; white-space: nowrap; }
+    .form-btn:hover { background: var(--orange-d); transform: translateY(-1px); }
+    .form-trust { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); padding-left: 6px; }
+
+    /* ── COVER ── */
+    .cover-frame { background: var(--card); border-radius: 18px; padding: 28px; aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .cover-frame::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 20%, rgba(238,102,62,0.18), transparent 55%); pointer-events: none; }
+    .cover-img { width: 100%; height: 100%; object-fit: contain; position: relative; z-index: 1; }
+    .cover-placeholder { position: relative; z-index: 1; text-align: center; color: var(--sub-bright); }
+    .cover-placeholder .cp-tag { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+    .cover-placeholder .cp-title { font-size: 22px; font-weight: 700; letter-spacing: -.02em; color: var(--text); line-height: 1.2; max-width: 240px; margin: 0 auto; }
+
+    /* ── INSIDE / SECTIONS ── */
+    .section { padding: 80px 24px; max-width: 1080px; margin: 0 auto; }
+    .sec-card { background: var(--card); border-radius: 24px; padding: 56px 48px; }
+    .sec-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); margin-bottom: 16px; }
+    .sec-h2 { font-size: clamp(28px, 3.5vw, 42px); font-weight: 800; letter-spacing: -.03em; line-height: 1.05; color: var(--text); margin-bottom: 36px; max-width: 800px; }
+
+    /* ── INSIDE LIST ── */
+    .inside-list { display: flex; flex-direction: column; }
+    .inside-item { display: grid; grid-template-columns: 56px 1fr; gap: 18px; align-items: start; padding: 22px 0; border-top: 1px solid var(--card-2); }
+    .inside-item:last-child { border-bottom: 1px solid var(--card-2); }
+    .inside-num { font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; color: var(--orange); letter-spacing: .04em; padding-top: 3px; }
+    .inside-title { font-size: 17px; font-weight: 700; letter-spacing: -.015em; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
+    .inside-desc { font-size: 14px; line-height: 1.6; color: var(--sub-bright); }
+
+    /* ── WHO IT'S FOR ── */
+    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .who-card { background: var(--bg); border-radius: 20px; padding: 28px 30px; }
+    .who-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+    .who-card-no .who-label { color: var(--sub); }
+    .who-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .who-list li { font-size: 14px; line-height: 1.55; color: var(--text); padding-left: 18px; position: relative; }
+    .who-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    .who-card-no .who-list li::before { background: var(--sub); opacity: .5; }
+
+    /* ── BIO ── */
+    .bio-grid { display: grid; grid-template-columns: 220px 1fr; gap: 36px; align-items: start; }
+    .bio-img { border-radius: 16px; overflow: hidden; aspect-ratio: 4/5; background: var(--bg); }
+    .bio-img img { width: 100%; height: 100%; object-fit: cover; }
+    .bio-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); margin-bottom: 10px; }
+    .bio-name { font-size: 24px; font-weight: 800; letter-spacing: -.02em; color: var(--text); margin-bottom: 4px; }
+    .bio-handle { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .12em; color: var(--orange); margin-bottom: 22px; }
+    .bio-body { font-size: 15px; line-height: 1.7; color: var(--sub-bright); display: flex; flex-direction: column; gap: 16px; }
+
+    /* ── FINAL CTA ── */
+    #final { padding: 60px 24px 88px; max-width: 1080px; margin: 0 auto; }
+    .final-card { background: var(--black); border-radius: 28px; padding: 72px 48px; text-align: center; position: relative; overflow: hidden; }
+    .final-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 25% 20%, rgba(238,102,62,0.22), transparent 50%); pointer-events: none; }
+    .final-pre { position: relative; z-index: 1; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 18px; display: inline-flex; align-items: center; gap: 8px; }
+    .final-pre::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    .final-h { position: relative; z-index: 1; font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -.03em; line-height: 1.05; margin-bottom: 16px; color: #fff; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .final-sub { position: relative; z-index: 1; font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .final-form-wrap { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+    .final-card .form-wrap { margin: 0 auto; }
+
+    /* ── FOOTER ── */
+    #footer { padding: 32px 24px 48px; text-align: center; }
+    .footer-copy { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--foot); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; gap: 36px; padding: 32px 20px 40px; }
+      .cover-frame { aspect-ratio: 16/10; max-width: 520px; margin: 0 auto; width: 100%; }
+      .sec-card { padding: 40px 28px; }
+      .who-grid { grid-template-columns: 1fr; }
+      .bio-grid { grid-template-columns: 1fr; gap: 24px; }
+      .bio-img { max-width: 220px; }
+      .final-card { padding: 48px 28px; }
+      .form-row { flex-direction: column; }
+      .form-row .form-btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="grain"></canvas>
+
+<!-- BRAND BAR -->
+<div id="brand-bar">
+  <a href="/" class="bb-logo">
+    <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" alt="FSCreative" />
+  </a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div>
+    <!-- [SWAP] Eyebrow — short context tag -->
+    <span class="eyebrow"><span class="e-dot"></span>Free Download &middot; [MAGNET CATEGORY]</span>
+    <!-- [SWAP] Magnet headline (the hook) -->
+    <h1 class="h-h1">[MAGNET HEADLINE GOES HERE — punchy, specific, 1 sentence]</h1>
+    <!-- [SWAP] Subhead — 1-2 sentences on what it is + why it matters -->
+    <p class="h-sub">[SUBHEAD — what this is in 1 line, who it&#8217;s for in 1 line. Use <strong>bold</strong> on the most important phrase.]</p>
+
+    <!-- EMAIL FORM (top) -->
+    <form class="form-wrap" action="[KIT_FORM_ACTION_URL]" method="post" data-magnet-form>
+      <div class="form-row">
+        <input class="form-input" type="email" name="email_address" placeholder="Your email address" required />
+        <button class="form-btn" type="submit">Send It To Me &rarr;</button>
+      </div>
+      <span class="form-trust">No spam. Unsubscribe in one click.</span>
+    </form>
+  </div>
+
+  <!-- COVER / VISUAL -->
+  <div class="cover-frame">
+    <!-- [SWAP] Either drop in <img class="cover-img" src="..." alt=""/> OR keep placeholder below -->
+    <div class="cover-placeholder">
+      <div class="cp-tag">PDF &middot; Free</div>
+      <div class="cp-title">[MAGNET COVER / 3D MOCKUP HERE]</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="section">
+  <div class="sec-card">
+    <p class="sec-pre">// What&#8217;s Inside</p>
+    <!-- [SWAP] H2 — what they get when they download -->
+    <h2 class="sec-h2">[SECTION HEADLINE — &ldquo;Inside this guide&rdquo; / &ldquo;What you&#8217;ll get&rdquo; / etc.]</h2>
+    <div class="inside-list">
+      <div class="inside-item">
+        <span class="inside-num">01</span>
+        <div>
+          <div class="inside-title">[ITEM 1 TITLE]</div>
+          <div class="inside-desc">[ITEM 1 DESCRIPTION &mdash; 1-2 sentences on what this is and why it matters.]</div>
+        </div>
+      </div>
+      <div class="inside-item">
+        <span class="inside-num">02</span>
+        <div>
+          <div class="inside-title">[ITEM 2 TITLE]</div>
+          <div class="inside-desc">[ITEM 2 DESCRIPTION]</div>
+        </div>
+      </div>
+      <div class="inside-item">
+        <span class="inside-num">03</span>
+        <div>
+          <div class="inside-title">[ITEM 3 TITLE]</div>
+          <div class="inside-desc">[ITEM 3 DESCRIPTION]</div>
+        </div>
+      </div>
+      <div class="inside-item">
+        <span class="inside-num">04</span>
+        <div>
+          <div class="inside-title">[ITEM 4 TITLE]</div>
+          <div class="inside-desc">[ITEM 4 DESCRIPTION]</div>
+        </div>
+      </div>
+      <div class="inside-item">
+        <span class="inside-num">05</span>
+        <div>
+          <div class="inside-title">[ITEM 5 TITLE]</div>
+          <div class="inside-desc">[ITEM 5 DESCRIPTION]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="section">
+  <div class="sec-card">
+    <p class="sec-pre">// Who this is for</p>
+    <h2 class="sec-h2">Be honest with yourself before you download.</h2>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-label">It&#8217;s for you if</div>
+        <ul class="who-list">
+          <!-- [SWAP] 3 bullet points describing the right reader -->
+          <li>[FIT BULLET 1 &mdash; e.g. specific industry, scale, or situation]</li>
+          <li>[FIT BULLET 2]</li>
+          <li>[FIT BULLET 3]</li>
+        </ul>
+      </div>
+      <div class="who-card who-card-no">
+        <div class="who-label">It&#8217;s not for you if</div>
+        <ul class="who-list">
+          <!-- [SWAP] 3 bullets that filter out the wrong reader -->
+          <li>[NO-FIT BULLET 1]</li>
+          <li>[NO-FIT BULLET 2]</li>
+          <li>[NO-FIT BULLET 3]</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section">
+  <div class="sec-card">
+    <p class="sec-pre">// About the builder</p>
+    <div class="bio-grid">
+      <div class="bio-img">
+        <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1779403129/DSCF5597_3_feqde5.jpg" alt="Gabe Harris" />
+      </div>
+      <div>
+        <p class="bio-pre">Built by</p>
+        <h3 class="bio-name">Gabe Harris</h3>
+        <p class="bio-handle">@watch.gabe &middot; Founder of FSCreative</p>
+        <div class="bio-body">
+          <p>10+ years building brands. First for clients including Crux Cigars, a 2019 rebrand that other cigar brands started imitating within a year. Then for myself: 50K+ followers built from zero.</p>
+          <p>I&#8217;ve spent the last year obsessively building AI content systems and got paid partnerships with companies like Perplexity and ElevenLabs to figure it out on their platforms. This is what I figured out.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="final">
+  <div class="final-card">
+    <p class="final-pre">Free Download</p>
+    <!-- [SWAP] Short hook — restate the value in different words -->
+    <h2 class="final-h">[CTA HEADLINE &mdash; restate the magnet&#8217;s value in punchy form]</h2>
+    <p class="final-sub">No spam. No selling. Just the [MAGNET NAME] in your inbox in 30 seconds.</p>
+    <div class="final-form-wrap">
+      <form class="form-wrap" action="[KIT_FORM_ACTION_URL]" method="post" data-magnet-form>
+        <div class="form-row">
+          <input class="form-input" type="email" name="email_address" placeholder="Your email address" required />
+          <button class="form-btn" type="submit">Send It To Me &rarr;</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <p class="footer-copy">&copy; FSCreative&#8482; &middot; @watch.gabe</p>
+</footer>
+
+<script>
+  // Grain texture
+  (function() {
+    const c = document.getElementById('grain');
+    if (!c) return;
+    const ctx = c.getContext('2d');
+    let f = 0;
+    const resize = () => { c.width = innerWidth; c.height = innerHeight; };
+    const draw = () => {
+      const img = ctx.createImageData(c.width, c.height);
+      for (let i = 0; i < img.data.length; i += 4) {
+        const v = Math.random() * 255 | 0;
+        img.data[i] = img.data[i+1] = img.data[i+2] = v; img.data[i+3] = 255;
+      }
+      ctx.putImageData(img, 0, 0);
+    };
+    const loop = () => { if (++f % 3 === 0) draw(); requestAnimationFrame(loop); };
+    window.addEventListener('resize', resize);
+    resize(); loop();
+  })();
+
+  // Optional: form submission hook (replace with Kit/Mailchimp/etc.)
+  document.querySelectorAll('[data-magnet-form]').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      // If form action is the placeholder, prevent submission until configured
+      if (form.action.indexOf('[KIT_FORM_ACTION_URL]') !== -1 || form.action === window.location.href) {
+        e.preventDefault();
+        alert('Form not configured yet. Replace [KIT_FORM_ACTION_URL] in the page with your Kit form action URL.');
+      }
+    });
+  });
+</script>
+</body>
+</html>
