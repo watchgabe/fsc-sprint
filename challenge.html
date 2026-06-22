@@ -88,7 +88,8 @@
     .bb-logo img { height: 26px; width: auto; display: block; }
 
     /* ── HERO ── */
-    #hero { padding: 56px 24px 56px; max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 60px); display: flex; flex-direction: column; justify-content: center; }
+    #hero { padding: 56px 24px 40px; max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 60px); display: flex; flex-direction: column; }
+    .h-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
     .social-proof { display: inline-flex; align-items: center; gap: 16px; margin-bottom: 28px; }
     .sp-avatars { display: flex; }
     .sp-avatar { width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--bg); margin-left: -10px; overflow: hidden; background: var(--orange); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 13px; }
@@ -272,6 +273,7 @@
 
 <!-- HERO -->
 <section id="hero">
+  <div class="h-content">
   <div class="social-proof">
     <div class="sp-avatars">
       <div class="sp-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799121/theresa_axof4n.jpg" alt="" /></div>
@@ -290,10 +292,7 @@
     <a href="https://buy.stripe.com/5kQ7sLduy0mZ5uWddQgA80j" target="_blank" class="btn-primary">Join the Challenge &rarr;</a>
     <span class="h-price"><strong>$997</strong> &middot; One-time</span>
   </div>
-</section>
-
-<!-- SCHEDULE STRIP -->
-<section id="schedule">
+  </div>
   <div class="sched-card">
     <div class="sched-cell">
       <span class="sched-value">July 20</span>
