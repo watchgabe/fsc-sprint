@@ -71,8 +71,8 @@
     .sbar-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .sbar-cd { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub-bright); }
     .sbar-cd strong { color: var(--text); font-weight: 700; }
-    .sbar-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 100px; background: var(--orange); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: -.01em; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
-    .sbar-btn:hover { background: var(--orange-d); color: #fff; transform: translateY(-1px); }
+    .sbar-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 100px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
+    .sbar-btn:hover { background: var(--orange-d); color: #061410; transform: translateY(-1px); }
 
     /* ── TLDR SECTION (light inversion) ── */
     #tldr { background: #f3efe7; padding: 88px 24px; color: #061410; }
@@ -121,8 +121,10 @@
     .h-h1 { font-size: clamp(36px, 5.2vw, 68px); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin-bottom: 24px; max-width: 980px; }
     .h-sub { font-size: 19px; line-height: 1.55; color: var(--sub-bright); max-width: 680px; margin-bottom: 36px; }
     .h-cta-row { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
-    .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 16px 34px; border-radius: 100px; background: var(--orange); color: #fff; font-size: 15px; font-weight: 700; letter-spacing: -.01em; border: none; cursor: pointer; text-decoration: none; transition: background .2s, transform .2s; }
-    .btn-primary:hover { background: var(--orange-d); transform: translateY(-1px); }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 16px 34px; border-radius: 100px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; border: none; cursor: pointer; text-decoration: none; transition: background .2s, transform .2s; }
+    .btn-primary:hover { background: var(--orange-d); color: #061410; transform: translateY(-1px); }
+    .tldr-card .btn-primary { color: #f3efe7; }
+    .tldr-card .btn-primary:hover { color: #f3efe7; }
     .h-price { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
     .h-price strong { color: var(--text); font-weight: 700; }
 
@@ -172,11 +174,11 @@
     .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; margin-top: 56px; }
     .who-card { background: var(--card); border-radius: 22px; padding: 32px 32px; }
     .who-card-no { background: var(--card-2); }
-    .who-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 22px; display: inline-flex; align-items: center; gap: 6px; }
+    .who-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 26px; display: inline-flex; align-items: center; gap: 6px; }
     .who-card-no .who-label { color: var(--sub); }
-    .who-list { list-style: none; display: flex; flex-direction: column; gap: 18px; }
-    .who-list li { font-size: 14px; line-height: 1.6; color: var(--sub-bright); padding-left: 20px; position: relative; }
-    .who-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    .who-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+    .who-list li { font-size: 16px; line-height: 1.6; color: var(--sub-bright); padding-left: 24px; position: relative; }
+    .who-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); }
     .who-card-no .who-list li::before { background: var(--sub); opacity: .55; }
     .who-list li strong { color: var(--text); font-weight: 700; }
 
@@ -187,8 +189,9 @@
     .testi-head .sec-pre { color: rgba(6,20,16,0.5); }
     .testi-head .h2 { color: #061410 !important; }
     .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .testi-card { background: #faf7f0; border: 1px solid rgba(6,20,16,0.06); border-radius: 22px; padding: 30px 28px; display: flex; flex-direction: column; gap: 18px; }
-    .testi-quote { font-size: 16px; line-height: 1.7; color: rgba(6,20,16,0.78); }
+    .testi-card { background: #faf7f0; border: 1px solid rgba(6,20,16,0.06); border-radius: 22px; padding: 30px 28px; display: flex; flex-direction: column; gap: 16px; }
+    .testi-stars { color: #f5a623; font-size: 14px; letter-spacing: 3px; line-height: 1; }
+    .testi-quote { font-size: 15px; line-height: 1.7; color: rgba(6,20,16,0.78); margin: 0; }
     .testi-meta { display: flex; align-items: center; gap: 12px; margin-top: auto; }
     .testi-avatar { width: 44px; height: 44px; border-radius: 50%; background: rgba(6,20,16,0.08); overflow: hidden; flex-shrink: 0; }
     .testi-avatar img { width: 44px; height: 44px; object-fit: cover; }
@@ -293,16 +296,16 @@
     .get-list { display: flex; flex-direction: column; margin-bottom: 24px; }
     .get-item { padding: 26px 0; border-bottom: 1px solid rgba(6,20,16,0.10); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: start; }
     .get-item:first-child { border-top: 1px solid rgba(6,20,16,0.10); }
-    .get-item-content { display: flex; flex-direction: column; gap: 6px; min-width: 0; max-width: 70%; }
-    .get-item-title { font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; }
-    .get-item-desc { font-size: 14px; line-height: 1.6; color: rgba(6,20,16,0.7); }
+    .get-item-content { display: flex; flex-direction: column; gap: 8px; min-width: 0; max-width: 78%; }
+    .get-item-title { font-size: clamp(22px, 2.7vw, 28px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; }
+    .get-item-desc { font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.7); }
     .get-item-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.6); padding: 6px 12px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; white-space: nowrap; margin-top: 6px; align-self: start; }
     .get-block-wrap { margin-top: 64px; }
     .get-block-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.5); margin-bottom: 24px; }
     .get-bonus-grid { display: flex; flex-direction: column; gap: 14px; }
     .get-bonus-card { position: relative; background: #faf7f0; border: 1px solid rgba(6,20,16,0.08); border-radius: 18px; padding: 24px 130px 24px 28px; min-height: 130px; }
-    .get-bonus-title { font-size: 19px; font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; margin-bottom: 8px; max-width: 70%; }
-    .get-bonus-desc { font-size: 14px; line-height: 1.6; color: rgba(6,20,16,0.7); max-width: 70%; }
+    .get-bonus-title { font-size: clamp(20px, 2.4vw, 24px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; margin-bottom: 10px; max-width: 80%; }
+    .get-bonus-desc { font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.7); max-width: 80%; }
     .get-bonus-tag { position: absolute; top: 22px; right: 22px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: #fff; padding: 5px 12px; border-radius: 100px; background: #061410; border: 1px solid #061410; font-weight: 700; }
     .get-bonus-value { position: absolute; bottom: 22px; right: 22px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.6); padding: 5px 11px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; }
     .get-reveal-card { margin-top: 56px; background: #061410; color: #fff; border-radius: 24px; padding: 44px 44px 36px; }
@@ -316,8 +319,8 @@
     .get-reveal-num { font-size: 44px; font-weight: 800; letter-spacing: -.03em; color: #fff; line-height: 1; }
     .get-reveal-row.price .get-reveal-num { color: var(--orange); font-size: 64px; }
     .get-reveal-rule { border: none; border-top: 1px dashed rgba(255,255,255,0.18); margin: 0; }
-    .get-reveal-btn { margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px 28px; background: var(--orange); color: #fff; font-size: 15px; font-weight: 700; text-align: center; text-decoration: none; border-radius: 100px; transition: background .2s; }
-    .get-reveal-btn:hover { background: var(--orange-d); color: #fff; }
+    .get-reveal-btn { margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px 28px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; text-align: center; text-decoration: none; border-radius: 100px; transition: background .2s; }
+    .get-reveal-btn:hover { background: var(--orange-d); color: #061410; }
     .get-reveal-meta { margin-top: 14px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
     .get-reveal-meta .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--orange); }
 
@@ -343,6 +346,12 @@
       .g-promise-box p { font-size: 17px; }
       .tb-nav { display: none; }
       .tb-right { margin-left: auto; }
+      #topbar { display: none; }
+      .ts-label { font-size: 11px; font-weight: 700; }
+      .ts-time { font-size: 13px; }
+      .ts-unit .ts-suf { font-size: 9px; }
+      #topstrip { padding: 14px 18px; }
+      #testimonials { padding-top: 108px; }
       .ts-label { font-size: 8px; }
       .ts-time { font-size: 10px; gap: 6px; }
       .ts-unit .ts-suf { font-size: 7px; }
@@ -678,7 +687,8 @@
     </div>
     <div class="testi-grid">
       <div class="testi-card">
-        <p class="testi-quote">&ldquo;Gabe&#8217;s ability to teach complex techniques in a simple, hands-on way is unmatched. It completely changed the way I approach my work.&rdquo;</p>
+        <div class="testi-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <p class="testi-quote">Gabe&#8217;s ability to teach complex techniques in a simple, hands-on way is unmatched. I gained invaluable skills, from mastering light and composition to understanding how to build a strong brand and get clients. He helped me see photography, videography, and social media from both a creative and entrepreneurial perspective. It completely leveled up the way I approach my work.</p>
         <div class="testi-meta">
           <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799121/theresa_axof4n.jpg" alt="Theresa" /></div>
           <div>
@@ -688,7 +698,8 @@
         </div>
       </div>
       <div class="testi-card">
-        <p class="testi-quote">&ldquo;Working with Gabe was one of the most impactful learning experiences I&#8217;ve had. Real-time feedback, exactly how to improve, next-level.&rdquo;</p>
+        <div class="testi-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <p class="testi-quote">Working with Gabe was one of the most impactful learning experiences I&#8217;ve had. I&#8217;ve never gotten much out of traditional courses or YouTube videos, but learning directly from him, getting real-time feedback, and seeing exactly how to improve was next-level. I connected with incredible people and left feeling inspired, more confident, and way more capable creatively. I&#8217;m still applying what I learned every day.</p>
         <div class="testi-meta">
           <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/matthew_bdohws.jpg" alt="Matthew" /></div>
           <div>
@@ -698,7 +709,19 @@
         </div>
       </div>
       <div class="testi-card">
-        <p class="testi-quote">&ldquo;I finally had clarity on how to structure my work and actually get things done. Not random tips everywhere &mdash; a real framework, organized, all in one place.&rdquo;</p>
+        <div class="testi-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <p class="testi-quote">I joined FSCreative a couple of weeks ago and I&#8217;ve honestly gotten a lot of value out of it. Content has been a very intimidating space for me for a while &mdash; and just going through the frameworks Gabe shares, I&#8217;ve really been able to turn it around and start feeling a little more excited about creating. He&#8217;s always supporting us and holding us accountable to show up and actually work on our content.</p>
+        <div class="testi-meta">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/srishti_zgfdhy.jpg" alt="Srishti" /></div>
+          <div>
+            <div class="testi-name">Srishti Sheshadri</div>
+            <div class="testi-handle">studiosoltera.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <p class="testi-quote">Before FSCreative, I felt more lost and disconnected in my creator journey. The community brought me clarity and accountability. The weekly calls are moments where I can ask Gabe questions and mostly show up. Gabe brings frameworks that help me have more clarity so I can structure my work and get more things done.</p>
         <div class="testi-meta">
           <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/lorena_p59fdv.jpg" alt="Lorena" /></div>
           <div>
@@ -708,12 +731,24 @@
         </div>
       </div>
       <div class="testi-card">
-        <p class="testi-quote">&ldquo;Before joining, getting started always felt like the hardest part. Now I have clarity, encouragement, and step-by-step systems.&rdquo;</p>
+        <div class="testi-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <p class="testi-quote">I went from overwhelmed to confident and supported. Before joining, getting started always felt like the hardest part. Now I have clarity, encouragement, and a group of creators who push me forward. Your messaging, support, and step by step systems take away the fear of doing it alone. I finally feel like I have the tools, direction, and community to reach my goals.</p>
         <div class="testi-meta">
           <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799119/joab_kajmku.png" alt="Joab" /></div>
           <div>
             <div class="testi-name">Joab Teruel</div>
             <div class="testi-handle">@joabteruel</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <p class="testi-quote">FSCreative has been invaluable for organizing my scattered thoughts and helping me discover who I am and what I can create. The resource hub is excellent and studying your editing style and Postcards gives me a real sense of belonging. Before joining I felt lost, now I have a clear roadmap and the confidence to pursue my goals.</p>
+        <div class="testi-meta">
+          <div class="testi-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799125/image_1_tvcief.png" alt="Lucy" /></div>
+          <div>
+            <div class="testi-name">Lucy Drughieri</div>
+            <div class="testi-handle">@lucila.drughieri</div>
           </div>
         </div>
       </div>
@@ -799,7 +834,7 @@
 <!-- STICKY BOTTOM CTA -->
 <div id="sbar">
   <div class="sbar-in">
-    <span class="sbar-cd"><strong id="sbar-cd">Loading&hellip;</strong> Left</span>
+    <span class="sbar-cd">100% Money-Back Guarantee</span>
     <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="sbar-btn">Join the Challenge &middot; $997 &rarr;</a>
   </div>
 </div>
