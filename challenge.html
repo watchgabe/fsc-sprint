@@ -193,21 +193,22 @@
     .testi-name { font-size: 13px; font-weight: 700; color: var(--text); }
     .testi-handle { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .1em; color: var(--sub); margin-top: 2px; }
 
-    /* ── GUARANTEE (centered, promise box + 2 columns) ── */
+    /* ── GUARANTEE (centered, big quote + 2 columns) ── */
     #guarantee { padding: 96px 24px; max-width: 920px; margin: 0 auto; }
     .g-inner { text-align: center; }
     .g-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub); margin-bottom: 22px; display: inline-block; padding: 6px 14px; border: 1px solid var(--card-2); border-radius: 100px; }
-    .g-h { font-size: clamp(36px, 5vw, 56px); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin-bottom: 36px; }
-    .g-promise-box { background: var(--card-2); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 38px 44px; margin: 0 auto 56px; max-width: 760px; }
-    .g-promise-box p { font-size: 19px; line-height: 1.5; color: var(--text); font-weight: 600; margin: 0; }
-    .g-promise-box strong { color: var(--orange); font-weight: 700; }
+    .g-h { font-size: clamp(36px, 5vw, 56px); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin-bottom: 44px; }
+    .g-quote { font-size: clamp(22px, 3vw, 34px); font-weight: 600; color: var(--text); line-height: 1.45; max-width: 900px; margin: 0 auto 64px; letter-spacing: -.015em; }
+    .g-quote strong { color: var(--orange); font-weight: 700; }
     .g-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; text-align: left; }
-    .g-col { background: var(--card); border: 1px solid var(--card-2); border-radius: 18px; padding: 28px 30px; }
-    .g-sub-h { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; font-weight: 700; }
-    .g-col p { font-size: 14px; line-height: 1.65; color: var(--sub-bright); margin: 0; }
-    .g-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .g-col { background: var(--card); border: 1px solid var(--card-2); border-radius: 18px; padding: 32px 32px; }
+    .g-sub-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: clamp(20px, 2.4vw, 24px); font-weight: 800; letter-spacing: -.02em; color: var(--text); line-height: 1.2; margin-bottom: 20px; text-transform: none; }
+    .g-col p { font-size: 14px; line-height: 1.7; color: var(--sub-bright); margin-bottom: 14px; }
+    .g-col p:last-child { margin-bottom: 0; }
+    .g-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
     .g-list li { font-size: 14px; line-height: 1.55; color: var(--text); padding-left: 22px; position: relative; }
     .g-list li::before { content: '\2713'; position: absolute; left: 0; top: 0; color: var(--orange); font-weight: 700; }
+    .g-closing { font-size: 14px; line-height: 1.6; color: var(--text); font-weight: 700; margin: 0; padding-top: 16px; border-top: 1px solid var(--card-2); }
     .g-terms { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); margin-top: 36px; text-align: center; }
 
     /* ── COACH ── */
@@ -607,23 +608,24 @@
   <div class="g-inner">
     <p class="g-pre">// The Promise</p>
     <h2 class="g-h">Our Guarantee</h2>
-    <div class="g-promise-box">
-      <p>If 90 days after your launch you followed the checklist and haven&#8217;t made at least <strong>$2,000</strong> (double your investment), every dollar comes back.</p>
-    </div>
+    <p class="g-quote">&ldquo;If 90 days after your launch you followed the checklist and haven&#8217;t made at least <strong>$2,000</strong> (double your investment), every dollar comes back.&rdquo;</p>
     <div class="g-cols">
       <div class="g-col">
-        <p class="g-sub-h">Why I can put this in writing</p>
-        <p>Everything&#8217;s already built. Brand Blueprint, Frictionless OS, hook engine, scripts, visual identity &mdash; all pre-configured before you arrive. Your only job is to show up and follow the checklist.</p>
+        <h3 class="g-sub-h">Why I can put this in writing</h3>
+        <p>The install is built. The Brand Blueprint is a templated exercise. The Frictionless OS is pre-configured. The hook engine ships with trained prompts. The scripts use proven structures from your closest competitors. The visual identity drops straight into Canva. None of it is theory.</p>
+        <p>The only thing you have to do is the work in front of you each week.</p>
+        <p>On Day 1 of the challenge, you&#8217;ll receive the checklist. Follow it to the T. If 90 days after you go live you haven&#8217;t pulled $2,000, you get a full refund. No essays, no calls, no friction.</p>
       </div>
       <div class="g-col">
-        <p class="g-sub-h">What&#8217;s required</p>
+        <h3 class="g-sub-h">What&#8217;s required</h3>
         <ul class="g-list">
-          <li>Attend all 8 weekly workshops</li>
-          <li>Submit your Brand Blueprint by end of Week 1</li>
+          <li>Attend all 8 weekly workshops (live or replay within 7 days)</li>
+          <li>Submit your completed Brand Blueprint by end of Week 1</li>
           <li>Install your Frictionless OS system</li>
-          <li>Go live inside the 60-day window</li>
-          <li>Track your sales for the next 90 days</li>
+          <li>Go live with content inside the 60-day install window</li>
+          <li>Track your sales for the 90 days following your launch date</li>
         </ul>
+        <p class="g-closing">Do all of that and don&#8217;t hit $2,000, you get a full refund.</p>
       </div>
     </div>
     <p class="g-terms">Full terms available on request</p>
