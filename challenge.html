@@ -189,23 +189,23 @@
     .testi-name { font-size: 13px; font-weight: 700; color: var(--text); }
     .testi-handle { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .1em; color: var(--sub); margin-top: 2px; }
 
-    /* ── GUARANTEE (light inversion) ── */
-    #guarantee { background: #f3efe7; color: #061410; padding: 96px 24px; }
-    .g-inner { max-width: 920px; margin: 0 auto; }
-    .g-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.5); margin-bottom: 18px; }
-    .g-h { font-size: clamp(36px, 5vw, 60px); font-weight: 800; letter-spacing: -.04em; line-height: 1.0; color: #061410; margin-bottom: 28px; }
-    .g-intro { margin-bottom: 44px; padding: 28px 32px; background: rgba(238,102,62,0.06); border-radius: 18px; border: 1px solid rgba(238,102,62,0.22); }
-    .g-intro p { font-size: 17px; line-height: 1.6; color: rgba(6,20,16,0.78); margin-bottom: 14px; }
-    .g-intro p:last-child { margin-bottom: 0; font-weight: 700; color: #061410; font-size: 18px; }
+    /* ── GUARANTEE (dark green, matches Sound familiar) ── */
+    #guarantee { padding: 96px 24px; max-width: 920px; margin: 0 auto; }
+    .g-inner {}
+    .g-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub); margin-bottom: 18px; }
+    .g-h { font-size: clamp(36px, 5vw, 60px); font-weight: 800; letter-spacing: -.04em; line-height: 1.0; color: var(--text); margin-bottom: 28px; }
+    .g-intro { margin-bottom: 44px; padding: 28px 32px; background: rgba(238,102,62,0.07); border-radius: 18px; border: 1px solid rgba(238,102,62,0.28); }
+    .g-intro p { font-size: 17px; line-height: 1.6; color: var(--sub-bright); margin-bottom: 14px; }
+    .g-intro p:last-child { margin-bottom: 0; font-weight: 700; color: var(--text); font-size: 18px; }
     .g-body { display: flex; flex-direction: column; gap: 36px; }
     .g-sub-h { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; font-weight: 700; }
-    .g-section p { font-size: 15px; line-height: 1.7; color: rgba(6,20,16,0.72); margin-bottom: 12px; }
+    .g-section p { font-size: 15px; line-height: 1.7; color: var(--sub-bright); margin-bottom: 12px; }
     .g-section p:last-child { margin-bottom: 0; }
     .g-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
-    .g-list li { font-size: 15px; line-height: 1.6; color: #061410; padding-left: 24px; position: relative; }
+    .g-list li { font-size: 15px; line-height: 1.6; color: var(--text); padding-left: 24px; position: relative; }
     .g-list li::before { content: '\2713'; position: absolute; left: 0; top: 0; color: var(--orange); font-weight: 700; }
-    .g-close { margin-top: 32px; font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.7); }
-    .g-terms { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(6,20,16,0.45); margin-top: 22px; }
+    .g-close { margin-top: 32px; font-size: 15px; line-height: 1.65; color: var(--sub-bright); }
+    .g-terms { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); margin-top: 22px; }
 
     /* ── COACH ── */
     #coach { padding: 96px 24px; max-width: 920px; margin: 0 auto; }
@@ -256,31 +256,31 @@
     .get-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.45); margin-bottom: 20px; }
     .get-h { font-size: clamp(36px, 5.5vw, 60px); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; color: #061410; margin-bottom: 48px; }
     .get-list { display: flex; flex-direction: column; margin-bottom: 24px; }
-    .get-item { padding: 28px 0; border-bottom: 1px solid rgba(6,20,16,0.10); display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: start; }
+    .get-item { padding: 26px 0; border-bottom: 1px solid rgba(6,20,16,0.10); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: start; }
     .get-item:first-child { border-top: 1px solid rgba(6,20,16,0.10); }
-    .get-item-content { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+    .get-item-content { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
     .get-item-title { font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; }
-    .get-item-desc { font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.65); }
-    .get-item-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.6); padding: 6px 12px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; white-space: nowrap; margin-top: 4px; align-self: start; }
-    .get-block-wrap { margin-top: 72px; }
-    .get-block-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.45); margin-bottom: 16px; }
-    .get-block-h { font-size: clamp(26px, 3.4vw, 38px); font-weight: 800; letter-spacing: -.03em; line-height: 1.12; color: #061410; margin-bottom: 28px; }
+    .get-item-desc { font-size: 14px; line-height: 1.6; color: rgba(6,20,16,0.7); }
+    .get-item-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.6); padding: 6px 12px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; white-space: nowrap; margin-top: 6px; align-self: start; }
+    .get-block-wrap { margin-top: 64px; }
+    .get-block-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.5); margin-bottom: 24px; }
     .get-bonus-grid { display: flex; flex-direction: column; gap: 14px; }
-    .get-bonus-card { background: #faf7f0; border: 1px solid rgba(6,20,16,0.08); border-radius: 18px; padding: 28px 32px; }
-    .get-bonus-top { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; margin-bottom: 10px; }
-    .get-bonus-title { font-size: 20px; font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; }
-    .get-bonus-tags { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex-shrink: 0; }
-    .get-bonus-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); padding: 4px 10px; border-radius: 100px; background: rgba(238,102,62,0.1); font-weight: 700; }
-    .get-bonus-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.6); padding: 4px 10px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; }
-    .get-bonus-desc { font-size: 14px; line-height: 1.65; color: rgba(6,20,16,0.7); }
-    .get-reveal-card { margin-top: 56px; background: var(--black); color: #fff; border-radius: 24px; padding: 40px 40px 32px; }
-    .get-reveal-row { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; gap: 16px; }
-    .get-reveal-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
-    .get-reveal-num { font-size: 30px; font-weight: 800; letter-spacing: -.025em; color: #fff; line-height: 1; }
-    .get-reveal-row.price .get-reveal-num { color: var(--orange); font-size: 38px; }
+    .get-bonus-card { position: relative; background: #faf7f0; border: 1px solid rgba(6,20,16,0.08); border-radius: 18px; padding: 24px 130px 24px 28px; min-height: 130px; }
+    .get-bonus-title { font-size: 19px; font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; margin-bottom: 8px; }
+    .get-bonus-desc { font-size: 14px; line-height: 1.6; color: rgba(6,20,16,0.7); }
+    .get-bonus-tag { position: absolute; top: 22px; right: 22px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: #061410; padding: 5px 11px; border-radius: 100px; background: rgba(6,20,16,0.08); border: 1px solid rgba(6,20,16,0.18); font-weight: 700; }
+    .get-bonus-value { position: absolute; bottom: 22px; right: 22px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.6); padding: 5px 11px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; }
+    .get-reveal-card { margin-top: 56px; background: #061410; color: #fff; border-radius: 24px; padding: 44px 44px 36px; }
+    .get-reveal-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; gap: 16px; }
+    .reveal-label-stack { display: flex; flex-direction: column; gap: 6px; }
+    .get-reveal-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; }
+    .get-reveal-sublabel { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.3; }
+    .get-reveal-sublabel strong { color: var(--orange); font-weight: 700; }
+    .get-reveal-num { font-size: 44px; font-weight: 800; letter-spacing: -.03em; color: #fff; line-height: 1; }
+    .get-reveal-row.price .get-reveal-num { color: var(--orange); font-size: 64px; }
     .get-reveal-rule { border: none; border-top: 1px dashed rgba(255,255,255,0.18); margin: 0; }
-    .get-reveal-btn { margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 28px; background: var(--orange); color: #061410; font-size: 15px; font-weight: 700; text-align: center; text-decoration: none; border-radius: 100px; transition: background .2s; }
-    .get-reveal-btn:hover { background: var(--orange-d); color: #061410; }
+    .get-reveal-btn { margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px 28px; background: var(--orange); color: #fff; font-size: 15px; font-weight: 700; text-align: center; text-decoration: none; border-radius: 100px; transition: background .2s; }
+    .get-reveal-btn:hover { background: var(--orange-d); color: #fff; }
     .get-reveal-meta { margin-top: 14px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
     .get-reveal-meta .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--orange); }
 
@@ -524,38 +524,25 @@
     </div>
 
     <div class="get-block-wrap">
-      <p class="get-block-pre">// For the first 10 people who join</p>
-      <h3 class="get-block-h">Early-action bonuses.</h3>
+      <p class="get-block-pre">// For the next 10 people who join</p>
       <div class="get-bonus-grid">
         <div class="get-bonus-card">
-          <div class="get-bonus-top">
-            <h4 class="get-bonus-title">1:1 60-Minute Onboarding Call</h4>
-            <div class="get-bonus-tags">
-              <span class="get-bonus-tag">Bonus</span>
-              <span class="get-bonus-value">$500 Value</span>
-            </div>
-          </div>
+          <h4 class="get-bonus-title">1:1 60-Minute Onboarding Call</h4>
           <p class="get-bonus-desc">I want to know your exact problems, so we&#8217;ll hop on a quick call where I can get to know you and make any tweaks to the plan that are needed to help you specifically.</p>
+          <span class="get-bonus-tag">Bonus</span>
+          <span class="get-bonus-value">$500 Value</span>
         </div>
         <div class="get-bonus-card">
-          <div class="get-bonus-top">
-            <h4 class="get-bonus-title">Custom Hook Engine</h4>
-            <div class="get-bonus-tags">
-              <span class="get-bonus-tag">Bonus</span>
-              <span class="get-bonus-value">$1,500 Value</span>
-            </div>
-          </div>
+          <h4 class="get-bonus-title">Custom Hook Engine</h4>
           <p class="get-bonus-desc">My team will build you a custom hook engine that&#8217;s developed around the winning scripts from all the competitors in your niche. You have an idea. You drop it in here, and you&#8217;ll receive a number of hooks that you can use to test in your content.</p>
+          <span class="get-bonus-tag">Bonus</span>
+          <span class="get-bonus-value">$1,500 Value</span>
         </div>
         <div class="get-bonus-card">
-          <div class="get-bonus-top">
-            <h4 class="get-bonus-title">An Entire Month of Scripts</h4>
-            <div class="get-bonus-tags">
-              <span class="get-bonus-tag">Bonus</span>
-              <span class="get-bonus-value">$3,000 Value</span>
-            </div>
-          </div>
+          <h4 class="get-bonus-title">An Entire Month of Scripts</h4>
           <p class="get-bonus-desc">My team builds 30 ready-to-shoot scripts. Built using proven styles and topics from the creatives closest to your niche.</p>
+          <span class="get-bonus-tag">Bonus</span>
+          <span class="get-bonus-value">$3,000 Value</span>
         </div>
       </div>
     </div>
@@ -567,7 +554,10 @@
       </div>
       <hr class="get-reveal-rule" />
       <div class="get-reveal-row price">
-        <span class="get-reveal-label">Your Seat Today</span>
+        <div class="reveal-label-stack">
+          <span class="get-reveal-label">Your Seat Today</span>
+          <span class="get-reveal-sublabel">that&#8217;s <strong>95% off</strong> the combined value</span>
+        </div>
         <span class="get-reveal-num">$997</span>
       </div>
       <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="get-reveal-btn">Join the Challenge &rarr;</a>
@@ -576,38 +566,36 @@
   </div>
 </section>
 
-<!-- WEEKLY BREAKDOWN -->
-<section id="breakdown">
-  <div class="bd-inner">
-    <div class="bd-head">
-      <p class="sec-pre">// The 60-Day Roadmap</p>
-      <h2 class="bd-h">Week by week, here&#8217;s what gets built.</h2>
+
+<!-- GUARANTEE -->
+<section id="guarantee">
+  <div class="g-inner">
+    <p class="g-pre">// Our Promise</p>
+    <h2 class="g-h">The FSGuarantee&trade;</h2>
+    <div class="g-intro">
+      <p>Show up to the 8 workshops. Fill out the Brand Blueprint. Install your Frictionless OS system. Do every step the way we lay it out.</p>
+      <p>If 90 days after your launch you haven&#8217;t made at least $2,000 (double your investment), every dollar comes back.</p>
     </div>
-    <div class="bd-grid">
-      <div class="bd-card">
-        <div class="bd-week">Weeks 1&ndash;2</div>
-        <div class="bd-title">Foundation</div>
-        <p class="bd-desc">Blueprint exercise, onboarding call, positioning + avatar locked in. Frictionless OS installed.</p>
-        <span class="bd-placeholder">Ask Gabe to confirm</span>
+    <div class="g-body">
+      <div class="g-section">
+        <p class="g-sub-h">Why I can put this in writing</p>
+        <p>The install is built. The Brand Blueprint is a templated exercise. The Frictionless OS is pre-configured. The hook engine ships with trained prompts. The scripts use proven structures from your closest competitors. The visual identity drops straight into Canva. None of it is theory.</p>
+        <p>The only thing you have to do is the work in front of you each week.</p>
+        <p>On Day 1 of the challenge, you&#8217;ll receive the checklist. Follow it to the T. If 90 days after you go live you haven&#8217;t pulled $2,000, you get a full refund. No essays, no calls, no friction.</p>
       </div>
-      <div class="bd-card">
-        <div class="bd-week">Weeks 3&ndash;4</div>
-        <div class="bd-title">System Build</div>
-        <p class="bd-desc">Hook engine built. First batch of scripts delivered. Visual identity wrapped.</p>
-        <span class="bd-placeholder">Ask Gabe to confirm</span>
+      <div class="g-section">
+        <p class="g-sub-h">What&#8217;s required</p>
+        <ul class="g-list">
+          <li>Attend all 8 weekly workshops (live or replay within 7 days)</li>
+          <li>Submit your completed Brand Blueprint by end of Week 1</li>
+          <li>Install your Frictionless OS system</li>
+          <li>Go live with content inside the 60-day install window</li>
+          <li>Track your sales for the 90 days following your launch date</li>
+        </ul>
+        <p>Do all of that and don&#8217;t hit $2,000, you get a full refund.</p>
       </div>
-      <div class="bd-card">
-        <div class="bd-week">Weeks 5&ndash;6</div>
-        <div class="bd-title">Production</div>
-        <p class="bd-desc">Content coaching kicks in. You shoot your first batch of cinematic content using the system.</p>
-        <span class="bd-placeholder">Ask Gabe to confirm</span>
-      </div>
-      <div class="bd-card">
-        <div class="bd-week">Weeks 7&ndash;8</div>
-        <div class="bd-title">Launch &amp; Refine</div>
-        <p class="bd-desc">Content goes live, system gets refined, community feedback rolls in. You leave with a running brand machine.</p>
-        <span class="bd-placeholder">Ask Gabe to confirm</span>
-      </div>
+      <p class="g-close">The challenge doesn&#8217;t work for two kinds of people: those who won&#8217;t do the work, and those without a real offer behind them. For everyone with something real to sell, the math holds.</p>
+      <p class="g-terms">Full terms available on request</p>
     </div>
   </div>
 </section>
@@ -691,38 +679,6 @@
 </section>
 
 <!-- GUARANTEE -->
-<section id="guarantee">
-  <div class="g-inner">
-    <p class="g-pre">// Our Promise</p>
-    <h2 class="g-h">The FSGuarantee&trade;</h2>
-    <div class="g-intro">
-      <p>Show up to the 8 workshops. Fill out the Brand Blueprint. Install your Frictionless OS system. Do every step the way we lay it out.</p>
-      <p>If 90 days after your launch you haven&#8217;t made at least $2,000 (double your investment), every dollar comes back.</p>
-    </div>
-    <div class="g-body">
-      <div class="g-section">
-        <p class="g-sub-h">Why I can put this in writing</p>
-        <p>The install is built. The Brand Blueprint is a templated exercise. The Frictionless OS is pre-configured. The hook engine ships with trained prompts. The scripts use proven structures from your closest competitors. The visual identity drops straight into Canva. None of it is theory.</p>
-        <p>The only thing you have to do is the work in front of you each week.</p>
-        <p>On Day 1 of the challenge, you&#8217;ll receive the checklist. Follow it to the T. If 90 days after you go live you haven&#8217;t pulled $2,000, you get a full refund. No essays, no calls, no friction.</p>
-      </div>
-      <div class="g-section">
-        <p class="g-sub-h">What&#8217;s required</p>
-        <ul class="g-list">
-          <li>Attend all 8 weekly workshops (live or replay within 7 days)</li>
-          <li>Submit your completed Brand Blueprint by end of Week 1</li>
-          <li>Install your Frictionless OS system</li>
-          <li>Go live with content inside the 60-day install window</li>
-          <li>Track your sales for the 90 days following your launch date</li>
-        </ul>
-        <p>Do all of that and don&#8217;t hit $2,000, you get a full refund.</p>
-      </div>
-      <p class="g-close">The challenge doesn&#8217;t work for two kinds of people: those who won&#8217;t do the work, and those without a real offer behind them. For everyone with something real to sell, the math holds.</p>
-      <p class="g-terms">Full terms available on request</p>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section id="faq">
   <div class="faq-head">
