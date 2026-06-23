@@ -228,6 +228,33 @@
     .cs-num { font-size: 28px; font-weight: 800; letter-spacing: -.03em; color: var(--text); line-height: 1; }
     .cs-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
 
+    /* ── NOTE FROM COACH (letter card) ── */
+    #note { padding: 96px 24px; max-width: 920px; margin: 0 auto; }
+    .note-head { text-align: center; margin-bottom: 48px; }
+    .note-pre { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 100px; border: 1px solid var(--card-2); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); margin-bottom: 22px; }
+    .note-pre::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--orange); }
+    .note-h { font-size: clamp(36px, 5vw, 56px); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: var(--text); }
+    .note-h em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--orange); }
+    .note-card { background: var(--card); border: 1px solid var(--card-2); border-radius: 22px; overflow: hidden; }
+    .note-mail-head { padding: 22px 32px; border-bottom: 1px solid var(--card-2); background: rgba(255,255,255,0.02); }
+    .nl-row { display: grid; grid-template-columns: 70px 1fr; gap: 16px; padding: 4px 0; align-items: baseline; }
+    .nl-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub); }
+    .nl-value { font-size: 14px; color: var(--text); }
+    .nl-value strong { font-weight: 700; }
+    .note-body { padding: 40px 44px; }
+    .note-body p { font-size: 16px; line-height: 1.75; color: var(--sub-bright); margin-bottom: 20px; }
+    .note-body p:last-of-type { margin-bottom: 0; }
+    .note-body strong { color: var(--text); font-weight: 700; }
+    .note-callout { margin: 28px 0; padding: 20px 24px; border-left: 3px solid var(--orange); background: rgba(238,102,62,0.06); border-radius: 4px; }
+    .note-callout p { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 17px; line-height: 1.55; color: var(--sub-bright); margin: 0; }
+    .note-sig { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--card-2); display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: center; }
+    .ns-photo { width: 64px; height: 64px; border-radius: 50%; overflow: hidden; background: var(--card-2); }
+    .ns-photo img { width: 64px; height: 64px; object-fit: cover; object-position: center top; display: block; }
+    .ns-meta {}
+    .ns-name { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 26px; color: var(--orange); line-height: 1; margin-bottom: 6px; }
+    .ns-title { font-size: 13px; color: var(--sub-bright); margin-bottom: 4px; }
+    .ns-stats { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); margin: 0; }
+
     /* ── FAQ ── */
     #faq { padding: 88px 24px; max-width: 920px; margin: 0 auto; }
     .faq-head { text-align: center; margin-bottom: 40px; }
@@ -748,6 +775,48 @@
         <div class="cs-stat">
           <span class="cs-num">100+</span>
           <span class="cs-label">Students Trained</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTE FROM COACH -->
+<section id="note">
+  <div class="note-head">
+    <p class="note-pre">A note from your coach</p>
+    <h2 class="note-h">Why I built <em>this</em>.</h2>
+  </div>
+  <div class="note-card">
+    <div class="note-mail-head">
+      <div class="nl-row">
+        <span class="nl-label">From</span>
+        <span class="nl-value"><strong>Gabe Harris</strong> &lt;gabe@fscreative.live&gt;</span>
+      </div>
+      <div class="nl-row">
+        <span class="nl-label">To</span>
+        <span class="nl-value">You</span>
+      </div>
+      <div class="nl-row">
+        <span class="nl-label">RE</span>
+        <span class="nl-value"><strong>Why I built this challenge</strong></span>
+      </div>
+    </div>
+    <div class="note-body">
+      <p>I&#8217;ve been creating content for the last three years, and there have been countless nights where I sat around wishing I just knew what I was supposed to do.</p>
+      <p><strong>The whole purpose of this challenge is to condense all of that into 60 days that lets you skip the line and just fucking start showing up.</strong></p>
+      <p>I&#8217;ve spent thousands of hours in tutorials. I&#8217;ve spent tens of thousands of dollars on mentorship. I&#8217;ve filtered all of that into a 60-day program designed to help you create a brand that actually looks, feels, and sounds like you.</p>
+      <div class="note-callout">
+        <p>I give you my word: every person who runs through my community gets 100% effort out of me. All I want to do is be the creative director who helps you succeed. Your success is my success, so everything I do is 100% focused on helping you get there.</p>
+      </div>
+      <p>I hope to see you inside.</p>
+      <p>Much love and keep creating,</p>
+      <div class="note-sig">
+        <div class="ns-photo"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1779403129/DSCF5597_3_feqde5.jpg" alt="Gabe Harris" /></div>
+        <div class="ns-meta">
+          <p class="ns-name">Gabe</p>
+          <p class="ns-title">Founder, FSCreative &middot; Puerto Escondido</p>
+          <p class="ns-stats">50K+ followers &middot; 10+ years building brands &middot; 100+ students trained</p>
         </div>
       </div>
     </div>
