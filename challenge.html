@@ -304,11 +304,11 @@
     .get-block-wrap { margin-top: 64px; }
     .get-block-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.5); margin-bottom: 24px; }
     .get-bonus-grid { display: flex; flex-direction: column; gap: 14px; }
-    .get-bonus-card { position: relative; background: #faf7f0; border: 1px solid rgba(6,20,16,0.08); border-radius: 18px; padding: 24px 130px 24px 28px; min-height: 130px; }
-    .get-bonus-title { font-size: clamp(20px, 2.4vw, 24px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; margin-bottom: 10px; max-width: 80%; }
-    .get-bonus-desc { font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.7); max-width: 80%; }
-    .get-bonus-tag { position: absolute; top: 22px; right: 22px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: #fff; padding: 5px 12px; border-radius: 100px; background: #061410; border: 1px solid #061410; font-weight: 700; }
-    .get-bonus-value { position: absolute; bottom: 22px; right: 22px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.6); padding: 5px 11px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; }
+    .get-bonus-card { background: #faf7f0; border: 1px solid rgba(6,20,16,0.08); border-radius: 18px; padding: 28px 32px; display: flex; flex-direction: column; align-items: flex-start; }
+    .get-bonus-tag { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(6,20,16,0.55); padding: 6px 14px; border-radius: 100px; background: rgba(6,20,16,0.06); border: 1px solid rgba(6,20,16,0.15); font-weight: 700; margin-bottom: 18px; }
+    .get-bonus-title { font-size: clamp(22px, 2.6vw, 26px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; margin-bottom: 12px; }
+    .get-bonus-desc { font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.7); margin-bottom: 20px; }
+    .get-bonus-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.55); padding: 6px 14px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; }
     .get-reveal-card { margin-top: 56px; background: #061410; color: #fff; border-radius: 24px; padding: 44px 44px 36px; }
     .get-reveal-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; gap: 16px; }
     .reveal-label-stack { display: flex; flex-direction: column; gap: 6px; }
@@ -340,13 +340,8 @@
       .get-item-title { font-size: clamp(22px, 5.5vw, 28px); }
       .get-item-desc { font-size: 16px; }
       .get-item-value { justify-self: start; }
-      .get-bonus-card { padding: 22px 22px 22px; min-height: auto; display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
-      .get-bonus-tag { position: static; margin-bottom: 14px; align-self: flex-start; }
-      .get-bonus-value { position: static; margin-top: 16px; align-self: flex-start; }
-      .get-bonus-title { max-width: 100%; font-size: clamp(20px, 5vw, 24px); margin-bottom: 8px; }
-      .get-bonus-desc { max-width: 100%; font-size: 15px; }
-      .get-bonus-top { grid-template-columns: 1fr; gap: 12px; }
-      .get-bonus-tags { flex-direction: row; align-items: flex-start; }
+      .get-bonus-card { padding: 24px; }
+      .get-bonus-title { font-size: clamp(22px, 5.5vw, 26px); }
       .who-list li { font-size: 17px; line-height: 1.55; }
       .who-card { padding: 26px 24px; }
       .get-reveal-card { padding: 32px 28px; }
@@ -622,21 +617,21 @@
       <p class="get-block-pre">// For the first 10 people who join</p>
       <div class="get-bonus-grid">
         <div class="get-bonus-card">
+          <span class="get-bonus-tag">Bonus</span>
           <h4 class="get-bonus-title">1:1 60-Minute Onboarding Call</h4>
           <p class="get-bonus-desc">I want to know your exact problems, so we&#8217;ll hop on a quick call where I can get to know you and make any tweaks to the plan that are needed to help you specifically.</p>
-          <span class="get-bonus-tag">Bonus</span>
           <span class="get-bonus-value">$500 Value</span>
         </div>
         <div class="get-bonus-card">
+          <span class="get-bonus-tag">Bonus</span>
           <h4 class="get-bonus-title">Custom Hook Engine</h4>
           <p class="get-bonus-desc">My team will build you a custom hook engine that&#8217;s developed around the winning scripts from all the competitors in your niche. You have an idea. You drop it in here, and you&#8217;ll receive a number of hooks that you can use to test in your content.</p>
-          <span class="get-bonus-tag">Bonus</span>
           <span class="get-bonus-value">$1,500 Value</span>
         </div>
         <div class="get-bonus-card">
+          <span class="get-bonus-tag">Bonus</span>
           <h4 class="get-bonus-title">An Entire Month of Scripts</h4>
           <p class="get-bonus-desc">My team builds 30 ready-to-shoot scripts. Built using proven styles and topics from the creatives closest to your niche.</p>
-          <span class="get-bonus-tag">Bonus</span>
           <span class="get-bonus-value">$3,000 Value</span>
         </div>
       </div>
