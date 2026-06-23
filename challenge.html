@@ -105,7 +105,7 @@
 
     /* ── HERO ── */
     #hero-wrap { position: relative; background-image: url('https://res.cloudinary.com/dy0kchxh8/image/upload/v1782233822/Live_Workshop_kyrns1.jpg'); background-size: cover; background-position: 78% 35%; background-repeat: no-repeat; }
-    #hero-wrap::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,20,16,1) 0%, rgba(6,20,16,0.96) 30%, rgba(6,20,16,0.78) 55%, rgba(6,20,16,0.35) 85%, rgba(6,20,16,0.15) 100%); pointer-events: none; z-index: 0; }
+    #hero-wrap::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,20,16,1) 0%, rgba(6,20,16,0.95) 28%, rgba(6,20,16,0.6) 55%, rgba(6,20,16,0.1) 85%, rgba(6,20,16,0) 100%); pointer-events: none; z-index: 0; }
     #hero { position: relative; z-index: 1; padding: 48px 24px 40px; max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 92px); display: flex; flex-direction: column; }
     .h-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
     .social-proof { display: inline-flex; align-items: center; gap: 16px; margin-bottom: 28px; }
@@ -131,10 +131,12 @@
 
     /* ── SCHEDULE STRIP ── */
     #schedule { padding: 16px 24px 40px; max-width: 1200px; margin: 0 auto; }
-    .sched-card { background: transparent; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; align-items: start; }
-    .sched-cell { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-    .sched-value { font-size: clamp(26px, 3.2vw, 40px); font-weight: 800; letter-spacing: -.03em; color: var(--text); line-height: 1.05; }
-    .sched-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub); }
+    .sched-card { background: transparent; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; align-items: start; max-width: 680px; }
+    .sched-cell { display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 0 18px; border-right: 1px solid rgba(243,239,231,0.15); }
+    .sched-cell:first-child { padding-left: 0; }
+    .sched-cell:last-child { border-right: none; padding-right: 0; }
+    .sched-value { font-size: clamp(20px, 2.2vw, 28px); font-weight: 800; letter-spacing: -.03em; color: var(--text); line-height: 1.05; }
+    .sched-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); }
 
     /* ── PROMISE / IN 60 DAYS ── */
     #promise { padding: 88px 24px; max-width: 920px; margin: 0 auto; text-align: center; }
@@ -384,11 +386,13 @@
       #hero-wrap::before { background: linear-gradient(180deg, rgba(6,20,16,0.55) 0%, rgba(6,20,16,0.85) 60%, rgba(6,20,16,1) 100%); }
     }
     @media (max-width: 600px) {
-      .sched-card { grid-template-columns: 1fr 1fr; gap: 24px 18px; text-align: left; margin-top: 40px; }
-      .sched-cell { flex-direction: column; align-items: flex-start; padding: 0; border: none; gap: 6px; }
-      .sched-cell:last-child { border: none; }
-      .sched-cell:first-child { border: none; }
-      .sched-value { font-size: 26px; }
+      .sched-card { grid-template-columns: 1fr 1fr; gap: 0; text-align: left; margin-top: 40px; max-width: 100%; border-top: 1px solid var(--card-2); border-bottom: 1px solid var(--card-2); }
+      .sched-cell { flex-direction: column; align-items: flex-start; padding: 18px 0; border: none; gap: 6px; }
+      .sched-cell:nth-child(2), .sched-cell:nth-child(4) { padding-left: 18px; border-left: 1px solid var(--card-2); }
+      .sched-cell:nth-child(3), .sched-cell:nth-child(4) { border-top: 1px solid var(--card-2); }
+      .sched-cell:first-child, .sched-cell:nth-child(3) { padding-right: 12px; }
+      .sched-value { font-size: 24px; }
+      .sched-label { font-size: 9px; letter-spacing: .1em; }
       .bd-grid { grid-template-columns: 1fr; }
       .fcta-card { padding: 56px 28px; }
       .get-method-grid { grid-template-columns: 1fr; }
@@ -464,8 +468,8 @@
   </div>
   <div class="sched-card">
     <div class="sched-cell">
-      <span class="sched-label">Starts</span>
-      <span class="sched-value">July 20</span>
+      <span class="sched-label">Starts On</span>
+      <span class="sched-value">July 20th</span>
     </div>
     <div class="sched-cell">
       <span class="sched-label">Duration</span>
