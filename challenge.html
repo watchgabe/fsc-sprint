@@ -386,8 +386,10 @@
       #hero-wrap::before { background: linear-gradient(180deg, rgba(6,20,16,0.55) 0%, rgba(6,20,16,0.85) 60%, rgba(6,20,16,1) 100%); }
     }
     @media (max-width: 600px) {
-      .sched-card { grid-template-columns: 1fr 1fr; gap: 0 24px; text-align: left; margin-top: 40px; max-width: 100%; border-top: 1px solid var(--card-2); border-bottom: 1px solid var(--card-2); }
+      .sched-card { grid-template-columns: 1fr 1fr; gap: 0; text-align: left; margin-top: 40px; max-width: 100%; border-top: 1px solid var(--card-2); border-bottom: none; }
       .sched-cell { flex-direction: column; align-items: flex-start; padding: 18px 0; border: none; gap: 6px; }
+      .sched-cell:nth-child(odd) { padding-right: 12px; }
+      .sched-cell:nth-child(even) { padding-left: 12px; }
       .sched-cell:nth-child(3), .sched-cell:nth-child(4) { border-top: 1px solid var(--card-2); }
       .sched-value { font-size: 24px; }
       .sched-label { font-size: 9px; letter-spacing: .1em; }
