@@ -103,7 +103,9 @@
     .bb-logo img { height: 26px; width: auto; display: block; }
 
     /* ── HERO ── */
-    #hero { padding: 48px 24px 40px; max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 92px); display: flex; flex-direction: column; }
+    #hero-wrap { position: relative; background-image: url('https://res.cloudinary.com/dy0kchxh8/image/upload/v1779403129/DSCF5597_3_feqde5.jpg'); background-size: cover; background-position: right center; background-repeat: no-repeat; }
+    #hero-wrap::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,20,16,1) 0%, rgba(6,20,16,0.96) 30%, rgba(6,20,16,0.78) 55%, rgba(6,20,16,0.35) 85%, rgba(6,20,16,0.15) 100%); pointer-events: none; z-index: 0; }
+    #hero { position: relative; z-index: 1; padding: 48px 24px 40px; max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 92px); display: flex; flex-direction: column; }
     .h-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
     .social-proof { display: inline-flex; align-items: center; gap: 16px; margin-bottom: 28px; }
     .sp-avatars { display: flex; }
@@ -370,6 +372,7 @@
 </div>
 
 <!-- HERO -->
+<div id="hero-wrap">
 <section id="hero">
   <div class="h-content">
   <div class="social-proof">
@@ -410,6 +413,7 @@
     </div>
   </div>
 </section>
+</div>
 
 <!-- TLDR -->
 <section id="tldr">
