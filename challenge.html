@@ -256,18 +256,33 @@
     .get-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.45); margin-bottom: 20px; }
     .get-h { font-size: clamp(36px, 5.5vw, 60px); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; color: #061410; margin-bottom: 48px; }
     .get-list { display: flex; flex-direction: column; margin-bottom: 24px; }
-    .get-item { padding: 28px 0; border-bottom: 1px solid rgba(6,20,16,0.10); }
+    .get-item { padding: 28px 0; border-bottom: 1px solid rgba(6,20,16,0.10); display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: start; }
     .get-item:first-child { border-top: 1px solid rgba(6,20,16,0.10); }
-    .get-item-title { font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; letter-spacing: -.02em; color: #061410; margin-bottom: 8px; line-height: 1.2; }
+    .get-item-content { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+    .get-item-title { font-size: clamp(20px, 2.4vw, 26px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; }
     .get-item-desc { font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.65); }
+    .get-item-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.6); padding: 6px 12px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; white-space: nowrap; margin-top: 4px; align-self: start; }
     .get-block-wrap { margin-top: 72px; }
     .get-block-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.45); margin-bottom: 16px; }
     .get-block-h { font-size: clamp(26px, 3.4vw, 38px); font-weight: 800; letter-spacing: -.03em; line-height: 1.12; color: #061410; margin-bottom: 28px; }
-    .get-build-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .get-build-card { background: #faf7f0; border-radius: 18px; padding: 30px 28px; display: flex; flex-direction: column; gap: 10px; }
-    .get-build-num { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; color: #ee663e; font-weight: 700; }
-    .get-build-title { font-size: 18px; font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; }
-    .get-build-desc { font-size: 13px; line-height: 1.6; color: rgba(6,20,16,0.65); }
+    .get-bonus-grid { display: flex; flex-direction: column; gap: 14px; }
+    .get-bonus-card { background: #faf7f0; border: 1px solid rgba(6,20,16,0.08); border-radius: 18px; padding: 28px 32px; }
+    .get-bonus-top { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; margin-bottom: 10px; }
+    .get-bonus-title { font-size: 20px; font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; }
+    .get-bonus-tags { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex-shrink: 0; }
+    .get-bonus-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); padding: 4px 10px; border-radius: 100px; background: rgba(238,102,62,0.1); font-weight: 700; }
+    .get-bonus-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.6); padding: 4px 10px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; }
+    .get-bonus-desc { font-size: 14px; line-height: 1.65; color: rgba(6,20,16,0.7); }
+    .get-reveal-card { margin-top: 56px; background: var(--black); color: #fff; border-radius: 24px; padding: 40px 40px 32px; }
+    .get-reveal-row { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; gap: 16px; }
+    .get-reveal-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
+    .get-reveal-num { font-size: 30px; font-weight: 800; letter-spacing: -.025em; color: #fff; line-height: 1; }
+    .get-reveal-row.price .get-reveal-num { color: var(--orange); font-size: 38px; }
+    .get-reveal-rule { border: none; border-top: 1px dashed rgba(255,255,255,0.18); margin: 0; }
+    .get-reveal-btn { margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 28px; background: var(--orange); color: #061410; font-size: 15px; font-weight: 700; text-align: center; text-decoration: none; border-radius: 100px; transition: background .2s; }
+    .get-reveal-btn:hover { background: var(--orange-d); color: #061410; }
+    .get-reveal-meta { margin-top: 14px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .get-reveal-meta .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--orange); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -279,6 +294,13 @@
       .testi-grid { grid-template-columns: 1fr; }
       .get-method-grid { grid-template-columns: repeat(2, 1fr); }
       .get-build-grid { grid-template-columns: 1fr; }
+      .get-item { grid-template-columns: 1fr; gap: 12px; }
+      .get-item-value { justify-self: start; }
+      .get-bonus-top { grid-template-columns: 1fr; gap: 12px; }
+      .get-bonus-tags { flex-direction: row; align-items: flex-start; }
+      .get-reveal-card { padding: 32px 28px; }
+      .get-reveal-num { font-size: 24px; }
+      .get-reveal-row.price .get-reveal-num { font-size: 32px; }
       .tb-nav { display: none; }
       .tb-right { margin-left: auto; }
       .ts-label { font-size: 8px; }
@@ -465,61 +487,91 @@
 
     <div class="get-list">
       <div class="get-item">
-        <h3 class="get-item-title">Weekly live calls with me</h3>
-        <p class="get-item-desc">Every week we&#8217;re on Zoom together. Real-time questions, real-time feedback, real-time work on your brand.</p>
+        <div class="get-item-content">
+          <h3 class="get-item-title">Weekly masterclasses live with me</h3>
+          <p class="get-item-desc">Each week we go live and install a different part of the process: branding, identity, content, systems, launch. It&#8217;s a full masterclass based on what you need most. Join live or catch the replay in the community.</p>
+        </div>
+        <span class="get-item-value">$4,800 Value</span>
       </div>
       <div class="get-item">
-        <h3 class="get-item-title">Weekly masterclasses live with me</h3>
-        <p class="get-item-desc">Deep dives on the actual skills &mdash; shooting, editing, hook writing, brand positioning. Live, recorded, archived.</p>
+        <div class="get-item-content">
+          <h3 class="get-item-title">Weekly Q&amp;A</h3>
+          <p class="get-item-desc">A second call each week to be used as an open floor. Bring your actual content, your actual hooks, your actual problems. We solve them in the room.</p>
+        </div>
+        <span class="get-item-value">$2,400 Value</span>
       </div>
       <div class="get-item">
-        <h3 class="get-item-title">Weekly Q&amp;A</h3>
-        <p class="get-item-desc">Open floor. Bring your actual content, your actual hooks, your actual problems. We solve them in the room.</p>
+        <div class="get-item-content">
+          <h3 class="get-item-title">On-demand 1:1 support &middot; Ask Gabe</h3>
+          <p class="get-item-desc">If you get stuck in between calls there&#8217;s an &ldquo;Ask Gabe&rdquo; space where you can ask questions and get direct support. Post your question &mdash; your identity, your goals, your content strategy, whatever&#8217;s blocking you &mdash; and I&#8217;ll respond personally through text or Loom.</p>
+        </div>
+        <span class="get-item-value">$5,000 Value</span>
       </div>
       <div class="get-item">
-        <h3 class="get-item-title">On-demand 1:1 support &middot; Ask Gabe</h3>
-        <p class="get-item-desc">DM me directly throughout the 60 days. No gating, no setter, no waiting on a ticket queue.</p>
+        <div class="get-item-content">
+          <h3 class="get-item-title">Full Vault Access</h3>
+          <p class="get-item-desc">Everything I&#8217;ve built until now through my community, workshops, and 1:1 clients. The full library, available the moment you join.</p>
+        </div>
+        <span class="get-item-value">$3,000 Value</span>
       </div>
       <div class="get-item">
-        <h3 class="get-item-title">Full Masterclass Vault</h3>
-        <p class="get-item-desc">Everything I&#8217;ve built &mdash; the full library, available the moment you join. No drip, no staged unlock.</p>
-      </div>
-      <div class="get-item">
-        <h3 class="get-item-title">Private community</h3>
-        <p class="get-item-desc">Architects, designers, photographers, consultants, coaches &mdash; creatives at your level, building in the same room.</p>
+        <div class="get-item-content">
+          <h3 class="get-item-title">Private community</h3>
+          <p class="get-item-desc">The people inside are at every stage of the journey. What we all have in common is a real passion and the willingness to build something around it.</p>
+        </div>
+        <span class="get-item-value">$1,200 Value</span>
       </div>
     </div>
 
     <div class="get-block-wrap">
-      <p class="get-block-pre">// What gets installed</p>
-      <h3 class="get-block-h">Five things built around your business.</h3>
-      <div class="get-build-grid">
-        <div class="get-build-card">
-          <span class="get-build-num">01</span>
-          <h4 class="get-build-title">Your Brand Blueprint</h4>
-          <p class="get-build-desc">Avatar, journey, situation &mdash; the strategic core we build everything around. You answer the questions you&#8217;ve never been asked.</p>
+      <p class="get-block-pre">// For the first 10 people who join</p>
+      <h3 class="get-block-h">Early-action bonuses.</h3>
+      <div class="get-bonus-grid">
+        <div class="get-bonus-card">
+          <div class="get-bonus-top">
+            <h4 class="get-bonus-title">1:1 60-Minute Onboarding Call</h4>
+            <div class="get-bonus-tags">
+              <span class="get-bonus-tag">Bonus</span>
+              <span class="get-bonus-value">$500 Value</span>
+            </div>
+          </div>
+          <p class="get-bonus-desc">I want to know your exact problems, so we&#8217;ll hop on a quick call where I can get to know you and make any tweaks to the plan that are needed to help you specifically.</p>
         </div>
-        <div class="get-build-card">
-          <span class="get-build-num">02</span>
-          <h4 class="get-build-title">Frictionless OS Installed</h4>
-          <p class="get-build-desc">An AI content brain that knows your voice, your ICP, your strategy. Captures your thoughts, generates ideas, stores everything in your Notion dashboard.</p>
+        <div class="get-bonus-card">
+          <div class="get-bonus-top">
+            <h4 class="get-bonus-title">Custom Hook Engine</h4>
+            <div class="get-bonus-tags">
+              <span class="get-bonus-tag">Bonus</span>
+              <span class="get-bonus-value">$1,500 Value</span>
+            </div>
+          </div>
+          <p class="get-bonus-desc">My team will build you a custom hook engine that&#8217;s developed around the winning scripts from all the competitors in your niche. You have an idea. You drop it in here, and you&#8217;ll receive a number of hooks that you can use to test in your content.</p>
         </div>
-        <div class="get-build-card">
-          <span class="get-build-num">03</span>
-          <h4 class="get-build-title">Custom Hook Engine</h4>
-          <p class="get-build-desc">Drop in a rambling, an idea, or a full script. Get back a tested, proven hook. Built on what&#8217;s working for your closest competitors.</p>
-        </div>
-        <div class="get-build-card">
-          <span class="get-build-num">04</span>
-          <h4 class="get-build-title">An Entire Month of Scripts</h4>
-          <p class="get-build-desc">30 ready-to-shoot scripts and storyboards. Built using proven styles and topics from the creatives closest to your niche.</p>
-        </div>
-        <div class="get-build-card">
-          <span class="get-build-num">05</span>
-          <h4 class="get-build-title">Your Visual Identity</h4>
-          <p class="get-build-desc">Fonts, colors, color grades, and plug &amp; play Canva templates. Built so you know exactly how to shoot content that doesn&#8217;t suck.</p>
+        <div class="get-bonus-card">
+          <div class="get-bonus-top">
+            <h4 class="get-bonus-title">An Entire Month of Scripts</h4>
+            <div class="get-bonus-tags">
+              <span class="get-bonus-tag">Bonus</span>
+              <span class="get-bonus-value">$3,000 Value</span>
+            </div>
+          </div>
+          <p class="get-bonus-desc">My team builds 30 ready-to-shoot scripts. Built using proven styles and topics from the creatives closest to your niche.</p>
         </div>
       </div>
+    </div>
+
+    <div class="get-reveal-card">
+      <div class="get-reveal-row">
+        <span class="get-reveal-label">Combined Value</span>
+        <span class="get-reveal-num">$21,400</span>
+      </div>
+      <hr class="get-reveal-rule" />
+      <div class="get-reveal-row price">
+        <span class="get-reveal-label">Your Seat Today</span>
+        <span class="get-reveal-num">$997</span>
+      </div>
+      <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="get-reveal-btn">Join the Challenge &rarr;</a>
+      <p class="get-reveal-meta"><span class="meta-dot"></span> or 3 payments of $332.33 &middot; 100% Money-Back Guarantee</p>
     </div>
   </div>
 </section>
