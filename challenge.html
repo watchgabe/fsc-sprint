@@ -38,8 +38,20 @@
 
     .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
+    /* ── TOP STRIP (countdown above main nav) ── */
+    #topstrip { background: var(--bg); border-bottom: 1px solid var(--card-2); padding: 10px 24px; position: sticky; top: 0; z-index: 101; }
+    .ts-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .ts-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub); display: inline-flex; align-items: center; gap: 8px; }
+    .ts-label .ts-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+    .ts-time { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .08em; color: var(--text); font-weight: 700; display: inline-flex; align-items: center; gap: 10px; }
+    .ts-unit { display: inline-flex; align-items: baseline; gap: 4px; }
+    .ts-unit .ts-num { font-weight: 700; }
+    .ts-unit .ts-suf { font-size: 9px; color: var(--sub); letter-spacing: .12em; }
+    .ts-sep { color: var(--sub); }
+
     /* ── TOP HEADER BAR ── */
-    #topbar { background: var(--card); border-bottom: 1px solid var(--card-2); padding: 14px 24px; position: sticky; top: 0; z-index: 100; }
+    #topbar { background: var(--card); border-bottom: 1px solid var(--card-2); padding: 14px 24px; position: sticky; top: 32px; z-index: 100; }
     .tb-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 24px; }
     .tb-logo { display: inline-flex; align-items: center; flex-shrink: 0; }
     .tb-logo img { height: 22px; width: auto; display: block; }
@@ -88,7 +100,7 @@
     .bb-logo img { height: 26px; width: auto; display: block; }
 
     /* ── HERO ── */
-    #hero { padding: 56px 24px 40px; max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 60px); display: flex; flex-direction: column; }
+    #hero { padding: 48px 24px 40px; max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 92px); display: flex; flex-direction: column; }
     .h-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
     .social-proof { display: inline-flex; align-items: center; gap: 16px; margin-bottom: 28px; }
     .sp-avatars { display: flex; }
@@ -230,23 +242,47 @@
       .get-method-grid { grid-template-columns: repeat(2, 1fr); }
       .get-build-grid { grid-template-columns: 1fr; }
       .tb-nav { display: none; }
-      .tb-countdown { display: none; }
+      .ts-label { font-size: 8px; }
+      .ts-time { font-size: 10px; gap: 6px; }
+      .ts-unit .ts-suf { font-size: 7px; }
     }
     @media (max-width: 600px) {
-      .sched-card { grid-template-columns: 1fr; gap: 24px; text-align: center; }
-      .sched-cell { align-items: center; }
+      .sched-card { grid-template-columns: 1fr; gap: 0; text-align: left; }
+      .sched-cell { align-items: flex-start; padding: 22px 0; border-bottom: 1px solid var(--card-2); flex-direction: row; justify-content: space-between; align-items: baseline; }
+      .sched-cell:last-child { border-bottom: none; }
+      .sched-cell:first-child { border-top: 1px solid var(--card-2); }
+      .sched-value { order: 1; }
+      .sched-label { order: 2; }
       .bd-grid { grid-template-columns: 1fr; }
       .fcta-card { padding: 56px 28px; }
       .get-method-grid { grid-template-columns: 1fr; }
       #get { padding: 64px 20px; }
       #tldr { padding: 64px 20px; }
-      #topbar { padding: 12px 18px; }
+      #topbar { padding: 12px 18px; top: 28px; }
+      #topstrip { padding: 8px 18px; }
+      #hero { min-height: calc(100vh - 80px); padding: 32px 20px 32px; }
     }
   </style>
 </head>
 <body>
 
 <canvas id="grain"></canvas>
+
+<!-- TOP STRIP (countdown) -->
+<div id="topstrip">
+  <div class="ts-in">
+    <span class="ts-label"><span class="ts-dot"></span>Cohort Starts In</span>
+    <span class="ts-time">
+      <span class="ts-unit"><span class="ts-num" id="tb-d">00</span><span class="ts-suf">Days</span></span>
+      <span class="ts-sep">:</span>
+      <span class="ts-unit"><span class="ts-num" id="tb-h">00</span><span class="ts-suf">Hrs</span></span>
+      <span class="ts-sep">:</span>
+      <span class="ts-unit"><span class="ts-num" id="tb-m">00</span><span class="ts-suf">Min</span></span>
+      <span class="ts-sep">:</span>
+      <span class="ts-unit"><span class="ts-num" id="tb-s">00</span><span class="ts-suf">Sec</span></span>
+    </span>
+  </div>
+</div>
 
 <!-- TOP HEADER BAR -->
 <div id="topbar">
@@ -262,11 +298,7 @@
       <a href="#faq" class="tb-link">FAQ</a>
     </nav>
     <div class="tb-right">
-      <span class="tb-countdown">
-        <span class="tb-cd-label">Starts In</span>
-        <span class="tb-time"><span id="tb-d">00</span>D : <span id="tb-h">00</span>H : <span id="tb-m">00</span>M : <span id="tb-s">00</span>S</span>
-      </span>
-      <a href="https://buy.stripe.com/5kQ7sLduy0mZ5uWddQgA80j" target="_blank" class="tb-cta">Join &middot; $997</a>
+      <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="tb-cta">Join &middot; $997</a>
     </div>
   </div>
 </div>
@@ -289,7 +321,7 @@
   <h1 class="h-h1">Install your personal brand, master content, and attract clients in 60 days.</h1>
   <p class="h-sub">Join the challenge, where you&#8217;ll build a personal brand &amp; content system that gets you seen. We&#8217;ll build both with you, and be there every step of the way.</p>
   <div class="h-cta-row">
-    <a href="https://buy.stripe.com/5kQ7sLduy0mZ5uWddQgA80j" target="_blank" class="btn-primary">Join the Challenge &rarr;</a>
+    <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="btn-primary">Join the Challenge &rarr;</a>
     <span class="h-price"><strong>$997</strong> &middot; One-time</span>
   </div>
   </div>
@@ -353,7 +385,7 @@
       </div>
     </div>
     <div class="tldr-footer">
-      <a href="https://buy.stripe.com/5kQ7sLduy0mZ5uWddQgA80j" target="_blank" class="btn-primary">Join the Challenge &middot; $997 &rarr;</a>
+      <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="btn-primary">Join the Challenge &middot; $997 &rarr;</a>
       <span class="tldr-meta">100% Money-Back Guarantee</span>
     </div>
   </div>
@@ -592,7 +624,7 @@
     <p class="fcta-pre">Live Cohort &middot; Starts July 20, 2026</p>
     <h2 class="fcta-h">Join the challenge.</h2>
     <p class="fcta-sub">60 days. The system, installed. Your brand, built. No cap on spots, but the cohort kicks off July 20 &mdash; in or out.</p>
-    <a href="https://buy.stripe.com/5kQ7sLduy0mZ5uWddQgA80j" target="_blank" class="btn-primary" style="background:var(--orange);">Join the Challenge &mdash; $997 &rarr;</a>
+    <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="btn-primary" style="background:var(--orange);">Join the Challenge &mdash; $997 &rarr;</a>
     <p class="fcta-meta">One-time &middot; 60-day install &middot; Full guarantee through Week 3</p>
   </div>
 </section>
@@ -606,7 +638,7 @@
 <div id="sbar">
   <div class="sbar-in">
     <span class="sbar-cd"><strong id="sbar-cd">Loading&hellip;</strong> Left</span>
-    <a href="https://buy.stripe.com/5kQ7sLduy0mZ5uWddQgA80j" target="_blank" class="sbar-btn">Join the Challenge &middot; $997 &rarr;</a>
+    <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="sbar-btn">Join the Challenge &middot; $997 &rarr;</a>
   </div>
 </div>
 
