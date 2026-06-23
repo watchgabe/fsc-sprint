@@ -186,6 +186,41 @@
     .testi-name { font-size: 13px; font-weight: 700; color: var(--text); }
     .testi-handle { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .1em; color: var(--sub); margin-top: 2px; }
 
+    /* ── GUARANTEE (light inversion) ── */
+    #guarantee { background: #f3efe7; color: #061410; padding: 96px 24px; }
+    .g-inner { max-width: 920px; margin: 0 auto; }
+    .g-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.5); margin-bottom: 18px; }
+    .g-h { font-size: clamp(36px, 5vw, 60px); font-weight: 800; letter-spacing: -.04em; line-height: 1.0; color: #061410; margin-bottom: 28px; }
+    .g-intro { margin-bottom: 44px; padding: 28px 32px; background: rgba(238,102,62,0.06); border-radius: 18px; border: 1px solid rgba(238,102,62,0.22); }
+    .g-intro p { font-size: 17px; line-height: 1.6; color: rgba(6,20,16,0.78); margin-bottom: 14px; }
+    .g-intro p:last-child { margin-bottom: 0; font-weight: 700; color: #061410; font-size: 18px; }
+    .g-body { display: flex; flex-direction: column; gap: 36px; }
+    .g-sub-h { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; font-weight: 700; }
+    .g-section p { font-size: 15px; line-height: 1.7; color: rgba(6,20,16,0.72); margin-bottom: 12px; }
+    .g-section p:last-child { margin-bottom: 0; }
+    .g-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+    .g-list li { font-size: 15px; line-height: 1.6; color: #061410; padding-left: 24px; position: relative; }
+    .g-list li::before { content: '\2713'; position: absolute; left: 0; top: 0; color: var(--orange); font-weight: 700; }
+    .g-close { margin-top: 32px; font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.7); }
+    .g-terms { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(6,20,16,0.45); margin-top: 22px; }
+
+    /* ── COACH ── */
+    #coach { padding: 96px 24px; max-width: 1200px; margin: 0 auto; }
+    .coach-head { margin-bottom: 40px; }
+    .coach-h { font-size: clamp(36px, 5vw, 60px); font-weight: 800; letter-spacing: -.04em; line-height: 1.0; color: var(--text); margin-top: 14px; }
+    .coach-handle { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); margin-top: 10px; }
+    .coach-handle span { color: var(--orange); }
+    .coach-grid { display: grid; grid-template-columns: 320px 1fr; gap: 56px; align-items: start; }
+    .coach-photo { border-radius: 20px; overflow: hidden; aspect-ratio: 3/4; background: var(--card); }
+    .coach-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .coach-body p { font-size: 16px; line-height: 1.7; color: var(--sub-bright); margin-bottom: 16px; }
+    .coach-body p:last-of-type { margin-bottom: 28px; }
+    .coach-body strong { color: var(--text); font-weight: 700; }
+    .coach-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding-top: 24px; border-top: 1px solid var(--card-2); }
+    .cs-stat { display: flex; flex-direction: column; gap: 6px; }
+    .cs-num { font-size: 28px; font-weight: 800; letter-spacing: -.03em; color: var(--text); line-height: 1; }
+    .cs-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+
     /* ── FAQ ── */
     #faq { padding: 88px 24px; max-width: 920px; margin: 0 auto; }
     .faq-head { text-align: center; margin-bottom: 40px; }
@@ -249,6 +284,11 @@
       .ts-time { font-size: 10px; gap: 6px; }
       .ts-unit .ts-suf { font-size: 7px; }
     }
+    @media (max-width: 768px) {
+      .coach-grid { grid-template-columns: 1fr; gap: 32px; }
+      .coach-photo { aspect-ratio: 4/3; max-width: 420px; }
+      .coach-stats { grid-template-columns: 1fr 1fr; gap: 18px; }
+    }
     @media (max-width: 600px) {
       .sched-card { grid-template-columns: 1fr; gap: 0; text-align: left; margin-top: 40px; }
       .sched-cell { align-items: flex-start; padding: 22px 0; border-bottom: 1px solid var(--card-2); flex-direction: row; justify-content: space-between; align-items: baseline; }
@@ -295,10 +335,10 @@
     </a>
     <nav class="tb-nav">
       <a href="#tldr" class="tb-link">The Offer</a>
-      <a href="#get" class="tb-link">What&#8217;s Inside</a>
-      <a href="#breakdown" class="tb-link">Roadmap</a>
-      <a href="#testimonials" class="tb-link">Reviews</a>
-      <a href="#faq" class="tb-link">FAQ</a>
+      <a href="#get" class="tb-link">What You Get</a>
+      <a href="#guarantee" class="tb-link">Our Guarantee</a>
+      <a href="#faq" class="tb-link">FAQs</a>
+      <a href="#coach" class="tb-link">Your Coach</a>
     </nav>
     <div class="tb-right">
       <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="tb-cta">Join &middot; $997</a>
@@ -587,6 +627,39 @@
   </div>
 </section>
 
+<!-- GUARANTEE -->
+<section id="guarantee">
+  <div class="g-inner">
+    <p class="g-pre">// Our Promise</p>
+    <h2 class="g-h">The FSGuarantee&trade;</h2>
+    <div class="g-intro">
+      <p>Show up to the 8 workshops. Fill out the Brand Blueprint. Install your Frictionless OS system. Do every step the way we lay it out.</p>
+      <p>If 90 days after your launch you haven&#8217;t made at least $2,000 (double your investment), every dollar comes back.</p>
+    </div>
+    <div class="g-body">
+      <div class="g-section">
+        <p class="g-sub-h">Why I can put this in writing</p>
+        <p>The install is built. The Brand Blueprint is a templated exercise. The Frictionless OS is pre-configured. The hook engine ships with trained prompts. The scripts use proven structures from your closest competitors. The visual identity drops straight into Canva. None of it is theory.</p>
+        <p>The only thing you have to do is the work in front of you each week.</p>
+        <p>On Day 1 of the challenge, you&#8217;ll receive the checklist. Follow it to the T. If 90 days after you go live you haven&#8217;t pulled $2,000, you get a full refund. No essays, no calls, no friction.</p>
+      </div>
+      <div class="g-section">
+        <p class="g-sub-h">What&#8217;s required</p>
+        <ul class="g-list">
+          <li>Attend all 8 weekly workshops (live or replay within 7 days)</li>
+          <li>Submit your completed Brand Blueprint by end of Week 1</li>
+          <li>Install your Frictionless OS system</li>
+          <li>Go live with content inside the 60-day install window</li>
+          <li>Track your sales for the 90 days following your launch date</li>
+        </ul>
+        <p>Do all of that and don&#8217;t hit $2,000, you get a full refund.</p>
+      </div>
+      <p class="g-close">The challenge doesn&#8217;t work for two kinds of people: those who won&#8217;t do the work, and those without a real offer behind them. For everyone with something real to sell, the math holds.</p>
+      <p class="g-terms">Full terms available on request</p>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section id="faq">
   <div class="faq-head">
@@ -617,6 +690,40 @@
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Who is this NOT for?</span><span class="faq-icon">+</span></button>
       <div class="faq-a"><div class="faq-a-inner">If you don&#8217;t have a working offer yet, build that first. If you&#8217;re chasing virality or sponsorship deals, this is the wrong room. If you want AI to generate volume so you can post 5x/day, also wrong room. This is for creatives with a real business who want a brand that pulls.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COACH -->
+<section id="coach">
+  <div class="coach-head">
+    <p class="sec-pre">// Your coach</p>
+    <h2 class="coach-h">Gabe Harris</h2>
+    <p class="coach-handle"><span>@watch.gabe</span> &middot; Founder of FSCreative</p>
+  </div>
+  <div class="coach-grid">
+    <div class="coach-photo">
+      <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1779403129/DSCF5597_3_feqde5.jpg" alt="Gabe Harris" />
+    </div>
+    <div class="coach-body">
+      <p>10+ years building brands for clients. The anchor: <strong>Crux Cigars.</strong> A 2019 rebrand other cigar brands started copying within a year, still a client seven years later.</p>
+      <p>Then I built one for myself. <strong>50K+ followers from zero,</strong> after I left Dallas with a backpack and a camera.</p>
+      <p>The last year, I&#8217;ve obsessively built AI content systems. Paid partnerships with <strong>Perplexity</strong> and <strong>ElevenLabs</strong> while I was learning. This challenge is what I figured out.</p>
+      <p>I&#8217;ll be in every workshop. I&#8217;ll reply to your DMs. I built this because the version I wanted didn&#8217;t exist anywhere else.</p>
+      <div class="coach-stats">
+        <div class="cs-stat">
+          <span class="cs-num">50K+</span>
+          <span class="cs-label">Instagram Followers</span>
+        </div>
+        <div class="cs-stat">
+          <span class="cs-num">10+</span>
+          <span class="cs-label">Years Building Brands</span>
+        </div>
+        <div class="cs-stat">
+          <span class="cs-num">100+</span>
+          <span class="cs-label">Students Trained</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
