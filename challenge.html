@@ -70,7 +70,7 @@
     @media (max-width: 768px) { #sbar { display: block; } }
     #sbar.vis { transform: translateY(0); }
     .sbar-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-    .sbar-cd { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--sub-bright); line-height: 1.2; white-space: nowrap; }
+    .sbar-cd { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--sub-bright); line-height: 1.25; text-align: left; }
     .sbar-cd strong { color: var(--text); font-weight: 700; }
     .sbar-btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 100px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
     .sbar-btn:hover { background: var(--orange-d); color: #061410; transform: translateY(-1px); }
@@ -131,12 +131,12 @@
 
     /* ── SCHEDULE STRIP ── */
     #schedule { padding: 16px 24px 40px; max-width: 1200px; margin: 0 auto; }
-    .sched-card { background: transparent; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; align-items: start; max-width: 680px; }
-    .sched-cell { display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: 0 18px; border-right: 1px solid rgba(243,239,231,0.15); }
+    .sched-card { background: transparent; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; align-items: start; max-width: 920px; margin: 0 auto; width: 100%; }
+    .sched-cell { display: flex; flex-direction: column; gap: 10px; min-width: 0; padding: 0 24px; border-right: 1px solid rgba(243,239,231,0.18); }
     .sched-cell:first-child { padding-left: 0; }
     .sched-cell:last-child { border-right: none; padding-right: 0; }
-    .sched-value { font-size: clamp(20px, 2.2vw, 28px); font-weight: 800; letter-spacing: -.03em; color: var(--text); line-height: 1.05; }
-    .sched-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); }
+    .sched-value { font-size: clamp(24px, 2.6vw, 34px); font-weight: 800; letter-spacing: -.03em; color: var(--text); line-height: 1.05; }
+    .sched-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
 
     /* ── PROMISE / IN 60 DAYS ── */
     #promise { padding: 88px 24px; max-width: 920px; margin: 0 auto; text-align: center; }
@@ -386,11 +386,9 @@
       #hero-wrap::before { background: linear-gradient(180deg, rgba(6,20,16,0.55) 0%, rgba(6,20,16,0.85) 60%, rgba(6,20,16,1) 100%); }
     }
     @media (max-width: 600px) {
-      .sched-card { grid-template-columns: 1fr 1fr; gap: 0; text-align: left; margin-top: 40px; max-width: 100%; border-top: 1px solid var(--card-2); border-bottom: 1px solid var(--card-2); }
+      .sched-card { grid-template-columns: 1fr 1fr; gap: 0 24px; text-align: left; margin-top: 40px; max-width: 100%; border-top: 1px solid var(--card-2); border-bottom: 1px solid var(--card-2); }
       .sched-cell { flex-direction: column; align-items: flex-start; padding: 18px 0; border: none; gap: 6px; }
-      .sched-cell:nth-child(2), .sched-cell:nth-child(4) { padding-left: 18px; border-left: 1px solid var(--card-2); }
       .sched-cell:nth-child(3), .sched-cell:nth-child(4) { border-top: 1px solid var(--card-2); }
-      .sched-cell:first-child, .sched-cell:nth-child(3) { padding-right: 12px; }
       .sched-value { font-size: 24px; }
       .sched-label { font-size: 9px; letter-spacing: .1em; }
       .bd-grid { grid-template-columns: 1fr; }
@@ -490,7 +488,7 @@
 <!-- TLDR -->
 <section id="tldr">
   <div class="tldr-card">
-    <span class="tldr-eyebrow">// The quick and dirty TLDR</span>
+    <span class="tldr-eyebrow">// TLDR</span>
     <h2 class="tldr-h">The entire offer in 15 seconds.</h2>
     <div class="tldr-list">
       <div class="tldr-item">
@@ -855,7 +853,7 @@
 <!-- STICKY BOTTOM CTA -->
 <div id="sbar">
   <div class="sbar-in">
-    <span class="sbar-cd">100% Money-Back Guarantee</span>
+    <span class="sbar-cd">100% Money-Back<br/>Guarantee</span>
     <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="sbar-btn">Join the Challenge</a>
   </div>
 </div>
