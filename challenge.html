@@ -294,6 +294,8 @@
     .get-inner { max-width: 920px; margin: 0 auto; }
     .get-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.45); margin-bottom: 20px; }
     .get-h { font-size: clamp(36px, 5.5vw, 60px); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; color: #061410; margin-bottom: 48px; }
+    .mobile-br { display: none; }
+    @media (max-width: 768px) { .mobile-br { display: inline; } }
     .get-list { display: flex; flex-direction: column; margin-bottom: 24px; }
     .get-item { padding: 26px 0; border-bottom: 1px solid rgba(6,20,16,0.10); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: start; }
     .get-item:first-child { border-top: 1px solid rgba(6,20,16,0.10); }
@@ -370,7 +372,9 @@
     @media (max-width: 768px) {
       .coach-grid { grid-template-columns: 1fr; gap: 32px; }
       .coach-photo { aspect-ratio: 3/4; max-width: 380px; }
-      .coach-stats { grid-template-columns: 1fr 1fr; gap: 18px; }
+      .coach-stats { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .cs-num { font-size: 20px; }
+      .cs-label { font-size: 7px; letter-spacing: .1em; }
     }
     @media (max-width: 768px) {
       #hero-wrap { background-image: url('https://res.cloudinary.com/dy0kchxh8/image/upload/v1782234450/Copy_of_Template_jox4rh.jpg'); background-position: center top; }
@@ -378,11 +382,9 @@
     }
     @media (max-width: 600px) {
       .sched-card { grid-template-columns: 1fr; gap: 0; text-align: left; margin-top: 40px; }
-      .sched-cell { align-items: flex-start; padding: 22px 0; border-bottom: 1px solid var(--card-2); flex-direction: row; justify-content: space-between; align-items: baseline; }
+      .sched-cell { flex-direction: column; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--card-2); gap: 6px; }
       .sched-cell:last-child { border-bottom: none; }
       .sched-cell:first-child { border-top: 1px solid var(--card-2); }
-      .sched-value { order: 1; }
-      .sched-label { order: 2; }
       .bd-grid { grid-template-columns: 1fr; }
       .fcta-card { padding: 56px 28px; }
       .get-method-grid { grid-template-columns: 1fr; }
@@ -391,7 +393,7 @@
       #topbar { padding: 12px 18px; top: 28px; }
       #topstrip { padding: 8px 18px; }
       #hero { min-height: calc(100vh - 80px); padding: 56px 20px 32px; }
-      .h-sub { font-size: 14px; line-height: 1.5; }
+      .h-sub { font-size: 16px; line-height: 1.5; }
     }
   </style>
 </head>
@@ -454,7 +456,6 @@
   <p class="h-sub">Join the challenge, where you&#8217;ll build a personal brand &amp; content system that gets you seen. We&#8217;ll build both with you, and be there every step of the way.</p>
   <div class="h-cta-row">
     <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="btn-primary">Join the Challenge &rarr;</a>
-    <span class="h-price">100% Money Back Guarantee</span>
   </div>
   </div>
   <div class="sched-card">
@@ -573,7 +574,7 @@
 <section id="get">
   <div class="get-inner">
     <p class="get-pre">// <span class="ge-prefix">In 60 days, </span>your personal brand machine is built</p>
-    <h2 class="get-h">Here&#8217;s everything you get.</h2>
+    <h2 class="get-h">Here&#8217;s everything<br class="mobile-br" /> you get.</h2>
 
     <div class="get-list">
       <div class="get-item">
@@ -664,13 +665,13 @@
   <div class="g-inner">
     <p class="g-pre">// The Promise</p>
     <h2 class="g-h">Our Guarantee</h2>
-    <p class="g-quote">If 90 days after your launch you followed the checklist and haven&#8217;t made at least <strong>$2,000</strong> (double your investment), every dollar comes back.</p>
+    <p class="g-quote">If 90 days after your launch you followed the checklist and haven&#8217;t made at least <strong>$5,000</strong> (5x&#8217;d your investment), every dollar comes back.</p>
     <div class="g-cols">
       <div class="g-col">
         <h3 class="g-sub-h">Why I can put this in writing</h3>
         <p>The install is built. The Brand Blueprint is a templated exercise. The Frictionless OS is pre-configured. The hook engine ships with trained prompts. The scripts use proven structures from your closest competitors. The visual identity drops straight into Canva. None of it is theory.</p>
         <p>The only thing you have to do is the work in front of you each week.</p>
-        <p>On Day 1 of the challenge, you&#8217;ll receive the checklist. Follow it to the T. If 90 days after you go live you haven&#8217;t pulled $2,000, you get a full refund. No essays, no calls, no friction.</p>
+        <p>On Day 1 of the challenge, you&#8217;ll receive the checklist. Follow it to the T. If 90 days after you go live you haven&#8217;t pulled $5,000, you get a full refund. No essays, no calls, no friction.</p>
       </div>
       <div class="g-col">
         <h3 class="g-sub-h">What&#8217;s required</h3>
@@ -681,7 +682,7 @@
           <li>Go live with content inside the 60-day install window</li>
           <li>Track your sales for the 90 days following your launch date</li>
         </ul>
-        <p class="g-closing">Do all of that and don&#8217;t hit $2,000, you get a full refund.</p>
+        <p class="g-closing">Do all of that and don&#8217;t hit $5,000, you get a full refund.</p>
       </div>
     </div>
     <p class="g-terms">Full terms available on request</p>
@@ -785,7 +786,7 @@
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How does the money-back guarantee work?</span><span class="faq-icon">+</span></button>
-      <div class="faq-a"><div class="faq-a-inner">Show up to all 8 workshops. Fill out the Brand Blueprint. Install your Frictionless OS system. Follow the Day 1 checklist to the T. If 90 days after you go live you haven&#8217;t made at least $2,000 (double your investment), every dollar comes back. No essays, no calls, no friction. Full breakdown in the FSGuarantee&trade; section above.</div></div>
+      <div class="faq-a"><div class="faq-a-inner">Show up to all 8 workshops. Fill out the Brand Blueprint. Install your Frictionless OS system. Follow the Day 1 checklist to the T. If 90 days after you go live you haven&#8217;t made at least $5,000 (5x&#8217;d your investment), every dollar comes back. No essays, no calls, no friction. Full breakdown in the FSGuarantee&trade; section above.</div></div>
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Are all sessions live?</span><span class="faq-icon">+</span></button>
