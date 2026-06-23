@@ -39,7 +39,7 @@
     .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
     /* ── TOP STRIP (countdown above main nav) ── */
-    #topstrip { background: var(--bg); border-bottom: 1px solid var(--card-2); padding: 10px 24px; position: sticky; top: 0; z-index: 101; }
+    #topstrip { background: var(--card); border-bottom: 1px solid var(--card-2); padding: 10px 24px; position: sticky; top: 0; z-index: 101; }
     .ts-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
     .ts-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub); display: inline-flex; align-items: center; gap: 8px; }
     .ts-label .ts-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; }
@@ -242,12 +242,15 @@
       .get-method-grid { grid-template-columns: repeat(2, 1fr); }
       .get-build-grid { grid-template-columns: 1fr; }
       .tb-nav { display: none; }
+      .tb-right { margin-left: auto; }
+      .tb-cta { background: var(--orange); color: #fff; border-color: var(--orange); }
+      .tb-cta:hover { background: var(--orange-d); color: #fff; border-color: var(--orange-d); }
       .ts-label { font-size: 8px; }
       .ts-time { font-size: 10px; gap: 6px; }
       .ts-unit .ts-suf { font-size: 7px; }
     }
     @media (max-width: 600px) {
-      .sched-card { grid-template-columns: 1fr; gap: 0; text-align: left; }
+      .sched-card { grid-template-columns: 1fr; gap: 0; text-align: left; margin-top: 40px; }
       .sched-cell { align-items: flex-start; padding: 22px 0; border-bottom: 1px solid var(--card-2); flex-direction: row; justify-content: space-between; align-items: baseline; }
       .sched-cell:last-child { border-bottom: none; }
       .sched-cell:first-child { border-top: 1px solid var(--card-2); }
@@ -322,7 +325,7 @@
   <p class="h-sub">Join the challenge, where you&#8217;ll build a personal brand &amp; content system that gets you seen. We&#8217;ll build both with you, and be there every step of the way.</p>
   <div class="h-cta-row">
     <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="btn-primary">Join the Challenge &rarr;</a>
-    <span class="h-price"><strong>$997</strong> &middot; One-time</span>
+    <span class="h-price">Money Back Guarantee</span>
   </div>
   </div>
   <div class="sched-card">
