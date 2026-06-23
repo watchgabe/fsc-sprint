@@ -308,6 +308,8 @@
     .get-reveal-card { margin-top: 56px; background: #061410; color: #fff; border-radius: 24px; padding: 44px 44px 36px; }
     .get-reveal-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; gap: 16px; }
     .reveal-label-stack { display: flex; flex-direction: column; gap: 6px; }
+    .reveal-price-stack { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+    .get-reveal-installments { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,0.55); }
     .get-reveal-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; }
     .get-reveal-sublabel { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.3; }
     .get-reveal-sublabel strong { color: var(--orange); font-weight: 700; }
@@ -495,7 +497,7 @@
       </div>
       <div class="tldr-item">
         <span class="tldr-check">&#10003;</span>
-        <p class="tldr-text"><strong>One payment of $997 or split into three payments of $332.33/month.</strong> You only need to pay $332.33 to get started.</p>
+        <p class="tldr-text"><strong>One payment of $997 or split into three payments of $367/month.</strong> You only need to pay $367 to get started.</p>
       </div>
       <div class="tldr-item">
         <span class="tldr-check">&#10003;</span>
@@ -625,10 +627,13 @@
           <span class="get-reveal-label">Your Seat Today</span>
           <span class="get-reveal-sublabel">that&#8217;s <strong>95% off</strong> the combined value</span>
         </div>
-        <span class="get-reveal-num">$997</span>
+        <div class="reveal-price-stack">
+          <span class="get-reveal-num">$997</span>
+          <span class="get-reveal-installments">or 3 payments of $367</span>
+        </div>
       </div>
       <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="get-reveal-btn">Join the Challenge &rarr;</a>
-      <p class="get-reveal-meta"><span class="meta-dot"></span> or 3 payments of $332.33 &middot; 100% Money-Back Guarantee</p>
+      <p class="get-reveal-meta"><span class="meta-dot"></span> 100% Money-Back Guarantee</p>
     </div>
   </div>
 </section>
