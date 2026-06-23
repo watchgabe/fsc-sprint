@@ -39,16 +39,16 @@
     .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
     /* ── TOP STRIP (countdown above main nav) ── */
-    #topstrip { background: #f3efe7; border-bottom: 1px solid rgba(6,20,16,0.08); padding: 14px 24px; position: sticky; top: 0; z-index: 101; }
-    .ts-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap; }
-    .ts-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(6,20,16,0.72); font-weight: 700; display: inline-flex; align-items: center; gap: 10px; }
-    .ts-label .ts-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; }
+    #topstrip { background: #f3efe7; border-bottom: 1px solid rgba(6,20,16,0.08); padding: 10px 24px; position: sticky; top: 0; z-index: 101; }
+    .ts-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .ts-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.6); display: inline-flex; align-items: center; gap: 8px; }
+    .ts-label .ts-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
-    .ts-time { font-family: 'Space Mono', monospace; color: #061410; font-weight: 700; display: inline-flex; align-items: center; gap: 14px; }
-    .ts-unit { display: inline-flex; align-items: baseline; gap: 6px; }
-    .ts-unit .ts-num { font-weight: 700; font-size: 20px; letter-spacing: -.02em; }
-    .ts-unit .ts-suf { font-size: 10px; color: rgba(6,20,16,0.55); letter-spacing: .14em; text-transform: uppercase; }
-    .ts-sep { color: rgba(6,20,16,0.35); font-size: 18px; align-self: center; }
+    .ts-time { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .08em; color: #061410; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; }
+    .ts-unit { display: inline-flex; align-items: baseline; gap: 4px; }
+    .ts-unit .ts-num { font-weight: 700; }
+    .ts-unit .ts-suf { font-size: 9px; color: rgba(6,20,16,0.5); letter-spacing: .12em; }
+    .ts-sep { color: rgba(6,20,16,0.35); }
 
     /* ── TOP HEADER BAR ── */
     #topbar { background: var(--card); border-bottom: 1px solid var(--card-2); padding: 14px 24px; position: sticky; top: 32px; z-index: 100; }
@@ -356,11 +356,16 @@
       .tb-nav { display: none; }
       .tb-right { margin-left: auto; }
       #topbar { display: none; }
-      .ts-label { font-size: 11px; font-weight: 700; }
-      .ts-time { font-size: 13px; }
-      .ts-unit .ts-suf { font-size: 9px; }
       #topstrip { padding: 14px 18px; }
+      .ts-in { gap: 18px; }
+      .ts-label { font-size: 10px; font-weight: 700; }
+      .ts-time { font-size: 11px; gap: 14px; }
+      .ts-unit { flex-direction: column; align-items: center; gap: 2px; }
+      .ts-unit .ts-num { font-size: 22px; letter-spacing: -.02em; line-height: 1; }
+      .ts-unit .ts-suf { font-size: 9px; }
+      .ts-sep { font-size: 16px; align-self: center; }
       #testimonials { padding-top: 108px; }
+      .ge-prefix { display: none; }
       .ts-label { font-size: 8px; }
       .ts-time { font-size: 10px; gap: 6px; }
       .ts-unit .ts-suf { font-size: 7px; }
@@ -569,7 +574,7 @@
 <!-- GET (Promise + Live Program + Method + Build) -->
 <section id="get">
   <div class="get-inner">
-    <p class="get-pre">// In 60 days, your personal brand machine is built</p>
+    <p class="get-pre">// <span class="ge-prefix">In 60 days, </span>your personal brand machine is built</p>
     <h2 class="get-h">Here&#8217;s everything you get.</h2>
 
     <div class="get-list">
