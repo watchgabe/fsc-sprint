@@ -66,13 +66,13 @@
     .tb-cta:hover { background: var(--orange-d); border-color: var(--orange-d); color: #061410; }
 
     /* ── STICKY BOTTOM CTA (mobile only) ── */
-    #sbar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background: var(--card); border-top: 1px solid var(--card-2); padding: 12px 24px; transform: translateY(105%); transition: transform .4s ease; }
+    #sbar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background: var(--card); border-top: 1px solid var(--card-2); padding: 10px 14px; transform: translateY(105%); transition: transform .4s ease; }
     @media (max-width: 768px) { #sbar { display: block; } }
     #sbar.vis { transform: translateY(0); }
-    .sbar-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .sbar-cd { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub-bright); }
+    .sbar-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .sbar-cd { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--sub-bright); line-height: 1.2; white-space: nowrap; }
     .sbar-cd strong { color: var(--text); font-weight: 700; }
-    .sbar-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: 100px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
+    .sbar-btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 100px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
     .sbar-btn:hover { background: var(--orange-d); color: #061410; transform: translateY(-1px); }
 
     /* ── TLDR SECTION (light inversion) ── */
@@ -307,7 +307,7 @@
     .get-block-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.5); margin-bottom: 24px; }
     .get-bonus-grid { display: flex; flex-direction: column; gap: 14px; }
     .get-bonus-card { background: #faf7f0; border: 1px solid rgba(6,20,16,0.08); border-radius: 18px; padding: 28px 32px; display: flex; flex-direction: column; align-items: flex-start; }
-    .get-bonus-tag { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(6,20,16,0.55); padding: 6px 14px; border-radius: 100px; background: rgba(6,20,16,0.06); border: 1px solid rgba(6,20,16,0.15); font-weight: 700; margin-bottom: 18px; }
+    .get-bonus-tag { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #f3efe7; padding: 6px 14px; border-radius: 100px; background: #061410; border: 1px solid #061410; font-weight: 700; margin-bottom: 18px; }
     .get-bonus-title { font-size: clamp(22px, 2.6vw, 26px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; margin-bottom: 12px; }
     .get-bonus-desc { font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.7); margin-bottom: 20px; }
     .get-bonus-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.55); padding: 6px 14px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; }
@@ -324,6 +324,7 @@
     .get-reveal-rule { border: none; border-top: 1px dashed rgba(255,255,255,0.18); margin: 0; }
     .get-reveal-btn { margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 28px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; text-align: center; text-decoration: none; border-radius: 100px; transition: background .2s; }
     .get-reveal-btn:hover { background: var(--orange-d); color: #061410; }
+    .get-reveal-installments-mobile { display: none; }
     .get-reveal-meta { margin-top: 14px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
     .get-reveal-meta .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--orange); }
 
@@ -349,6 +350,8 @@
       .get-reveal-card { padding: 32px 28px; }
       .get-reveal-num { font-size: 24px; }
       .get-reveal-row.price .get-reveal-num { font-size: 32px; }
+      .reveal-price-stack .get-reveal-installments { display: none; }
+      .get-reveal-installments-mobile { display: block; text-align: center; margin-top: 14px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
       .g-cols { grid-template-columns: 1fr; }
       .g-promise-box { padding: 28px 24px; }
       .g-promise-box p { font-size: 17px; }
@@ -381,10 +384,11 @@
       #hero-wrap::before { background: linear-gradient(180deg, rgba(6,20,16,0.55) 0%, rgba(6,20,16,0.85) 60%, rgba(6,20,16,1) 100%); }
     }
     @media (max-width: 600px) {
-      .sched-card { grid-template-columns: 1fr; gap: 0; text-align: left; margin-top: 40px; }
-      .sched-cell { flex-direction: column; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--card-2); gap: 6px; }
-      .sched-cell:last-child { border-bottom: none; }
-      .sched-cell:first-child { border-top: 1px solid var(--card-2); }
+      .sched-card { grid-template-columns: 1fr 1fr; gap: 24px 18px; text-align: left; margin-top: 40px; }
+      .sched-cell { flex-direction: column; align-items: flex-start; padding: 0; border: none; gap: 6px; }
+      .sched-cell:last-child { border: none; }
+      .sched-cell:first-child { border: none; }
+      .sched-value { font-size: 26px; }
       .bd-grid { grid-template-columns: 1fr; }
       .fcta-card { padding: 56px 28px; }
       .get-method-grid { grid-template-columns: 1fr; }
@@ -655,6 +659,7 @@
         </div>
       </div>
       <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="get-reveal-btn">Join the Challenge &rarr;</a>
+      <div class="get-reveal-installments-mobile">$997 or 3 payments of $367</div>
     </div>
   </div>
 </section>
@@ -665,7 +670,7 @@
   <div class="g-inner">
     <p class="g-pre">// The Promise</p>
     <h2 class="g-h">Our Guarantee</h2>
-    <p class="g-quote">If 90 days after your launch you followed the checklist and haven&#8217;t made at least <strong>$5,000</strong> (5x&#8217;d your investment), every dollar comes back.</p>
+    <p class="g-quote">If 90 days after your launch you followed the checklist and haven&#8217;t <strong>5x&#8217;d your investment ($5,000)</strong>, every dollar comes back.</p>
     <div class="g-cols">
       <div class="g-col">
         <h3 class="g-sub-h">Why I can put this in writing</h3>
@@ -847,7 +852,7 @@
 <div id="sbar">
   <div class="sbar-in">
     <span class="sbar-cd">100% Money-Back Guarantee</span>
-    <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="sbar-btn">Join the Challenge &rarr;</a>
+    <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="sbar-btn">Join the Challenge</a>
   </div>
 </div>
 
