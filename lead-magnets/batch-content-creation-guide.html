@@ -12,32 +12,60 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     img { display: block; max-width: 100%; }
-    :root, [data-mode="dark"] { --bg: #061410; --card: #091a14; --card-2: #0f261c; --text: #ffffff; --sub: rgba(255,255,255,0.45); --sub-bright: rgba(255,255,255,0.72); --orange: #ee663e; --orange-d: #e0552e; --gold: #fbbf24; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.5; }
-    a { color: inherit; text-decoration: none; }
+
+    :root, [data-mode="dark"] {
+      --bg:         #061410;
+      --card:       #091a14;
+      --card-2:     #0f261c;
+      --text:       #ffffff;
+      --sub:        rgba(255,255,255,0.45);
+      --sub-bright: rgba(255,255,255,0.72);
+      --orange:     #ee663e;
+      --orange-d:   #e0552e;
+      --gold:       #fbbf24;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+    }
+
     #topbar { background: var(--card); border-bottom: 1px solid var(--card-2); padding: 14px 24px; position: sticky; top: 0; z-index: 100; }
     .tb-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .tb-logo img { height: 22px; width: auto; display: block; }
-    .tb-back { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub-bright); transition: color .2s; }
+    .tb-back { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub-bright); text-decoration: none; transition: color .2s; }
     .tb-back:hover { color: var(--text); }
-    #gate { padding: 80px 24px 60px; max-width: 720px; margin: 0 auto; }
-    .gate-tag { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 100px; background: rgba(238,102,62,0.12); border: 1px solid rgba(238,102,62,0.3); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 22px; }
-    .gate-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
-    .gate-h1 { font-size: clamp(36px, 5.4vw, 60px); font-weight: 800; letter-spacing: -.035em; line-height: 1.04; margin-bottom: 22px; }
-    .gate-h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--orange); }
-    .gate-sub { font-size: 17px; line-height: 1.6; color: var(--sub-bright); margin-bottom: 36px; max-width: 600px; }
-    .gate-bullets { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
-    .gate-bullet { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; }
-    .gb-check { color: var(--orange); font-size: 14px; line-height: 1.5; margin-top: 1px; }
-    .gb-text { font-size: 15px; line-height: 1.6; color: var(--sub-bright); }
-    .gb-text strong { color: var(--text); font-weight: 700; }
-    .gate-form { background: var(--card); border: 1px solid var(--card-2); border-radius: 22px; padding: 28px 28px 26px; }
-    .form-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
-    .form-group { margin-bottom: 14px; }
-    .form-input { width: 100%; padding: 13px 16px; border-radius: 12px; background: var(--card-2); border: 1px solid var(--card-2); color: var(--text); font-family: inherit; font-size: 15px; transition: border-color .15s, background .15s; }
+
+    #hero { padding: 64px 24px 32px; max-width: 1080px; margin: 0 auto; }
+    .h-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+
+    .h-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 100px; background: rgba(238,102,62,0.12); border: 1px solid rgba(238,102,62,0.3); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 22px; }
+    .h-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    .h-h1 { font-size: clamp(36px, 4.4vw, 56px); font-weight: 800; letter-spacing: -.035em; line-height: 1.04; color: var(--text); margin-bottom: 22px; }
+    .h-h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--orange); }
+    .h-sub { font-size: 17px; line-height: 1.55; color: var(--sub-bright); margin-bottom: 28px; max-width: 540px; }
+
+    .h-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+    .h-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 100px; background: var(--card); border: 1px solid var(--card-2); font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub-bright); }
+    .h-badge::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+
+    .h-bullets { display: flex; flex-direction: column; gap: 16px; max-width: 540px; }
+    .h-bullet { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; }
+    .h-bullet-check { color: var(--orange); font-size: 14px; line-height: 1.5; margin-top: 1px; }
+    .h-bullet-text { font-size: 15px; line-height: 1.55; color: var(--sub-bright); }
+    .h-bullet-text strong { color: var(--text); font-weight: 700; }
+
+    .form-card { background: var(--card); border: 1px solid var(--card-2); border-radius: 22px; padding: 32px 28px; position: sticky; top: 96px; }
+    .form-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+    .form-h { font-size: 22px; font-weight: 800; letter-spacing: -.02em; line-height: 1.15; margin-bottom: 8px; }
+    .form-sub { font-size: 13px; color: var(--sub-bright); margin-bottom: 22px; line-height: 1.5; }
+    .form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+    .form-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub-bright); }
+    .form-input { padding: 13px 16px; border-radius: 12px; background: var(--card-2); border: 1px solid var(--card-2); color: var(--text); font-family: inherit; font-size: 15px; transition: border-color .15s, background .15s; }
     .form-input::placeholder { color: rgba(255,255,255,0.3); }
     .form-input:focus { outline: none; border-color: var(--orange); background: var(--bg); }
-    .form-submit { width: 100%; padding: 15px 28px; border-radius: 100px; background: var(--orange); border: none; color: #061410; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; cursor: pointer; transition: background .2s, transform .2s; margin-top: 6px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+    .form-submit { width: 100%; padding: 15px 28px; border-radius: 100px; background: var(--orange); border: none; color: #061410; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; cursor: pointer; transition: background .2s, transform .2s; margin-top: 8px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
     .form-submit:hover { background: var(--orange-d); transform: translateY(-1px); }
     .form-submit:disabled { background: rgba(238,102,62,0.4); cursor: not-allowed; transform: none; }
     .form-fineprint { margin-top: 14px; text-align: center; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); line-height: 1.5; }
@@ -45,13 +73,30 @@
     .form-msg.show { display: block; }
     .form-msg.success { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: #86efac; }
     .form-msg.error { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; }
-    .form-msg a { color: inherit; text-decoration: underline; }
-    .gate-foot { margin-top: 36px; text-align: center; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub-bright); }
-    .gate-foot a { color: var(--sub-bright); transition: color .2s; }
-    .gate-foot a:hover { color: var(--orange); }
+    .form-msg a { color: inherit; text-decoration: underline; font-weight: 700; }
+
+    #faq { padding: 88px 24px; max-width: 720px; margin: 0 auto; }
+    .faq-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); text-align: center; margin-bottom: 14px; }
+    .faq-h { font-size: clamp(28px, 3.4vw, 40px); font-weight: 800; letter-spacing: -.03em; text-align: center; line-height: 1.1; margin-bottom: 40px; }
+    .faq-list { display: flex; flex-direction: column; gap: 14px; }
+    .faq-item { border-bottom: 1px solid var(--card-2); padding: 20px 0; }
+    .faq-q { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .faq-a { font-size: 15px; line-height: 1.6; color: var(--sub-bright); }
+
+    #foot { padding: 64px 24px 80px; max-width: 720px; margin: 0 auto; text-align: center; }
+    .foot-text { font-size: 14px; color: var(--sub-bright); line-height: 1.6; }
+    .foot-link { color: var(--orange); text-decoration: none; font-weight: 700; }
+    .foot-link:hover { color: var(--orange-d); }
+    .foot-copy { margin-top: 32px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+
+    @media (max-width: 900px) {
+      .h-inner { grid-template-columns: 1fr; gap: 40px; }
+      .form-card { position: static; }
+    }
     @media (max-width: 600px) {
-      #gate { padding: 56px 20px 40px; }
-      .gate-form { padding: 24px 22px; }
+      #hero { padding: 40px 20px 24px; }
+      .form-card { padding: 26px 22px; }
+      #faq { padding: 64px 20px; }
     }
   </style>
 </head>
@@ -64,61 +109,151 @@
   </div>
 </div>
 
-<section id="gate">
-  <span class="gate-tag">Free Resource &middot; Guide</span>
-  <h1 class="gate-h1">The Batch Content Creation <em>Guide</em>.</h1>
-  <p class="gate-sub">The batch workflow I use to film a month of content in one sitting. Hooks scripted before you press record, so you stop wasting hours staring at the camera trying to remember what to say.</p>
+<section id="hero">
+  <div class="h-inner">
 
-  <div class="gate-bullets">
-    <div class="gate-bullet"><span class="gb-check">&#10003;</span><span class="gb-text"><strong>A simple idea-capture system</strong> so you never lose a good concept, and decision fatigue stops killing your filming days.</span></div>
-    <div class="gate-bullet"><span class="gb-check">&#10003;</span><span class="gb-text"><strong>A progress tracker</strong> that moves every piece from idea &rarr; draft &rarr; recording &rarr; editing &rarr; published.</span></div>
-    <div class="gate-bullet"><span class="gb-check">&#10003;</span><span class="gb-text"><strong>A weekly workflow</strong> that maps your idea days, your script days, your shoot days, and your edit days. No more context-switching.</span></div>
-    <div class="gate-bullet"><span class="gb-check">&#10003;</span><span class="gb-text"><strong>The batch-record method I use</strong> to film a month of videos in under 90 minutes, without the burnout.</span></div>
+    <div class="h-left">
+      <span class="h-eyebrow">Free Resource &middot; Workflow Guide</span>
+      <h1 class="h-h1">The Batch Content Creation <em>Guide</em></h1>
+      <p class="h-sub">The batch workflow I use to film a month of content in one sitting. Hooks scripted before you press record, so you stop wasting hours staring at the camera trying to remember what to say.</p>
+
+      <div class="h-badges">
+        <span class="h-badge">Month In 90 Min</span>
+        <span class="h-badge">Notion Template</span>
+        <span class="h-badge">Idea → Published Tracker</span>
+        <span class="h-badge">No Upsell Wall</span>
+      </div>
+
+      <div class="h-bullets">
+        <div class="h-bullet">
+          <span class="h-bullet-check">&#10003;</span>
+          <p class="h-bullet-text"><strong>A simple idea-capture system</strong> so you never lose a good concept, and decision fatigue stops killing your filming days.</p>
+        </div>
+        <div class="h-bullet">
+          <span class="h-bullet-check">&#10003;</span>
+          <p class="h-bullet-text"><strong>A progress tracker</strong> that moves every piece from idea &rarr; draft &rarr; recording &rarr; editing &rarr; published.</p>
+        </div>
+        <div class="h-bullet">
+          <span class="h-bullet-check">&#10003;</span>
+          <p class="h-bullet-text"><strong>A weekly workflow</strong> that maps your idea days, your script days, your shoot days, and your edit days. No more context-switching.</p>
+        </div>
+        <div class="h-bullet">
+          <span class="h-bullet-check">&#10003;</span>
+          <p class="h-bullet-text"><strong>The batch-record method I use</strong> to film a month of videos in under 90 minutes, without the burnout.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="h-right">
+      <form class="form-card" id="lm-form" novalidate>
+        <p class="form-pre">// Get the Guide</p>
+        <h2 class="form-h">Open it now.</h2>
+        <p class="form-sub">Drop your name and email. The guide opens straight away.</p>
+
+        <div class="form-group">
+          <label class="form-label" for="lm-name">First name</label>
+          <input class="form-input" type="text" id="lm-name" name="first_name" placeholder="Gabe" required autocomplete="given-name" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="lm-email">Email</label>
+          <input class="form-input" type="email" id="lm-email" name="email" placeholder="you@example.com" required autocomplete="email" />
+        </div>
+
+        <button class="form-submit" type="submit" id="lm-submit">
+          <span class="form-submit-label">Send me the guide &rarr;</span>
+        </button>
+
+        <p class="form-fineprint">Instant access &middot; No spam &middot; Unsubscribe anytime</p>
+
+        <div class="form-msg" id="lm-msg"></div>
+      </form>
+    </div>
+
   </div>
+</section>
 
-  <form class="gate-form" id="lm-form" novalidate>
-    <p class="form-pre">// Drop your info to unlock</p>
-    <div class="form-group"><input class="form-input" type="text" name="first_name" placeholder="First name" required autocomplete="given-name" /></div>
-    <div class="form-group"><input class="form-input" type="email" name="email" placeholder="you@example.com" required autocomplete="email" /></div>
-    <button class="form-submit" type="submit" id="lm-submit"><span class="form-submit-label">Get the Guide &rarr;</span></button>
-    <p class="form-fineprint">Instant access &middot; No spam &middot; Unsubscribe anytime</p>
-    <div class="form-msg" id="lm-msg"></div>
-  </form>
+<section id="faq">
+  <p class="faq-pre">// Common Questions</p>
+  <h2 class="faq-h">Quick answers.</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">Is this actually free?</div>
+      <div class="faq-a">Yes. Full Notion template plus the guide, no credit card, no upsell wall in front of it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I need a Notion account?</div>
+      <div class="faq-a">Yes, but a free one is enough. The guide opens in Notion and you duplicate it into your workspace with one click.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does this only work if I&#8217;m filming video?</div>
+      <div class="faq-a">The structural moves apply to any content format. The biggest wins are for video; carousels, photo, and written posts still benefit from the same batch flow.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How fast will I get it?</div>
+      <div class="faq-a">Instantly. The guide opens on submit, and you get an email too so you can come back to it anytime.</div>
+    </div>
+  </div>
+</section>
 
-  <p class="gate-foot"><a href="/lead-magnets">&larr; Back to all resources</a></p>
+<section id="foot">
+  <p class="foot-text">Looking for the other free resources? <a class="foot-link" href="/lead-magnets">See all of them here &rarr;</a></p>
+  <p class="foot-copy">&copy; 2026 FSCreative&#8482;</p>
 </section>
 
 <script>
   const LEAD_MAGNET_SLUG = 'batch-content-creation-guide';
+  const ORIGINAL_LABEL = 'Send me the guide →';
   const form = document.getElementById('lm-form');
   const submit = document.getElementById('lm-submit');
   const submitLabel = submit.querySelector('.form-submit-label');
   const msg = document.getElementById('lm-msg');
-  function setMsg(html, kind) { msg.innerHTML = html; msg.className = 'form-msg show ' + (kind || ''); }
+
+  function setMsg(html, kind) {
+    msg.innerHTML = html;
+    msg.className = 'form-msg show ' + (kind || '');
+  }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = form.email.value.trim();
     const first_name = form.first_name.value.trim();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setMsg('That email doesn’t look right. Try again?', 'error'); return;
+      setMsg('That email doesn’t look right. Try again?', 'error');
+      return;
     }
-    submit.disabled = true; submitLabel.textContent = 'Sending...'; msg.className = 'form-msg';
+
+    submit.disabled = true;
+    submitLabel.textContent = 'Sending...';
+    msg.className = 'form-msg';
+
     try {
-      const res = await fetch('/api/subscribe', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ email, first_name, lead_magnet: LEAD_MAGNET_SLUG }) });
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, first_name, lead_magnet: LEAD_MAGNET_SLUG }),
+      });
       const data = await res.json();
+
       if (!res.ok) {
         setMsg(data?.detail?.message || 'Something glitched. Try once more, or email info@watchgabe.com if it keeps failing.', 'error');
-        submit.disabled = false; submitLabel.textContent = 'Get the Guide →'; return;
+        submit.disabled = false;
+        submitLabel.textContent = ORIGINAL_LABEL;
+        return;
       }
+
+      form.querySelectorAll('.form-group, .form-fineprint').forEach(el => el.style.display = 'none');
+      submit.style.display = 'none';
+
       if (data.redirect) {
-        setMsg('Sent. Opening the resource now. If it doesn’t open: <a href="' + data.redirect + '">click here</a>.', 'success');
+        setMsg('Opening the guide now. If it doesn’t open: <a href="' + data.redirect + '">click here</a>.', 'success');
         setTimeout(() => { window.location.href = data.redirect; }, 1500);
       } else {
-        setMsg('Sent. Check your inbox in the next minute.', 'success');
+        setMsg('Sent. Check your inbox in the next minute. If it doesn’t show up, look in spam — then drag it back to your inbox so future ones land right.', 'success');
       }
     } catch (err) {
       setMsg('Network hiccup. Try again, or email info@watchgabe.com if it keeps failing.', 'error');
-      submit.disabled = false; submitLabel.textContent = 'Get the Guide →';
+      submit.disabled = false;
+      submitLabel.textContent = ORIGINAL_LABEL;
     }
   });
 </script>
