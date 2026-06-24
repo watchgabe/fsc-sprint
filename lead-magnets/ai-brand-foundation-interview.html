@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Brand Foundation AI Interview &middot; FSCreative&#8482;</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img { display: block; max-width: 100%; }
+    :root, [data-mode="dark"] { --bg: #061410; --card: #091a14; --card-2: #0f261c; --text: #ffffff; --sub: rgba(255,255,255,0.45); --sub-bright: rgba(255,255,255,0.72); --orange: #ee663e; --orange-d: #e0552e; --gold: #fbbf24; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.5; }
+    a { color: inherit; text-decoration: none; }
+    #topbar { background: var(--card); border-bottom: 1px solid var(--card-2); padding: 14px 24px; position: sticky; top: 0; z-index: 100; }
+    .tb-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .tb-logo img { height: 22px; width: auto; display: block; }
+    .tb-back { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub-bright); transition: color .2s; }
+    .tb-back:hover { color: var(--text); }
+    #gate { padding: 80px 24px 60px; max-width: 720px; margin: 0 auto; }
+    .gate-tag { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 100px; background: rgba(238,102,62,0.12); border: 1px solid rgba(238,102,62,0.3); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 22px; }
+    .gate-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    .gate-h1 { font-size: clamp(36px, 5.4vw, 60px); font-weight: 800; letter-spacing: -.035em; line-height: 1.04; margin-bottom: 22px; }
+    .gate-h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--orange); }
+    .gate-sub { font-size: 17px; line-height: 1.6; color: var(--sub-bright); margin-bottom: 36px; max-width: 600px; }
+    .gate-bullets { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+    .gate-bullet { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; }
+    .gb-check { color: var(--orange); font-size: 14px; line-height: 1.5; margin-top: 1px; }
+    .gb-text { font-size: 15px; line-height: 1.6; color: var(--sub-bright); }
+    .gb-text strong { color: var(--text); font-weight: 700; }
+    .gate-form { background: var(--card); border: 1px solid var(--card-2); border-radius: 22px; padding: 28px 28px 26px; }
+    .form-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
+    .form-group { margin-bottom: 14px; }
+    .form-input { width: 100%; padding: 13px 16px; border-radius: 12px; background: var(--card-2); border: 1px solid var(--card-2); color: var(--text); font-family: inherit; font-size: 15px; transition: border-color .15s, background .15s; }
+    .form-input::placeholder { color: rgba(255,255,255,0.3); }
+    .form-input:focus { outline: none; border-color: var(--orange); background: var(--bg); }
+    .form-submit { width: 100%; padding: 15px 28px; border-radius: 100px; background: var(--orange); border: none; color: #061410; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; cursor: pointer; transition: background .2s, transform .2s; margin-top: 6px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+    .form-submit:hover { background: var(--orange-d); transform: translateY(-1px); }
+    .form-submit:disabled { background: rgba(238,102,62,0.4); cursor: not-allowed; transform: none; }
+    .form-fineprint { margin-top: 14px; text-align: center; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); line-height: 1.5; }
+    .form-msg { margin-top: 16px; padding: 14px 16px; border-radius: 10px; font-size: 14px; line-height: 1.5; display: none; }
+    .form-msg.show { display: block; }
+    .form-msg.success { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: #86efac; }
+    .form-msg.error { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; }
+    .form-msg a { color: inherit; text-decoration: underline; }
+    .gate-foot { margin-top: 36px; text-align: center; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub-bright); }
+    .gate-foot a { color: var(--sub-bright); transition: color .2s; }
+    .gate-foot a:hover { color: var(--orange); }
+    @media (max-width: 600px) {
+      #gate { padding: 56px 20px 40px; }
+      .gate-form { padding: 24px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="topbar">
+  <div class="tb-in">
+    <a href="/" class="tb-logo"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" alt="FSCreative" /></a>
+    <a href="/lead-magnets" class="tb-back">&larr; All Resources</a>
+  </div>
+</div>
+
+<section id="gate">
+  <span class="gate-tag">Free Resource &middot; AI Tool</span>
+  <h1 class="gate-h1">The Brand Foundation <em>AI</em> Interview.</h1>
+  <p class="gate-sub">A 45-minute AI interview that gives you the spine of your personal brand. The same interview I walk paid clients through, distilled into one prompt you can run in Claude, ChatGPT, or any AI tool you already use.</p>
+
+  <div class="gate-bullets">
+    <div class="gate-bullet"><span class="gb-check">&#10003;</span><span class="gb-text"><strong>The master prompt</strong> that runs the entire interview. Copy, paste, talk for 45 minutes.</span></div>
+    <div class="gate-bullet"><span class="gb-check">&#10003;</span><span class="gb-text"><strong>5 phases:</strong> Direction, Story, People, Content & Method, Vision. The AI pushes past your surface answers until something real lands.</span></div>
+    <div class="gate-bullet"><span class="gb-check">&#10003;</span><span class="gb-text"><strong>Voice mode or text mode</strong>, your call. Voice is recommended so you can riff without typing.</span></div>
+    <div class="gate-bullet"><span class="gb-check">&#10003;</span><span class="gb-text"><strong>Ends with a 5-paragraph summary</strong> in your own voice, ready to paste into any AI tool as the context for everything you build from here.</span></div>
+  </div>
+
+  <form class="gate-form" id="lm-form" novalidate>
+    <p class="form-pre">// Drop your info to unlock</p>
+    <div class="form-group"><input class="form-input" type="text" name="first_name" placeholder="First name" required autocomplete="given-name" /></div>
+    <div class="form-group"><input class="form-input" type="email" name="email" placeholder="you@example.com" required autocomplete="email" /></div>
+    <button class="form-submit" type="submit" id="lm-submit"><span class="form-submit-label">Get the Interview &rarr;</span></button>
+    <p class="form-fineprint">Instant access &middot; No spam &middot; Unsubscribe anytime</p>
+    <div class="form-msg" id="lm-msg"></div>
+  </form>
+
+  <p class="gate-foot"><a href="/lead-magnets">&larr; Back to all resources</a></p>
+</section>
+
+<script>
+  const LEAD_MAGNET_SLUG = 'ai-brand-foundation-interview';
+  const form = document.getElementById('lm-form');
+  const submit = document.getElementById('lm-submit');
+  const submitLabel = submit.querySelector('.form-submit-label');
+  const msg = document.getElementById('lm-msg');
+  function setMsg(html, kind) { msg.innerHTML = html; msg.className = 'form-msg show ' + (kind || ''); }
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = form.email.value.trim();
+    const first_name = form.first_name.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setMsg('That email doesn’t look right. Try again?', 'error'); return;
+    }
+    submit.disabled = true; submitLabel.textContent = 'Sending...'; msg.className = 'form-msg';
+    try {
+      const res = await fetch('/api/subscribe', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ email, first_name, lead_magnet: LEAD_MAGNET_SLUG }) });
+      const data = await res.json();
+      if (!res.ok) {
+        setMsg(data?.detail?.message || 'Something glitched. Try once more, or email info@watchgabe.com if it keeps failing.', 'error');
+        submit.disabled = false; submitLabel.textContent = 'Get the Interview →'; return;
+      }
+      if (data.redirect) {
+        setMsg('Sent. Opening the resource now. If it doesn’t open: <a href="' + data.redirect + '">click here</a>.', 'success');
+        setTimeout(() => { window.location.href = data.redirect; }, 1500);
+      } else {
+        setMsg('Sent. Check your inbox in the next minute.', 'success');
+      }
+    } catch (err) {
+      setMsg('Network hiccup. Try again, or email info@watchgabe.com if it keeps failing.', 'error');
+      submit.disabled = false; submitLabel.textContent = 'Get the Interview →';
+    }
+  });
+</script>
+
+</body>
+</html>
