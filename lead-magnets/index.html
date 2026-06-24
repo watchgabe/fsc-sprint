@@ -30,53 +30,86 @@
       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
       line-height: 1.5;
     }
+    a { color: inherit; text-decoration: none; }
 
     /* ── TOP BAR ── */
     #topbar { background: var(--card); border-bottom: 1px solid var(--card-2); padding: 14px 24px; position: sticky; top: 0; z-index: 100; }
     .tb-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .tb-logo img { height: 22px; width: auto; display: block; }
-    .tb-back { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub-bright); text-decoration: none; transition: color .2s; }
-    .tb-back:hover { color: var(--text); }
+    .tb-logo img { height: 24px; width: auto; display: block; }
+    .tb-cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 100px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; transition: background .2s, transform .2s; white-space: nowrap; }
+    .tb-cta:hover { background: var(--orange-d); transform: translateY(-1px); }
 
     /* ── HERO ── */
-    #hero { padding: 80px 24px 40px; max-width: 920px; margin: 0 auto; text-align: center; }
-    .h-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
-    .h-h1 { font-size: clamp(40px, 5.4vw, 68px); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin-bottom: 22px; }
+    #hero { padding: 72px 24px 56px; max-width: 880px; margin: 0 auto; text-align: center; }
+
+    .h-pill { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 100px; background: var(--card); border: 1px solid var(--card-2); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--text); margin-bottom: 28px; }
+    .h-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    .h-pill strong { color: var(--text); font-weight: 700; }
+    .h-pill span { color: var(--sub-bright); font-weight: 400; }
+
+    .h-h1 { font-size: clamp(44px, 6.8vw, 84px); font-weight: 800; letter-spacing: -.04em; line-height: 1.0; color: var(--text); margin-bottom: 24px; }
     .h-h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--orange); }
-    .h-sub { font-size: 18px; line-height: 1.55; color: var(--sub-bright); max-width: 640px; margin: 0 auto; }
+    .h-h1 .hi { display: inline-block; background: var(--orange); color: var(--bg); padding: 2px 16px; transform: rotate(-1.5deg); border-radius: 4px; }
 
-    /* ── GRID ── */
-    #grid { padding: 24px 24px 80px; max-width: 1080px; margin: 0 auto; }
-    .grid-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .h-sub { font-size: 18px; line-height: 1.55; color: var(--sub-bright); max-width: 580px; margin: 0 auto 44px; }
 
-    .lm-card { background: var(--card); border: 1px solid var(--card-2); border-radius: 22px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: var(--text); transition: border-color .2s, transform .2s, background .2s; min-height: 220px; }
-    .lm-card:hover { border-color: var(--orange); transform: translateY(-2px); background: #0c1f17; }
-    .lm-card.coming { opacity: 0.55; pointer-events: none; }
+    .h-photo { width: 280px; height: 280px; margin: 0 auto 32px; border-radius: 20px; overflow: hidden; border: 1px solid var(--card-2); }
+    .h-photo img { width: 100%; height: 100%; object-fit: cover; }
 
-    .lm-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-    .lm-tag { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 100px; background: rgba(238,102,62,0.12); border: 1px solid rgba(238,102,62,0.3); font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); font-weight: 700; }
-    .lm-tag.coming-tag { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); color: var(--sub-bright); }
-    .lm-arrow { font-family: 'Space Mono', monospace; font-size: 16px; color: var(--sub); transition: color .2s, transform .2s; }
-    .lm-card:hover .lm-arrow { color: var(--orange); transform: translateX(4px); }
+    .h-hey { font-size: 22px; font-weight: 800; letter-spacing: -.02em; margin-bottom: 12px; }
+    .h-hey .wave { display: inline-block; transform: rotate(-12deg); margin-right: 4px; }
+    .h-bio { font-size: 15px; line-height: 1.65; color: var(--sub-bright); max-width: 460px; margin: 0 auto 18px; }
+    .h-story { display: inline-flex; align-items: center; gap: 6px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--text); border-bottom: 1px solid var(--orange); padding-bottom: 3px; transition: color .2s, border-color .2s; }
+    .h-story:hover { color: var(--orange); }
 
-    .lm-title { font-size: 22px; font-weight: 800; letter-spacing: -.02em; line-height: 1.2; color: var(--text); }
-    .lm-desc { font-size: 14px; line-height: 1.55; color: var(--sub-bright); }
-    .lm-meta { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--card-2); display: flex; align-items: center; justify-content: space-between; gap: 10px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); }
+    /* ── RESOURCES TWO-COLUMN ── */
+    #resources { padding: 32px 24px 64px; max-width: 1200px; margin: 0 auto; }
+    .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+
+    /* Featured cards (left column) */
+    .featured { display: flex; flex-direction: column; gap: 16px; }
+    .fc-card { background: var(--card); border: 1px solid var(--card-2); border-radius: 22px; padding: 30px 30px 28px; display: flex; flex-direction: column; gap: 14px; position: relative; overflow: hidden; transition: border-color .2s, transform .2s; }
+    .fc-card:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .fc-bg { position: absolute; inset: 0; opacity: 0.04; pointer-events: none; background-image: radial-gradient(rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 14px 14px; }
+    .fc-tag { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 100px; background: rgba(238,102,62,0.12); border: 1px solid rgba(238,102,62,0.3); font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); font-weight: 700; align-self: flex-start; position: relative; z-index: 1; }
+    .fc-tag.paid { background: rgba(251,191,36,0.12); border-color: rgba(251,191,36,0.4); color: var(--gold); }
+    .fc-title { font-size: clamp(24px, 2.6vw, 30px); font-weight: 800; letter-spacing: -.025em; line-height: 1.15; color: var(--text); position: relative; z-index: 1; }
+    .fc-desc { font-size: 15px; line-height: 1.6; color: var(--sub-bright); position: relative; z-index: 1; }
+    .fc-cta { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 100px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; align-self: flex-start; margin-top: 8px; position: relative; z-index: 1; transition: background .2s, transform .2s; }
+    .fc-cta:hover { background: var(--orange-d); transform: translateY(-1px); }
+    .fc-cta.ghost { background: var(--bg); color: var(--text); border: 1px solid var(--card-2); }
+    .fc-cta.ghost:hover { background: #0c1f17; border-color: var(--orange); color: var(--orange); }
+
+    /* More free resources list (right column) */
+    .freebies { display: flex; flex-direction: column; gap: 4px; }
+    .freebies-h { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); padding: 6px 12px 18px; border-bottom: 1px solid var(--card-2); margin-bottom: 4px; }
+    .fb-row { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; padding: 18px 12px; border-bottom: 1px solid var(--card-2); transition: background .2s; }
+    .fb-row:hover { background: var(--card); }
+    .fb-row:last-child { border-bottom: none; }
+    .fb-left { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+    .fb-title { font-size: 16px; font-weight: 700; color: var(--text); letter-spacing: -.01em; line-height: 1.3; }
+    .fb-desc { font-size: 13px; color: var(--sub-bright); line-height: 1.5; }
+    .fb-arrow { width: 36px; height: 36px; border-radius: 50%; background: var(--card); border: 1px solid var(--card-2); display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: 14px; color: var(--sub-bright); transition: background .2s, color .2s, transform .2s, border-color .2s; flex-shrink: 0; }
+    .fb-row:hover .fb-arrow { background: var(--orange); color: #061410; border-color: var(--orange); transform: translateX(2px); }
 
     /* ── SOCIAL FOOTER ── */
-    #social { padding: 56px 24px; max-width: 720px; margin: 0 auto; text-align: center; border-top: 1px solid var(--card-2); }
+    #social { padding: 56px 24px 24px; max-width: 720px; margin: 0 auto; text-align: center; border-top: 1px solid var(--card-2); }
     .social-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); margin-bottom: 18px; }
     .social-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-    .social-pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 100px; background: var(--card); border: 1px solid var(--card-2); color: var(--text); text-decoration: none; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; transition: border-color .2s, background .2s; }
+    .social-pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 100px; background: var(--card); border: 1px solid var(--card-2); color: var(--text); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; transition: border-color .2s, background .2s; }
     .social-pill:hover { border-color: var(--orange); background: #0c1f17; }
 
     #foot { padding: 24px 24px 48px; text-align: center; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 720px) {
-      .grid-inner { grid-template-columns: 1fr; }
-      #hero { padding: 56px 20px 32px; }
-      .lm-card { padding: 24px 22px 22px; min-height: 0; }
+    @media (max-width: 900px) {
+      .res-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 600px) {
+      #hero { padding: 48px 20px 36px; }
+      .h-photo { width: 220px; height: 220px; }
+      .fc-card { padding: 24px 22px 22px; }
+      .fb-row { padding: 14px 8px; }
     }
   </style>
 </head>
@@ -85,45 +118,86 @@
 <div id="topbar">
   <div class="tb-in">
     <a href="/" class="tb-logo"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" alt="FSCreative" /></a>
-    <a href="/" class="tb-back">&larr; Back to Home</a>
+    <a href="/" class="tb-cta">Let&#8217;s Work Together</a>
   </div>
 </div>
 
 <section id="hero">
-  <p class="h-pre">// Free Resources</p>
-  <h1 class="h-h1">Everything I&#8217;ve built, <em>free</em>.</h1>
-  <p class="h-sub">Guides, frameworks, and systems I&#8217;ve made for creatives building real brands. Pick one, drop your email, get it instantly.</p>
+  <div class="h-pill"><strong>@watch.gabe</strong> <span>&middot; 50,000+ creatives</span></div>
+
+  <h1 class="h-h1">Free resources<br/>for <em>creatives</em>.</h1>
+
+  <p class="h-sub">Guides, frameworks, and systems I&#8217;ve built for creatives who already have a real offer. Pick one, get it instantly.</p>
+
+  <div class="h-photo">
+    <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1779403129/DSCF5597_3_feqde5.jpg" alt="Gabe Harris" />
+  </div>
+
+  <p class="h-hey"><span class="wave">&#128075;</span> Hey, I&#8217;m Gabe.</p>
+  <p class="h-bio">I help creatives install personal brands that get them seen. Ten years in branding, 50K+ on Instagram, 100+ creatives trained. Built around the work, not at the cost of it.</p>
+  <a class="h-story" href="/">Read my story &rarr;</a>
 </section>
 
-<section id="grid">
-  <div class="grid-inner">
+<section id="resources">
+  <div class="res-grid">
 
-    <!-- LIVE: Cinematic Storyteller's Guide -->
-    <a class="lm-card" href="/lead-magnets/cinematic-storytellers-guide">
-      <div class="lm-top">
-        <span class="lm-tag">&middot; Free Download</span>
-        <span class="lm-arrow">&rarr;</span>
-      </div>
-      <h3 class="lm-title">The Cinematic Storyteller&#8217;s Guide</h3>
-      <p class="lm-desc">The shot system, framing rules, and story structure I use to make every video feel like brand cinema.</p>
-      <div class="lm-meta">
-        <span>For Creatives</span>
-        <span>Instant Email</span>
-      </div>
-    </a>
+    <!-- LEFT: featured cards -->
+    <div class="featured">
 
-    <!-- TEMPLATE FOR FUTURE LMs — clone this block and update href/title/desc/tag -->
-    <div class="lm-card coming">
-      <div class="lm-top">
-        <span class="lm-tag coming-tag">&middot; Coming Soon</span>
-        <span class="lm-arrow">&rarr;</span>
-      </div>
-      <h3 class="lm-title">More resources on the way.</h3>
-      <p class="lm-desc">Iconic Brand Diagnostic, 21 Days to Better Content, the Short Form Content Vault, and more. Drop in once a week.</p>
-      <div class="lm-meta">
-        <span>In the Oven</span>
-        <span>Soon</span>
-      </div>
+      <a class="fc-card" href="/">
+        <div class="fc-bg"></div>
+        <span class="fc-tag paid">$997 &middot; Done-With-You &middot; Starts July 20</span>
+        <h2 class="fc-title">The FSCreative Challenge</h2>
+        <p class="fc-desc">60 days to install your personal brand, master content, and attract clients. Done WITH you, with me in the room every week. 5x guarantee or every dollar back.</p>
+        <span class="fc-cta">Join the Challenge &rarr;</span>
+      </a>
+
+      <a class="fc-card" href="/lead-magnets/cinematic-storytellers-guide">
+        <div class="fc-bg"></div>
+        <span class="fc-tag">&middot; Free Download</span>
+        <h2 class="fc-title">The Cinematic Storyteller&#8217;s Guide</h2>
+        <p class="fc-desc">The shot system, framing rules, and story structure I use to make every video feel like brand cinema.</p>
+        <span class="fc-cta ghost">Get the Guide &rarr;</span>
+      </a>
+
+    </div>
+
+    <!-- RIGHT: more free resources -->
+    <div class="freebies">
+      <p class="freebies-h">More Free Resources</p>
+
+      <a class="fb-row" href="https://fscreative-ai-stack.pplx.app/" target="_blank" rel="noopener">
+        <div class="fb-left">
+          <div class="fb-title">The $64/mo Content Engine Stack</div>
+          <div class="fb-desc">Every tool in my content engine, what each one does, what it costs. Total stack runs $64/mo.</div>
+        </div>
+        <div class="fb-arrow">&rarr;</div>
+      </a>
+
+      <a class="fb-row" href="https://citrine-giver-f51.notion.site/Your-Brand-Foundation-AI-Interview-37d6dd5462bb806a9ba7deee291b7ea5?source=copy_link" target="_blank" rel="noopener">
+        <div class="fb-left">
+          <div class="fb-title">AI Brand Foundation Interview</div>
+          <div class="fb-desc">An AI interview that pulls your brand foundation out of you: positioning, voice, audience, content pillars.</div>
+        </div>
+        <div class="fb-arrow">&rarr;</div>
+      </a>
+
+      <a class="fb-row" href="https://quiz.fscreative.live/" target="_blank" rel="noopener">
+        <div class="fb-left">
+          <div class="fb-title">The Iconic Brand Quiz</div>
+          <div class="fb-desc">A short quiz that diagnoses what&#8217;s broken in your brand right now, and what to fix first.</div>
+        </div>
+        <div class="fb-arrow">&rarr;</div>
+      </a>
+
+      <a class="fb-row" href="https://citrine-giver-f51.notion.site/Batch-Creation-Guide-2d16dd5462bb81e3840ad60fd7170bff?source=copy_link" target="_blank" rel="noopener">
+        <div class="fb-left">
+          <div class="fb-title">The Batch Content Creation Guide</div>
+          <div class="fb-desc">The batch workflow I use to film a month of content in one sitting. Setup, framing, recording flow, post.</div>
+        </div>
+        <div class="fb-arrow">&rarr;</div>
+      </a>
+
     </div>
 
   </div>
@@ -134,7 +208,6 @@
   <div class="social-row">
     <a class="social-pill" href="https://instagram.com/watch.gabe" target="_blank" rel="noopener">Instagram</a>
     <a class="social-pill" href="https://youtube.com/@watchgabe" target="_blank" rel="noopener">YouTube</a>
-    <a class="social-pill" href="https://tiktok.com/@watch.gabe" target="_blank" rel="noopener">TikTok</a>
   </div>
 </section>
 
