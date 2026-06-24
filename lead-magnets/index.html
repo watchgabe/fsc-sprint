@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Resources &middot; FSCreative&#8482;</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img { display: block; max-width: 100%; }
+
+    :root, [data-mode="dark"] {
+      --bg:         #061410;
+      --card:       #091a14;
+      --card-2:     #0f261c;
+      --text:       #ffffff;
+      --sub:        rgba(255,255,255,0.45);
+      --sub-bright: rgba(255,255,255,0.72);
+      --orange:     #ee663e;
+      --orange-d:   #e0552e;
+      --gold:       #fbbf24;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+    }
+
+    /* ── TOP BAR ── */
+    #topbar { background: var(--card); border-bottom: 1px solid var(--card-2); padding: 14px 24px; position: sticky; top: 0; z-index: 100; }
+    .tb-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .tb-logo img { height: 22px; width: auto; display: block; }
+    .tb-back { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub-bright); text-decoration: none; transition: color .2s; }
+    .tb-back:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    #hero { padding: 80px 24px 40px; max-width: 920px; margin: 0 auto; text-align: center; }
+    .h-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+    .h-h1 { font-size: clamp(40px, 5.4vw, 68px); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin-bottom: 22px; }
+    .h-h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--orange); }
+    .h-sub { font-size: 18px; line-height: 1.55; color: var(--sub-bright); max-width: 640px; margin: 0 auto; }
+
+    /* ── GRID ── */
+    #grid { padding: 24px 24px 80px; max-width: 1080px; margin: 0 auto; }
+    .grid-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+    .lm-card { background: var(--card); border: 1px solid var(--card-2); border-radius: 22px; padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: var(--text); transition: border-color .2s, transform .2s, background .2s; min-height: 220px; }
+    .lm-card:hover { border-color: var(--orange); transform: translateY(-2px); background: #0c1f17; }
+    .lm-card.coming { opacity: 0.55; pointer-events: none; }
+
+    .lm-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .lm-tag { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 100px; background: rgba(238,102,62,0.12); border: 1px solid rgba(238,102,62,0.3); font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); font-weight: 700; }
+    .lm-tag.coming-tag { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); color: var(--sub-bright); }
+    .lm-arrow { font-family: 'Space Mono', monospace; font-size: 16px; color: var(--sub); transition: color .2s, transform .2s; }
+    .lm-card:hover .lm-arrow { color: var(--orange); transform: translateX(4px); }
+
+    .lm-title { font-size: 22px; font-weight: 800; letter-spacing: -.02em; line-height: 1.2; color: var(--text); }
+    .lm-desc { font-size: 14px; line-height: 1.55; color: var(--sub-bright); }
+    .lm-meta { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--card-2); display: flex; align-items: center; justify-content: space-between; gap: 10px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); }
+
+    /* ── SOCIAL FOOTER ── */
+    #social { padding: 56px 24px; max-width: 720px; margin: 0 auto; text-align: center; border-top: 1px solid var(--card-2); }
+    .social-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); margin-bottom: 18px; }
+    .social-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .social-pill { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 100px; background: var(--card); border: 1px solid var(--card-2); color: var(--text); text-decoration: none; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; transition: border-color .2s, background .2s; }
+    .social-pill:hover { border-color: var(--orange); background: #0c1f17; }
+
+    #foot { padding: 24px 24px 48px; text-align: center; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .grid-inner { grid-template-columns: 1fr; }
+      #hero { padding: 56px 20px 32px; }
+      .lm-card { padding: 24px 22px 22px; min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="topbar">
+  <div class="tb-in">
+    <a href="/" class="tb-logo"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" alt="FSCreative" /></a>
+    <a href="/" class="tb-back">&larr; Back to Home</a>
+  </div>
+</div>
+
+<section id="hero">
+  <p class="h-pre">// Free Resources</p>
+  <h1 class="h-h1">Everything I&#8217;ve built, <em>free</em>.</h1>
+  <p class="h-sub">Guides, frameworks, and systems I&#8217;ve made for creatives building real brands. Pick one, drop your email, get it instantly.</p>
+</section>
+
+<section id="grid">
+  <div class="grid-inner">
+
+    <!-- LIVE: Cinematic Storyteller's Guide -->
+    <a class="lm-card" href="/lead-magnets/cinematic-storytellers-guide">
+      <div class="lm-top">
+        <span class="lm-tag">&middot; Free Download</span>
+        <span class="lm-arrow">&rarr;</span>
+      </div>
+      <h3 class="lm-title">The Cinematic Storyteller&#8217;s Guide</h3>
+      <p class="lm-desc">The shot system, framing rules, and story structure I use to make every video feel like brand cinema.</p>
+      <div class="lm-meta">
+        <span>For Creatives</span>
+        <span>Instant Email</span>
+      </div>
+    </a>
+
+    <!-- TEMPLATE FOR FUTURE LMs — clone this block and update href/title/desc/tag -->
+    <div class="lm-card coming">
+      <div class="lm-top">
+        <span class="lm-tag coming-tag">&middot; Coming Soon</span>
+        <span class="lm-arrow">&rarr;</span>
+      </div>
+      <h3 class="lm-title">More resources on the way.</h3>
+      <p class="lm-desc">Iconic Brand Diagnostic, 21 Days to Better Content, the Short Form Content Vault, and more. Drop in once a week.</p>
+      <div class="lm-meta">
+        <span>In the Oven</span>
+        <span>Soon</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="social">
+  <p class="social-pre">// Follow Gabe</p>
+  <div class="social-row">
+    <a class="social-pill" href="https://instagram.com/watch.gabe" target="_blank" rel="noopener">Instagram</a>
+    <a class="social-pill" href="https://youtube.com/@watchgabe" target="_blank" rel="noopener">YouTube</a>
+    <a class="social-pill" href="https://tiktok.com/@watch.gabe" target="_blank" rel="noopener">TikTok</a>
+  </div>
+</section>
+
+<div id="foot">&copy; 2026 FSCreative&#8482;</div>
+
+</body>
+</html>

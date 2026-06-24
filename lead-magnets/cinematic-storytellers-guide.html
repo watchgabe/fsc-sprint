@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Cinematic Storyteller&#8217;s Guide &middot; FSCreative&#8482;</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    img { display: block; max-width: 100%; }
+
+    :root, [data-mode="dark"] {
+      --bg:         #061410;
+      --card:       #091a14;
+      --card-2:     #0f261c;
+      --text:       #ffffff;
+      --sub:        rgba(255,255,255,0.45);
+      --sub-bright: rgba(255,255,255,0.72);
+      --orange:     #ee663e;
+      --orange-d:   #e0552e;
+      --gold:       #fbbf24;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg); color: var(--text);
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+    }
+
+    /* ── TOP BAR ── */
+    #topbar { background: var(--card); border-bottom: 1px solid var(--card-2); padding: 14px 24px; position: sticky; top: 0; z-index: 100; }
+    .tb-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .tb-logo img { height: 22px; width: auto; display: block; }
+    .tb-back { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub-bright); text-decoration: none; transition: color .2s; }
+    .tb-back:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    #hero { padding: 64px 24px 32px; max-width: 1080px; margin: 0 auto; }
+    .h-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: start; }
+
+    .h-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 100px; background: rgba(238,102,62,0.12); border: 1px solid rgba(238,102,62,0.3); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 22px; }
+    .h-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    .h-h1 { font-size: clamp(36px, 4.4vw, 56px); font-weight: 800; letter-spacing: -.035em; line-height: 1.04; color: var(--text); margin-bottom: 22px; }
+    .h-h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--orange); }
+    .h-sub { font-size: 17px; line-height: 1.55; color: var(--sub-bright); margin-bottom: 28px; max-width: 540px; }
+
+    .h-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+    .h-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 100px; background: var(--card); border: 1px solid var(--card-2); font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub-bright); }
+    .h-badge::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+
+    .h-bullets { display: flex; flex-direction: column; gap: 16px; max-width: 540px; }
+    .h-bullet { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; }
+    .h-bullet-check { color: var(--orange); font-size: 14px; line-height: 1.5; margin-top: 1px; }
+    .h-bullet-text { font-size: 15px; line-height: 1.55; color: var(--sub-bright); }
+    .h-bullet-text strong { color: var(--text); font-weight: 700; }
+
+    /* ── FORM CARD ── */
+    .form-card { background: var(--card); border: 1px solid var(--card-2); border-radius: 22px; padding: 32px 28px; position: sticky; top: 96px; }
+    .form-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+    .form-h { font-size: 22px; font-weight: 800; letter-spacing: -.02em; line-height: 1.15; margin-bottom: 8px; }
+    .form-sub { font-size: 13px; color: var(--sub-bright); margin-bottom: 22px; line-height: 1.5; }
+
+    .form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+    .form-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub-bright); }
+    .form-input { padding: 13px 16px; border-radius: 12px; background: var(--card-2); border: 1px solid var(--card-2); color: var(--text); font-family: inherit; font-size: 15px; transition: border-color .15s, background .15s; }
+    .form-input::placeholder { color: rgba(255,255,255,0.3); }
+    .form-input:focus { outline: none; border-color: var(--orange); background: var(--bg); }
+
+    .form-submit { width: 100%; padding: 15px 28px; border-radius: 100px; background: var(--orange); border: none; color: #061410; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; cursor: pointer; transition: background .2s, transform .2s; margin-top: 8px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+    .form-submit:hover { background: var(--orange-d); transform: translateY(-1px); }
+    .form-submit:disabled { background: rgba(238,102,62,0.4); cursor: not-allowed; transform: none; }
+
+    .form-fineprint { margin-top: 14px; text-align: center; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--sub); line-height: 1.5; }
+
+    .form-msg { margin-top: 16px; padding: 14px 16px; border-radius: 10px; font-size: 14px; line-height: 1.5; display: none; }
+    .form-msg.show { display: block; }
+    .form-msg.success { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: #86efac; }
+    .form-msg.error { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; }
+
+    /* ── FAQ ── */
+    #faq { padding: 88px 24px; max-width: 720px; margin: 0 auto; }
+    .faq-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); text-align: center; margin-bottom: 14px; }
+    .faq-h { font-size: clamp(28px, 3.4vw, 40px); font-weight: 800; letter-spacing: -.03em; text-align: center; line-height: 1.1; margin-bottom: 40px; }
+    .faq-list { display: flex; flex-direction: column; gap: 14px; }
+    .faq-item { border-bottom: 1px solid var(--card-2); padding: 20px 0; }
+    .faq-q { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .faq-a { font-size: 15px; line-height: 1.6; color: var(--sub-bright); }
+
+    /* ── FOOTER CTA ── */
+    #foot { padding: 64px 24px 80px; max-width: 720px; margin: 0 auto; text-align: center; }
+    .foot-text { font-size: 14px; color: var(--sub-bright); line-height: 1.6; }
+    .foot-link { color: var(--orange); text-decoration: none; font-weight: 700; }
+    .foot-link:hover { color: var(--orange-d); }
+    .foot-copy { margin-top: 32px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .h-inner { grid-template-columns: 1fr; gap: 40px; }
+      .form-card { position: static; }
+    }
+    @media (max-width: 600px) {
+      #hero { padding: 40px 20px 24px; }
+      .form-card { padding: 26px 22px; }
+      #faq { padding: 64px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="topbar">
+  <div class="tb-in">
+    <a href="/" class="tb-logo"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" alt="FSCreative" /></a>
+    <a href="/lead-magnets" class="tb-back">&larr; All Resources</a>
+  </div>
+</div>
+
+<section id="hero">
+  <div class="h-inner">
+
+    <div class="h-left">
+      <span class="h-eyebrow">Free Download</span>
+      <h1 class="h-h1">The Cinematic <em>Storyteller&#8217;s</em> Guide</h1>
+      <p class="h-sub">The shot system, framing rules, and story structure I use to make every video feel like brand cinema. Built for creatives with a real offer, not generic creator content.</p>
+
+      <div class="h-badges">
+        <span class="h-badge">Instant Email</span>
+        <span class="h-badge">Built by Gabe</span>
+        <span class="h-badge">Used by 227+ Creatives</span>
+        <span class="h-badge">No Upsell Wall</span>
+      </div>
+
+      <div class="h-bullets">
+        <div class="h-bullet">
+          <span class="h-bullet-check">&#10003;</span>
+          <p class="h-bullet-text"><strong>The Shot System</strong> I use on every brand build. Framing, lighting, environment, so every video looks like the same brand without thinking about it.</p>
+        </div>
+        <div class="h-bullet">
+          <span class="h-bullet-check">&#10003;</span>
+          <p class="h-bullet-text"><strong>A repeatable story structure</strong> that works for short-form, long-form, and carousels. Anchor, lesson, takeaway.</p>
+        </div>
+        <div class="h-bullet">
+          <span class="h-bullet-check">&#10003;</span>
+          <p class="h-bullet-text"><strong>The anchor principle.</strong> Why content without a real-life story root falls flat, and the rule I use to never run out of ideas.</p>
+        </div>
+        <div class="h-bullet">
+          <span class="h-bullet-check">&#10003;</span>
+          <p class="h-bullet-text"><strong>The pre / during / post checklist</strong> I run before every shoot, so nothing gets dropped on the day.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="h-right">
+      <form class="form-card" id="lm-form" novalidate>
+        <p class="form-pre">// Get the Guide</p>
+        <h2 class="form-h">Send it to my inbox.</h2>
+        <p class="form-sub">Drop your name and email. The guide lands within a minute.</p>
+
+        <div class="form-group">
+          <label class="form-label" for="lm-name">First name</label>
+          <input class="form-input" type="text" id="lm-name" name="first_name" placeholder="Gabe" required autocomplete="given-name" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="lm-email">Email</label>
+          <input class="form-input" type="email" id="lm-email" name="email" placeholder="you@example.com" required autocomplete="email" />
+        </div>
+
+        <button class="form-submit" type="submit" id="lm-submit">
+          <span class="form-submit-label">Send me the guide &rarr;</span>
+        </button>
+
+        <p class="form-fineprint">Instant delivery &middot; No spam &middot; Unsubscribe anytime</p>
+
+        <div class="form-msg" id="lm-msg"></div>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<section id="faq">
+  <p class="faq-pre">// Common Questions</p>
+  <h2 class="faq-h">Quick answers.</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">Is this actually free?</div>
+      <div class="faq-a">Yes. Real download, instant email delivery, no credit card, no upsell wall before you can read it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Who is it for?</div>
+      <div class="faq-a">Creatives with a real offer who want their content to look like brand cinema, not generic creator content. Photographers, consultants, designers, architects, anyone with skill that&#8217;s getting buried under sameness.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I don&#8217;t shoot video?</div>
+      <div class="faq-a">Most of the structural moves still apply. The shot system maps onto photo, carousels, and writing. The story structure works regardless of format.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How fast will I get it?</div>
+      <div class="faq-a">Instantly. Check your inbox within a minute or two. If you don&#8217;t see it, check spam, then add `info@watchgabe.com` to your contacts.</div>
+    </div>
+  </div>
+</section>
+
+<section id="foot">
+  <p class="foot-text">Looking for the other free resources? <a class="foot-link" href="/lead-magnets">See all of them here &rarr;</a></p>
+  <p class="foot-copy">&copy; 2026 FSCreative&#8482;</p>
+</section>
+
+<script>
+  const LEAD_MAGNET_SLUG = 'cinematic-storytellers-guide';
+  const form = document.getElementById('lm-form');
+  const submit = document.getElementById('lm-submit');
+  const submitLabel = submit.querySelector('.form-submit-label');
+  const msg = document.getElementById('lm-msg');
+
+  function setMsg(text, kind) {
+    msg.textContent = text;
+    msg.className = 'form-msg show ' + (kind || '');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = form.email.value.trim();
+    const first_name = form.first_name.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setMsg('That email doesn’t look right. Try again?', 'error');
+      return;
+    }
+
+    submit.disabled = true;
+    submitLabel.textContent = 'Sending...';
+    msg.className = 'form-msg';
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, first_name, lead_magnet: LEAD_MAGNET_SLUG }),
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        setMsg(data?.detail?.message || 'Something glitched. Try once more, or email info@watchgabe.com if it keeps failing.', 'error');
+        submit.disabled = false;
+        submitLabel.textContent = 'Send me the guide →';
+        return;
+      }
+
+      form.querySelectorAll('.form-group, .form-fineprint').forEach(el => el.style.display = 'none');
+      submit.style.display = 'none';
+      setMsg('Sent. Check your inbox in the next minute. If it doesn’t show up, look in spam — then drag it back to your inbox so future ones land right.', 'success');
+    } catch (err) {
+      setMsg('Network hiccup. Try again, or email info@watchgabe.com if it keeps failing.', 'error');
+      submit.disabled = false;
+      submitLabel.textContent = 'Send me the guide →';
+    }
+  });
+</script>
+
+</body>
+</html>
