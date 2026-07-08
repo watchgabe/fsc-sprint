@@ -118,6 +118,25 @@
     .tldr-footer .btn-primary { padding: 14px 28px; font-size: 14px; }
     .tldr-meta { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.55); }
 
+    /* ── ENGINE (Frictionless OS breakdown) ── */
+    #engine { padding: 96px 24px; max-width: 920px; margin: 0 auto; }
+    .eng-eyebrow { display: inline-flex; padding: 8px 18px; border-radius: 100px; border: 1px solid var(--card-2); background: var(--card); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); margin-bottom: 24px; }
+    .eng-h { font-size: clamp(36px, 5.5vw, 64px); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; color: var(--text); margin-bottom: 18px; }
+    .eng-sub { font-size: 18px; line-height: 1.55; color: var(--sub-bright); max-width: 620px; margin-bottom: 44px; }
+    .eng-list { display: flex; flex-direction: column; gap: 16px; }
+    .eng-card { display: grid; grid-template-columns: 56px 1fr; gap: 20px; align-items: start; background: var(--card); border: 1px solid var(--card-2); border-radius: 16px; padding: 22px 26px; transition: border-color .2s; }
+    .eng-card:hover { border-color: rgba(238,102,62,0.35); }
+    .eng-num { width: 40px; height: 40px; border-radius: 10px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+    .eng-body { min-width: 0; }
+    .eng-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: 19px; letter-spacing: -.015em; line-height: 1.2; color: var(--text); margin-bottom: 6px; }
+    .eng-desc { font-size: 15px; line-height: 1.55; color: var(--sub-bright); margin: 0; }
+    @media (max-width: 640px) {
+      #engine { padding: 64px 20px; }
+      .eng-card { grid-template-columns: 44px 1fr; gap: 14px; padding: 18px 20px; }
+      .eng-num { width: 34px; height: 34px; font-size: 13px; }
+      .eng-title { font-size: 17px; }
+    }
+
     /* ── SOUND FAMILIAR SECTION ── */
     #sound { padding: 96px 24px; max-width: 920px; margin: 0 auto; }
     .sf-h2 { font-size: clamp(36px, 5.5vw, 64px); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin-bottom: 36px; }
@@ -148,8 +167,11 @@
     .sp-text strong { color: var(--text); font-weight: 700; }
     .eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 100px; background: var(--black); color: #fff; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 24px; }
     .eyebrow .e-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
-    .h-h1 { font-size: clamp(36px, 5.2vw, 68px); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin-bottom: 24px; max-width: 980px; }
-    .h-sub { font-size: 19px; line-height: 1.55; color: var(--sub-bright); max-width: 680px; margin-bottom: 36px; }
+    .h-h1 { font-size: clamp(36px, 5.2vw, 68px); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin-bottom: 24px; max-width: 680px; }
+    .h-sub { font-size: 19px; line-height: 1.55; color: var(--sub-bright); max-width: 680px; margin-bottom: 28px; }
+    .h-bullets { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 0 0 36px; padding: 0; max-width: 680px; }
+    .h-bullets li { padding-left: 28px; position: relative; font-size: 16px; line-height: 1.55; color: var(--sub-bright); }
+    .h-bullets li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--orange); font-weight: 700; font-size: 16px; }
     .h-cta-row { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
     .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: 100px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; border: none; cursor: pointer; text-decoration: none; transition: background .2s, transform .2s; }
     .btn-primary:hover { background: var(--orange-d); color: #061410; transform: translateY(-1px); }
@@ -489,32 +511,71 @@
       <div class="sp-text"><strong>100+ students</strong> trained by Gabe</div>
     </div>
   </div>
-  <h1 class="h-h1">Install your personal brand, master content, and attract clients in 60 days.</h1>
-  <p class="h-sub">Join the challenge, where you&#8217;ll build a personal brand &amp; content system that gets you seen. We&#8217;ll build both with you, and be there every step of the way.</p>
+  <h1 class="h-h1">Build your personal brand, master content, and attract your dream clients in 60 days.</h1>
+  <p class="h-sub">Join the challenge, where you&#8217;ll build a personal brand and content system that gets you seen. We&#8217;ll build both with you, and be there every step of the way.</p>
+  <ul class="h-bullets">
+    <li>Build the brand that amplifies your voice and craft</li>
+    <li>Weekly live coaching &amp; 1:1 support</li>
+    <li>Install content systems to know what to post and how to create it</li>
+    <li>Launch your brand, make $2,000 in 90 days, or every dollar back</li>
+  </ul>
   <div class="h-cta-row">
     <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="btn-primary">Join the Challenge &rarr;</a>
   </div>
   </div>
-  <div class="sched-card">
-    <div class="sched-cell">
-      <span class="sched-label">Starts On</span>
-      <span class="sched-value">July 20th</span>
+</section>
+</div>
+
+<!-- ENGINE (Frictionless OS breakdown) -->
+<section id="engine">
+  <span class="eng-eyebrow">// The Engine</span>
+  <h2 class="eng-h">Frictionless OS</h2>
+  <p class="eng-sub">The content system built to work with your lifestyle, not replace it.</p>
+  <div class="eng-list">
+    <div class="eng-card">
+      <span class="eng-num">1</span>
+      <div class="eng-body">
+        <h3 class="eng-title">Your AI Brain Installed</h3>
+        <p class="eng-desc">An AI-powered content system that learns who you are, what you do, and who you serve. Designed to grow alongside you.</p>
+      </div>
     </div>
-    <div class="sched-cell">
-      <span class="sched-label">Duration</span>
-      <span class="sched-value">60 Days</span>
+    <div class="eng-card">
+      <span class="eng-num">2</span>
+      <div class="eng-body">
+        <h3 class="eng-title">Content Workflow System</h3>
+        <p class="eng-desc">Installation directly on your computer and phone to capture ideas the moment they hit, and turn them into ready-to-film scripts.</p>
+      </div>
     </div>
-    <div class="sched-cell">
-      <span class="sched-label">Weekly Workshops</span>
-      <span class="sched-value">8 Lives</span>
+    <div class="eng-card">
+      <span class="eng-num">3</span>
+      <div class="eng-body">
+        <h3 class="eng-title">Endless Ideas Machine</h3>
+        <p class="eng-desc">Install the system and workflows to help you generate ideas effortlessly from your real life, so you never open a blank doc again.</p>
+      </div>
     </div>
-    <div class="sched-cell">
-      <span class="sched-label">Money Back Guarantee</span>
-      <span class="sched-value">100%</span>
+    <div class="eng-card">
+      <span class="eng-num">4</span>
+      <div class="eng-body">
+        <h3 class="eng-title">Custom Hook Engine</h3>
+        <p class="eng-desc">A hook engine developed around the winning scripts from all the top creatives in your niche. Drop in an idea, get proven hooks back to use in your content.</p>
+      </div>
+    </div>
+    <div class="eng-card">
+      <span class="eng-num">5</span>
+      <div class="eng-body">
+        <h3 class="eng-title">Lead Magnet System</h3>
+        <p class="eng-desc">Rotating lead magnets matched to content topics. Right offer, right moment, right audience. Increases opt-in rates without publishing more content.</p>
+      </div>
+    </div>
+    <div class="eng-card">
+      <span class="eng-num">6</span>
+      <div class="eng-body">
+        <h3 class="eng-title">30-Day Content Calendar</h3>
+        <p class="eng-desc">An entire month&#8217;s worth of content mapped out, with CTAs, lead magnets, and conversions in mind.</p>
+      </div>
     </div>
   </div>
 </section>
-</div>
 
 <!-- TLDR -->
 <section id="tldr">
@@ -912,8 +973,8 @@
     }
   }
 
-  // Countdown — target July 20, 2026 at 10AM CT (15:00 UTC)
-  const TARGET = new Date('2026-07-20T15:00:00Z');
+  // Countdown — target August 5, 2026 at 10AM CT (15:00 UTC)
+  const TARGET = new Date('2026-08-05T15:00:00Z');
   function pad(n) { return String(n).padStart(2, '0'); }
   function tick() {
     const diff = TARGET - Date.now();
