@@ -78,6 +78,7 @@
     .card h2, .card h3 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 24px; letter-spacing: -.015em; color: var(--text); }
     .card h3 { margin-bottom: 12px; }
     .card p { color: var(--sub-bright); font-size: 15px; line-height: 1.6; }
+    .card p strong { color: var(--text); font-weight: 600; }
     .label { color: var(--orange); font-weight: 500; }
     .hi { color: var(--orange); font-weight: 700; }
     a.hi { text-decoration: none; }
@@ -85,6 +86,7 @@
 
     /* ── Accordion ── */
     .acc { margin-top: 40px; }
+    .card > .acc { margin-top: 72px; }
     .acc-item { border-bottom: 1px solid var(--border); }
     .acc-item:last-child { border-bottom: none; }
     .acc-q { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 12px 4px; background: none; border: none; color: var(--text); font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; letter-spacing: -.005em; cursor: pointer; text-align: left; transition: color .15s; }
@@ -104,6 +106,13 @@
     .acc-proof-avatars { display: flex; }
     .acc-proof-avatars img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--card); margin-left: -8px; }
     .acc-proof-avatars img:first-child { margin-left: 0; }
+    .testi { padding: 20px 0; border-top: 1px dashed var(--border); }
+    .testi:first-child { border-top: none; padding-top: 4px; }
+    .testi-quote { color: var(--sub-bright); font-size: 14px; line-height: 1.65; margin-bottom: 14px; }
+    .testi-cred { display: flex; align-items: center; gap: 12px; }
+    .testi-cred img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .testi-nm { color: var(--text); font-size: 13px; font-weight: 600; line-height: 1.35; }
+    .testi-hd { color: var(--sub); font-weight: 400; font-size: 12px; display: block; }
 
     .card ul { list-style: none; margin-top: 4px; }
     .card ul li { color: var(--sub-bright); font-size: 15px; line-height: 1.65; padding: 3px 0; }
@@ -200,29 +209,74 @@
 
       <div>
         <h3>The promise</h3>
-        <p>Follow the checklist to the T. Hit $2,000 within the first 90 days or every dollar back.</p>
+        <p><strong>100% Money-Back Guarantee:</strong> Follow the checklist, and hit $2,000 within the first 90 days or every dollar back.</p>
       </div>
 
       <div class="acc">
-      <!-- Our guarantee -->
+      <!-- Testimonials -->
       <div class="acc-item">
         <button class="acc-q" onclick="toggleAcc(this)">
-          <span>Our guarantee</span>
+          <span>Testimonials</span>
           <span class="acc-icon">+</span>
         </button>
         <div class="acc-a"><div class="acc-a-inner">
-          <p><strong>Follow the checklist. Hit $2,000. Or every dollar back.</strong></p>
-          <p>If 90 days after your launch you've followed the checklist and haven't 2x'd your investment, every dollar comes back.</p>
-          <p><strong>Why I can put this in writing.</strong> The install is built. The Brand Blueprint is templated. Frictionless OS is pre-configured. The hook engine ships trained. Scripts use proven structures. The visual identity drops into your workflow. None of it is theory. The only thing you have to do is the work each week.</p>
-          <h4>What's required</h4>
-          <ul>
-            <li>Attend all 8 weekly masterclasses (live or replay within 7 days)</li>
-            <li>Submit your completed Brand Blueprint by end of Week 1</li>
-            <li>Install your Frictionless OS system</li>
-            <li>Go live with content inside the 60-day install window</li>
-            <li>Track your sales for the 90 days following launch</li>
-          </ul>
-          <p>Do all of that and don't hit $2,000, you get a full refund. No essays. No calls. No friction.</p>
+          <div class="testi">
+            <p class="testi-quote">Gabe's ability to teach complex techniques in a simple, hands-on way is unmatched. I gained invaluable skills, from mastering light and composition to understanding how to build a strong brand and get clients. He helped me see photography, videography, and social media from both a creative and entrepreneurial perspective. It completely leveled up the way I approach my work.</p>
+            <div class="testi-cred">
+              <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799121/theresa_axof4n.jpg" alt="Theresa Reisinger" />
+              <div class="testi-nm">Theresa Reisinger<span class="testi-hd">@theresareisinger</span></div>
+            </div>
+          </div>
+          <div class="testi">
+            <p class="testi-quote">Working with Gabe was one of the most impactful learning experiences I've had. I've never gotten much out of traditional courses or YouTube videos, but learning directly from him, getting real-time feedback, and seeing exactly how to improve was next-level. I connected with incredible people and left feeling inspired, more confident, and way more capable creatively. I'm still applying what I learned every day.</p>
+            <div class="testi-cred">
+              <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/matthew_bdohws.jpg" alt="Matthew Christie" />
+              <div class="testi-nm">Matthew Christie<span class="testi-hd">@adventurematt</span></div>
+            </div>
+          </div>
+          <div class="testi">
+            <p class="testi-quote">I joined FSCreative a couple of weeks ago and I've honestly gotten a lot of value out of it. Content has been a very intimidating space for me for a while, and just going through the frameworks Gabe shares, I've really been able to turn it around and start feeling a little more excited about creating. He's always supporting us and holding us accountable to show up and actually work on our content.</p>
+            <div class="testi-cred">
+              <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/srishti_zgfdhy.jpg" alt="Srishti Sheshadri" />
+              <div class="testi-nm">Srishti Sheshadri<span class="testi-hd">studiosoltera.com</span></div>
+            </div>
+          </div>
+          <div class="testi">
+            <p class="testi-quote">Before FSCreative, I felt more lost and disconnected in my creator journey. The community brought me clarity and accountability. The weekly calls are moments where I can ask Gabe questions and mostly show up. Gabe brings frameworks that help me have more clarity so I can structure my work and get more things done.</p>
+            <div class="testi-cred">
+              <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/lorena_p59fdv.jpg" alt="Lorena Alvarez" />
+              <div class="testi-nm">Lorena Alvarez<span class="testi-hd">@lo_alvarez</span></div>
+            </div>
+          </div>
+          <div class="testi">
+            <p class="testi-quote">I went from overwhelmed to confident and supported. Before joining, getting started always felt like the hardest part. Now I have clarity, encouragement, and a group of creators who push me forward. Your messaging, support, and step by step systems take away the fear of doing it alone. I finally feel like I have the tools, direction, and community to reach my goals.</p>
+            <div class="testi-cred">
+              <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799119/joab_kajmku.png" alt="Joab Teruel" />
+              <div class="testi-nm">Joab Teruel<span class="testi-hd">@joabteruel</span></div>
+            </div>
+          </div>
+          <div class="testi">
+            <p class="testi-quote">FSCreative has been invaluable for organizing my scattered thoughts and helping me discover who I am and what I can create. The resource hub is excellent and studying your editing style and Postcards gives me a real sense of belonging. Before joining I felt lost, now I have a clear roadmap and the confidence to pursue my goals.</p>
+            <div class="testi-cred">
+              <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799125/image_1_tvcief.png" alt="Lucy Drughieri" />
+              <div class="testi-nm">Lucy Drughieri<span class="testi-hd">@lucila.drughieri</span></div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- Instructor -->
+      <div class="acc-item">
+        <button class="acc-q" onclick="toggleAcc(this)">
+          <span>Instructor</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <p>I've been a creative for the past 10+ years building brands for companies, growing my personal brand, and helping others create better content. And I can't even begin to explain the countless nights where I sat around wishing I just knew what I was supposed to do.</p>
+          <p>I've spent thousands of hours in tutorials. I've spent tens of thousands of dollars on mentorship. I've filtered all of that into a 60-day program designed to help you create a brand that actually looks, feels, and sounds like you.</p>
+          <p>I give you my word: every person who runs through my community gets 100% effort out of me. All I want to do is be the creative director who helps you succeed. Your success is my success, so everything I do is 100% focused on helping you get there.</p>
+          <p>I hope to see you inside.</p>
+          <p>Much love and keep creating,<br/><strong>Gabe</strong></p>
         </div></div>
       </div>
 
@@ -242,25 +296,10 @@
         </div></div>
       </div>
 
-      <!-- Your Instructor -->
+      <!-- Who it's for -->
       <div class="acc-item">
         <button class="acc-q" onclick="toggleAcc(this)">
-          <span>Your instructor</span>
-          <span class="acc-icon">+</span>
-        </button>
-        <div class="acc-a"><div class="acc-a-inner">
-          <p>I've been a creative for the past 10+ years building brands for companies, growing my personal brand, and helping others create better content. And I can't even begin to explain the countless nights where I sat around wishing I just knew what I was supposed to do.</p>
-          <p>I've spent thousands of hours in tutorials. I've spent tens of thousands of dollars on mentorship. I've filtered all of that into a 60-day program designed to help you create a brand that actually looks, feels, and sounds like you.</p>
-          <p>I give you my word: every person who runs through my community gets 100% effort out of me. All I want to do is be the creative director who helps you succeed. Your success is my success, so everything I do is 100% focused on helping you get there.</p>
-          <p>I hope to see you inside.</p>
-          <p>Much love and keep creating,<br/><strong>Gabe</strong></p>
-        </div></div>
-      </div>
-
-      <!-- Who's it for -->
-      <div class="acc-item">
-        <button class="acc-q" onclick="toggleAcc(this)">
-          <span>Who's it for</span>
+          <span>Who it's for</span>
           <span class="acc-icon">+</span>
         </button>
         <div class="acc-a"><div class="acc-a-inner">
@@ -281,23 +320,25 @@
         </div></div>
       </div>
 
-      <!-- Testimonials -->
+      <!-- Guarantee -->
       <div class="acc-item">
         <button class="acc-q" onclick="toggleAcc(this)">
-          <span>Testimonials</span>
+          <span>Guarantee</span>
           <span class="acc-icon">+</span>
         </button>
         <div class="acc-a"><div class="acc-a-inner">
-          <p>100+ creative entrepreneurs trained. Same install as the $5,000 1:1.</p>
-          <div class="acc-proof">
-            <div class="acc-proof-avatars">
-              <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799121/theresa_axof4n.jpg" alt="Theresa" />
-              <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/matthew_bdohws.jpg" alt="Matthew" />
-              <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/lorena_p59fdv.jpg" alt="Lorena" />
-              <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799119/joab_kajmku.png" alt="Joab" />
-            </div>
-            <span>Theresa, Matthew, Lorena, Joab — recent cohort</span>
-          </div>
+          <p><strong>Follow the checklist. Hit $2,000. Or every dollar back.</strong></p>
+          <p>If 90 days after your launch you've followed the checklist and haven't 2x'd your investment, every dollar comes back.</p>
+          <p><strong>Why I can put this in writing.</strong> The install is built. The Brand Blueprint is templated. Frictionless OS is pre-configured. The hook engine ships trained. Scripts use proven structures. The visual identity drops into your workflow. None of it is theory. The only thing you have to do is the work each week.</p>
+          <h4>What's required</h4>
+          <ul>
+            <li>Attend all 8 weekly masterclasses (live or replay within 7 days)</li>
+            <li>Submit your completed Brand Blueprint by end of Week 1</li>
+            <li>Install your Frictionless OS system</li>
+            <li>Go live with content inside the 60-day install window</li>
+            <li>Track your sales for the 90 days following launch</li>
+          </ul>
+          <p>Do all of that and don't hit $2,000, you get a full refund. No essays. No calls. No friction.</p>
         </div></div>
       </div>
       </div>
