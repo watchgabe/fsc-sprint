@@ -84,11 +84,12 @@
     a.hi:hover { text-decoration: underline; }
 
     /* ── Accordion ── */
-    .acc { margin-top: 40px; border-top: 1px solid var(--border); }
+    .acc { margin-top: 40px; }
     .acc-item { border-bottom: 1px solid var(--border); }
-    .acc-q { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 22px 4px; background: none; border: none; color: var(--text); font-family: 'Inter', sans-serif; font-weight: 500; font-size: 18px; letter-spacing: -.005em; cursor: pointer; text-align: left; transition: color .15s; }
+    .acc-item:last-child { border-bottom: none; }
+    .acc-q { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 12px 4px; background: none; border: none; color: var(--text); font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; letter-spacing: -.005em; cursor: pointer; text-align: left; transition: color .15s; }
     .acc-q:hover { color: var(--orange); }
-    .acc-icon { font-family: 'Space Mono', monospace; font-size: 22px; font-weight: 400; color: var(--sub); transition: transform .25s, color .15s; line-height: 1; }
+    .acc-icon { font-family: 'Space Mono', monospace; font-size: 16px; font-weight: 400; color: var(--sub); transition: transform .25s, color .15s; line-height: 1; }
     .acc-item.open .acc-icon { transform: rotate(45deg); color: var(--orange); }
     .acc-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
     .acc-a-inner { padding: 4px 4px 26px; color: var(--sub-bright); font-size: 15px; line-height: 1.7; }
