@@ -12,6 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
+  <!-- Calendly popup -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -32,17 +36,15 @@
     /* ── Layout ── */
     .wrap { max-width: var(--col); margin: 0 auto; padding: 0 24px; }
     header { padding: 32px 0 0; }
-    .head-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .logo { display: inline-flex; align-items: center; }
     .logo img { height: 20px; width: auto; display: block; }
-    .cd { display: flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub-bright); white-space: nowrap; }
-    .cd-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; flex-shrink: 0; }
+    .cd-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; flex-shrink: 0; display: inline-block; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
 
     main { padding: 80px 0 80px; }
 
-    /* ── Eyebrow ── */
-    .eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--orange); margin-bottom: 22px; }
+    /* ── Eyebrow (now the cohort countdown) ── */
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); margin-bottom: 22px; }
 
     /* ── H1 ── */
     h1 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: clamp(38px, 6vw, 68px); letter-spacing: -.03em; line-height: 1.02; margin-bottom: 40px; }
@@ -69,9 +71,10 @@
     /* ── Card ── */
     .card { border: 1px solid var(--border); border-radius: 18px; padding: 44px 40px; background: var(--card); }
     .card > * + * { margin-top: 28px; }
+    .card > p + p { margin-top: 8px; }
 
-    .card h2 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 24px; letter-spacing: -.015em; color: var(--text); }
-    .card h3 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; letter-spacing: -.005em; color: var(--text); margin-top: 22px; margin-bottom: 8px; }
+    .card h2, .card h3 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 24px; letter-spacing: -.015em; color: var(--text); }
+    .card h3 { margin-bottom: 12px; }
     .card p { color: var(--sub-bright); font-size: 15px; line-height: 1.6; }
     .label { color: var(--orange); font-weight: 500; }
     .hi { color: var(--orange); font-weight: 600; }
@@ -106,21 +109,16 @@
 <body>
 
 <header>
-  <div class="wrap head-row">
+  <div class="wrap">
     <a href="/" class="logo">
       <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" alt="FSCreative" />
     </a>
-    <div class="cd">
-      <span class="cd-dot"></span>
-      <span class="cd-label">Cohort starts in </span>
-      <span id="cd">— — — —</span>
-    </div>
   </div>
 </header>
 
 <main>
   <div class="wrap">
-    <p class="eyebrow">Invite Only</p>
+    <p class="eyebrow"><span class="cd-dot"></span> <span>Cohort starts in <span id="cd">— — — —</span></span></p>
     <h1>In 60 days you'll build an authentic brand, master content, and attract your dream client.</h1>
 
     <div class="proof">
@@ -147,6 +145,7 @@
 
     <div class="card">
       <h2>The model</h2>
+      <p><span class="label">When:</span> Aug 5th 2026</p>
       <p><span class="label">Duration:</span> 60 days. 8 live masterclasses. Systems installed together.</p>
       <p><span class="label">Delivery:</span> Live cohort model, weekly live calls, pre-recorded tools, on-demand 1:1 support, community access.</p>
 
@@ -185,7 +184,7 @@
 
     <div class="final">
       <p>If you're ready, <a href="https://fscreative.circle.so/checkout/challenge">snag your seat</a>.</p>
-      <p>If you're not, <a href="https://calendly.com/golocalgroup/gabeharris">book a call</a> and let's figure out if it's for you.</p>
+      <p>If you're not, <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/golocalgroup/gabeharris?background_color=ffffff&hide_gdpr_banner=1'}); return false;">book a call</a> and let's figure out if it's for you.</p>
     </div>
   </div>
 </main>
