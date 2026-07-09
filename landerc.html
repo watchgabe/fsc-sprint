@@ -43,8 +43,15 @@
     /* ── H1 ── */
     h1 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: clamp(38px, 6vw, 68px); letter-spacing: -.03em; line-height: 1.02; margin-bottom: 40px; }
 
-    /* ── Testimonial placeholder ── */
-    .testimonial { border: 1px dashed var(--border); border-radius: 12px; padding: 28px; margin-bottom: 32px; color: var(--sub); font-size: 13px; font-family: 'Space Mono', monospace; letter-spacing: .06em; text-transform: uppercase; text-align: center; }
+    /* ── Social proof ── */
+    .proof { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+    .proof-avatars { display: flex; }
+    .proof-avatars img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--bg); margin-left: -8px; }
+    .proof-avatars img:first-child { margin-left: 0; }
+    .proof-txt { display: flex; flex-direction: column; gap: 2px; }
+    .proof-stars { color: var(--orange); font-size: 13px; letter-spacing: .12em; }
+    .proof-line { font-size: 14px; color: var(--sub-bright); }
+    .proof-line strong { color: var(--text); font-weight: 600; }
 
     /* ── Sub ── */
     .lead { font-size: 18px; line-height: 1.55; color: var(--sub-bright); margin-bottom: 48px; }
@@ -102,7 +109,18 @@
     <p class="eyebrow">Invite Only</p>
     <h1>In 60 days you'll build an authentic brand, master content, and attract your dream client.</h1>
 
-    <div class="testimonial">— Testimonial placeholder —</div>
+    <div class="proof">
+      <div class="proof-avatars">
+        <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799121/theresa_axof4n.jpg" alt="Theresa" />
+        <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/matthew_bdohws.jpg" alt="Matthew" />
+        <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/lorena_p59fdv.jpg" alt="Lorena" />
+        <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799119/joab_kajmku.png" alt="Joab" />
+      </div>
+      <div class="proof-txt">
+        <div class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="proof-line"><strong>100+ students</strong> trained by Gabe</div>
+      </div>
+    </div>
 
     <p class="lead">For creative entrepreneurs with a real skill who are ready to grow their audience and turn followers into clients.</p>
 
