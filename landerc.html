@@ -72,6 +72,7 @@
     .card { border: 1px solid var(--border); border-radius: 18px; padding: 44px 40px; background: var(--card); }
     .card > * + * { margin-top: 28px; }
     .card > p + p { margin-top: 8px; }
+    .card > h2 + p { margin-top: 12px; }
 
     .card h2, .card h3 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 24px; letter-spacing: -.015em; color: var(--text); }
     .card h3 { margin-bottom: 12px; }
@@ -93,16 +94,12 @@
 
     @media (max-width: 640px) {
       header { padding: 24px 0 0; }
-      main { padding: 48px 0 40px; }
+      main { padding: 76px 0 40px; }
       .logo img { height: 18px; }
-      .cd { font-size: 9px; gap: 6px; letter-spacing: .1em; }
       h1 { margin-bottom: 32px; }
       .card { padding: 32px 24px; }
       .video { margin-bottom: 40px; }
       .final { margin-top: 44px; }
-    }
-    @media (max-width: 380px) {
-      .cd-label { display: none; }
     }
   </style>
 </head>
@@ -118,7 +115,7 @@
 
 <main>
   <div class="wrap">
-    <p class="eyebrow"><span class="cd-dot"></span> <span>Cohort starts in <span id="cd">— — — —</span></span></p>
+    <p class="eyebrow"><span class="cd-dot"></span> <span>Challenge · Aug 5, 2026</span></p>
     <h1>In 60 days you'll build an authentic brand, master content, and attract your dream client.</h1>
 
     <div class="proof">
@@ -145,7 +142,6 @@
 
     <div class="card">
       <h2>The model</h2>
-      <p><span class="label">When:</span> Aug 5th 2026</p>
       <p><span class="label">Duration:</span> 60 days. 8 live masterclasses. Systems installed together.</p>
       <p><span class="label">Delivery:</span> Live cohort model, weekly live calls, pre-recorded tools, on-demand 1:1 support, community access.</p>
 
@@ -192,26 +188,6 @@
 <footer>
   <span class="foot-brand">FSCreative™ · Cohort 01 · August 5, 2026</span>
 </footer>
-
-<script>
-  (function() {
-    const target = new Date('2026-08-05T15:00:00Z');
-    const el = document.getElementById('cd');
-    if (!el) return;
-    function pad(n) { return String(n).padStart(2, '0'); }
-    function tick() {
-      const diff = target - Date.now();
-      if (diff <= 0) { el.textContent = 'today'; return; }
-      const d = Math.floor(diff / 86400000);
-      const h = Math.floor((diff % 86400000) / 3600000);
-      const m = Math.floor((diff % 3600000) / 60000);
-      const s = Math.floor((diff % 60000) / 1000);
-      el.textContent = `${d}d ${pad(h)}h ${pad(m)}m ${pad(s)}s`;
-    }
-    tick();
-    setInterval(tick, 1000);
-  })();
-</script>
 
 </body>
 </html>
