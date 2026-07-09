@@ -85,8 +85,7 @@
     a.hi:hover { text-decoration: underline; }
 
     /* ── Accordion ── */
-    .acc { margin-top: 40px; }
-    .card > .acc { margin-top: 52px; padding-top: 52px; border-top: 1px solid var(--border); }
+    .acc { margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border); }
     .acc-item { border-bottom: 1px solid var(--border); }
     .acc-item:last-child { border-bottom: none; }
     .acc-q { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 12px 4px; background: none; border: none; color: var(--text); font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; letter-spacing: -.005em; cursor: pointer; text-align: left; transition: color .15s; }
@@ -113,8 +112,14 @@
     .testi-cred img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
     .testi-nm { color: var(--text); font-size: 13px; font-weight: 600; line-height: 1.35; }
     .testi-hd { color: var(--sub); font-weight: 400; font-size: 12px; display: block; }
-    .instructor-photo { width: 88px; height: 88px; border-radius: 50%; overflow: hidden; margin-bottom: 20px; }
+    .instructor-head { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
+    .instructor-photo { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
     .instructor-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .instructor-meta { display: flex; flex-direction: column; gap: 4px; }
+    .instructor-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+    .instructor-name { color: var(--text); font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+    .instructor-handle { color: var(--sub-bright); font-size: 13px; }
+    .instructor-handle span { color: var(--orange); }
 
     .card ul { list-style: none; margin-top: 4px; }
     .card ul li { color: var(--sub-bright); font-size: 15px; line-height: 1.65; padding: 3px 0; }
@@ -213,8 +218,38 @@
         <h3>The promise</h3>
         <p><strong>100% Money-Back Guarantee:</strong> Follow the checklist, and hit $2,000 within the first 90 days or every dollar back.</p>
       </div>
+    </div>
 
-      <div class="acc">
+    <div class="final">
+      <p>If you're ready, <a href="https://fscreative.circle.so/checkout/challenge">snag your seat</a>.</p>
+      <p>If you're not, <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/golocalgroup/gabeharris?background_color=ffffff&hide_gdpr_banner=1'}); return false;">book a call</a> and let's figure out if it's for you.</p>
+    </div>
+
+    <div class="acc">
+      <!-- Who it's for -->
+      <div class="acc-item">
+        <button class="acc-q" onclick="toggleAcc(this)">
+          <span>Who it's for</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-a"><div class="acc-a-inner">
+          <h4>This challenge is perfect for you if</h4>
+          <ul>
+            <li>You already sell a product, service, or offer. But you don't have a brand that matches the level of your work.</li>
+            <li>You've invested time into content. But the results don't match the effort.</li>
+            <li>You're just starting out or your brand has started to take shape.</li>
+            <li>You care how your brand looks. Cinematic, distinctive, premium. Not templates, not AI-generic.</li>
+            <li>You're ready to grow your audience and attract the clients you want to work with.</li>
+          </ul>
+          <h4>This challenge is not for you if</h4>
+          <ul>
+            <li>You want AI to generate the volume for you. Templates, 5-posts-a-day pipelines, AI-written everything. Not what we install.</li>
+            <li>You don't have a working offer yet. Build that first. This challenge installs the brand around your business, not the business itself.</li>
+            <li>You're trying to become a creator. Sponsorships, brand deals, audience growth as the goal.</li>
+          </ul>
+        </div></div>
+      </div>
+
       <!-- Testimonials -->
       <div class="acc-item">
         <button class="acc-q" onclick="toggleAcc(this)">
@@ -274,7 +309,14 @@
           <span class="acc-icon">+</span>
         </button>
         <div class="acc-a"><div class="acc-a-inner">
-          <div class="instructor-photo"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1779403129/DSCF5597_3_feqde5.jpg" alt="Gabe Harris" /></div>
+          <div class="instructor-head">
+            <div class="instructor-photo"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1779403129/DSCF5597_3_feqde5.jpg" alt="Gabe Harris" /></div>
+            <div class="instructor-meta">
+              <div class="instructor-pre">// Your coach</div>
+              <div class="instructor-name">Gabe Harris</div>
+              <div class="instructor-handle"><span>@watch.gabe</span> · Founder of FSCreative</div>
+            </div>
+          </div>
           <p>I've been a creative for the past 10+ years building brands for companies, growing my personal brand, and helping others create better content. And I can't even begin to explain the countless nights where I sat around wishing I just knew what I was supposed to do.</p>
           <p>I've spent thousands of hours in tutorials. I've spent tens of thousands of dollars on mentorship. I've filtered all of that into a 60-day program designed to help you create a brand that actually looks, feels, and sounds like you.</p>
           <p>I give you my word: every person who runs through my community gets 100% effort out of me. All I want to do is be the creative director who helps you succeed. Your success is my success, so everything I do is 100% focused on helping you get there.</p>
@@ -299,30 +341,6 @@
         </div></div>
       </div>
 
-      <!-- Who it's for -->
-      <div class="acc-item">
-        <button class="acc-q" onclick="toggleAcc(this)">
-          <span>Who it's for</span>
-          <span class="acc-icon">+</span>
-        </button>
-        <div class="acc-a"><div class="acc-a-inner">
-          <h4>This challenge is perfect for you if</h4>
-          <ul>
-            <li>You already sell a product, service, or offer. But you don't have a brand that matches the level of your work.</li>
-            <li>You've invested time into content. But the results don't match the effort.</li>
-            <li>You're just starting out or your brand has started to take shape.</li>
-            <li>You care how your brand looks. Cinematic, distinctive, premium. Not templates, not AI-generic.</li>
-            <li>You're ready to grow your audience and attract the clients you want to work with.</li>
-          </ul>
-          <h4>This challenge is not for you if</h4>
-          <ul>
-            <li>You want AI to generate the volume for you. Templates, 5-posts-a-day pipelines, AI-written everything. Not what we install.</li>
-            <li>You don't have a working offer yet. Build that first. This challenge installs the brand around your business, not the business itself.</li>
-            <li>You're trying to become a creator. Sponsorships, brand deals, audience growth as the goal.</li>
-          </ul>
-        </div></div>
-      </div>
-
       <!-- Guarantee -->
       <div class="acc-item">
         <button class="acc-q" onclick="toggleAcc(this)">
@@ -344,19 +362,9 @@
           <p>Do all of that and don't hit $2,000, you get a full refund. No essays. No calls. No friction.</p>
         </div></div>
       </div>
-      </div>
-    </div>
-
-    <div class="final">
-      <p>If you're ready, <a href="https://fscreative.circle.so/checkout/challenge">snag your seat</a>.</p>
-      <p>If you're not, <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/golocalgroup/gabeharris?background_color=ffffff&hide_gdpr_banner=1'}); return false;">book a call</a> and let's figure out if it's for you.</p>
     </div>
   </div>
 </main>
-
-<footer>
-  <span class="foot-brand">FSCreative™ · Cohort 01 · August 5, 2026</span>
-</footer>
 
 <script>
   function toggleAcc(btn) {
