@@ -63,11 +63,9 @@
     /* ── Sub ── */
     .lead { font-size: 18px; line-height: 1.55; color: var(--sub-bright); margin-bottom: 48px; }
 
-    /* ── Video placeholder ── */
-    .video { aspect-ratio: 16 / 9; border: 1px solid var(--border); border-radius: 14px; background: rgba(255,255,255,0.02); display: flex; align-items: center; justify-content: center; margin-bottom: 56px; }
-    .video-inner { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub); }
-    .video-play { width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--sub); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
-    .video-play::before { content: ''; width: 0; height: 0; border-left: 12px solid var(--sub); border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 4px; }
+    /* ── Video ── */
+    .video { aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; margin-bottom: 56px; background: #000; }
+    .video video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     /* ── Card ── */
     .card { border: 1px solid var(--border); border-radius: 18px; padding: 52px 40px; background: var(--card); }
@@ -175,16 +173,19 @@
     <p class="lead">For creative entrepreneurs with a real skill who are ready to grow their audience and turn followers into clients.</p>
 
     <div class="video">
-      <div class="video-inner">
-        <div class="video-play"></div>
-        Video invite
-      </div>
+      <video
+        controls
+        preload="none"
+        playsinline
+        poster="https://res.cloudinary.com/dy0kchxh8/image/upload/v1783694911/VSL_Challenge_Copy_01.00_04_23_09.Still001_tu0fpl.jpg">
+        <source src="https://res.cloudinary.com/dy0kchxh8/video/upload/v1783695215/VSL_Challenge_Copy_01_2_musxrz.mp4" type="video/mp4">
+      </video>
     </div>
 
     <div class="card">
       <h2>The model</h2>
       <p><span class="label">Duration:</span> 60 days. 8 live masterclasses. Systems installed together.</p>
-      <p><span class="label">Delivery:</span> Live cohort model, weekly live calls, pre-recorded tools, on-demand 1:1 support, community access.</p>
+      <p><span class="label">Delivery:</span> Not a course. We install everything with you, live. Weekly live masterclasses, weekly Q&amp;A working sessions, pre-recorded vault ready day one, on-demand 1:1 support, and community access.</p>
 
       <div>
         <h3>What we'll build</h3>
@@ -221,6 +222,7 @@
     </div>
 
     <div class="final">
+      <p>Whether we've worked 1:1, been in a workshop, or you're just an active follower, I invite you to join.</p>
       <p>If you're ready, <a href="https://fscreative.circle.so/checkout/challenge">snag your seat</a>.</p>
       <p>If you're not, <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/golocalgroup/gabeharris?background_color=ffffff&hide_gdpr_banner=1'}); return false;">book a call</a> and let's figure out if it's for you.</p>
     </div>
