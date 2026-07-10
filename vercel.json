@@ -1,7 +1,4 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-    { "source": "/challenge", "destination": "/", "permanent": true }
-  ]
+  "trailingSlash": false
 }
