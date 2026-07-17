@@ -172,6 +172,18 @@
     .feat-num { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; color: var(--sub); padding-top: 4px; }
     .feat-title { font-weight: 700; font-size: 16px; letter-spacing: -.01em; margin-bottom: 4px; }
     .feat-desc { font-size: 14px; line-height: 1.55; color: var(--sub-bright); }
+    .feat-line { font-weight: 600; font-size: 15px; line-height: 1.5; color: var(--text); padding-top: 2px; }
+
+    /* ── VSL video ── */
+    .vsl { aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: #000; max-width: var(--col); margin: 0 auto; }
+    .vsl video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ── How You'll Learn grid (WMHQ style) ── */
+    .how-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 32px; }
+    .how-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 26px 24px; display: flex; flex-direction: column; gap: 18px; }
+    .how-num { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; color: var(--sub); text-transform: uppercase; }
+    .how-txt { font-weight: 600; font-size: 16px; line-height: 1.45; color: var(--text); }
+    @media (max-width: 640px) { .how-grid { grid-template-columns: 1fr; } }
 
     /* ── Skill cards ── */
     .skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -303,61 +315,55 @@
   <p class="hero-meta">Live weekly calls · 100% Money-Back Guarantee</p>
 </section>
 
-<!-- ── THE ENGINE ── -->
+<!-- ── VSL ── -->
+<section class="blk" id="vsl">
+  <div class="wrap">
+    <div class="vsl">
+      <video
+        controls
+        preload="none"
+        playsinline
+        poster="https://res.cloudinary.com/dy0kchxh8/image/upload/v1783694911/VSL_Challenge_Copy_01.00_04_23_09.Still001_tu0fpl.jpg">
+        <source src="https://res.cloudinary.com/dy0kchxh8/video/upload/v1783695215/VSL_Challenge_Copy_01_2_musxrz.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE BUILD (Phase 1) ── -->
 <section class="blk" id="engine">
   <div class="wrap">
-    <p class="sec-pre">Phase 1: The Engine</p>
+    <p class="sec-pre">Phase 1: The Build</p>
     <h2 class="sec-h2">We build your content machine so you know <em>what to post</em> and <em>how to post it</em>.</h2>
     <p class="sec-p" style="margin-bottom: 40px;">Install of the content systems in the first two weeks.</p>
     <div class="feat-list">
       <div class="feat-item">
         <span class="feat-num">01</span>
-        <div>
-          <div class="feat-title">Your AI Brain, installed</div>
-          <div class="feat-desc">Learns who you are, what you do, who you serve. Grows as you feed it.</div>
-        </div>
+        <div class="feat-line">Install an AI Brain that learns who you are, what you do, and who you serve</div>
       </div>
       <div class="feat-item">
         <span class="feat-num">02</span>
-        <div>
-          <div class="feat-title">Content Workflow System</div>
-          <div class="feat-desc">Capture ideas on your phone. Turn them into ready-to-film scripts.</div>
-        </div>
+        <div class="feat-line">Capture ideas on your phone and turn them into ready-to-film scripts</div>
       </div>
       <div class="feat-item">
         <span class="feat-num">03</span>
-        <div>
-          <div class="feat-title">Endless Ideas Machine</div>
-          <div class="feat-desc">Generate ideas from your real life. Never open a blank doc again.</div>
-        </div>
+        <div class="feat-line">Generate endless content ideas straight from your real life</div>
       </div>
       <div class="feat-item">
         <span class="feat-num">04</span>
-        <div>
-          <div class="feat-title">Custom Hook Engine</div>
-          <div class="feat-desc">Trained on the winning scripts in your niche. Drop an idea. Get proven hooks.</div>
-        </div>
+        <div class="feat-line">Build a custom hook engine trained on winning scripts in your niche</div>
       </div>
       <div class="feat-item">
         <span class="feat-num">05</span>
-        <div>
-          <div class="feat-title">Lead Magnet System</div>
-          <div class="feat-desc">Rotating magnets matched to your content. Right offer, right moment.</div>
-        </div>
+        <div class="feat-line">Rotate lead magnets so every piece of content lands the right offer</div>
       </div>
       <div class="feat-item">
         <span class="feat-num">06</span>
-        <div>
-          <div class="feat-title">Craft Premium Landing Pages</div>
-          <div class="feat-desc">Templates and system to build landing pages that look like your brand and convert like a pro.</div>
-        </div>
+        <div class="feat-line">Craft premium landing pages that look like your brand and convert like a pro</div>
       </div>
       <div class="feat-item">
         <span class="feat-num">07</span>
-        <div>
-          <div class="feat-title">30-Day Content Calendar</div>
-          <div class="feat-desc">A month mapped out. CTAs, magnets, and conversions built in.</div>
-        </div>
+        <div class="feat-line">Map a 30-day content calendar with CTAs, magnets, and conversions built in</div>
       </div>
     </div>
   </div>
@@ -367,43 +373,28 @@
 <section class="blk" id="skills">
   <div class="wrap">
     <p class="sec-pre">Phase 2: The Skills</p>
-    <h2 class="sec-h2">Build your visual identity and learn how to tell your story <em>cinematically</em>.</h2>
-    <p class="sec-p" style="margin-bottom: 40px;">The system runs on great content. So we install the skills.</p>
+    <h2 class="sec-h2">The system runs on <em>great content</em>, so we learn the skills.</h2>
+    <p class="sec-p" style="margin-bottom: 40px;">Build your visual identity and learn how to tell your story cinematically.</p>
     <div class="feat-list">
       <div class="feat-item">
         <span class="feat-num">01</span>
-        <div>
-          <div class="feat-title">Brand Identity</div>
-          <div class="feat-desc">Build the visual identity that makes you look like a one-of-one.</div>
-        </div>
+        <div class="feat-line">Build the visual identity that makes you look like a one-of-one</div>
       </div>
       <div class="feat-item">
         <span class="feat-num">02</span>
-        <div>
-          <div class="feat-title">Plan, Capture, and Edit</div>
-          <div class="feat-desc">Exact workflows. Idea to published in less time than you spend now.</div>
-        </div>
+        <div class="feat-line">Master the plan-capture-edit workflow from idea to published</div>
       </div>
       <div class="feat-item">
         <span class="feat-num">03</span>
-        <div>
-          <div class="feat-title">Tell Your Story Cinematically</div>
-          <div class="feat-desc">Capture your life through phone or camera. Intentional. Not vlog-y.</div>
-        </div>
+        <div class="feat-line">Tell your story cinematically through phone or camera without the vlog-y feel</div>
       </div>
       <div class="feat-item">
         <span class="feat-num">04</span>
-        <div>
-          <div class="feat-title">Camera Confidence</div>
-          <div class="feat-desc">Speak with conviction on camera. From anywhere.</div>
-        </div>
+        <div class="feat-line">Speak with conviction on camera from anywhere</div>
       </div>
       <div class="feat-item">
         <span class="feat-num">05</span>
-        <div>
-          <div class="feat-title">Content Formats</div>
-          <div class="feat-desc">Remix and repurpose every idea into multiple styles.</div>
-        </div>
+        <div class="feat-line">Remix and repurpose every idea into multiple content formats</div>
       </div>
     </div>
   </div>
@@ -414,14 +405,24 @@
   <div class="wrap">
     <p class="sec-pre">The Challenge</p>
     <h2 class="sec-h2">How You'll Learn.</h2>
-    <p class="sec-p">Your brand installed in weeks, not months. Every part of the challenge is designed to move you from craft-only to inbound-ready, without spending weeks watching another course.</p>
-    <div class="get-req">
-      <ul>
-        <li><strong>1:1 60-minute onboarding call.</strong> I learn your business. We tweak the plan to fit what you specifically need.</li>
-        <li><strong>Weekly masterclasses, live with me.</strong> Branding, identity, content, systems, launch. Live or replay.</li>
-        <li><strong>Pre-recorded content vault.</strong> Every workshop, template, and asset I've built. Instant access.</li>
-        <li><strong>Ask Gabe &middot; On-demand 1:1 support.</strong> Post your question. I respond within 24 hours.</li>
-      </ul>
+    <p class="sec-p">Your brand installed in weeks, not months. Every part of the challenge moves you from craft-only to inbound-ready, without spending weeks watching another course.</p>
+    <div class="how-grid">
+      <div class="how-card">
+        <span class="how-num">01</span>
+        <div class="how-txt">Weekly live masterclasses on branding, identity, content, systems, and launch</div>
+      </div>
+      <div class="how-card">
+        <span class="how-num">02</span>
+        <div class="how-txt">1:1 60-minute onboarding call to fit the plan to your business</div>
+      </div>
+      <div class="how-card">
+        <span class="how-num">03</span>
+        <div class="how-txt">Pre-recorded vault of every workshop, template, and asset</div>
+      </div>
+      <div class="how-card">
+        <span class="how-num">04</span>
+        <div class="how-txt">Ask Gabe on-demand 1:1 support with a 24-hour response</div>
+      </div>
     </div>
   </div>
 </section>
