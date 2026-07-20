@@ -60,8 +60,9 @@
     .hero-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 100px; border: 1px solid var(--border); margin-bottom: 32px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub-bright); }
     .hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: pulse 2s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
-    .hero-h1 { font-weight: 700; font-size: clamp(38px, 5.4vw, 60px); letter-spacing: -.035em; line-height: 1.02; margin-bottom: 22px; }
+    .hero-h1 { font-weight: 700; font-size: clamp(38px, 5.4vw, 60px); letter-spacing: -.035em; line-height: 1.15; margin-bottom: 22px; }
     .hero-h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--text); }
+    .hl { background: var(--orange); color: #ffffff; padding: 0 12px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
     .hero-sub { font-size: 18px; line-height: 1.55; color: var(--sub-bright); margin-bottom: 40px; max-width: 560px; }
     .hero-cta { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border-radius: 100px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; transition: background .2s, transform .2s; margin-bottom: 18px; }
     .hero-cta:hover { background: var(--orange-d, #e0552e); transform: translateY(-1px); }
@@ -291,7 +292,7 @@
     <span class="hero-pill-dot"></span>
     <span>60 Day Challenge</span>
   </div>
-  <h1 class="hero-h1">Make beautiful content. Grow your following. Blow up your brand in 60 days.</h1>
+  <h1 class="hero-h1">Make <span class="hl">beautiful</span> content. Grow your <span class="hl">following</span>. Blow up your brand in <span class="hl">60 days</span>.</h1>
 
   <div class="hero-proof">
     <div class="hero-avatars">
