@@ -117,6 +117,15 @@
     .get-req li strong { color: var(--text); font-weight: 700; }
     .get-req-no li::before { content: '✕'; color: var(--sub); }
 
+    /* ── Who It's For 2-col ── */
+    #sound .wrap { max-width: 980px; }
+    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 32px; }
+    .who-h { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 12px; }
+    .who-h.yes { color: var(--orange); }
+    .who-h.no { color: var(--sub); }
+    .who-grid .get-req { margin-top: 0; }
+    @media (max-width: 768px) { #sound .wrap { max-width: var(--col); } .who-grid { grid-template-columns: 1fr; gap: 32px; } }
+
     /* ── Pricing breakdown (Time to Build style) ── */
     #pricing-details .wrap { max-width: 720px; }
     .pricing-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 40px 30px; }
@@ -454,24 +463,31 @@
 <section class="blk" id="sound">
   <div class="wrap">
     <p class="sec-pre">Who's it for</p>
-    <h2 class="sec-h2">This challenge is perfect for you if</h2>
-    <div class="get-req">
-      <ul>
-        <li>You already sell a product, service, or offer. But you don't have a brand that matches the level of your work.</li>
-        <li>You've invested time into content. But the results don't match the effort.</li>
-        <li>You're just starting out or your brand has started to take shape.</li>
-        <li>You care how your brand looks. Cinematic, distinctive, premium. Not templates, not AI-generic.</li>
-        <li>You're ready to grow your audience and attract the clients you want to work with.</li>
-      </ul>
-    </div>
-    <h2 class="sec-h2" style="margin-top: 48px;">This challenge is not for you if</h2>
-    <div class="get-req get-req-no">
-      <ul>
-        <li>You want AI to generate the volume for you. Templates, 5-posts-a-day pipelines, AI-written everything. Not what we install.</li>
-        <li>You want to generate AI videos. This is AI for the systems, not the slop.</li>
-        <li>You don't have a working offer yet. Build that first. This challenge installs the brand around your business, not the business itself.</li>
-        <li>You're trying to become a creator. Sponsorships, brand deals, audience growth as the goal.</li>
-      </ul>
+    <h2 class="sec-h2">Read this before you buy.</h2>
+    <div class="who-grid">
+      <div>
+        <div class="who-h yes">// This is for you if</div>
+        <div class="get-req">
+          <ul>
+            <li>You already sell a product, service, or offer, but your brand doesn't match the level of your work</li>
+            <li>You've invested time into content, but the results don't match the effort</li>
+            <li>You're just starting or your brand has started to take shape</li>
+            <li>You care how your brand looks — cinematic, distinctive, premium. Not templates, not AI-generic</li>
+            <li>You're ready to grow your audience and attract clients you actually want to work with</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="who-h no">// This is not for you if</div>
+        <div class="get-req get-req-no">
+          <ul>
+            <li>You want AI to generate the volume for you. Templates, 5-posts-a-day pipelines, AI-written everything</li>
+            <li>You want to generate AI videos. This is AI for the systems, not the slop</li>
+            <li>You don't have a working offer yet. Build that first — this installs the brand around your business, not the business itself</li>
+            <li>You're trying to become a creator. Sponsorships, brand deals, audience growth as the goal</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
