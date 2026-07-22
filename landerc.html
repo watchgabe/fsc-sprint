@@ -169,7 +169,7 @@
     #hero-wrap::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,20,16,1) 0%, rgba(6,20,16,0.95) 28%, rgba(6,20,16,0.6) 55%, rgba(6,20,16,0.1) 85%, rgba(6,20,16,0) 100%); pointer-events: none; z-index: 0; }
     #hero { position: relative; z-index: 1; padding: 48px 24px 40px; max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 92px); display: flex; flex-direction: column; }
     .h-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-    .social-proof { display: inline-flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+    .social-proof { display: inline-flex; align-items: center; gap: 16px; margin-top: 36px; }
     .sp-avatars { display: flex; }
     .sp-avatar { width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--bg); margin-left: -10px; overflow: hidden; background: var(--orange); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 13px; }
     .sp-avatar:first-child { margin-left: 0; }
@@ -526,11 +526,10 @@
       #tldr { padding: 64px 20px; }
       #topbar { padding: 12px 18px; top: 28px; }
       #topstrip { padding: 8px 18px; }
-      #hero { min-height: auto; padding: 24px 20px 40px; }
+      #hero { min-height: auto; padding: 44px 20px 40px; }
       .h-content { justify-content: flex-start; }
-      .eyebrow { margin-bottom: 20px; }
       .h-h1 { font-size: 34px; line-height: 1.08; margin-bottom: 22px; }
-      .social-proof { margin-bottom: 22px; }
+      .social-proof { margin-top: 28px; }
       .h-sub { font-size: 16px; line-height: 1.5; }
       .h-cta-row { width: 100%; }
       .h-cta-row .btn-primary { width: 100%; justify-content: center; padding: 16px 28px; }
@@ -580,8 +579,16 @@
 <div id="hero-wrap">
 <section id="hero">
   <div class="h-content">
-  <div class="eyebrow"><span class="e-dot"></span>60 Day Brand Challenge</div>
   <h1 class="h-h1">Build the system to create beautiful content and grow your audience in 60 days.</h1>
+  <p class="h-sub">A 60-day challenge to blow up your aesthetic brand.</p>
+  <ul class="h-bullets">
+    <li>30 published posts on your account</li>
+    <li>A repeatable AI-powered content system installed</li>
+    <li>The skills to capture your life cinematically</li>
+  </ul>
+  <div class="h-cta-row">
+    <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="btn-primary">Join the Challenge &rarr;</a>
+  </div>
   <div class="social-proof">
     <div class="sp-avatars">
       <div class="sp-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799121/theresa_axof4n.jpg" alt="" /></div>
@@ -593,16 +600,6 @@
       <div class="sp-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
       <div class="sp-text"><strong>100+ students</strong> trained by Gabe</div>
     </div>
-  </div>
-  <p class="h-sub">A 60-day challenge with everything you need to create a cinematic personal brand.</p>
-  <ul class="h-bullets">
-    <li>A step-by-step roadmap to build your brand</li>
-    <li>An AI-powered content system to know what &amp; how to post</li>
-    <li>Weekly workshops + pre-recorded content</li>
-    <li>30 finished posts on your account</li>
-  </ul>
-  <div class="h-cta-row">
-    <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="btn-primary">Join the Challenge &rarr;</a>
   </div>
   </div>
 </section>
