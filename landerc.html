@@ -369,11 +369,10 @@
     .mobile-br { display: none; }
     @media (max-width: 768px) { .mobile-br { display: inline; } }
     .get-list { display: flex; flex-direction: column; margin-bottom: 24px; }
-    .get-item { padding: 32px 0 44px; border-bottom: 1px solid rgba(6,20,16,0.10); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; position: relative; overflow: hidden; }
+    .get-item { padding: 32px 0; border-bottom: 1px solid rgba(6,20,16,0.10); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; }
     .get-item:first-child { border-top: 1px solid rgba(6,20,16,0.10); }
-    .get-item-num { position: absolute; bottom: -18px; left: -6px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(140px, 20vw, 220px); letter-spacing: -.05em; line-height: 0.8; color: #ffffff; z-index: 0; pointer-events: none; user-select: none; }
-    .get-item-content { display: flex; flex-direction: column; gap: 8px; min-width: 0; position: relative; z-index: 1; }
-    .get-item-value { position: relative; z-index: 1; }
+    .get-item-eyebrow { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.5); margin-bottom: 10px; display: block; }
+    .get-item-content { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
     .get-item-title { font-size: clamp(22px, 2.7vw, 28px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; }
     .get-item-desc { font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.7); }
     .get-item-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.6); padding: 6px 12px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; white-space: nowrap; margin-top: 6px; align-self: start; }
@@ -464,9 +463,8 @@
       .testi-grid { grid-template-columns: 1fr; }
       .get-method-grid { grid-template-columns: repeat(2, 1fr); }
       .get-build-grid { grid-template-columns: 1fr; }
-      .get-item { grid-template-columns: 1fr; gap: 12px; padding: 26px 0 36px; }
+      .get-item { grid-template-columns: 1fr; gap: 12px; padding: 26px 0; }
       .get-item-content { max-width: 100%; }
-      .get-item-num { font-size: 160px; bottom: -14px; left: -4px; }
       .get-item-title { font-size: clamp(22px, 5.5vw, 28px); }
       .get-item-desc { font-size: 16px; }
       .get-item-value { justify-self: start; }
@@ -700,8 +698,8 @@
 
     <div class="get-list">
       <div class="get-item">
-        <div class="get-item-num">01</div>
         <div class="get-item-content">
+          <span class="get-item-eyebrow">// Phase 01</span>
           <h3 class="get-item-title">Pre-Launch Setup</h3>
           <p class="get-item-desc">A pre-recorded onboarding sequence to build your brand foundation and install your systems before we ever go live.</p>
           <ul class="get-item-list">
@@ -715,8 +713,8 @@
         <span class="get-item-value">Instant Access</span>
       </div>
       <div class="get-item">
-        <div class="get-item-num">02</div>
         <div class="get-item-content">
+          <span class="get-item-eyebrow">// Phase 02</span>
           <h3 class="get-item-title">Build the Machine</h3>
           <p class="get-item-desc">Four weeks of live workshops installing the systems, teaching the craft, and mapping your 30-day content calendar.</p>
           <ul class="get-item-list">
@@ -731,8 +729,8 @@
         <span class="get-item-value">Days 1&ndash;30</span>
       </div>
       <div class="get-item">
-        <div class="get-item-num">03</div>
         <div class="get-item-content">
+          <span class="get-item-eyebrow">// Phase 03</span>
           <h3 class="get-item-title">Ship 30 Posts in 30 Days</h3>
           <p class="get-item-desc">The 30-day content challenge with daily drops and live FAQ sessions to keep you posting.</p>
           <ul class="get-item-list">
