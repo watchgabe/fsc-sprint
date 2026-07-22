@@ -140,9 +140,21 @@
 
     /* ── SOUND FAMILIAR SECTION ── */
     #sound { padding: 96px 24px; max-width: 920px; margin: 0 auto; }
-    .sf-h2 { font-size: clamp(36px, 5.5vw, 64px); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin-bottom: 36px; }
+    .sf-h2 { font-size: clamp(36px, 5.5vw, 64px); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin-bottom: 32px; }
     .sf-body { font-size: 17px; line-height: 1.7; color: var(--sub-bright); display: flex; flex-direction: column; gap: 22px; }
     .sf-body strong { color: var(--text); font-weight: 700; }
+    .sf-check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 56px; }
+    .sf-check-col-title { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 20px; }
+    .sf-check-col-title.yes { color: var(--orange); }
+    .sf-check-col-title.no { color: var(--sub); }
+    .sf-check-list { list-style: none; padding: 0; margin: 0; }
+    .sf-check-list li { display: grid; grid-template-columns: 20px 1fr; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--card-2); font-size: 15px; line-height: 1.5; color: var(--sub-bright); align-items: start; }
+    .sf-check-list li:last-child { border-bottom: none; }
+    .sf-check-icon { color: var(--orange); font-weight: 700; font-size: 16px; line-height: 1.4; padding-top: 1px; }
+    .sf-check-icon.x { opacity: 0.65; }
+    @media (max-width: 640px) {
+      .sf-check-grid { grid-template-columns: 1fr; gap: 8px; margin-top: 40px; }
+    }
     .sf-card { background: var(--card); border: 1px solid var(--card-2); border-radius: 18px; padding: 30px 34px; display: flex; flex-direction: column; gap: 18px; }
     .sf-card p { font-size: 16px; line-height: 1.65; color: var(--sub-bright); margin: 0; }
     .sf-card p:first-child::first-line { color: var(--text); font-weight: 700; }
@@ -623,36 +635,31 @@
 
 <!-- SOUND FAMILIAR -->
 <section id="sound">
-  <p class="sec-pre">// Sound familiar?</p>
-  <h2 class="sf-h2">Your work is great, but your brand doesn&#8217;t reflect it.</h2>
+  <p class="sec-pre">// Sound Familiar?</p>
+  <h2 class="sf-h2">Your work is great, but your content doesn&#8217;t reflect it.</h2>
   <div class="sf-body">
-    <p>You&#8217;ve built a real offer, your clients love you, and revenue is coming in. But now you&#8217;re ready to ramp things up.</p>
-    <p>You&#8217;re ready to be able to actually choose the projects you want to work with. And (like everybody else) you&#8217;ve probably realized that building your personal brand is the best way to achieve this new goal.</p>
-    <div class="sf-card">
-      <p><strong>But you&#8217;re also not like everybody else</strong> because you actually give a f*ck about the content that goes out. You want to put out content that you&#8217;re proud to show people, not only because it&#8217;s going to educate them, but because it&#8217;s going to reflect the value that they would get if they decide to work with you.</p>
-      <p>You want the content that represents you to look like the authority in your niche.</p>
-    </div>
+    <p>You&#8217;ve built something real. Clients love you. Revenue is coming in. But the content going out doesn&#8217;t reflect the work. Until it does, the right people won&#8217;t find you.</p>
+    <p>You give a f*ck about how it looks. Not templated. Not AI-generic. Cinematic, specific, unmistakably yours.</p>
   </div>
 
-  <div class="who-grid">
-    <div class="who-card">
-      <div class="who-label">This challenge is perfect for you if</div>
-      <ul class="who-list">
-        <li><strong>You already sell a product, service, or offer.</strong> But you don&#8217;t have a brand that matches the level of your work.</li>
-        <li><strong>You&#8217;ve invested time into content.</strong> But the results don&#8217;t match the effort. You&#8217;re posting and nothing&#8217;s moving.</li>
-        <li><strong>You&#8217;re just starting out, or your brand is beginning to take shape.</strong> Maybe a few hundred followers. That&#8217;s the starting line, and it&#8217;s fine.</li>
-        <li><strong>You don&#8217;t have time to learn another system.</strong> You want someone who&#8217;s done this to come in and set it up for you.</li>
-        <li><strong>You care how your brand looks.</strong> Cinematic, distinctive, premium. Not templates, not AI-generic. It has to feel like you on your best day.</li>
-        <li><strong>You&#8217;re ready to choose the projects you take on.</strong> Inbound leads, on your terms, asking about the kind of work you actually want to do.</li>
+  <div class="sf-check-grid">
+    <div>
+      <div class="sf-check-col-title yes">// This is for you if</div>
+      <ul class="sf-check-list">
+        <li><span class="sf-check-icon">&#10003;</span><span>You already sell a product, service, or offer, but your brand doesn&#8217;t match the level of your work</span></li>
+        <li><span class="sf-check-icon">&#10003;</span><span>You&#8217;ve invested time into content, but the results don&#8217;t match the effort</span></li>
+        <li><span class="sf-check-icon">&#10003;</span><span>You&#8217;re just starting or your brand has started to take shape</span></li>
+        <li><span class="sf-check-icon">&#10003;</span><span>You care how your brand looks. Cinematic, distinctive, premium. Not templates, not AI-generic</span></li>
+        <li><span class="sf-check-icon">&#10003;</span><span>You&#8217;re ready to grow your audience and attract clients you actually want to work with</span></li>
       </ul>
     </div>
-    <div class="who-card who-card-no">
-      <div class="who-label">This challenge is not for you if</div>
-      <ul class="who-list">
-        <li><strong>You want viral, not premium.</strong> Big numbers as the end goal, not the right clients. Different game.</li>
-        <li><strong>You want AI to generate the volume for you.</strong> Templates, 5-posts-a-day pipelines, AI-written everything. Not what we install.</li>
-        <li><strong>You don&#8217;t have a working offer yet.</strong> Build that first. This challenge installs the brand around your business, not the business itself.</li>
-        <li><strong>You&#8217;re trying to become a creator.</strong> Sponsorships, brand deals, audience growth as the goal. Wrong room.</li>
+    <div>
+      <div class="sf-check-col-title no">// This is not for you if</div>
+      <ul class="sf-check-list">
+        <li><span class="sf-check-icon x">&#10007;</span><span>You want AI to generate the volume for you. Templates, 5-posts-a-day pipelines, AI-written everything</span></li>
+        <li><span class="sf-check-icon x">&#10007;</span><span>You want to generate AI videos. This is AI for the systems, not the slop</span></li>
+        <li><span class="sf-check-icon x">&#10007;</span><span>You don&#8217;t have a working offer yet. Build that first. This installs the brand around your business, not the business itself</span></li>
+        <li><span class="sf-check-icon x">&#10007;</span><span>You&#8217;re trying to become a creator. Sponsorships, brand deals, audience growth as the goal</span></li>
       </ul>
     </div>
   </div>
