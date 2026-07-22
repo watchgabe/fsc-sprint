@@ -119,6 +119,26 @@
     .tldr-footer .btn-primary { padding: 14px 28px; font-size: 14px; }
     .tldr-meta { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.55); }
 
+    /* ── PANELS (split image + 3-item explainer, TLDR replacement candidate) ── */
+    #panels { background: #f3efe7; color: #061410; padding: 96px 24px; }
+    .panels-inner { max-width: 1120px; margin: 0 auto; }
+    .panels-header { text-align: center; max-width: 780px; margin: 0 auto 64px; }
+    .panels-pill { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 100px; background: rgba(238,102,62,0.10); border: 1px solid rgba(238,102,62,0.35); color: var(--orange); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; margin-bottom: 24px; }
+    .panels-pill .p-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: eyebrow-pulse 2s infinite; }
+    .panels-h { font-size: clamp(36px, 5vw, 60px); font-weight: 800; letter-spacing: -.03em; line-height: 1.05; color: #061410; margin-bottom: 24px; }
+    .panels-sub { font-size: 17px; line-height: 1.55; color: rgba(6,20,16,0.7); margin: 0; }
+    .panels-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .panels-image-col { width: 100%; }
+    .panels-image-col img { width: 100%; height: auto; border-radius: 20px; display: block; object-fit: cover; aspect-ratio: 4 / 5; }
+    .panels-items-col { display: flex; flex-direction: column; }
+    .panel-item { padding: 26px 0; border-bottom: 1px solid rgba(6,20,16,0.10); }
+    .panel-item:first-child { padding-top: 0; }
+    .panel-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .panel-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(6,20,16,0.06); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+    .panel-icon svg { width: 20px; height: 20px; stroke: #061410; }
+    .panel-item h3 { font-size: 20px; font-weight: 800; letter-spacing: -.01em; color: #061410; margin: 0 0 8px; }
+    .panel-item p { font-size: 15px; line-height: 1.6; color: rgba(6,20,16,0.7); margin: 0; }
+
     /* ── ENGINE (Frictionless OS breakdown) ── */
     #engine { padding: 96px 24px; max-width: 920px; margin: 0 auto; }
     .eng-eyebrow { display: inline-flex; padding: 8px 18px; border-radius: 100px; border: 1px solid var(--card-2); background: var(--card); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); margin-bottom: 24px; }
@@ -524,6 +544,14 @@
       .get-method-grid { grid-template-columns: 1fr; }
       #get { padding: 64px 20px; }
       #tldr { padding: 64px 20px; }
+      #panels { padding: 64px 20px; }
+      .panels-header { margin-bottom: 40px; }
+      .panels-h { font-size: 32px; line-height: 1.08; }
+      .panels-sub { font-size: 16px; }
+      .panels-cols { grid-template-columns: 1fr; gap: 32px; }
+      .panels-image-col img { aspect-ratio: 16 / 11; }
+      .panel-item { padding: 22px 0; }
+      .panel-icon { width: 38px; height: 38px; margin-bottom: 14px; }
       #topbar { padding: 12px 18px; top: 28px; }
       #topstrip { padding: 8px 18px; }
       #hero { min-height: calc(100vh - 88px); padding: 56px 20px 56px; }
@@ -658,6 +686,45 @@
     <div class="tldr-footer">
       <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="btn-primary">Join the Challenge &rarr;</a>
       <span class="tldr-meta">100% Money-Back Guarantee</span>
+    </div>
+  </div>
+</section>
+
+<!-- PANELS · TLDR replacement candidate (image + 3 items) -->
+<section id="panels">
+  <div class="panels-inner">
+    <div class="panels-header">
+      <div class="panels-pill"><span class="p-dot"></span>Challenge Starts &middot; Aug 5, 2026</div>
+      <h2 class="panels-h">30-Day Build. 30-Day Ship.</h2>
+      <p class="panels-sub">60 days, split in two. The first 30 you install your brand, your systems, and your 30-day content calendar. The next 30 you ship in a guided sprint with daily drops and live FAQ calls. You leave with 30 cinematic pieces live and a system that runs without me.</p>
+    </div>
+    <div class="panels-cols">
+      <div class="panels-image-col">
+        <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1782233822/Live_Workshop_kyrns1.jpg" alt="Gabe at a live workshop" />
+      </div>
+      <div class="panels-items-col">
+        <div class="panel-item">
+          <div class="panel-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+          </div>
+          <h3>Build your brand</h3>
+          <p>Your positioning, avatar, voice, and content pillars installed as a Brand Blueprint before we go live. Every piece from Day 1 comes from the same source of truth.</p>
+        </div>
+        <div class="panel-item">
+          <div class="panel-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          </div>
+          <h3>Build your content system</h3>
+          <p>The AI-powered Frictionless OS installed on your machine. Audit competitors, capture ideas, draft hooks, and script videos through a workflow that turns raw ideas into shot-ready posts.</p>
+        </div>
+        <div class="panel-item">
+          <div class="panel-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </div>
+          <h3>Post 30 pieces of content</h3>
+          <p>30 days of daily drops, style prompts, and small-group FAQ calls. You finish with 30 cinematic pieces live, a posting habit that sticks, and a brand that finally looks like your work.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
