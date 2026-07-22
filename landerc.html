@@ -385,9 +385,9 @@
     /* ── OFFER SECTION (single-column phase cards) ── */
     #offer { background: var(--bg); color: var(--text); padding: 96px 24px; }
     .offer-inner { max-width: 920px; margin: 0 auto; }
-    .offer-header { text-align: center; margin-bottom: 48px; }
-    .offer-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub); margin-bottom: 18px; display: block; }
-    .offer-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(30px, 4.5vw, 44px); letter-spacing: -.03em; line-height: 1.08; color: var(--text); margin: 0; }
+    .offer-header { text-align: left; margin-bottom: 48px; }
+    .offer-eyebrow { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; display: block; }
+    .offer-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(36px, 5.5vw, 64px); letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin: 0; }
     .offer-phase { background: var(--card); border: 1px solid var(--card-2); border-radius: 18px; padding: 32px 34px 30px; transition: transform .25s, background .25s, border-color .25s, box-shadow .25s; }
     .offer-phase:hover { background: #0c2119; border-color: rgba(238,102,62,0.35); transform: translateY(-3px); box-shadow: 0 14px 32px rgba(0,0,0,0.28); }
     .offer-phase-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
@@ -397,32 +397,30 @@
     .offer-phase-desc { font-size: 15px; line-height: 1.6; color: var(--sub-bright); margin-bottom: 22px; }
     .offer-phase-list { list-style: none; padding: 0; margin: 0 0 24px; display: flex; flex-direction: column; gap: 4px; }
     .offer-phase-list li { position: relative; padding: 6px 0 6px 32px; font-size: 15px; line-height: 1.55; color: var(--sub-bright); min-height: 24px; }
-    .offer-phase-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 20px; height: 20px; border-radius: 50%; background: var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234ade80' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/12px no-repeat; }
+    .offer-phase-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 20px; height: 20px; border-radius: 50%; background: var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23061410' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/12px no-repeat; }
     .offer-phase-list li strong { color: var(--text); font-weight: 700; }
     .offer-phase-list li em { color: var(--orange); font-style: italic; }
     .offer-phase-goal { font-size: 14px; line-height: 1.6; color: var(--sub-bright); padding-top: 20px; border-top: 1px solid var(--card-2); margin: 0; }
     .offer-phase-goal strong { color: var(--text); font-weight: 700; }
 
     /* Also upgrade page-wide check bullets to circle-badge style */
-    .h-bullets li::before { content: ''; position: absolute; left: 0; top: 5px; width: 20px; height: 20px; border-radius: 50%; background: var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234ade80' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/12px no-repeat; color: transparent; font-size: 0; }
-    .g-list li::before { content: ''; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; border-radius: 50%; background: var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234ade80' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/11px no-repeat; color: transparent; font-size: 0; }
+    .h-bullets li::before { content: ''; position: absolute; left: 0; top: 5px; width: 20px; height: 20px; border-radius: 50%; background: var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23061410' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/12px no-repeat; color: transparent; font-size: 0; }
+    .g-list li::before { content: ''; position: absolute; left: 0; top: 2px; width: 18px; height: 18px; border-radius: 50%; background: var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23061410' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/11px no-repeat; color: transparent; font-size: 0; }
     .g-list li { padding-left: 28px; }
 
-    /* Circle-badge arrow between phases */
-    .offer-arrow { display: flex; justify-content: center; margin: 22px 0; }
-    .offer-arrow-badge { position: relative; width: 40px; height: 40px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; color: #4ade80; }
-    .offer-arrow-badge::before,
-    .offer-arrow-badge::after { content: ''; position: absolute; border-radius: 50%; background: var(--orange); left: 50%; z-index: -1; }
-    .offer-arrow-badge::before { width: 28px; height: 28px; top: 22px; transform: translateX(-50%); opacity: 0.55; }
-    .offer-arrow-badge::after { width: 18px; height: 18px; top: 38px; transform: translateX(-50%); opacity: 0.28; }
-    .offer-arrow-badge svg { width: 20px; height: 20px; stroke: #4ade80; position: relative; z-index: 1; }
+    /* Circle-badge arrow between phases (overlaps card edge) */
+    .offer-arrow { display: flex; justify-content: center; margin: -22px 0; position: relative; z-index: 2; pointer-events: none; }
+    .offer-arrow-badge { position: relative; width: 44px; height: 44px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; }
+    .offer-arrow-badge svg { width: 22px; height: 22px; stroke: var(--bg); position: relative; z-index: 1; }
 
     @media (max-width: 640px) {
       #offer { padding: 64px 20px; }
       .offer-header { margin-bottom: 36px; }
       .offer-phase { padding: 28px 24px 26px; }
       .offer-phase:hover { transform: none; }
-      .offer-phase-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .offer-phase-head { flex-wrap: nowrap; gap: 10px; }
+      .offer-phase-tag-left { flex-shrink: 1; min-width: 0; }
+      .offer-phase-tag-right { flex-shrink: 0; white-space: nowrap; }
     }
 
     /* ── RESPONSIVE ── */
@@ -692,7 +690,7 @@
     <div class="offer-phase">
       <div class="offer-phase-head">
         <span class="offer-phase-tag-left">02 &middot; Live Workshops</span>
-        <span class="offer-phase-tag-right">Weeks 1&ndash;4</span>
+        <span class="offer-phase-tag-right">Days 1&ndash;30</span>
       </div>
       <h3 class="offer-phase-title">Build the Machine</h3>
       <p class="offer-phase-desc">Four weeks of live workshops installing the systems, teaching the craft, and mapping your 30-day content calendar.</p>
