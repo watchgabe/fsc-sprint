@@ -382,45 +382,42 @@
     .get-reveal-meta { margin-top: 14px; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
     .get-reveal-meta .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--orange); }
 
-    /* ── OFFER SECTION (Jessi Jean style · dark) ── */
-    #offer { background: var(--bg); color: var(--text); padding: 112px 24px; }
+    /* ── OFFER SECTION (dark · matches site rhythm) ── */
+    #offer { background: var(--bg); color: var(--text); padding: 96px 24px; }
     .offer-inner { max-width: 920px; margin: 0 auto; }
-    .offer-header { text-align: center; margin-bottom: 88px; }
-    .offer-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); margin-bottom: 22px; display: block; }
-    .offer-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(56px, 9vw, 108px); letter-spacing: -.045em; line-height: .95; color: var(--text); margin: 0; }
-    .offer-item { display: grid; grid-template-columns: 110px 1fr; gap: 32px; margin-bottom: 96px; }
+    .offer-header { text-align: left; margin-bottom: 72px; }
+    .offer-eyebrow { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); margin-bottom: 18px; display: block; }
+    .offer-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(36px, 5.5vw, 60px); letter-spacing: -.035em; line-height: 1.02; color: var(--text); margin: 0; }
+    .offer-item { display: grid; grid-template-columns: 110px 1fr; gap: 32px; margin-bottom: 80px; }
     .offer-item:last-child { margin-bottom: 0; }
-    .offer-num-col { display: flex; flex-direction: column; padding-top: 12px; }
-    .offer-num { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(44px, 5.5vw, 64px); letter-spacing: -.03em; line-height: 1; color: var(--orange); margin-bottom: 10px; }
+    .offer-num-col { display: flex; flex-direction: column; padding-top: 8px; }
+    .offer-num { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(42px, 5vw, 60px); letter-spacing: -.03em; line-height: 1; color: var(--orange); margin-bottom: 10px; }
     .offer-day { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); line-height: 1.5; }
     .offer-body { min-width: 0; }
-    .offer-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(38px, 6vw, 68px); letter-spacing: -.04em; line-height: 1; color: var(--text); margin-bottom: 22px; }
-    .offer-tag { color: #f5c542; font-weight: 700; font-size: 17px; line-height: 1.4; margin-bottom: 6px; }
-    .offer-sub-line { font-style: italic; font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 24px; }
-    .offer-desc { font-size: 16px; line-height: 1.65; color: rgba(255,255,255,0.72); margin-bottom: 28px; }
-    .offer-desc em { color: #f5c542; font-style: italic; }
+    .offer-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(32px, 4.5vw, 48px); letter-spacing: -.035em; line-height: 1; color: var(--text); margin-bottom: 18px; }
+    .offer-tag { color: var(--sub-bright); font-weight: 600; font-size: 16px; line-height: 1.45; margin-bottom: 6px; }
+    .offer-sub-line { font-style: italic; font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 22px; }
+    .offer-desc { font-size: 16px; line-height: 1.65; color: rgba(255,255,255,0.72); margin-bottom: 26px; }
+    .offer-desc em { color: var(--orange); font-style: italic; }
     .offer-desc strong { color: var(--text); font-weight: 700; }
-    .offer-desc .accent-orange { color: var(--orange); font-style: normal; }
-    .offer-block { background: rgba(255,255,255,0.03); border-left: 3px solid var(--orange); padding: 22px 26px 24px; margin-bottom: 18px; border-radius: 0 4px 4px 0; }
+    .offer-block { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px 24px; margin-bottom: 14px; }
     .offer-block:last-child { margin-bottom: 0; }
-    .offer-block-alt { border-left-color: #f5c542; }
     .offer-block-tag { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 14px; display: block; }
-    .offer-block-alt .offer-block-tag { color: #f5c542; }
     .offer-block-list { list-style: none; padding: 0; margin: 0; }
-    .offer-block-list li { font-size: 15px; line-height: 1.55; color: rgba(255,255,255,0.72); padding: 5px 0; }
+    .offer-block-list li { font-size: 15px; line-height: 1.55; color: var(--sub-bright); padding: 5px 0; }
     .offer-block-list li strong { color: var(--text); font-weight: 700; }
-    .offer-block-list li em { color: #f5c542; font-style: italic; font-weight: 400; }
-    .offer-block-list li .kw { color: var(--orange); font-weight: 700; }
-    .offer-block > p { color: rgba(255,255,255,0.72); font-size: 15px; line-height: 1.55; margin: 0; }
-    .offer-italic-close { font-style: italic; color: rgba(255,255,255,0.55); font-size: 15px; line-height: 1.55; margin: 22px 0; }
-    .offer-italic-close .highlight { color: #f5c542; font-weight: 700; font-style: normal; }
+    .offer-block-list li em { color: var(--orange); font-style: italic; font-weight: 400; }
+    .offer-block > p { color: var(--sub-bright); font-size: 15px; line-height: 1.55; margin: 0; }
+    .offer-block > p em { color: var(--orange); font-style: italic; }
+    .offer-italic-close { font-style: italic; color: rgba(255,255,255,0.55); font-size: 15px; line-height: 1.55; margin: 20px 0; }
+    .offer-italic-close .highlight { color: var(--orange); font-weight: 700; font-style: normal; }
     @media (max-width: 640px) {
-      #offer { padding: 72px 20px; }
-      .offer-header { margin-bottom: 64px; }
-      .offer-item { grid-template-columns: 1fr; gap: 14px; margin-bottom: 72px; }
+      #offer { padding: 64px 20px; }
+      .offer-header { margin-bottom: 56px; }
+      .offer-item { grid-template-columns: 1fr; gap: 14px; margin-bottom: 64px; }
       .offer-num-col { flex-direction: row; align-items: baseline; gap: 14px; padding-top: 0; }
-      .offer-num { font-size: 40px; margin-bottom: 0; }
-      .offer-title { font-size: 34px; }
+      .offer-num { font-size: 38px; margin-bottom: 0; }
+      .offer-title { font-size: 30px; }
     }
 
     /* ── RESPONSIVE ── */
@@ -655,12 +652,12 @@
   </div>
 </section>
 
-<!-- OFFER (Jessi Jean-style 01/02/03 breakdown) -->
+<!-- OFFER · 01/02/03 breakdown -->
 <section id="offer">
   <div class="offer-inner">
     <div class="offer-header">
-      <span class="offer-eyebrow">// Here&#8217;s exactly what you get</span>
-      <h2 class="offer-h">THE OFFER.</h2>
+      <span class="offer-eyebrow">// the offer</span>
+      <h2 class="offer-h">Here&#8217;s exactly what you get.</h2>
     </div>
 
     <!-- 01 · SETUP -->
@@ -670,24 +667,24 @@
         <div class="offer-day">Instant access<br/>Pre-launch</div>
       </div>
       <div class="offer-body">
-        <h3 class="offer-title">SET UP.</h3>
-        <p class="offer-tag">the pre-recorded onboarding &mdash; brand blueprint + system install, before we go live</p>
-        <p class="offer-sub-line">available the moment you enroll &middot; self-paced &middot; in your community platform</p>
-        <p class="offer-desc">you don&#8217;t wait for launch day. you sign up, you&#8217;re in, you start. the goal is simple: get your <strong>brand foundation</strong> locked and your <strong>systems live</strong> before the workshops kick off. so when we go live, you&#8217;re not catching up &mdash; <em>you&#8217;re ready to ship.</em></p>
+        <h3 class="offer-title">Set up.</h3>
+        <p class="offer-tag">Your brand blueprint + full system install, before we ever go live.</p>
+        <p class="offer-sub-line">Available the moment you enroll &middot; self-paced &middot; in your community platform.</p>
+        <p class="offer-desc">You don&#8217;t wait for launch day. You sign up, you&#8217;re in, you start. The goal is simple: get your <strong>brand foundation</strong> locked and your <strong>systems installed</strong> before the workshops kick off. So when we go live, you&#8217;re not catching up &mdash; <em>you&#8217;re ready to build.</em></p>
 
         <div class="offer-block">
           <span class="offer-block-tag">What we cover</span>
           <ul class="offer-block-list">
-            <li><strong>Introduction:</strong> why premium cinematic content will always win</li>
             <li><strong>Your Brand Blueprint</strong> &middot; avatar, positioning, voice, content pillars</li>
-            <li><strong>Installing Frictionless OS</strong> on your computer</li>
+            <li><strong>Notion connected to Claude</strong> &middot; the base of your content system</li>
+            <li><strong>Frictionless OS installed</strong> on your machine</li>
             <li><strong>The content workflow</strong> that runs everything</li>
           </ul>
         </div>
 
-        <div class="offer-block offer-block-alt">
+        <div class="offer-block">
           <span class="offer-block-tag">You&#8217;ll leave knowing</span>
-          <p>who you&#8217;re talking to, what you&#8217;re building, and how the system works &mdash; <em>before we even meet.</em></p>
+          <p>Who you&#8217;re talking to, what you&#8217;re building, and how the system works &mdash; <em>before we even meet.</em></p>
         </div>
       </div>
     </div>
@@ -699,14 +696,15 @@
         <div class="offer-day">Weeks 1&ndash;4<br/>Live workshops</div>
       </div>
       <div class="offer-body">
-        <h3 class="offer-title">BUILD.</h3>
-        <p class="offer-tag">4 weeks of live workshops installing the system that runs the ship phase</p>
-        <p class="offer-sub-line">live with me on zoom &middot; replay forever &middot; every workshop moves you forward</p>
-        <p class="offer-desc">this is where we install the machine. the goal is to leave phase one with a <strong>30-day content calendar</strong>, a <strong>repeatable content system</strong>, and the <em>actual skills</em> to capture cinematic content. no theory. every workshop moves you forward.</p>
+        <h3 class="offer-title">Build.</h3>
+        <p class="offer-tag">1 introduction call + 4 live workshops. 5 live sessions installing the machine.</p>
+        <p class="offer-sub-line">Live with me on Zoom &middot; replay forever.</p>
+        <p class="offer-desc">This is where we install the machine. We kick off with an <strong>introduction call</strong> to set the tone and make sure your setup is complete. Then 4 workshops installing the systems, teaching the craft, and mapping your <strong>30-day content calendar</strong>. No theory. Every session moves you forward.</p>
 
         <div class="offer-block">
           <span class="offer-block-tag">What we cover</span>
           <ul class="offer-block-list">
+            <li><strong>Introduction call</strong> &middot; what to expect + confirming your setup is complete</li>
             <li><strong>Weekly workflows</strong> for endless content ideas</li>
             <li><strong>Competitor audits</strong> &middot; what&#8217;s actually working in your niche</li>
             <li><strong>Content formats</strong> &middot; pillars, structure, style</li>
@@ -718,9 +716,9 @@
           </ul>
         </div>
 
-        <div class="offer-block offer-block-alt">
+        <div class="offer-block">
           <span class="offer-block-tag">You&#8217;ll leave knowing</span>
-          <p>what to post &middot; how to shoot it &middot; <em>a calendar ready to ship.</em></p>
+          <p>What to post &middot; how to shoot it &middot; <em>a calendar ready to ship.</em></p>
         </div>
       </div>
     </div>
@@ -732,10 +730,10 @@
         <div class="offer-day">Days 31&ndash;60<br/>The Challenge</div>
       </div>
       <div class="offer-body">
-        <h3 class="offer-title">SHIP.</h3>
-        <p class="offer-tag">30 posts. 30 days. daily drops to keep you posting.</p>
-        <p class="offer-sub-line">delivered daily &middot; in your community platform &middot; every morning</p>
-        <p class="offer-desc">this is where the challenge happens. every morning, a new drop lands in your platform &mdash; an educational tip and a prompt to keep you shipping. you don&#8217;t overthink. <em>you wake up, you read the drop, you send it.</em></p>
+        <h3 class="offer-title">Ship.</h3>
+        <p class="offer-tag">30 posts. 30 days. Daily drops + 2 FAQ sessions to keep you moving.</p>
+        <p class="offer-sub-line">Delivered daily &middot; in your community platform.</p>
+        <p class="offer-desc">This is where the challenge happens. Every morning, a new drop lands in your platform &mdash; an <strong>educational tip</strong> and a <strong>prompt</strong> to keep you shipping. Two live FAQ sessions during the phase to unblock whatever&#8217;s in the way. You don&#8217;t overthink. <em>You wake up, you read the drop, you send it.</em></p>
 
         <div class="offer-block">
           <span class="offer-block-tag">Every morning in the platform</span>
@@ -746,9 +744,14 @@
           </ul>
         </div>
 
-        <p class="offer-italic-close">don&#8217;t overthink it. <span class="highlight">that&#8217;s the whole game.</span></p>
+        <div class="offer-block">
+          <span class="offer-block-tag">Also during the ship phase</span>
+          <p><strong>2 live FAQ sessions</strong> to unblock whatever&#8217;s specific to your content.</p>
+        </div>
 
-        <div class="offer-block offer-block-alt">
+        <p class="offer-italic-close">Don&#8217;t overthink it. <span class="highlight">That&#8217;s the whole game.</span></p>
+
+        <div class="offer-block">
           <span class="offer-block-tag">By day 60</span>
           <p>30 pieces of cinematic content live &middot; a repeatable posting habit &middot; <em>a brand that finally looks like your work.</em></p>
         </div>
