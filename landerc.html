@@ -388,9 +388,11 @@
     .offer-header { text-align: left; margin-bottom: 48px; }
     .offer-eyebrow { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; display: block; }
     .offer-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(36px, 5.5vw, 64px); letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin: 0; }
-    .offer-phase { background: var(--card); border: 1px solid var(--card-2); border-radius: 18px; padding: 32px 34px 30px; transition: transform .25s, background .25s, border-color .25s, box-shadow .25s; }
+    .offer-phase { background: var(--card); border: 1px solid var(--card-2); border-radius: 18px; padding: 32px 34px 30px; transition: transform .25s, background .25s, border-color .25s, box-shadow .25s; display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: start; }
     .offer-phase:hover { background: #0c2119; border-color: rgba(238,102,62,0.35); transform: translateY(-3px); box-shadow: 0 14px 32px rgba(0,0,0,0.28); }
-    .offer-phase-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+    .offer-phase-num { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(58px, 8vw, 96px); letter-spacing: -.05em; line-height: .9; color: var(--orange); padding-top: 4px; }
+    .offer-phase-body { min-width: 0; }
+    .offer-phase-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
     .offer-phase-tag-left { display: inline-block; background: rgba(238,102,62,0.12); color: var(--orange); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; padding: 7px 14px; border-radius: 8px; font-weight: 700; }
     .offer-phase-tag-right { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); font-weight: 700; }
     .offer-phase-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(24px, 3.2vw, 32px); letter-spacing: -.02em; line-height: 1.15; color: var(--text); margin-bottom: 12px; }
@@ -416,8 +418,9 @@
     @media (max-width: 640px) {
       #offer { padding: 64px 20px; }
       .offer-header { margin-bottom: 36px; }
-      .offer-phase { padding: 28px 24px 26px; }
+      .offer-phase { padding: 26px 22px 24px; grid-template-columns: auto 1fr; gap: 18px; }
       .offer-phase:hover { transform: none; }
+      .offer-phase-num { font-size: 44px; padding-top: 2px; }
       .offer-phase-head { flex-wrap: nowrap; gap: 10px; }
       .offer-phase-tag-left { flex-shrink: 1; min-width: 0; }
       .offer-phase-tag-right { flex-shrink: 0; white-space: nowrap; }
@@ -665,19 +668,22 @@
 
     <!-- Phase 01 -->
     <div class="offer-phase">
-      <div class="offer-phase-head">
-        <span class="offer-phase-tag-left">01 &middot; Before Kickoff</span>
-        <span class="offer-phase-tag-right">Instant Access</span>
+      <div class="offer-phase-num">01</div>
+      <div class="offer-phase-body">
+        <div class="offer-phase-head">
+          <span class="offer-phase-tag-left">Before Kickoff</span>
+          <span class="offer-phase-tag-right">Instant Access</span>
+        </div>
+        <h3 class="offer-phase-title">Pre-Launch Setup</h3>
+        <p class="offer-phase-desc">A pre-recorded onboarding sequence to build your brand foundation and install your systems before we ever go live.</p>
+        <ul class="offer-phase-list">
+          <li>Complete your Brand Blueprint &middot; avatar, positioning, voice, pillars</li>
+          <li>Notion connected to Claude</li>
+          <li>Frictionless OS installed on your machine</li>
+          <li>The content workflow that runs everything</li>
+        </ul>
+        <p class="offer-phase-goal"><strong>You&#8217;ll leave knowing:</strong> who you&#8217;re talking to, what you&#8217;re building, and how the system works before we ever meet.</p>
       </div>
-      <h3 class="offer-phase-title">Pre-Launch Setup</h3>
-      <p class="offer-phase-desc">A pre-recorded onboarding sequence to build your brand foundation and install your systems before we ever go live.</p>
-      <ul class="offer-phase-list">
-        <li>Complete your Brand Blueprint &middot; avatar, positioning, voice, pillars</li>
-        <li>Notion connected to Claude</li>
-        <li>Frictionless OS installed on your machine</li>
-        <li>The content workflow that runs everything</li>
-      </ul>
-      <p class="offer-phase-goal"><strong>You&#8217;ll leave knowing:</strong> who you&#8217;re talking to, what you&#8217;re building, and how the system works before we ever meet.</p>
     </div>
 
     <div class="offer-arrow" aria-hidden="true">
@@ -688,20 +694,23 @@
 
     <!-- Phase 02 -->
     <div class="offer-phase">
-      <div class="offer-phase-head">
-        <span class="offer-phase-tag-left">02 &middot; Live Workshops</span>
-        <span class="offer-phase-tag-right">Days 1&ndash;30</span>
+      <div class="offer-phase-num">02</div>
+      <div class="offer-phase-body">
+        <div class="offer-phase-head">
+          <span class="offer-phase-tag-left">Live Workshops</span>
+          <span class="offer-phase-tag-right">Days 1&ndash;30</span>
+        </div>
+        <h3 class="offer-phase-title">Build the Machine</h3>
+        <p class="offer-phase-desc">Four weeks of live workshops installing the systems, teaching the craft, and mapping your 30-day content calendar.</p>
+        <ul class="offer-phase-list">
+          <li>Kickoff call &middot; what to expect + setup check</li>
+          <li>Endless-ideas workflow + competitor audits</li>
+          <li>Custom Hook Engine + scripts built for you</li>
+          <li>Cinematic content framework &middot; shoot, edit, format</li>
+          <li>Your 30-day content calendar mapped</li>
+        </ul>
+        <p class="offer-phase-goal"><strong>You&#8217;ll leave knowing:</strong> what to post, how to shoot it, and a calendar ready to ship.</p>
       </div>
-      <h3 class="offer-phase-title">Build the Machine</h3>
-      <p class="offer-phase-desc">Four weeks of live workshops installing the systems, teaching the craft, and mapping your 30-day content calendar.</p>
-      <ul class="offer-phase-list">
-        <li>Kickoff call &middot; what to expect + setup check</li>
-        <li>Endless-ideas workflow + competitor audits</li>
-        <li>Custom Hook Engine + scripts built for you</li>
-        <li>Cinematic content framework &middot; shoot, edit, format</li>
-        <li>Your 30-day content calendar mapped</li>
-      </ul>
-      <p class="offer-phase-goal"><strong>You&#8217;ll leave knowing:</strong> what to post, how to shoot it, and a calendar ready to ship.</p>
     </div>
 
     <div class="offer-arrow" aria-hidden="true">
@@ -712,18 +721,21 @@
 
     <!-- Phase 03 -->
     <div class="offer-phase">
-      <div class="offer-phase-head">
-        <span class="offer-phase-tag-left">03 &middot; The Challenge</span>
-        <span class="offer-phase-tag-right">Days 31&ndash;60</span>
+      <div class="offer-phase-num">03</div>
+      <div class="offer-phase-body">
+        <div class="offer-phase-head">
+          <span class="offer-phase-tag-left">The Challenge</span>
+          <span class="offer-phase-tag-right">Days 31&ndash;60</span>
+        </div>
+        <h3 class="offer-phase-title">Ship 30 Posts in 30 Days</h3>
+        <p class="offer-phase-desc">The 30-day content challenge with daily drops and live FAQ sessions to keep you posting.</p>
+        <ul class="offer-phase-list">
+          <li>Daily educational tip on cinematic content</li>
+          <li>Daily style or format prompt to try</li>
+          <li>2 live FAQ sessions to unblock what&#8217;s specific to you</li>
+        </ul>
+        <p class="offer-phase-goal"><strong>You&#8217;ll leave knowing:</strong> 30 pieces of cinematic content live, a repeatable posting habit, and a brand that finally looks like your work.</p>
       </div>
-      <h3 class="offer-phase-title">Ship 30 Posts in 30 Days</h3>
-      <p class="offer-phase-desc">The 30-day content challenge with daily drops and live FAQ sessions to keep you posting.</p>
-      <ul class="offer-phase-list">
-        <li>Daily educational tip on cinematic content</li>
-        <li>Daily style or format prompt to try</li>
-        <li>2 live FAQ sessions to unblock what&#8217;s specific to you</li>
-      </ul>
-      <p class="offer-phase-goal"><strong>You&#8217;ll leave knowing:</strong> 30 pieces of cinematic content live, a repeatable posting habit, and a brand that finally looks like your work.</p>
     </div>
   </div>
 </section>
