@@ -362,17 +362,18 @@
     .get-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.45); margin-bottom: 20px; }
     .get-h { font-size: clamp(36px, 5.5vw, 60px); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; color: #061410; margin-bottom: 48px; }
     .get-item-list { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-direction: column; gap: 4px; }
-    .get-item-list li { position: relative; padding: 4px 0 4px 28px; font-size: 15px; line-height: 1.55; color: rgba(6,20,16,0.75); }
-    .get-item-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 18px; height: 18px; border-radius: 50%; background: var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23061410' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/10px no-repeat; }
+    .get-item-list li { position: relative; padding: 4px 0 4px 24px; font-size: 15px; line-height: 1.55; color: rgba(6,20,16,0.75); }
+    .get-item-list li::before { content: ''; position: absolute; left: 0; top: 9px; width: 14px; height: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ee663e' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/14px no-repeat; }
     .get-item-goal { font-size: 14px; line-height: 1.55; color: rgba(6,20,16,0.7); margin: 14px 0 0; }
     .get-item-goal strong { color: #061410; font-weight: 700; }
     .mobile-br { display: none; }
     @media (max-width: 768px) { .mobile-br { display: inline; } }
     .get-list { display: flex; flex-direction: column; margin-bottom: 24px; }
-    .get-item { padding: 32px 0; border-bottom: 1px solid rgba(6,20,16,0.10); display: grid; grid-template-columns: auto 1fr auto; gap: 28px; align-items: start; }
+    .get-item { padding: 32px 0 44px; border-bottom: 1px solid rgba(6,20,16,0.10); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; position: relative; overflow: hidden; }
     .get-item:first-child { border-top: 1px solid rgba(6,20,16,0.10); }
-    .get-item-num { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; font-size: clamp(82px, 10vw, 128px); letter-spacing: -.04em; line-height: 0.85; color: #ffffff; align-self: start; padding-top: 2px; min-width: 100px; }
-    .get-item-content { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+    .get-item-num { position: absolute; bottom: -18px; left: -6px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(140px, 20vw, 220px); letter-spacing: -.05em; line-height: 0.8; color: #ffffff; z-index: 0; pointer-events: none; user-select: none; }
+    .get-item-content { display: flex; flex-direction: column; gap: 8px; min-width: 0; position: relative; z-index: 1; }
+    .get-item-value { position: relative; z-index: 1; }
     .get-item-title { font-size: clamp(22px, 2.7vw, 28px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; }
     .get-item-desc { font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.7); }
     .get-item-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.6); padding: 6px 12px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; white-space: nowrap; margin-top: 6px; align-self: start; }
@@ -463,9 +464,9 @@
       .testi-grid { grid-template-columns: 1fr; }
       .get-method-grid { grid-template-columns: repeat(2, 1fr); }
       .get-build-grid { grid-template-columns: 1fr; }
-      .get-item { grid-template-columns: 1fr; gap: 12px; padding: 26px 0; }
+      .get-item { grid-template-columns: 1fr; gap: 12px; padding: 26px 0 36px; }
       .get-item-content { max-width: 100%; }
-      .get-item-num { font-size: 72px; min-width: 0; }
+      .get-item-num { font-size: 160px; bottom: -14px; left: -4px; }
       .get-item-title { font-size: clamp(22px, 5.5vw, 28px); }
       .get-item-desc { font-size: 16px; }
       .get-item-value { justify-self: start; }
