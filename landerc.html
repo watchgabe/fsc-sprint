@@ -369,9 +369,10 @@
     .mobile-br { display: none; }
     @media (max-width: 768px) { .mobile-br { display: inline; } }
     .get-list { display: flex; flex-direction: column; margin-bottom: 24px; }
-    .get-item { padding: 26px 0; border-bottom: 1px solid rgba(6,20,16,0.10); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: start; }
+    .get-item { padding: 32px 0; border-bottom: 1px solid rgba(6,20,16,0.10); display: grid; grid-template-columns: auto 1fr auto; gap: 28px; align-items: start; }
     .get-item:first-child { border-top: 1px solid rgba(6,20,16,0.10); }
-    .get-item-content { display: flex; flex-direction: column; gap: 8px; min-width: 0; max-width: 78%; }
+    .get-item-num { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; font-size: clamp(82px, 10vw, 128px); letter-spacing: -.04em; line-height: 0.85; color: #ffffff; align-self: start; padding-top: 2px; min-width: 100px; }
+    .get-item-content { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
     .get-item-title { font-size: clamp(22px, 2.7vw, 28px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; }
     .get-item-desc { font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.7); }
     .get-item-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.6); padding: 6px 12px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; white-space: nowrap; margin-top: 6px; align-self: start; }
@@ -462,8 +463,9 @@
       .testi-grid { grid-template-columns: 1fr; }
       .get-method-grid { grid-template-columns: repeat(2, 1fr); }
       .get-build-grid { grid-template-columns: 1fr; }
-      .get-item { grid-template-columns: 1fr; gap: 14px; }
+      .get-item { grid-template-columns: 1fr; gap: 12px; padding: 26px 0; }
       .get-item-content { max-width: 100%; }
+      .get-item-num { font-size: 72px; min-width: 0; }
       .get-item-title { font-size: clamp(22px, 5.5vw, 28px); }
       .get-item-desc { font-size: 16px; }
       .get-item-value { justify-self: start; }
@@ -697,6 +699,7 @@
 
     <div class="get-list">
       <div class="get-item">
+        <div class="get-item-num">01</div>
         <div class="get-item-content">
           <h3 class="get-item-title">Pre-Launch Setup</h3>
           <p class="get-item-desc">A pre-recorded onboarding sequence to build your brand foundation and install your systems before we ever go live.</p>
@@ -711,6 +714,7 @@
         <span class="get-item-value">Instant Access</span>
       </div>
       <div class="get-item">
+        <div class="get-item-num">02</div>
         <div class="get-item-content">
           <h3 class="get-item-title">Build the Machine</h3>
           <p class="get-item-desc">Four weeks of live workshops installing the systems, teaching the craft, and mapping your 30-day content calendar.</p>
@@ -726,6 +730,7 @@
         <span class="get-item-value">Days 1&ndash;30</span>
       </div>
       <div class="get-item">
+        <div class="get-item-num">03</div>
         <div class="get-item-content">
           <h3 class="get-item-title">Ship 30 Posts in 30 Days</h3>
           <p class="get-item-desc">The 30-day content challenge with daily drops and live FAQ sessions to keep you posting.</p>
@@ -741,48 +746,38 @@
     </div>
 
     <div class="get-block-wrap">
-      <p class="get-block-pre">+ Included Free · For the first 10 people who join</p>
+      <p class="get-block-pre">// Included Free</p>
       <h3 class="get-bonus-h">Bonuses</h3>
       <div class="get-bonus-grid">
         <div class="get-bonus-card">
           <span class="get-bonus-tag">Bonus 01</span>
-          <h4 class="get-bonus-title">Custom Hook Engine</h4>
-          <p class="get-bonus-kicker">winning hooks, built around your niche</p>
-          <p class="get-bonus-desc">My team builds you a custom hook engine trained on the winning scripts from the top competitors in your niche. Drop in an idea, get back a stack of hooks you can test in your content.</p>
-          <span class="get-bonus-value"><s>$1,500</s> <span class="arrow">&rarr;</span> FREE</span>
+          <h4 class="get-bonus-title">The Creator Confidence Masterclass</h4>
+          <span class="get-bonus-value"><s>$97</s> <span class="arrow">&rarr;</span> FREE</span>
         </div>
         <div class="get-bonus-card">
           <span class="get-bonus-tag">Bonus 02</span>
-          <h4 class="get-bonus-title">An Entire Month of Scripts</h4>
-          <p class="get-bonus-kicker">30 ready-to-shoot scripts, done for you</p>
-          <p class="get-bonus-desc">My team writes 30 ready-to-film scripts built on the proven styles and topics from the creatives closest to your niche. Pick one up, shoot it, ship it.</p>
-          <span class="get-bonus-value"><s>$3,000</s> <span class="arrow">&rarr;</span> FREE</span>
+          <h4 class="get-bonus-title">The Cinematic Storyteller&#8217;s Guide</h4>
+          <span class="get-bonus-value"><s>$297</s> <span class="arrow">&rarr;</span> FREE</span>
         </div>
         <div class="get-bonus-card">
           <span class="get-bonus-tag">Bonus 03</span>
-          <h4 class="get-bonus-title">Brand Blueprint Templates</h4>
-          <p class="get-bonus-kicker">your positioning, on rails</p>
-          <p class="get-bonus-desc">The exact Notion + Figma templates I use with private clients to install a Brand Blueprint. Fill them in, follow the steps, and walk out with a positioning doc that guides every piece of content you make.</p>
-          <span class="get-bonus-value"><s>$1,000</s> <span class="arrow">&rarr;</span> FREE</span>
+          <h4 class="get-bonus-title">The Endless Ideas Kit</h4>
+          <span class="get-bonus-value"><s>$97</s> <span class="arrow">&rarr;</span> FREE</span>
         </div>
         <div class="get-bonus-card">
           <span class="get-bonus-tag">Bonus 04</span>
-          <h4 class="get-bonus-title">30-Day Content Calendar</h4>
-          <p class="get-bonus-kicker">know exactly what to post, every day</p>
-          <p class="get-bonus-desc">A pre-built 30-day calendar mapped to the 4 content pillars we set up in the challenge. You never open the app wondering what to post again.</p>
-          <span class="get-bonus-value"><s>$500</s> <span class="arrow">&rarr;</span> FREE</span>
+          <h4 class="get-bonus-title">Credit for Future Mentorship</h4>
+          <span class="get-bonus-value"><s>$497</s> <span class="arrow">&rarr;</span> FREE</span>
         </div>
         <div class="get-bonus-card featured">
           <span class="get-bonus-tag">Also Included Free</span>
-          <h4 class="get-bonus-title">1:1 60-Minute Onboarding Call with Gabe</h4>
-          <p class="get-bonus-kicker">get me on a private call in week one</p>
-          <p class="get-bonus-desc">I want to know your exact problems, so we&#8217;ll hop on a private call where I can get to know you and tailor the plan to your specific situation. Like pinging me at 3am, except I actually answer.</p>
-          <span class="get-bonus-value"><s>$500</s> <span class="arrow">&rarr;</span> FREE</span>
+          <h4 class="get-bonus-title">One Year Access to the Member&#8217;s Platform</h4>
+          <span class="get-bonus-value"><s>$1,164</s> <span class="arrow">&rarr;</span> FREE</span>
         </div>
       </div>
       <div class="get-bonus-total">
         <span class="get-bonus-total-label">Bonuses Total Value</span>
-        <span class="get-bonus-total-value">$6,500</span>
+        <span class="get-bonus-total-value">$2,152</span>
       </div>
     </div>
 
