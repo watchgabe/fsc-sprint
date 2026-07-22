@@ -357,22 +357,15 @@
     .bottom-copy { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--foot); }
 
     /* ── "GET" SECTION (light inversion) ── */
-    #get { background: #ffffff; color: #061410; padding: 96px 24px; }
+    #get { background: #f3efe7; color: #061410; padding: 96px 24px; }
     .get-inner { max-width: 920px; margin: 0 auto; }
     .get-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.45); margin-bottom: 20px; }
-    .get-h { font-size: clamp(36px, 5.5vw, 60px); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; color: #061410; margin-bottom: 40px; }
-    /* Phase cards on light bg (used inside #get) */
-    #get .offer-phase { background: #faf7f0; border: 1px solid rgba(6,20,16,0.08); }
-    #get .offer-phase:hover { background: #f5f0e5; border-color: rgba(238,102,62,0.35); }
-    #get .offer-phase-num { color: var(--orange); }
-    #get .offer-phase-tag-right { color: rgba(6,20,16,0.5); }
-    #get .offer-phase-title { color: #061410; }
-    #get .offer-phase-desc { color: rgba(6,20,16,0.7); }
-    #get .offer-phase-list li { color: rgba(6,20,16,0.75); }
-    #get .offer-phase-list li strong { color: #061410; }
-    #get .offer-phase-goal { color: rgba(6,20,16,0.7); border-top: 1px solid rgba(6,20,16,0.1); }
-    #get .offer-phase-goal strong { color: #061410; }
-    #get .offer-arrow-badge svg { stroke: #faf7f0; }
+    .get-h { font-size: clamp(36px, 5.5vw, 60px); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; color: #061410; margin-bottom: 48px; }
+    .get-item-list { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-direction: column; gap: 4px; }
+    .get-item-list li { position: relative; padding: 4px 0 4px 28px; font-size: 15px; line-height: 1.55; color: rgba(6,20,16,0.75); }
+    .get-item-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 18px; height: 18px; border-radius: 50%; background: var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23061410' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/10px no-repeat; }
+    .get-item-goal { font-size: 14px; line-height: 1.55; color: rgba(6,20,16,0.7); margin: 14px 0 0; }
+    .get-item-goal strong { color: #061410; font-weight: 700; }
     .mobile-br { display: none; }
     @media (max-width: 768px) { .mobile-br { display: inline; } }
     .get-list { display: flex; flex-direction: column; margin-bottom: 24px; }
@@ -696,80 +689,54 @@
   </div>
 </section>
 
-<!-- GET (offer phases + bonuses + reveal) -->
+<!-- GET (phases + bonuses + reveal) -->
 <section id="get">
   <div class="get-inner">
-    <h2 class="get-h">Here&#8217;s everything you get.</h2>
+    <p class="get-pre">// <span class="ge-prefix">In 60 days, </span>your personal brand machine is built</p>
+    <h2 class="get-h">Here&#8217;s everything<br class="mobile-br" /> you get.</h2>
 
-    <!-- Phase 01 -->
-    <div class="offer-phase">
-      <div class="offer-phase-num">01</div>
-      <div class="offer-phase-body">
-        <div class="offer-phase-head">
-          <span class="offer-phase-tag-left">Before Kickoff</span>
-          <span class="offer-phase-tag-right">Instant Access</span>
+    <div class="get-list">
+      <div class="get-item">
+        <div class="get-item-content">
+          <h3 class="get-item-title">Pre-Launch Setup</h3>
+          <p class="get-item-desc">A pre-recorded onboarding sequence to build your brand foundation and install your systems before we ever go live.</p>
+          <ul class="get-item-list">
+            <li>Complete your Brand Blueprint &middot; avatar, positioning, voice, pillars</li>
+            <li>Notion connected to Claude</li>
+            <li>Frictionless OS installed on your machine</li>
+            <li>The content workflow that runs everything</li>
+          </ul>
+          <p class="get-item-goal"><strong>You&#8217;ll leave knowing:</strong> who you&#8217;re talking to, what you&#8217;re building, and how the system works before we ever meet.</p>
         </div>
-        <h3 class="offer-phase-title">Pre-Launch Setup</h3>
-        <p class="offer-phase-desc">A pre-recorded onboarding sequence to build your brand foundation and install your systems before we ever go live.</p>
-        <ul class="offer-phase-list">
-          <li>Complete your Brand Blueprint &middot; avatar, positioning, voice, pillars</li>
-          <li>Notion connected to Claude</li>
-          <li>Frictionless OS installed on your machine</li>
-          <li>The content workflow that runs everything</li>
-        </ul>
-        <p class="offer-phase-goal"><strong>You&#8217;ll leave knowing:</strong> who you&#8217;re talking to, what you&#8217;re building, and how the system works before we ever meet.</p>
+        <span class="get-item-value">Instant Access</span>
       </div>
-    </div>
-
-    <div class="offer-arrow" aria-hidden="true">
-      <div class="offer-arrow-badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-      </div>
-    </div>
-
-    <!-- Phase 02 -->
-    <div class="offer-phase">
-      <div class="offer-phase-num">02</div>
-      <div class="offer-phase-body">
-        <div class="offer-phase-head">
-          <span class="offer-phase-tag-left">Live Workshops</span>
-          <span class="offer-phase-tag-right">Days 1&ndash;30</span>
+      <div class="get-item">
+        <div class="get-item-content">
+          <h3 class="get-item-title">Build the Machine</h3>
+          <p class="get-item-desc">Four weeks of live workshops installing the systems, teaching the craft, and mapping your 30-day content calendar.</p>
+          <ul class="get-item-list">
+            <li>Kickoff call &middot; what to expect + setup check</li>
+            <li>Endless-ideas workflow + competitor audits</li>
+            <li>Custom Hook Engine + scripts built for you</li>
+            <li>Cinematic content framework &middot; shoot, edit, format</li>
+            <li>Your 30-day content calendar mapped</li>
+          </ul>
+          <p class="get-item-goal"><strong>You&#8217;ll leave knowing:</strong> what to post, how to shoot it, and a calendar ready to ship.</p>
         </div>
-        <h3 class="offer-phase-title">Build the Machine</h3>
-        <p class="offer-phase-desc">Four weeks of live workshops installing the systems, teaching the craft, and mapping your 30-day content calendar.</p>
-        <ul class="offer-phase-list">
-          <li>Kickoff call &middot; what to expect + setup check</li>
-          <li>Endless-ideas workflow + competitor audits</li>
-          <li>Custom Hook Engine + scripts built for you</li>
-          <li>Cinematic content framework &middot; shoot, edit, format</li>
-          <li>Your 30-day content calendar mapped</li>
-        </ul>
-        <p class="offer-phase-goal"><strong>You&#8217;ll leave knowing:</strong> what to post, how to shoot it, and a calendar ready to ship.</p>
+        <span class="get-item-value">Days 1&ndash;30</span>
       </div>
-    </div>
-
-    <div class="offer-arrow" aria-hidden="true">
-      <div class="offer-arrow-badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-      </div>
-    </div>
-
-    <!-- Phase 03 -->
-    <div class="offer-phase">
-      <div class="offer-phase-num">03</div>
-      <div class="offer-phase-body">
-        <div class="offer-phase-head">
-          <span class="offer-phase-tag-left">The Challenge</span>
-          <span class="offer-phase-tag-right">Days 31&ndash;60</span>
+      <div class="get-item">
+        <div class="get-item-content">
+          <h3 class="get-item-title">Ship 30 Posts in 30 Days</h3>
+          <p class="get-item-desc">The 30-day content challenge with daily drops and live FAQ sessions to keep you posting.</p>
+          <ul class="get-item-list">
+            <li>Daily educational tip on cinematic content</li>
+            <li>Daily style or format prompt to try</li>
+            <li>2 live FAQ sessions to unblock what&#8217;s specific to you</li>
+          </ul>
+          <p class="get-item-goal"><strong>You&#8217;ll leave knowing:</strong> 30 pieces of cinematic content live, a repeatable posting habit, and a brand that finally looks like your work.</p>
         </div>
-        <h3 class="offer-phase-title">Ship 30 Posts in 30 Days</h3>
-        <p class="offer-phase-desc">The 30-day content challenge with daily drops and live FAQ sessions to keep you posting.</p>
-        <ul class="offer-phase-list">
-          <li>Daily educational tip on cinematic content</li>
-          <li>Daily style or format prompt to try</li>
-          <li>2 live FAQ sessions to unblock what&#8217;s specific to you</li>
-        </ul>
-        <p class="offer-phase-goal"><strong>You&#8217;ll leave knowing:</strong> 30 pieces of cinematic content live, a repeatable posting habit, and a brand that finally looks like your work.</p>
+        <span class="get-item-value">Days 31&ndash;60</span>
       </div>
     </div>
 
