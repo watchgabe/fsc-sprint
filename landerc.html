@@ -357,10 +357,22 @@
     .bottom-copy { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--foot); }
 
     /* ── "GET" SECTION (light inversion) ── */
-    #get { background: #f3efe7; color: #061410; padding: 96px 24px; }
+    #get { background: #ffffff; color: #061410; padding: 96px 24px; }
     .get-inner { max-width: 920px; margin: 0 auto; }
     .get-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.45); margin-bottom: 20px; }
-    .get-h { font-size: clamp(36px, 5.5vw, 60px); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; color: #061410; margin-bottom: 48px; }
+    .get-h { font-size: clamp(36px, 5.5vw, 60px); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; color: #061410; margin-bottom: 40px; }
+    /* Phase cards on light bg (used inside #get) */
+    #get .offer-phase { background: #faf7f0; border: 1px solid rgba(6,20,16,0.08); }
+    #get .offer-phase:hover { background: #f5f0e5; border-color: rgba(238,102,62,0.35); }
+    #get .offer-phase-num { color: var(--orange); }
+    #get .offer-phase-tag-right { color: rgba(6,20,16,0.5); }
+    #get .offer-phase-title { color: #061410; }
+    #get .offer-phase-desc { color: rgba(6,20,16,0.7); }
+    #get .offer-phase-list li { color: rgba(6,20,16,0.75); }
+    #get .offer-phase-list li strong { color: #061410; }
+    #get .offer-phase-goal { color: rgba(6,20,16,0.7); border-top: 1px solid rgba(6,20,16,0.1); }
+    #get .offer-phase-goal strong { color: #061410; }
+    #get .offer-arrow-badge svg { stroke: #faf7f0; }
     .mobile-br { display: none; }
     @media (max-width: 768px) { .mobile-br { display: inline; } }
     .get-list { display: flex; flex-direction: column; margin-bottom: 24px; }
@@ -378,7 +390,7 @@
     .get-bonus-card.featured { grid-column: 1 / -1; border-color: rgba(6,20,16,0.2); }
     .get-bonus-tag { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #f3efe7; padding: 6px 14px; border-radius: 100px; background: #061410; border: 1px solid #061410; font-weight: 700; margin-bottom: 18px; }
     .get-bonus-title { font-size: clamp(20px, 2.4vw, 24px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; margin-bottom: 12px; }
-    .get-bonus-kicker { font-size: 14px; line-height: 1.4; color: var(--orange); font-weight: 600; margin-top: -6px; margin-bottom: 12px; }
+    .get-bonus-kicker { font-size: 14px; line-height: 1.4; color: rgba(6,20,16,0.55); font-weight: 500; margin-top: -6px; margin-bottom: 12px; }
     .get-bonus-desc { font-size: 15px; line-height: 1.6; color: rgba(6,20,16,0.7); margin-bottom: 20px; }
     .get-bonus-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.55); }
     .get-bonus-value s { color: rgba(6,20,16,0.35); text-decoration: line-through; margin-right: 4px; }
@@ -684,13 +696,10 @@
   </div>
 </section>
 
-<!-- OFFER · 3 phase cards -->
-<section id="offer">
-  <div class="offer-inner">
-    <div class="offer-header">
-      <span class="offer-eyebrow">// the offer</span>
-      <h2 class="offer-h">Here&#8217;s exactly what you get.</h2>
-    </div>
+<!-- GET (offer phases + bonuses + reveal) -->
+<section id="get">
+  <div class="get-inner">
+    <h2 class="get-h">Here&#8217;s everything you get.</h2>
 
     <!-- Phase 01 -->
     <div class="offer-phase">
@@ -761,60 +770,6 @@
           <li>2 live FAQ sessions to unblock what&#8217;s specific to you</li>
         </ul>
         <p class="offer-phase-goal"><strong>You&#8217;ll leave knowing:</strong> 30 pieces of cinematic content live, a repeatable posting habit, and a brand that finally looks like your work.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- GET (Promise + Live Program + Method + Build) -->
-<section id="get">
-  <div class="get-inner">
-    <p class="get-pre">// <span class="ge-prefix">In 60 days, </span>your personal brand machine is built</p>
-    <h2 class="get-h">Here&#8217;s everything<br class="mobile-br" /> you get.</h2>
-
-    <div class="get-list">
-      <div class="get-item">
-        <div class="get-item-content">
-          <h3 class="get-item-title">Weekly masterclasses live with me</h3>
-          <p class="get-item-desc">Each week we go live and install a different part of the process: branding, identity, content, systems, launch. It&#8217;s a full masterclass based on what you need most. Join live or catch the replay in the community.</p>
-        </div>
-        <span class="get-item-value">$4,800 Value</span>
-      </div>
-      <div class="get-item">
-        <div class="get-item-content">
-          <h3 class="get-item-title">Weekly Q&amp;A</h3>
-          <p class="get-item-desc">A second call each week to be used as an open floor. Bring your actual content, your actual hooks, your actual problems. We solve them in the room.</p>
-        </div>
-        <span class="get-item-value">$2,400 Value</span>
-      </div>
-      <div class="get-item">
-        <div class="get-item-content">
-          <h3 class="get-item-title">On-demand 1:1 support &middot; Ask Gabe</h3>
-          <p class="get-item-desc">If you get stuck in between calls there&#8217;s an &ldquo;Ask Gabe&rdquo; space where you can ask questions and get direct support. Post your question &mdash; your identity, your goals, your content strategy, whatever&#8217;s blocking you &mdash; and I&#8217;ll respond personally through text or Loom.</p>
-        </div>
-        <span class="get-item-value">$5,000 Value</span>
-      </div>
-      <div class="get-item">
-        <div class="get-item-content">
-          <h3 class="get-item-title">Private community + full vault access</h3>
-          <p class="get-item-desc">The people inside are at every stage of the build, all creatives with real passion. You also get full vault access the moment you join: every workshop, template, and asset I&#8217;ve built through my community, workshops, and 1:1 clients.</p>
-        </div>
-        <span class="get-item-value">$4,200 Value</span>
-      </div>
-      <div class="get-item">
-        <div class="get-item-content">
-          <h3 class="get-item-title">Your Brand Blueprint</h3>
-          <p class="get-item-desc">A complete brand foundation built with you in the first two weeks: positioning, voice, audience, content pillars, visual direction. Yours to keep and update forever, and the source of truth for everything you publish from here on out.</p>
-        </div>
-        <span class="get-item-value">$3,000 Value</span>
-      </div>
-      <div class="get-item">
-        <div class="get-item-content">
-          <h3 class="get-item-title">The Frictionless OS</h3>
-          <p class="get-item-desc">The AI-powered content system you&#8217;ll install to audit competitors, capture ideas, draft hooks, script videos, and ship consistently. Custom-built around your brand so you stop staring at a blank screen and start publishing like a machine.</p>
-        </div>
-        <span class="get-item-value">$3,000 Value</span>
       </div>
     </div>
 
