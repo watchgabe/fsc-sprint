@@ -361,21 +361,21 @@
     .get-inner { max-width: 920px; margin: 0 auto; }
     .get-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.45); margin-bottom: 20px; }
     .get-h { font-size: clamp(36px, 5.5vw, 60px); font-weight: 800; letter-spacing: -.04em; line-height: 1.02; color: #061410; margin-bottom: 48px; }
-    .get-item-list { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-direction: column; gap: 4px; }
-    .get-item-list li { position: relative; padding: 4px 0 4px 24px; font-size: 15px; line-height: 1.55; color: rgba(6,20,16,0.75); }
-    .get-item-list li::before { content: ''; position: absolute; left: 0; top: 9px; width: 14px; height: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ee663e' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/14px no-repeat; }
-    .get-item-goal { font-size: 14px; line-height: 1.55; color: rgba(6,20,16,0.7); margin: 14px 0 0; }
+    .get-item-list { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-direction: column; gap: 0; }
+    .get-item-list li { position: relative; padding: 3px 0 3px 22px; font-size: 15px; line-height: 1.5; color: rgba(6,20,16,0.72); }
+    .get-item-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 14px; height: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ee663e' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/14px no-repeat; }
+    .get-item-list li strong { color: #061410; font-weight: 700; }
+    .get-item-goal { font-size: 14px; line-height: 1.55; color: rgba(6,20,16,0.7); margin: 16px 0 0; }
     .get-item-goal strong { color: #061410; font-weight: 700; }
     .mobile-br { display: none; }
     @media (max-width: 768px) { .mobile-br { display: inline; } }
     .get-list { display: flex; flex-direction: column; margin-bottom: 24px; }
-    .get-item { padding: 32px 0; border-bottom: 1px solid rgba(6,20,16,0.10); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; }
+    .get-item { padding: 32px 0; border-bottom: 1px solid rgba(6,20,16,0.10); }
     .get-item:first-child { border-top: 1px solid rgba(6,20,16,0.10); }
     .get-item-eyebrow { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.5); margin-bottom: 10px; display: block; }
-    .get-item-content { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+    .get-item-content { display: flex; flex-direction: column; gap: 8px; max-width: 680px; }
     .get-item-title { font-size: clamp(22px, 2.7vw, 28px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; }
-    .get-item-desc { font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.7); }
-    .get-item-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.6); padding: 6px 12px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; white-space: nowrap; margin-top: 6px; align-self: start; }
+    .get-item-desc { font-size: 15px; line-height: 1.6; color: rgba(6,20,16,0.7); }
     .get-block-wrap { margin-top: 72px; }
     .get-block-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.5); margin-bottom: 16px; }
     .get-bonus-h { font-size: clamp(44px, 6vw, 72px); font-weight: 800; letter-spacing: -.03em; color: #061410; line-height: 1; margin-bottom: 32px; }
@@ -463,11 +463,11 @@
       .testi-grid { grid-template-columns: 1fr; }
       .get-method-grid { grid-template-columns: repeat(2, 1fr); }
       .get-build-grid { grid-template-columns: 1fr; }
-      .get-item { grid-template-columns: 1fr; gap: 12px; padding: 26px 0; }
+      .get-item { padding: 26px 0; }
       .get-item-content { max-width: 100%; }
       .get-item-title { font-size: clamp(22px, 5.5vw, 28px); }
-      .get-item-desc { font-size: 16px; }
-      .get-item-value { justify-self: start; }
+      .get-item-desc { font-size: 15px; }
+      .get-item-list li { font-size: 15px; }
       .get-bonus-grid { grid-template-columns: 1fr; }
       .get-bonus-card { padding: 24px; }
       .get-bonus-title { font-size: clamp(20px, 5vw, 24px); }
@@ -699,48 +699,46 @@
     <div class="get-list">
       <div class="get-item">
         <div class="get-item-content">
-          <span class="get-item-eyebrow">// Phase 01</span>
-          <h3 class="get-item-title">Pre-Launch Setup</h3>
+          <span class="get-item-eyebrow">// 01 &middot; Instant Access</span>
+          <h3 class="get-item-title">Craft Your Brand</h3>
           <p class="get-item-desc">A pre-recorded onboarding sequence to build your brand foundation and install your systems before we ever go live.</p>
           <ul class="get-item-list">
-            <li>Complete your Brand Blueprint &middot; avatar, positioning, voice, pillars</li>
-            <li>Notion connected to Claude</li>
-            <li>Frictionless OS installed on your machine</li>
-            <li>The content workflow that runs everything</li>
+            <li><strong>Brand Blueprint:</strong> Your positioning, avatar, voice, and content pillars &mdash; the document that guides every piece you make from Day 1.</li>
+            <li><strong>AI-native setup:</strong> Notion connected to Claude so your brain, your workflows, and your content live in one system you actually use.</li>
+            <li><strong>Frictionless OS install:</strong> The full content OS installed on your machine &mdash; audit competitors, capture ideas, draft hooks, script videos.</li>
+            <li><strong>The content workflow:</strong> The exact repeatable process for turning a raw idea into a shot-ready script in under 30 minutes.</li>
           </ul>
           <p class="get-item-goal"><strong>You&#8217;ll leave knowing:</strong> who you&#8217;re talking to, what you&#8217;re building, and how the system works before we ever meet.</p>
         </div>
-        <span class="get-item-value">Instant Access</span>
       </div>
       <div class="get-item">
         <div class="get-item-content">
-          <span class="get-item-eyebrow">// Phase 02</span>
-          <h3 class="get-item-title">Build the Machine</h3>
-          <p class="get-item-desc">Four weeks of live workshops installing the systems, teaching the craft, and mapping your 30-day content calendar.</p>
+          <span class="get-item-eyebrow">// 02 &middot; Days 1&ndash;30</span>
+          <h3 class="get-item-title">Build Your Content System</h3>
+          <p class="get-item-desc">Four weeks of live workshops installing the systems, teaching the craft, and mapping your first 30 days of content so you post with total clarity.</p>
           <ul class="get-item-list">
-            <li>Kickoff call &middot; what to expect + setup check</li>
-            <li>Endless-ideas workflow + competitor audits</li>
-            <li>Custom Hook Engine + scripts built for you</li>
-            <li>Cinematic content framework &middot; shoot, edit, format</li>
-            <li>Your 30-day content calendar mapped</li>
+            <li><strong>Kickoff call:</strong> What to expect over the next 60 days, plus a full setup check so nothing is missing before we start posting.</li>
+            <li><strong>Endless-ideas workflow:</strong> How to mine competitors, audit accounts, and generate a bench of ideas you&#8217;ll never run out of.</li>
+            <li><strong>Custom Hook Engine + scripts:</strong> My team builds you a hook engine trained on your niche, plus a stack of ready-to-shoot scripts.</li>
+            <li><strong>Cinematic content framework:</strong> How to shoot, edit, and format so every piece has the visual language of a brand, not a phone camera and hope.</li>
+            <li><strong>30-day content calendar:</strong> Your first month mapped and locked, so on Day 31 you know exactly what you&#8217;re posting every day.</li>
           </ul>
           <p class="get-item-goal"><strong>You&#8217;ll leave knowing:</strong> what to post, how to shoot it, and a calendar ready to ship.</p>
         </div>
-        <span class="get-item-value">Days 1&ndash;30</span>
       </div>
       <div class="get-item">
         <div class="get-item-content">
-          <span class="get-item-eyebrow">// Phase 03</span>
-          <h3 class="get-item-title">Ship 30 Posts in 30 Days</h3>
-          <p class="get-item-desc">The 30-day content challenge with daily drops and live FAQ sessions to keep you posting.</p>
+          <span class="get-item-eyebrow">// 03 &middot; Days 31&ndash;60</span>
+          <h3 class="get-item-title">The Challenge: 30 Published Pieces</h3>
+          <p class="get-item-desc">30 days of daily drops and live sessions to keep you posting, unblock what&#8217;s specific to you, and finish with a brand that finally looks like your work.</p>
           <ul class="get-item-list">
-            <li>Daily educational tip on cinematic content</li>
-            <li>Daily style or format prompt to try</li>
-            <li>2 live FAQ sessions to unblock what&#8217;s specific to you</li>
+            <li><strong>Daily educational tip:</strong> One craft lesson dropped every day &mdash; keeping cinematic content top of mind while you&#8217;re in the reps.</li>
+            <li><strong>Daily style prompt:</strong> A specific style, format, or hook prompt to try each day, so you never post from a blank page.</li>
+            <li><strong>2 live FAQ sessions:</strong> Small-group calls to unblock whatever is specific to your niche, offer, or feed while you&#8217;re shipping.</li>
+            <li><strong>Community accountability:</strong> Your work reviewed by peers and by me inside the platform, so the reps compound instead of just piling up.</li>
           </ul>
           <p class="get-item-goal"><strong>You&#8217;ll leave knowing:</strong> 30 pieces of cinematic content live, a repeatable posting habit, and a brand that finally looks like your work.</p>
         </div>
-        <span class="get-item-value">Days 31&ndash;60</span>
       </div>
     </div>
 
