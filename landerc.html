@@ -178,8 +178,9 @@
     .sp-stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; line-height: 1; }
     .sp-text { font-size: 13px; color: var(--sub-bright); line-height: 1.3; }
     .sp-text strong { color: var(--text); font-weight: 700; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 8px 18px; border-radius: 100px; background: var(--black); color: #fff; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 24px; }
-    .eyebrow .e-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border-radius: 100px; background: transparent; border: 1px solid rgba(238, 102, 62, 0.4); color: var(--orange); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 24px; align-self: flex-start; width: fit-content; }
+    .eyebrow .e-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: eyebrow-pulse 2s infinite; }
+    @keyframes eyebrow-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
     .h-h1 { font-size: clamp(36px, 5.2vw, 68px); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin-bottom: 24px; max-width: 680px; }
     .h-sub { font-size: 19px; line-height: 1.55; color: var(--sub-bright); max-width: 680px; margin-bottom: 28px; }
     .h-bullets { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 0 0 36px; padding: 0; max-width: 680px; }
@@ -369,14 +370,22 @@
     .get-item-title { font-size: clamp(22px, 2.7vw, 28px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; }
     .get-item-desc { font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.7); }
     .get-item-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.6); padding: 6px 12px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; white-space: nowrap; margin-top: 6px; align-self: start; }
-    .get-block-wrap { margin-top: 64px; }
-    .get-block-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.5); margin-bottom: 24px; }
-    .get-bonus-grid { display: flex; flex-direction: column; gap: 14px; }
+    .get-block-wrap { margin-top: 72px; }
+    .get-block-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.5); margin-bottom: 16px; }
+    .get-bonus-h { font-size: clamp(44px, 6vw, 72px); font-weight: 800; letter-spacing: -.03em; color: #061410; line-height: 1; margin-bottom: 32px; }
+    .get-bonus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .get-bonus-card { background: #faf7f0; border: 1px solid rgba(6,20,16,0.08); border-radius: 18px; padding: 28px 32px; display: flex; flex-direction: column; align-items: flex-start; }
+    .get-bonus-card.featured { grid-column: 1 / -1; border-color: rgba(6,20,16,0.2); }
     .get-bonus-tag { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #f3efe7; padding: 6px 14px; border-radius: 100px; background: #061410; border: 1px solid #061410; font-weight: 700; margin-bottom: 18px; }
-    .get-bonus-title { font-size: clamp(22px, 2.6vw, 26px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; margin-bottom: 12px; }
-    .get-bonus-desc { font-size: 15px; line-height: 1.65; color: rgba(6,20,16,0.7); margin-bottom: 20px; }
-    .get-bonus-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.55); padding: 6px 14px; border: 1px solid rgba(6,20,16,0.18); border-radius: 100px; }
+    .get-bonus-title { font-size: clamp(20px, 2.4vw, 24px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; margin-bottom: 12px; }
+    .get-bonus-kicker { font-size: 14px; line-height: 1.4; color: var(--orange); font-weight: 600; margin-top: -6px; margin-bottom: 12px; }
+    .get-bonus-desc { font-size: 15px; line-height: 1.6; color: rgba(6,20,16,0.7); margin-bottom: 20px; }
+    .get-bonus-value { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(6,20,16,0.55); }
+    .get-bonus-value s { color: rgba(6,20,16,0.35); text-decoration: line-through; margin-right: 4px; }
+    .get-bonus-value .arrow { color: rgba(6,20,16,0.4); margin: 0 6px; }
+    .get-bonus-total { margin-top: 18px; background: #faf7f0; border: 1px solid rgba(6,20,16,0.08); border-radius: 18px; padding: 26px 32px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+    .get-bonus-total-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(6,20,16,0.5); font-weight: 700; }
+    .get-bonus-total-value { font-size: clamp(32px, 4.5vw, 44px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1; }
     .get-reveal-card { margin-top: 56px; background: #061410; color: #fff; border-radius: 24px; padding: 44px 44px 36px; }
     .get-reveal-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; gap: 16px; }
     .reveal-label-stack { display: flex; flex-direction: column; gap: 6px; }
@@ -453,8 +462,11 @@
       .get-item-title { font-size: clamp(22px, 5.5vw, 28px); }
       .get-item-desc { font-size: 16px; }
       .get-item-value { justify-self: start; }
+      .get-bonus-grid { grid-template-columns: 1fr; }
       .get-bonus-card { padding: 24px; }
-      .get-bonus-title { font-size: clamp(22px, 5.5vw, 26px); }
+      .get-bonus-title { font-size: clamp(20px, 5vw, 24px); }
+      .get-bonus-h { font-size: 44px; margin-bottom: 24px; }
+      .get-bonus-total { padding: 24px; }
       .who-list li { font-size: 17px; line-height: 1.55; }
       .who-card { padding: 26px 24px; }
       .get-reveal-card { padding: 32px 28px; }
@@ -807,26 +819,48 @@
     </div>
 
     <div class="get-block-wrap">
-      <p class="get-block-pre">// For the first 10 people who join</p>
+      <p class="get-block-pre">+ Included Free · For the first 10 people who join</p>
+      <h3 class="get-bonus-h">Bonuses</h3>
       <div class="get-bonus-grid">
         <div class="get-bonus-card">
-          <span class="get-bonus-tag">Bonus</span>
-          <h4 class="get-bonus-title">1:1 60-Minute Onboarding Call</h4>
-          <p class="get-bonus-desc">I want to know your exact problems, so we&#8217;ll hop on a quick call where I can get to know you and make any tweaks to the plan that are needed to help you specifically.</p>
-          <span class="get-bonus-value">$500 Value</span>
-        </div>
-        <div class="get-bonus-card">
-          <span class="get-bonus-tag">Bonus</span>
+          <span class="get-bonus-tag">Bonus 01</span>
           <h4 class="get-bonus-title">Custom Hook Engine</h4>
-          <p class="get-bonus-desc">My team will build you a custom hook engine that&#8217;s developed around the winning scripts from all the competitors in your niche. You have an idea. You drop it in here, and you&#8217;ll receive a number of hooks that you can use to test in your content.</p>
-          <span class="get-bonus-value">$1,500 Value</span>
+          <p class="get-bonus-kicker">winning hooks, built around your niche</p>
+          <p class="get-bonus-desc">My team builds you a custom hook engine trained on the winning scripts from the top competitors in your niche. Drop in an idea, get back a stack of hooks you can test in your content.</p>
+          <span class="get-bonus-value"><s>$1,500</s> <span class="arrow">&rarr;</span> FREE</span>
         </div>
         <div class="get-bonus-card">
-          <span class="get-bonus-tag">Bonus</span>
+          <span class="get-bonus-tag">Bonus 02</span>
           <h4 class="get-bonus-title">An Entire Month of Scripts</h4>
-          <p class="get-bonus-desc">My team builds 30 ready-to-shoot scripts. Built using proven styles and topics from the creatives closest to your niche.</p>
-          <span class="get-bonus-value">$3,000 Value</span>
+          <p class="get-bonus-kicker">30 ready-to-shoot scripts, done for you</p>
+          <p class="get-bonus-desc">My team writes 30 ready-to-film scripts built on the proven styles and topics from the creatives closest to your niche. Pick one up, shoot it, ship it.</p>
+          <span class="get-bonus-value"><s>$3,000</s> <span class="arrow">&rarr;</span> FREE</span>
         </div>
+        <div class="get-bonus-card">
+          <span class="get-bonus-tag">Bonus 03</span>
+          <h4 class="get-bonus-title">Brand Blueprint Templates</h4>
+          <p class="get-bonus-kicker">your positioning, on rails</p>
+          <p class="get-bonus-desc">The exact Notion + Figma templates I use with private clients to install a Brand Blueprint. Fill them in, follow the steps, and walk out with a positioning doc that guides every piece of content you make.</p>
+          <span class="get-bonus-value"><s>$1,000</s> <span class="arrow">&rarr;</span> FREE</span>
+        </div>
+        <div class="get-bonus-card">
+          <span class="get-bonus-tag">Bonus 04</span>
+          <h4 class="get-bonus-title">30-Day Content Calendar</h4>
+          <p class="get-bonus-kicker">know exactly what to post, every day</p>
+          <p class="get-bonus-desc">A pre-built 30-day calendar mapped to the 4 content pillars we set up in the challenge. You never open the app wondering what to post again.</p>
+          <span class="get-bonus-value"><s>$500</s> <span class="arrow">&rarr;</span> FREE</span>
+        </div>
+        <div class="get-bonus-card featured">
+          <span class="get-bonus-tag">Also Included Free</span>
+          <h4 class="get-bonus-title">1:1 60-Minute Onboarding Call with Gabe</h4>
+          <p class="get-bonus-kicker">get me on a private call in week one</p>
+          <p class="get-bonus-desc">I want to know your exact problems, so we&#8217;ll hop on a private call where I can get to know you and tailor the plan to your specific situation. Like pinging me at 3am, except I actually answer.</p>
+          <span class="get-bonus-value"><s>$500</s> <span class="arrow">&rarr;</span> FREE</span>
+        </div>
+      </div>
+      <div class="get-bonus-total">
+        <span class="get-bonus-total-label">Bonuses Total Value</span>
+        <span class="get-bonus-total-value">$6,500</span>
       </div>
     </div>
 
