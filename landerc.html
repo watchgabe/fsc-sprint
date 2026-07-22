@@ -508,8 +508,14 @@
       #tldr { padding: 64px 20px; }
       #topbar { padding: 12px 18px; top: 28px; }
       #topstrip { padding: 8px 18px; }
-      #hero { min-height: calc(100vh - 80px); padding: 56px 20px 32px; }
+      #hero { min-height: auto; padding: 24px 20px 40px; }
+      .h-content { justify-content: flex-start; }
+      .eyebrow { margin-bottom: 20px; }
+      .h-h1 { font-size: 34px; line-height: 1.08; margin-bottom: 22px; }
+      .social-proof { margin-bottom: 22px; }
       .h-sub { font-size: 16px; line-height: 1.5; }
+      .h-cta-row { width: 100%; }
+      .h-cta-row .btn-primary { width: 100%; justify-content: center; padding: 16px 28px; }
     }
   </style>
 </head>
@@ -556,6 +562,8 @@
 <div id="hero-wrap">
 <section id="hero">
   <div class="h-content">
+  <div class="eyebrow"><span class="e-dot"></span>60 Day Brand Challenge</div>
+  <h1 class="h-h1">Build the system to create beautiful content and grow your audience in 60 days.</h1>
   <div class="social-proof">
     <div class="sp-avatars">
       <div class="sp-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799121/theresa_axof4n.jpg" alt="" /></div>
@@ -568,7 +576,6 @@
       <div class="sp-text"><strong>100+ students</strong> trained by Gabe</div>
     </div>
   </div>
-  <h1 class="h-h1">Build the system to create beautiful content and grow your audience in 60 days.</h1>
   <p class="h-sub">A 60-day challenge with everything you need to create a cinematic personal brand.</p>
   <ul class="h-bullets">
     <li>A step-by-step roadmap to build your brand</li>
