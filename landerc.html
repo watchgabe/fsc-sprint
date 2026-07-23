@@ -161,7 +161,7 @@
     .phase-cards { display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin: 0 auto; }
     .phase-card { background: var(--card); border: 1px solid var(--card-2); border-radius: 24px; padding: 40px 44px; }
     .phase-eyebrow { display: block; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 20px; }
-    .phase-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 44px); letter-spacing: -.02em; line-height: 1.15; color: var(--text); margin: 0 0 12px; text-wrap: balance; max-width: 85%; }
+    .phase-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(32px, 4.3vw, 48px); letter-spacing: -.02em; line-height: 1.15; color: var(--text); margin: 0 0 12px; text-wrap: balance; max-width: 85%; }
     .phase-meta { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); margin-bottom: 28px; }
     .phase-desc { font-size: 15px; line-height: 1.6; color: var(--sub-bright); margin: 0 0 28px; text-wrap: pretty; }
     .phase-list { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 10px; }
@@ -463,6 +463,21 @@
     .get-bonus-total-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(6,20,16,0.5); font-weight: 700; }
     .get-bonus-total-value { font-size: clamp(32px, 4.5vw, 44px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1; }
     .get-reveal-card { margin-top: 56px; background: #061410; color: #fff; border-radius: 24px; padding: 44px 44px 36px; }
+    .reveal-header { font-size: clamp(24px, 3vw, 32px); font-weight: 800; letter-spacing: -.02em; color: #fff; margin: 0 0 32px; text-align: center; }
+    .reveal-section { margin-bottom: 24px; }
+    .reveal-section-label { display: block; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 12px; }
+    .reveal-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 15px; gap: 12px; }
+    .reveal-item-name { color: rgba(255,255,255,0.9); }
+    .reveal-item-value { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .06em; color: rgba(255,255,255,0.55); flex-shrink: 0; }
+    .reveal-total { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; border-top: 1px solid rgba(255,255,255,0.2); margin-bottom: 4px; }
+    .reveal-total-label { font-size: 16px; font-weight: 700; color: #fff; }
+    .reveal-total-value { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -.02em; }
+    .reveal-price-row { display: flex; justify-content: space-between; align-items: center; padding: 22px 0 8px; gap: 20px; }
+    .reveal-price-info { display: flex; flex-direction: column; gap: 4px; }
+    .reveal-price-label { font-size: 16px; font-weight: 700; color: #fff; }
+    .reveal-price-sub { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.4; }
+    .reveal-price-sub strong { color: var(--orange); font-weight: 700; }
+    .reveal-price-big { font-size: clamp(48px, 6.5vw, 72px); font-weight: 800; color: var(--orange); letter-spacing: -.03em; line-height: 1; flex-shrink: 0; }
     .get-reveal-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; gap: 16px; }
     .reveal-label-stack { display: flex; flex-direction: column; gap: 6px; }
     .reveal-price-stack { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
@@ -545,10 +560,13 @@
       .get-bonus-total { padding: 24px; }
       .who-list li { font-size: 17px; line-height: 1.55; }
       .who-card { padding: 26px 24px; }
-      .get-reveal-card { padding: 32px 28px; }
-      .get-reveal-num { font-size: 24px; }
-      .get-reveal-row.price .get-reveal-num { font-size: 32px; }
-      .reveal-price-stack .get-reveal-installments { display: none; }
+      .get-reveal-card { padding: 32px 24px; margin-top: 40px; }
+      .reveal-header { font-size: 22px; margin-bottom: 24px; }
+      .reveal-item { font-size: 14px; padding: 12px 0; }
+      .reveal-item-value { font-size: 11px; }
+      .reveal-total-value { font-size: 20px; }
+      .reveal-price-row { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 18px; }
+      .reveal-price-big { font-size: 56px; align-self: center; }
       .get-reveal-installments-mobile { display: block; text-align: center; margin-top: 14px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
       .g-cols { grid-template-columns: 1fr; }
       .g-promise-box { padding: 28px 24px; }
@@ -741,7 +759,7 @@
     <div class="phase-cards">
       <div class="phase-card">
         <span class="phase-eyebrow">// 30 Build</span>
-        <h3 class="phase-title">Build your brand and AI-powered content system</h3>
+        <h3 class="phase-title">Build your brand and AI&#8209;powered content system</h3>
         <div class="phase-meta">Days 01 &ndash; 30</div>
         <p class="phase-desc">The first 30 days is the build. The focus here is to build your brand, the system, the skills, and a 30-day content calendar that we can then execute.</p>
         <ul class="phase-list">
@@ -785,26 +803,31 @@
         <div class="get-bonus-card">
           <span class="get-bonus-tag">Bonus 01</span>
           <h4 class="get-bonus-title">The Creator Confidence Masterclass</h4>
+          <p class="get-bonus-desc">A module designed to get you comfortable in front of the camera &mdash; exercises and mindset shifts to make being on camera feel natural.</p>
           <span class="get-bonus-value"><s>$97</s> <span class="arrow">&rarr;</span> FREE</span>
         </div>
         <div class="get-bonus-card">
           <span class="get-bonus-tag">Bonus 02</span>
           <h4 class="get-bonus-title">The Cinematic Storyteller&#8217;s Guide</h4>
+          <p class="get-bonus-desc">A tool that lets you build sequences and tell your story cinematically. Includes all my top angles, shooting tips, and techniques for producing cinematic content.</p>
           <span class="get-bonus-value"><s>$297</s> <span class="arrow">&rarr;</span> FREE</span>
         </div>
         <div class="get-bonus-card">
           <span class="get-bonus-tag">Bonus 03</span>
           <h4 class="get-bonus-title">The Endless Ideas Kit</h4>
+          <p class="get-bonus-desc">A series of AI-powered workflows that let you generate endless ideas you can pull straight into your content.</p>
           <span class="get-bonus-value"><s>$97</s> <span class="arrow">&rarr;</span> FREE</span>
         </div>
         <div class="get-bonus-card">
           <span class="get-bonus-tag">Bonus 04</span>
           <h4 class="get-bonus-title">Credit for Future Mentorship</h4>
+          <p class="get-bonus-desc">A $497 credit you can apply to any future project I run, product I release, or private strategy session with me.</p>
           <span class="get-bonus-value"><s>$497</s> <span class="arrow">&rarr;</span> FREE</span>
         </div>
         <div class="get-bonus-card featured">
           <span class="get-bonus-tag">Also Included Free</span>
           <h4 class="get-bonus-title">One Year Access to the Member&#8217;s Platform</h4>
+          <p class="get-bonus-desc">Full access to our Circle community for a year. If you fall behind or need to pause the challenge, you keep access to every workshop, every daily drop, and every member for the whole year.</p>
           <span class="get-bonus-value"><s>$1,164</s> <span class="arrow">&rarr;</span> FREE</span>
         </div>
       </div>
@@ -815,23 +838,71 @@
     </div>
 
     <div class="get-reveal-card">
-      <div class="get-reveal-row">
-        <span class="get-reveal-label">Combined Value</span>
-        <span class="get-reveal-num">$27,400</span>
-      </div>
-      <hr class="get-reveal-rule" />
-      <div class="get-reveal-row price">
-        <div class="reveal-label-stack">
-          <span class="get-reveal-label">Your Seat Today</span>
-          <span class="get-reveal-sublabel">that&#8217;s <strong>96% off</strong> the combined value</span>
+      <h3 class="reveal-header">Join the Challenge</h3>
+
+      <div class="reveal-section">
+        <span class="reveal-section-label">The Core Offer</span>
+        <div class="reveal-item">
+          <span class="reveal-item-name">Live masterclasses &middot; 8 weeks</span>
+          <span class="reveal-item-value">$2,400</span>
         </div>
-        <div class="reveal-price-stack">
-          <span class="get-reveal-num">$997</span>
-          <span class="get-reveal-installments">or 3 payments of $367</span>
+        <div class="reveal-item">
+          <span class="reveal-item-name">FrictionlessOS&#8482; install</span>
+          <span class="reveal-item-value">$1,500</span>
+        </div>
+        <div class="reveal-item">
+          <span class="reveal-item-name">30-day custom content calendar</span>
+          <span class="reveal-item-value">$500</span>
+        </div>
+        <div class="reveal-item">
+          <span class="reveal-item-name">Daily drops &middot; 30 days</span>
+          <span class="reveal-item-value">$600</span>
+        </div>
+        <div class="reveal-item">
+          <span class="reveal-item-name">Two live FAQ sessions</span>
+          <span class="reveal-item-value">$400</span>
         </div>
       </div>
+
+      <div class="reveal-section">
+        <span class="reveal-section-label">The Bonuses</span>
+        <div class="reveal-item">
+          <span class="reveal-item-name">The Creator Confidence Masterclass</span>
+          <span class="reveal-item-value">$97</span>
+        </div>
+        <div class="reveal-item">
+          <span class="reveal-item-name">The Cinematic Storyteller&#8217;s Guide</span>
+          <span class="reveal-item-value">$297</span>
+        </div>
+        <div class="reveal-item">
+          <span class="reveal-item-name">The Endless Ideas Kit</span>
+          <span class="reveal-item-value">$97</span>
+        </div>
+        <div class="reveal-item">
+          <span class="reveal-item-name">Credit for Future Mentorship</span>
+          <span class="reveal-item-value">$497</span>
+        </div>
+        <div class="reveal-item">
+          <span class="reveal-item-name">One Year Access to the Member&#8217;s Platform</span>
+          <span class="reveal-item-value">$1,164</span>
+        </div>
+      </div>
+
+      <div class="reveal-total">
+        <span class="reveal-total-label">Total Value</span>
+        <span class="reveal-total-value">$7,552</span>
+      </div>
+
+      <div class="reveal-price-row">
+        <div class="reveal-price-info">
+          <span class="reveal-price-label">Your Price</span>
+          <span class="reveal-price-sub">Founding-cohort pricing. That&#8217;s <strong>87% off</strong> the total value.</span>
+        </div>
+        <span class="reveal-price-big">$997</span>
+      </div>
+
       <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="get-reveal-btn">Join the Challenge &rarr;</a>
-      <div class="get-reveal-installments-mobile">$997 or 3 payments of $367</div>
+      <div class="get-reveal-installments-mobile">or 3 payments of $367</div>
     </div>
   </div>
 </section>
@@ -873,13 +944,13 @@
   <div class="g-inner">
     <p class="g-pre">// The Promise</p>
     <h2 class="g-h">Our Guarantee</h2>
-    <p class="g-quote">If 90 days after your launch you followed the checklist and haven&#8217;t <strong>5x&#8217;d your investment ($5,000)</strong>, every dollar comes back.</p>
+    <p class="g-quote">If 90 days after your launch you followed the checklist and haven&#8217;t <strong>2x&#8217;d your investment ($2,000)</strong>, every dollar comes back.</p>
     <div class="g-cols">
       <div class="g-col">
         <h3 class="g-sub-h">Why I can put this in writing</h3>
         <p>The install is built. The Brand Blueprint is a templated exercise. The FrictionlessOS&#8482; is pre-configured. The hook engine ships with trained prompts. The scripts use proven structures from your closest competitors. The visual identity drops straight into Canva. None of it is theory.</p>
         <p>The only thing you have to do is the work in front of you each week.</p>
-        <p>On Day 1 of the challenge, you&#8217;ll receive the checklist. Follow it to the T. If 90 days after you go live you haven&#8217;t pulled $5,000, you get a full refund. No essays, no calls, no friction.</p>
+        <p>On Day 1 of the challenge, you&#8217;ll receive the checklist. Follow it to the T. If 90 days after you go live you haven&#8217;t pulled $2,000, you get a full refund. No essays, no calls, no friction.</p>
       </div>
       <div class="g-col">
         <h3 class="g-sub-h">What&#8217;s required</h3>
@@ -890,7 +961,7 @@
           <li>Go live with content inside the 60-day install window</li>
           <li>Track your sales for the 90 days following your launch date</li>
         </ul>
-        <p class="g-closing">Do all of that and don&#8217;t hit $5,000, you get a full refund.</p>
+        <p class="g-closing">Do all of that and don&#8217;t hit $2,000, you get a full refund.</p>
       </div>
     </div>
     <p class="g-terms">Full terms available on request</p>
@@ -1048,7 +1119,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="foot-brand">FSCreative&#8482; &middot; Cohort 01 &middot; August 5, 2026</span>
+  <span class="foot-brand">FSCreative&#8482; &middot; Cohort 01 &middot; August 12, 2026</span>
 </footer>
 
 <!-- STICKY BOTTOM CTA -->
@@ -1075,8 +1146,8 @@
     }
   }
 
-  // Countdown — target August 5, 2026 at 10AM CT (15:00 UTC)
-  const TARGET = new Date('2026-08-05T15:00:00Z');
+  // Countdown — target August 12, 2026 at 7PM MT (01:00 UTC Aug 13)
+  const TARGET = new Date('2026-08-13T01:00:00Z');
   function pad(n) { return String(n).padStart(2, '0'); }
   function tick() {
     const diff = TARGET - Date.now();
