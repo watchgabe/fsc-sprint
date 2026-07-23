@@ -150,8 +150,8 @@
     .showcase + .showcase { padding-top: 32px; }
     /* Chapter header — "// Here's Exactly What You Get / The Offer" above 30Build (reuses .showcase-eyebrow + .showcase-h) */
     .offer-intro { margin-bottom: 56px; }
-    /* Rounded top corners on green sections following light sections */
-    #thirtybuild, #guarantee, #faq { border-radius: 40px 40px 0 0; position: relative; z-index: 1; }
+    /* Rounded top corners on green sections following light sections — negative margin overlaps into the light section above so cream shows through the corner cuts */
+    #thirtybuild, #guarantee, #faq { border-radius: 40px 40px 0 0; margin-top: -40px; padding-top: 128px; position: relative; z-index: 1; }
     .showcase-inner { max-width: 900px; margin: 0 auto; }
     .showcase-eyebrow { display: block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; margin: 0 0 20px; color: var(--sub); }
     .showcase-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 900; font-size: clamp(64px, 10vw, 140px); letter-spacing: -.045em; line-height: 0.92; margin: 0 0 18px; color: var(--text); }
@@ -579,7 +579,7 @@
       .showcase + .showcase { padding-top: 24px; }
       .showcase:last-of-type { padding-bottom: 64px; }
       .offer-intro { margin-bottom: 36px; }
-      #thirtybuild, #guarantee, #faq { border-radius: 28px 28px 0 0; }
+      #thirtybuild, #guarantee, #faq { border-radius: 28px 28px 0 0; margin-top: -28px; padding-top: 92px; }
       .showcase-h { font-size: 64px; line-height: 0.9; letter-spacing: -.045em; }
       .showcase-subh { font-size: 20px; line-height: 1.2; }
       .showcase-desc { font-size: 15px; margin-bottom: 24px; }
