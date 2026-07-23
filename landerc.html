@@ -148,6 +148,12 @@
     /* ── SHOWCASE PANELS (30Build + 30Ship, both on green bg, Jessi Jean style) ── */
     .showcase { background: var(--bg); color: var(--text); padding: 88px 24px; }
     .showcase + .showcase { padding-top: 32px; }
+    /* Chapter header — "// Here's Exactly What You Get / THE OFFER" above 30Build */
+    .offer-intro { margin-bottom: 56px; }
+    .offer-intro-eyebrow { display: block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; color: var(--orange); margin-bottom: 20px; }
+    .offer-intro-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 900; font-size: clamp(72px, 13vw, 200px); letter-spacing: -.045em; line-height: 0.88; margin: 0; color: var(--text); text-transform: uppercase; }
+    /* Rounded top corners on green sections following light sections */
+    #thirtybuild, #guarantee, #faq { border-radius: 40px 40px 0 0; position: relative; z-index: 1; }
     .showcase-inner { max-width: 900px; margin: 0 auto; }
     .showcase-eyebrow { display: block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; margin: 0 0 20px; color: var(--sub); }
     .showcase-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 900; font-size: clamp(64px, 10vw, 140px); letter-spacing: -.045em; line-height: 0.92; margin: 0 0 18px; color: var(--text); }
@@ -574,6 +580,9 @@
       .showcase { padding: 64px 20px 32px; }
       .showcase + .showcase { padding-top: 24px; }
       .showcase:last-of-type { padding-bottom: 64px; }
+      .offer-intro { margin-bottom: 36px; }
+      .offer-intro-h { font-size: 60px; letter-spacing: -.04em; }
+      #thirtybuild, #guarantee, #faq { border-radius: 28px 28px 0 0; }
       .showcase-h { font-size: 64px; line-height: 0.9; letter-spacing: -.045em; }
       .showcase-subh { font-size: 20px; line-height: 1.2; }
       .showcase-desc { font-size: 15px; margin-bottom: 24px; }
@@ -715,9 +724,13 @@
   </div>
 </section>
 
-<!-- 30BUILD -->
+<!-- 30BUILD (chapter header: THE OFFER) -->
 <section id="thirtybuild" class="showcase">
   <div class="showcase-inner">
+    <div class="offer-intro">
+      <span class="offer-intro-eyebrow">// Here&#8217;s Exactly What You Get</span>
+      <h2 class="offer-intro-h">The Offer</h2>
+    </div>
     <span class="showcase-eyebrow">// Days 01&ndash;30</span>
     <h2 class="showcase-h">30Build</h2>
     <p class="showcase-subh">Build your brand and AI-powered content system</p>
