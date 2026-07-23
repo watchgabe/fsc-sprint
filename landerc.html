@@ -145,48 +145,22 @@
     .panel-item h3 { font-size: 20px; font-weight: 800; letter-spacing: -.01em; color: #061410; margin: 0 0 8px; }
     .panel-item p { font-size: 15px; line-height: 1.6; color: rgba(6,20,16,0.7); margin: 0; }
 
-    /* ── SHOWCASE PANELS (30Build dark + 30Ship light, Jessi Jean style) ── */
-    .showcase { padding: 100px 24px; }
-    .showcase-inner { max-width: 1080px; margin: 0 auto; }
-    .showcase-grid { display: grid; grid-template-columns: 120px 1fr; gap: 40px; align-items: start; }
-    .showcase-meta { display: flex; flex-direction: column; gap: 6px; padding-top: 18px; }
-    .showcase-num { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(48px, 5.5vw, 80px); letter-spacing: -.04em; line-height: 0.9; color: var(--orange); }
-    .showcase-days { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; }
-    .showcase-body { min-width: 0; }
-    .showcase-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 900; font-size: clamp(64px, 10vw, 140px); letter-spacing: -.045em; line-height: 0.92; margin: 0 0 18px; }
-    .showcase-subh { font-size: clamp(20px, 2.2vw, 28px); font-weight: 700; letter-spacing: -.015em; line-height: 1.2; margin: 0 0 20px; color: var(--orange); text-wrap: balance; max-width: 780px; }
-    .showcase-desc { font-size: 16px; line-height: 1.6; margin: 0 0 36px; text-wrap: pretty; max-width: 780px; }
-    .showcase-card { border-radius: 10px; padding: 24px 28px; margin-bottom: 12px; border-left: 3px solid var(--orange); max-width: 780px; }
-    .showcase-card-eyebrow { display: block; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; margin-bottom: 18px; color: var(--orange); }
-    .showcase-items { display: flex; flex-direction: column; gap: 12px; }
-    .showcase-item { font-size: 15px; line-height: 1.5; text-wrap: pretty; margin: 0; }
-    .showcase-item strong { font-weight: 700; }
-    .showcase-outcome-text { font-size: 15px; line-height: 1.55; text-wrap: pretty; margin: 0; }
-    .showcase-outcome-text strong { font-weight: 700; }
-    /* Dark variant (30Build) */
-    #thirtybuild { background: var(--bg); color: var(--text); }
-    #thirtybuild .showcase-days { color: var(--sub); }
-    #thirtybuild .showcase-h { color: var(--text); }
-    #thirtybuild .showcase-desc { color: var(--sub-bright); }
-    #thirtybuild .showcase-card { background: var(--card); }
-    #thirtybuild .showcase-item { color: var(--sub-bright); }
-    #thirtybuild .showcase-item strong { color: var(--text); }
-    #thirtybuild .showcase-outcome-text { color: var(--sub-bright); }
-    #thirtybuild .showcase-outcome-text strong { color: var(--text); }
-    #thirtybuild .showcase-outcome-card { border-left-color: rgba(255,255,255,0.55); }
-    #thirtybuild .showcase-outcome-card .showcase-card-eyebrow { color: rgba(255,255,255,0.7); }
-    /* Light variant (30Ship) */
-    #thirtyship { background: #f3efe7; color: #061410; }
-    #thirtyship .showcase-days { color: rgba(6,20,16,0.5); }
-    #thirtyship .showcase-h { color: #061410; }
-    #thirtyship .showcase-desc { color: rgba(6,20,16,0.72); }
-    #thirtyship .showcase-card { background: #faf7f0; }
-    #thirtyship .showcase-item { color: rgba(6,20,16,0.72); }
-    #thirtyship .showcase-item strong { color: #061410; }
-    #thirtyship .showcase-outcome-text { color: rgba(6,20,16,0.72); }
-    #thirtyship .showcase-outcome-text strong { color: #061410; }
-    #thirtyship .showcase-outcome-card { border-left-color: rgba(6,20,16,0.35); }
-    #thirtyship .showcase-outcome-card .showcase-card-eyebrow { color: rgba(6,20,16,0.55); }
+    /* ── SHOWCASE PANELS (30Build + 30Ship, both on green bg, Jessi Jean style) ── */
+    .showcase { background: var(--bg); color: var(--text); padding: 88px 24px; }
+    .showcase + .showcase { padding-top: 32px; }
+    .showcase-inner { max-width: 900px; margin: 0 auto; }
+    .showcase-eyebrow { display: block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; margin: 0 0 20px; color: var(--sub); }
+    .showcase-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 900; font-size: clamp(64px, 10vw, 140px); letter-spacing: -.045em; line-height: 0.92; margin: 0 0 18px; color: var(--text); }
+    .showcase-subh { font-size: clamp(20px, 2.2vw, 28px); font-weight: 700; letter-spacing: -.015em; line-height: 1.22; margin: 0 0 22px; color: var(--text); text-wrap: balance; max-width: 780px; }
+    .showcase-desc { font-size: 16px; line-height: 1.6; margin: 0 0 28px; text-wrap: pretty; max-width: 780px; color: var(--sub-bright); }
+    .showcase-list { list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 8px; max-width: 780px; }
+    .showcase-list li { position: relative; padding: 3px 0 3px 26px; font-size: 15px; line-height: 1.5; color: var(--sub-bright); text-wrap: pretty; }
+    .showcase-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 14px; height: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ee663e' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/14px no-repeat; }
+    .showcase-list li strong { color: var(--text); font-weight: 700; }
+    .showcase-outcome-card { background: var(--card); border-radius: 10px; padding: 24px 28px; border-left: 3px solid rgba(255,255,255,0.55); max-width: 780px; }
+    .showcase-outcome-card .showcase-card-eyebrow { display: block; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; color: rgba(255,255,255,0.7); }
+    .showcase-outcome-text { font-size: 15px; line-height: 1.55; text-wrap: pretty; margin: 0; color: var(--sub-bright); }
+    .showcase-outcome-text strong { font-weight: 700; color: var(--text); }
 
     /* ── ENGINE (Frictionless OS breakdown) ── */
     #engine { padding: 96px 24px; max-width: 920px; margin: 0 auto; }
@@ -597,15 +571,14 @@
       .sbar-left { font-size: 11px; letter-spacing: .1em; line-height: 1.35; }
       .sbar-btn { padding: 12px 18px; font-size: 9px; letter-spacing: .1em; }
       #panels { padding: 64px 20px; }
-      .showcase { padding: 72px 20px; }
-      .showcase-grid { grid-template-columns: 1fr; gap: 20px; }
-      .showcase-meta { flex-direction: row; align-items: baseline; gap: 14px; padding-top: 0; }
-      .showcase-num { font-size: 44px; }
+      .showcase { padding: 64px 20px 32px; }
+      .showcase + .showcase { padding-top: 24px; }
+      .showcase:last-of-type { padding-bottom: 64px; }
       .showcase-h { font-size: 64px; line-height: 0.9; letter-spacing: -.045em; }
       .showcase-subh { font-size: 20px; line-height: 1.2; }
-      .showcase-desc { font-size: 15px; margin-bottom: 28px; }
-      .showcase-card { padding: 22px 22px; }
-      .showcase-item { font-size: 15px; }
+      .showcase-desc { font-size: 15px; margin-bottom: 24px; }
+      .showcase-list li { font-size: 15px; }
+      .showcase-outcome-card { padding: 22px 22px; }
       .showcase-outcome-text { font-size: 14px; }
       .panels-header { margin-bottom: 40px; }
       .panels-h { font-size: 44px; line-height: 1.05; }
@@ -742,62 +715,42 @@
   </div>
 </section>
 
-<!-- 30BUILD (dark showcase panel, Jessi Jean style) -->
+<!-- 30BUILD -->
 <section id="thirtybuild" class="showcase">
   <div class="showcase-inner">
-    <div class="showcase-grid">
-      <div class="showcase-meta">
-        <span class="showcase-num">01</span>
-        <span class="showcase-days">Days 1&ndash;30</span>
-      </div>
-      <div class="showcase-body">
-        <h2 class="showcase-h">30Build.</h2>
-        <p class="showcase-subh">Build your brand and AI-powered content system.</p>
-        <p class="showcase-desc">The moment you enroll, you start. You&#8217;ll be added to our member portal and onboarded so you can get right to work with pre-recorded content before our kickoff call even starts. We then kick off phase 01 with a series of calls to build your systems.</p>
-        <div class="showcase-card">
-          <span class="showcase-card-eyebrow">// What We&#8217;re Building</span>
-          <div class="showcase-items">
-            <p class="showcase-item"><strong>4 Live workshops:</strong> Four weeks on ideation, shooting, editing, and formatting.</p>
-            <p class="showcase-item"><strong>Brand Foundation:</strong> Positioning, avatar, voice, and strategic clarity.</p>
-            <p class="showcase-item"><strong>FrictionlessOS&#8482; installed:</strong> Your AI content OS for audits, ideas, hooks, and scripts.</p>
-            <p class="showcase-item"><strong>Custom Hook Engine + scripts:</strong> A hook engine trained on your niche, plus scripts we build.</p>
-            <p class="showcase-item"><strong>30-day content calendar:</strong> Your first month mapped and locked.</p>
-          </div>
-        </div>
-        <div class="showcase-card showcase-outcome-card">
-          <span class="showcase-card-eyebrow">// You&#8217;ll Leave Knowing</span>
-          <p class="showcase-outcome-text">what to post, how to shoot it, and a 30-day content calendar ready to ship.</p>
-        </div>
-      </div>
+    <span class="showcase-eyebrow">// Days 01&ndash;30</span>
+    <h2 class="showcase-h">30Build</h2>
+    <p class="showcase-subh">Build your brand and AI-powered content system</p>
+    <p class="showcase-desc">The moment you enroll, you start. You&#8217;ll be added to our member portal and onboarded so you can get right to work with pre-recorded content before our kickoff call even starts. We then kick off phase 01 with a series of calls to build your systems.</p>
+    <ul class="showcase-list">
+      <li><strong>4 Live workshops:</strong> Four weeks on ideation, shooting, editing, and formatting.</li>
+      <li><strong>Brand Foundation:</strong> Positioning, avatar, voice, and strategic clarity.</li>
+      <li><strong>FrictionlessOS&#8482; installed:</strong> Your AI content OS for audits, ideas, hooks, and scripts.</li>
+      <li><strong>Custom Hook Engine + scripts:</strong> A hook engine trained on your niche, plus scripts we build.</li>
+      <li><strong>30-day content calendar:</strong> Your first month mapped and locked.</li>
+    </ul>
+    <div class="showcase-outcome-card">
+      <span class="showcase-card-eyebrow">// You&#8217;ll Leave Knowing</span>
+      <p class="showcase-outcome-text">what to post, how to shoot it, and a 30-day content calendar ready to ship.</p>
     </div>
   </div>
 </section>
 
-<!-- 30SHIP (light showcase panel, Jessi Jean style) -->
+<!-- 30SHIP -->
 <section id="thirtyship" class="showcase">
   <div class="showcase-inner">
-    <div class="showcase-grid">
-      <div class="showcase-meta">
-        <span class="showcase-num">02</span>
-        <span class="showcase-days">Days 31&ndash;60</span>
-      </div>
-      <div class="showcase-body">
-        <h2 class="showcase-h">30Ship.</h2>
-        <p class="showcase-subh">Shoot, edit, and publish your content with daily assistance.</p>
-        <p class="showcase-desc">30 days of daily drops and live sessions in the community. You post one piece a day. I show up to keep you unblocked. You finish with a full month of cinematic content live and the posting habit locked in.</p>
-        <div class="showcase-card">
-          <span class="showcase-card-eyebrow">// What We&#8217;re Shipping</span>
-          <div class="showcase-items">
-            <p class="showcase-item"><strong>Daily drops:</strong> A craft lesson and a new style prompt every day.</p>
-            <p class="showcase-item"><strong>Live FAQ sessions:</strong> Small-group calls to unblock what you&#8217;re posting.</p>
-            <p class="showcase-item"><strong>Community accountability:</strong> Your work reviewed by peers and by me.</p>
-          </div>
-        </div>
-        <div class="showcase-card showcase-outcome-card">
-          <span class="showcase-card-eyebrow">// You&#8217;ll Finish With</span>
-          <p class="showcase-outcome-text">30 pieces of high quality content live, a repeatable content system, and a brand you&#8217;re finally proud to call yours.</p>
-        </div>
-      </div>
+    <span class="showcase-eyebrow">// Days 31&ndash;60</span>
+    <h2 class="showcase-h">30Ship</h2>
+    <p class="showcase-subh">Shoot, edit, and publish your content with daily assistance</p>
+    <p class="showcase-desc">30 days of daily drops and live sessions in the community. You post one piece a day. I show up to keep you unblocked. You finish with a full month of cinematic content live and the posting habit locked in.</p>
+    <ul class="showcase-list">
+      <li><strong>Daily drops:</strong> A craft lesson and a new style prompt every day.</li>
+      <li><strong>Live FAQ sessions:</strong> Small-group calls to unblock what you&#8217;re posting.</li>
+      <li><strong>Community accountability:</strong> Your work reviewed by peers and by me.</li>
+    </ul>
+    <div class="showcase-outcome-card">
+      <span class="showcase-card-eyebrow">// You&#8217;ll Finish With</span>
+      <p class="showcase-outcome-text">30 pieces of high quality content live, a repeatable content system, and a brand you&#8217;re finally proud to call yours.</p>
     </div>
   </div>
 </section>
