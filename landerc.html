@@ -161,7 +161,7 @@
     .phase-cards { display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin: 0 auto; }
     .phase-card { background: var(--card); border: 1px solid var(--card-2); border-radius: 24px; padding: 40px 44px; }
     .phase-eyebrow { display: block; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 20px; }
-    .phase-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 44px); letter-spacing: -.02em; line-height: 1.15; color: var(--text); margin: 0 0 12px; text-wrap: balance; max-width: 70%; }
+    .phase-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(30px, 4vw, 44px); letter-spacing: -.02em; line-height: 1.15; color: var(--text); margin: 0 0 12px; text-wrap: balance; max-width: 85%; }
     .phase-meta { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); margin-bottom: 28px; }
     .phase-desc { font-size: 15px; line-height: 1.6; color: var(--sub-bright); margin: 0 0 28px; text-wrap: pretty; }
     .phase-list { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 10px; }
@@ -173,7 +173,7 @@
     .phase-outcome-text { font-size: 14px; line-height: 1.55; color: var(--sub-bright); margin: 0; text-wrap: pretty; }
     .phase-outcome-text strong { color: var(--text); font-weight: 700; }
     /* Rounded top corners on green sections following light sections — negative margin overlaps into the light section above so cream shows through the corner cuts */
-    #thirtybuild, #guarantee, #faq { border-radius: 40px 40px 0 0; margin-top: -40px; padding-top: 128px; position: relative; z-index: 1; }
+    #thirtybuild, #sound, #faq { border-radius: 40px 40px 0 0; margin-top: -40px; padding-top: 128px; position: relative; z-index: 1; }
     .showcase-inner { max-width: 900px; margin: 0 auto; }
     .showcase-eyebrow { display: block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; margin: 0 0 20px; color: var(--sub); }
     .showcase-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 900; font-size: clamp(64px, 10vw, 140px); letter-spacing: -.045em; line-height: 0.92; margin: 0 0 18px; color: var(--text); }
@@ -208,7 +208,8 @@
     }
 
     /* ── SOUND FAMILIAR SECTION ── */
-    #sound { padding: 96px 24px; max-width: 920px; margin: 0 auto; }
+    #sound { background: var(--bg); padding: 96px 24px; }
+    #sound > * { max-width: 920px; margin-left: auto; margin-right: auto; }
     .sf-h2 { font-size: clamp(36px, 5.5vw, 64px); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin-bottom: 32px; }
     .sf-body { font-size: 17px; line-height: 1.7; color: var(--sub-bright); display: flex; flex-direction: column; gap: 22px; }
     .sf-body strong { color: var(--text); font-weight: 700; }
@@ -601,7 +602,8 @@
       .showcase + .showcase { padding-top: 24px; }
       .showcase:last-of-type { padding-bottom: 64px; }
       .offer-intro { margin-bottom: 36px; }
-      #thirtybuild, #guarantee, #faq { border-radius: 28px 28px 0 0; margin-top: -28px; padding-top: 92px; }
+      #thirtybuild, #sound, #faq { border-radius: 28px 28px 0 0; margin-top: -28px; padding-top: 92px; }
+      #sound { padding: 64px 20px; }
       #thirtybuild .panels-header { margin-bottom: 40px; }
       .phase-card { padding: 28px 24px; border-radius: 18px; }
       .phase-title { font-size: 30px; line-height: 1.15; max-width: none; }
@@ -773,90 +775,9 @@
   </div>
 </section>
 
-<!-- SOUND FAMILIAR -->
-<section id="sound">
-  <p class="sec-pre">// Sound Familiar?</p>
-  <h2 class="sf-h2">Your work is great, but your content doesn&#8217;t reflect it.</h2>
-  <div class="sf-body">
-    <p>You&#8217;ve built something real. Clients love you. Revenue is coming in. But the content going out doesn&#8217;t reflect the work. Until it does, the right people won&#8217;t find you.</p>
-    <p>You give a f*ck about how it looks. Not templated. Not AI-generic. Cinematic, specific, unmistakably yours.</p>
-  </div>
-
-  <div class="sf-check-grid">
-    <div>
-      <div class="sf-check-col-title yes">// This is for you if</div>
-      <ul class="sf-check-list">
-        <li><span class="sf-check-icon">&#10003;</span><span>You already sell a product, service, or offer, but your brand doesn&#8217;t match the level of your work</span></li>
-        <li><span class="sf-check-icon">&#10003;</span><span>You&#8217;ve invested time into content, but the results don&#8217;t match the effort</span></li>
-        <li><span class="sf-check-icon">&#10003;</span><span>You&#8217;re just starting or your brand has started to take shape</span></li>
-        <li><span class="sf-check-icon">&#10003;</span><span>You care how your brand looks. Cinematic, distinctive, premium. Not templates, not AI-generic</span></li>
-        <li><span class="sf-check-icon">&#10003;</span><span>You&#8217;re ready to grow your audience and attract clients you actually want to work with</span></li>
-      </ul>
-    </div>
-    <div>
-      <div class="sf-check-col-title no">// This is not for you if</div>
-      <ul class="sf-check-list">
-        <li><span class="sf-check-icon x">&#10007;</span><span>You want AI to generate the volume for you. Templates, 5-posts-a-day pipelines, AI-written everything</span></li>
-        <li><span class="sf-check-icon x">&#10007;</span><span>You want to generate AI videos. This is AI for the systems, not the slop</span></li>
-        <li><span class="sf-check-icon x">&#10007;</span><span>You don&#8217;t have a working offer yet. Build that first. This installs the brand around your business, not the business itself</span></li>
-        <li><span class="sf-check-icon x">&#10007;</span><span>You&#8217;re trying to become a creator. Sponsorships, brand deals, audience growth as the goal</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- GET (phases + bonuses + reveal) -->
+<!-- GET (bonuses + reveal, moved directly under offer) -->
 <section id="get">
   <div class="get-inner">
-    <p class="get-pre">// <span class="ge-prefix">In 60 days, </span>your personal brand machine is built</p>
-    <h2 class="get-h">Here&#8217;s everything<br class="mobile-br" /> you get.</h2>
-
-    <div class="get-list">
-      <div class="get-item">
-        <div class="get-item-content">
-          <span class="get-item-eyebrow">// 01 &middot; Instant Access</span>
-          <h3 class="get-item-title">Craft Your Brand</h3>
-          <p class="get-item-desc">A pre-recorded onboarding sequence to build your brand foundation and install your systems before we ever go live.</p>
-          <ul class="get-item-list">
-            <li><strong>Brand Blueprint:</strong> Your positioning, avatar, voice, and content pillars &mdash; the document that guides every piece you make from Day 1.</li>
-            <li><strong>AI-native setup:</strong> Notion connected to Claude so your brain, your workflows, and your content live in one system you actually use.</li>
-            <li><strong>FrictionlessOS&#8482; install:</strong> The full content OS installed on your machine &mdash; audit competitors, capture ideas, draft hooks, script videos.</li>
-            <li><strong>The content workflow:</strong> The exact repeatable process for turning a raw idea into a shot-ready script in under 30 minutes.</li>
-          </ul>
-          <p class="get-item-goal"><strong>You&#8217;ll leave knowing:</strong> who you&#8217;re talking to, what you&#8217;re building, and how the system works before we ever meet.</p>
-        </div>
-      </div>
-      <div class="get-item">
-        <div class="get-item-content">
-          <span class="get-item-eyebrow">// 02 &middot; Days 1&ndash;30</span>
-          <h3 class="get-item-title">Build Your Content System</h3>
-          <p class="get-item-desc">Four weeks of live workshops installing the systems, teaching the craft, and mapping your first 30 days of content so you post with total clarity.</p>
-          <ul class="get-item-list">
-            <li><strong>Kickoff call:</strong> What to expect over the next 60 days, plus a full setup check so nothing is missing before we start posting.</li>
-            <li><strong>Endless-ideas workflow:</strong> How to mine competitors, audit accounts, and generate a bench of ideas you&#8217;ll never run out of.</li>
-            <li><strong>Custom Hook Engine + scripts:</strong> My team builds you a hook engine trained on your niche, plus a stack of ready-to-shoot scripts.</li>
-            <li><strong>Cinematic content framework:</strong> How to shoot, edit, and format so every piece has the visual language of a brand, not a phone camera and hope.</li>
-            <li><strong>30-day content calendar:</strong> Your first month mapped and locked, so on Day 31 you know exactly what you&#8217;re posting every day.</li>
-          </ul>
-          <p class="get-item-goal"><strong>You&#8217;ll leave knowing:</strong> what to post, how to shoot it, and a calendar ready to ship.</p>
-        </div>
-      </div>
-      <div class="get-item">
-        <div class="get-item-content">
-          <span class="get-item-eyebrow">// 03 &middot; Days 31&ndash;60</span>
-          <h3 class="get-item-title">The Challenge: 30 Published Pieces</h3>
-          <p class="get-item-desc">30 days of daily drops and live sessions to keep you posting, unblock what&#8217;s specific to you, and finish with a brand that finally looks like your work.</p>
-          <ul class="get-item-list">
-            <li><strong>Daily educational tip:</strong> One craft lesson dropped every day &mdash; keeping cinematic content top of mind while you&#8217;re in the reps.</li>
-            <li><strong>Daily style prompt:</strong> A specific style, format, or hook prompt to try each day, so you never post from a blank page.</li>
-            <li><strong>2 live FAQ sessions:</strong> Small-group calls to unblock whatever is specific to your niche, offer, or feed while you&#8217;re shipping.</li>
-            <li><strong>Community accountability:</strong> Your work reviewed by peers and by me inside the platform, so the reps compound instead of just piling up.</li>
-          </ul>
-          <p class="get-item-goal"><strong>You&#8217;ll leave knowing:</strong> 30 pieces of cinematic content live, a repeatable posting habit, and a brand that finally looks like your work.</p>
-        </div>
-      </div>
-    </div>
-
     <div class="get-block-wrap">
       <p class="get-block-pre">// Included Free</p>
       <h3 class="get-bonus-h">Bonuses</h3>
@@ -915,6 +836,37 @@
   </div>
 </section>
 
+<!-- SOUND FAMILIAR -->
+<section id="sound">
+  <p class="sec-pre">// Sound Familiar?</p>
+  <h2 class="sf-h2">Your work is great, but your content doesn&#8217;t reflect it.</h2>
+  <div class="sf-body">
+    <p>You&#8217;ve built something real. Clients love you. Revenue is coming in. But the content going out doesn&#8217;t reflect the work. Until it does, the right people won&#8217;t find you.</p>
+    <p>You give a f*ck about how it looks. Not templated. Not AI-generic. Cinematic, specific, unmistakably yours.</p>
+  </div>
+
+  <div class="sf-check-grid">
+    <div>
+      <div class="sf-check-col-title yes">// This is for you if</div>
+      <ul class="sf-check-list">
+        <li><span class="sf-check-icon">&#10003;</span><span>You already sell a product, service, or offer, but your brand doesn&#8217;t match the level of your work</span></li>
+        <li><span class="sf-check-icon">&#10003;</span><span>You&#8217;ve invested time into content, but the results don&#8217;t match the effort</span></li>
+        <li><span class="sf-check-icon">&#10003;</span><span>You&#8217;re just starting or your brand has started to take shape</span></li>
+        <li><span class="sf-check-icon">&#10003;</span><span>You care how your brand looks. Cinematic, distinctive, premium. Not templates, not AI-generic</span></li>
+        <li><span class="sf-check-icon">&#10003;</span><span>You&#8217;re ready to grow your audience and attract clients you actually want to work with</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="sf-check-col-title no">// This is not for you if</div>
+      <ul class="sf-check-list">
+        <li><span class="sf-check-icon x">&#10007;</span><span>You want AI to generate the volume for you. Templates, 5-posts-a-day pipelines, AI-written everything</span></li>
+        <li><span class="sf-check-icon x">&#10007;</span><span>You want to generate AI videos. This is AI for the systems, not the slop</span></li>
+        <li><span class="sf-check-icon x">&#10007;</span><span>You don&#8217;t have a working offer yet. Build that first. This installs the brand around your business, not the business itself</span></li>
+        <li><span class="sf-check-icon x">&#10007;</span><span>You&#8217;re trying to become a creator. Sponsorships, brand deals, audience growth as the goal</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 <!-- GUARANTEE -->
 <section id="guarantee">
