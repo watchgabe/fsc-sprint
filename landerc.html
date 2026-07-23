@@ -152,10 +152,10 @@
     /* ── SHOWCASE PANELS (30Build + 30Ship, both on green bg, Jessi Jean style) ── */
     .showcase { background: var(--bg); color: var(--text); padding: 88px 24px; }
     .showcase + .showcase { padding-top: 32px; }
-    /* Chapter header for offer — reuses .panels-header layout for consistency, overrides text colors for dark bg */
-    #thirtybuild .panels-header { max-width: 1000px; margin: 0 auto 64px; }
-    #thirtybuild .panels-h { color: var(--text); margin-bottom: 28px; }
-    #thirtybuild .panels-sub { color: var(--sub-bright); max-width: 680px; }
+    /* Chapter header for offer/sound/guarantee/faq — reuses .panels-header layout for consistency, overrides text colors for dark bg */
+    #thirtybuild .panels-header, #sound .panels-header, #guarantee .panels-header, #faq .panels-header { max-width: 1000px; margin: 0 auto 64px; }
+    #thirtybuild .panels-h, #sound .panels-h, #guarantee .panels-h, #faq .panels-h { color: var(--text); margin-bottom: 28px; }
+    #thirtybuild .panels-sub, #sound .panels-sub, #guarantee .panels-sub, #faq .panels-sub { color: var(--sub-bright); max-width: 680px; }
 
     /* Boxed phase cards — 30 Build + 30 Ship stacked, swapped hierarchy (small tag, BIG title, days below), matches Jessi Jean reference */
     .phase-cards { display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin: 0 auto; }
@@ -173,7 +173,8 @@
     .phase-outcome-text { font-size: 14px; line-height: 1.55; color: var(--sub-bright); margin: 0; text-wrap: pretty; }
     .phase-outcome-text strong { color: var(--text); font-weight: 700; }
     /* Rounded top corners on green sections following light sections — negative margin overlaps into the light section above so cream shows through the corner cuts */
-    #thirtybuild, #sound, #faq { border-radius: 40px 40px 0 0; margin-top: -40px; padding-top: 128px; position: relative; z-index: 1; }
+    #thirtybuild, #sound, #guarantee { border-radius: 40px 40px 0 0; margin-top: -40px; padding-top: 128px; position: relative; z-index: 1; }
+    .panels-sub strong { color: var(--orange); font-weight: 700; }
     .showcase-inner { max-width: 900px; margin: 0 auto; }
     .showcase-eyebrow { display: block; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; margin: 0 0 20px; color: var(--sub); }
     .showcase-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 900; font-size: clamp(64px, 10vw, 140px); letter-spacing: -.045em; line-height: 0.92; margin: 0 0 18px; color: var(--text); }
@@ -337,7 +338,8 @@
     .testi-handle { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .1em; color: rgba(6,20,16,0.55); margin-top: 2px; }
 
     /* ── GUARANTEE (centered, big quote + 2 columns) ── */
-    #guarantee { padding: 96px 24px; max-width: 920px; margin: 0 auto; }
+    #guarantee { background: var(--bg); padding: 96px 24px; }
+    #guarantee > * { max-width: 920px; margin-left: auto; margin-right: auto; }
     .g-inner { text-align: center; }
     .g-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub); margin-bottom: 22px; display: inline-block; padding: 6px 14px; border: 1px solid var(--card-2); border-radius: 100px; }
     .g-h { font-size: clamp(36px, 5vw, 56px); font-weight: 800; letter-spacing: -.04em; line-height: 1.04; color: var(--text); margin-bottom: 44px; }
@@ -446,7 +448,8 @@
     .get-item-content { display: flex; flex-direction: column; gap: 8px; max-width: 680px; }
     .get-item-title { font-size: clamp(22px, 2.7vw, 28px); font-weight: 800; letter-spacing: -.02em; color: #061410; line-height: 1.2; }
     .get-item-desc { font-size: 15px; line-height: 1.6; color: rgba(6,20,16,0.7); }
-    .get-block-wrap { margin-top: 72px; }
+    .get-block-wrap { margin-top: 0; }
+    .mobile-hide { display: initial; }
     .get-block-pre { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(6,20,16,0.5); margin-bottom: 16px; }
     .get-bonus-h { font-size: clamp(44px, 6vw, 72px); font-weight: 800; letter-spacing: -.03em; color: #061410; line-height: 1; margin-bottom: 32px; }
     .get-bonus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -620,11 +623,13 @@
       .showcase + .showcase { padding-top: 24px; }
       .showcase:last-of-type { padding-bottom: 64px; }
       .offer-intro { margin-bottom: 36px; }
-      #thirtybuild, #sound, #faq { border-radius: 28px 28px 0 0; margin-top: -28px; padding-top: 92px; }
+      #thirtybuild, #sound, #guarantee { border-radius: 28px 28px 0 0; margin-top: -28px; padding-top: 92px; }
       #sound { padding: 64px 20px; }
+      #guarantee { padding: 64px 20px; }
       #thirtybuild .panels-header { margin-bottom: 40px; }
       .phase-card { padding: 28px 24px; border-radius: 18px; }
-      .phase-title { font-size: 30px; line-height: 1.15; max-width: none; }
+      .phase-title { font-size: 30px; line-height: 1.15; max-width: 100%; }
+      br.mobile-hide { display: none; }
       .phase-desc { font-size: 15px; }
       .phase-list li { font-size: 15px; }
       .phase-outcome { padding: 16px 18px; }
@@ -635,7 +640,7 @@
       .showcase-outcome-card { padding: 22px 22px; }
       .showcase-outcome-text { font-size: 14px; }
       .panels-header { margin-bottom: 40px; }
-      .panels-h { font-size: 44px; line-height: 1.05; }
+      .panels-h { font-size: 38px; line-height: 1.08; }
       .panels-sub { font-size: 16px; line-height: 1.5; }
       .panels-cols { grid-template-columns: 1fr; gap: 32px; }
       .panels-image-col img { aspect-ratio: 16 / 11; }
@@ -736,14 +741,15 @@
   <div class="panels-inner">
     <div class="panels-header">
       <div class="panels-pill">Cinematic Brand Challenge</div>
-      <h2 class="panels-h">People don&#8217;t buy advice anymore.<br />They buy into people.</h2>
+      <h2 class="panels-h">People don&#8217;t buy advice anymore. <br class="mobile-hide" />They buy into people.</h2>
       <p class="panels-sub">Whatever niche you&#8217;re in, there are thousands of other entrepreneurs offering the same service. Your brand is your differentiator. Our job is to get you ridiculously good at capturing and telling your story in 60 days.</p>
     </div>
     <ul class="panels-checks">
-      <li><span class="check">&#10003;</span> You&#8217;ll learn exactly what to post.</li>
-      <li><span class="check">&#10003;</span> You&#8217;ll build the repeatable system to capture and publish it.</li>
-      <li><span class="check">&#10003;</span> You&#8217;ll ship 30 pieces you&#8217;re proud of.</li>
-      <li><span class="check">&#10003;</span> All designed to pull clients toward you.</li>
+      <li><span class="check">&#10003;</span> You&#8217;ll learn exactly what to post</li>
+      <li><span class="check">&#10003;</span> Build the repeatable system to capture and publish it</li>
+      <li><span class="check">&#10003;</span> How to shoot and edit premium content</li>
+      <li><span class="check">&#10003;</span> Ship 30 pieces you&#8217;re proud of</li>
+      <li><span class="check">&#10003;</span> All designed to pull clients toward you</li>
     </ul>
   </div>
 </section>
@@ -909,11 +915,10 @@
 
 <!-- SOUND FAMILIAR -->
 <section id="sound">
-  <p class="sec-pre">// Sound Familiar?</p>
-  <h2 class="sf-h2">Your work is great, but your content doesn&#8217;t reflect it.</h2>
-  <div class="sf-body">
-    <p>You&#8217;ve built something real. Clients love you. Revenue is coming in. But the content going out doesn&#8217;t reflect the work. Until it does, the right people won&#8217;t find you.</p>
-    <p>You give a f*ck about how it looks. Not templated. Not AI-generic. Cinematic, specific, unmistakably yours.</p>
+  <div class="panels-header">
+    <div class="panels-pill">Sound Familiar</div>
+    <h2 class="panels-h">Your work is great, but your content doesn&#8217;t reflect it.</h2>
+    <p class="panels-sub">You&#8217;ve built something real. Clients love you. Revenue is coming in. But the content going out doesn&#8217;t reflect the work. Until it does, the right people won&#8217;t find you.</p>
   </div>
 
   <div class="sf-check-grid">
@@ -939,36 +944,6 @@
   </div>
 </section>
 
-<!-- GUARANTEE -->
-<section id="guarantee">
-  <div class="g-inner">
-    <p class="g-pre">// The Promise</p>
-    <h2 class="g-h">Our Guarantee</h2>
-    <p class="g-quote">If 90 days after your launch you followed the checklist and haven&#8217;t <strong>2x&#8217;d your investment ($2,000)</strong>, every dollar comes back.</p>
-    <div class="g-cols">
-      <div class="g-col">
-        <h3 class="g-sub-h">Why I can put this in writing</h3>
-        <p>The install is built. The Brand Blueprint is a templated exercise. The FrictionlessOS&#8482; is pre-configured. The hook engine ships with trained prompts. The scripts use proven structures from your closest competitors. The visual identity drops straight into Canva. None of it is theory.</p>
-        <p>The only thing you have to do is the work in front of you each week.</p>
-        <p>On Day 1 of the challenge, you&#8217;ll receive the checklist. Follow it to the T. If 90 days after you go live you haven&#8217;t pulled $2,000, you get a full refund. No essays, no calls, no friction.</p>
-      </div>
-      <div class="g-col">
-        <h3 class="g-sub-h">What&#8217;s required</h3>
-        <ul class="g-list">
-          <li>Attend all 8 weekly workshops (live or replay within 7 days)</li>
-          <li>Submit your completed Brand Blueprint by end of Week 1</li>
-          <li>Install your FrictionlessOS&#8482;</li>
-          <li>Go live with content inside the 60-day install window</li>
-          <li>Track your sales for the 90 days following your launch date</li>
-        </ul>
-        <p class="g-closing">Do all of that and don&#8217;t hit $2,000, you get a full refund.</p>
-      </div>
-    </div>
-    <p class="g-terms">Full terms available on request</p>
-  </div>
-</section>
-
-<!-- WHO IT'S FOR -->
 <!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="testi-inner">
@@ -1048,37 +1023,33 @@
 </section>
 
 <!-- GUARANTEE -->
-<!-- FAQ -->
-<section id="faq">
-  <div class="faq-head">
-    <p class="sec-pre">// Common questions</p>
-    <h2 class="h2" style="max-width:600px;margin:0 auto;">The honest answers.</h2>
-  </div>
-  <div class="faq-list">
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">If I have zero followers, is this for me?</span><span class="faq-icon">+</span></button>
-      <div class="faq-a"><div class="faq-a-inner">Yes. It doesn&#8217;t matter if you have zero, 10K, or 100K followers. As long as you have an offer that you&#8217;re ready to pitch, this is going to work for anybody who&#8217;s ready to dive into the content.</div></div>
+<section id="guarantee">
+  <div class="g-inner">
+    <div class="panels-header">
+      <div class="panels-pill">The Promise</div>
+      <h2 class="panels-h">Our Guarantee</h2>
+      <p class="panels-sub">If 90 days after your launch you followed the checklist and haven&#8217;t <strong>2x&#8217;d your investment ($2,000)</strong>, every dollar comes back.</p>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How much time do I need to commit each week?</span><span class="faq-icon">+</span></button>
-      <div class="faq-a"><div class="faq-a-inner">Each weekly call is going to be between one and two hours. Beyond that, I&#8217;d expect to use two to three hours to work on building out your content and your systems. If you don&#8217;t have that time, you have full access to go at your own pace after and review all the content after.</div></div>
+    <div class="g-cols">
+      <div class="g-col">
+        <h3 class="g-sub-h">Why I can put this in writing</h3>
+        <p>The install is built. The Brand Blueprint is a templated exercise. The FrictionlessOS&#8482; is pre-configured. The hook engine ships with trained prompts. The scripts use proven structures from your closest competitors. The visual identity drops straight into Canva. None of it is theory.</p>
+        <p>The only thing you have to do is the work in front of you each week.</p>
+        <p>On Day 1 of the challenge, you&#8217;ll receive the checklist. Follow it to the T. If 90 days after you go live you haven&#8217;t pulled $2,000, you get a full refund. No essays, no calls, no friction.</p>
+      </div>
+      <div class="g-col">
+        <h3 class="g-sub-h">What&#8217;s required</h3>
+        <ul class="g-list">
+          <li>Attend all 8 weekly workshops (live or replay within 7 days)</li>
+          <li>Submit your completed Brand Blueprint by end of Week 1</li>
+          <li>Install your FrictionlessOS&#8482;</li>
+          <li>Go live with content inside the 60-day install window</li>
+          <li>Track your sales for the 90 days following your launch date</li>
+        </ul>
+        <p class="g-closing">Do all of that and don&#8217;t hit $2,000, you get a full refund.</p>
+      </div>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How does the money-back guarantee work?</span><span class="faq-icon">+</span></button>
-      <div class="faq-a"><div class="faq-a-inner">Show up to all 8 workshops. Fill out the Brand Blueprint. Install your FrictionlessOS&#8482;. Follow the Day 1 checklist to the T. If 90 days after you go live you haven&#8217;t made at least $2,000 (2x&#8217;d your investment), every dollar comes back. No essays, no calls, no friction.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Are all sessions live?</span><span class="faq-icon">+</span></button>
-      <div class="faq-a"><div class="faq-a-inner">We have a weekly live masterclass session, and you also get access to the recording. Beyond that, there&#8217;s material inside the community you can access whenever you like.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need any additional subscriptions?</span><span class="faq-icon">+</span></button>
-      <div class="faq-a"><div class="faq-a-inner">Yes. To make any of this work, I highly recommend a Claude Pro or ChatGPT Codex subscription, which is only $20/month. There will be other recommendations for platforms you can use beyond that, but at a minimum, Claude Code or ChatGPT Codex will get everything done that we need. You don&#8217;t need any prior experience on them.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What happens after the challenge?</span><span class="faq-icon">+</span></button>
-      <div class="faq-a"><div class="faq-a-inner">After the challenge, you&#8217;ll become an alum. You&#8217;ll have access to continue in the paid community if you&#8217;d like, plus free access to all future challenges as long as you&#8217;re subscribed to the community.</div></div>
-    </div>
+    <p class="g-terms">Full terms available on request</p>
   </div>
 </section>
 
@@ -1113,6 +1084,40 @@
           <span class="cs-label">Students Trained</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="panels-header">
+    <div class="panels-pill">Common Questions</div>
+    <h2 class="panels-h">The honest answers.</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">If I have zero followers, is this for me?</span><span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Yes. It doesn&#8217;t matter if you have zero, 10K, or 100K followers. As long as you have an offer that you&#8217;re ready to pitch, this is going to work for anybody who&#8217;s ready to dive into the content.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How much time do I need to commit each week?</span><span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Each weekly call is going to be between one and two hours. Beyond that, I&#8217;d expect to use two to three hours to work on building out your content and your systems. If you don&#8217;t have that time, you have full access to go at your own pace after and review all the content after.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How does the money-back guarantee work?</span><span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Show up to all 8 workshops. Fill out the Brand Blueprint. Install your FrictionlessOS&#8482;. Follow the Day 1 checklist to the T. If 90 days after you go live you haven&#8217;t made at least $2,000 (2x&#8217;d your investment), every dollar comes back. No essays, no calls, no friction.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Are all sessions live?</span><span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">We have a weekly live masterclass session, and you also get access to the recording. Beyond that, there&#8217;s material inside the community you can access whenever you like.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need any additional subscriptions?</span><span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Yes. To make any of this work, I highly recommend a Claude Pro or ChatGPT Codex subscription, which is only $20/month. There will be other recommendations for platforms you can use beyond that, but at a minimum, Claude Code or ChatGPT Codex will get everything done that we need. You don&#8217;t need any prior experience on them.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What happens after the challenge?</span><span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">After the challenge, you&#8217;ll become an alum. You&#8217;ll have access to continue in the paid community if you&#8217;d like, plus free access to all future challenges as long as you&#8217;re subscribed to the community.</div></div>
     </div>
   </div>
 </section>
