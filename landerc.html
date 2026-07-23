@@ -24,6 +24,10 @@
   <meta name="twitter:description" content="Install your personal brand, master content, and attract clients in 60 days. A done-with-you build with Gabe Harris and FSCreative." />
   <meta name="twitter:image" content="https://res.cloudinary.com/dy0kchxh8/image/upload/v1782233822/Live_Workshop_kyrns1.jpg" />
 
+  <!-- Calendly popup -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-291RR55X35"></script>
   <script>
@@ -96,13 +100,13 @@
     .tb-cta:hover { background: var(--orange-d); border-color: var(--orange-d); color: #061410; }
 
     /* ── STICKY BOTTOM CTA (mobile only) ── */
-    #sbar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background: var(--card); border-top: 1px solid var(--card-2); padding: 10px 14px; transform: translateY(105%); transition: transform .4s ease; }
-    @media (max-width: 768px) { #sbar { display: block; } }
+    #sbar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background: var(--card); border-top: 1px solid var(--card-2); transform: translateY(110%); transition: transform .35s cubic-bezier(.4,0,.2,1); padding-bottom: env(safe-area-inset-bottom, 0px); }
     #sbar.vis { transform: translateY(0); }
-    .sbar-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-    .sbar-cd { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--sub-bright); line-height: 1.25; text-align: left; }
-    .sbar-cd strong { color: var(--text); font-weight: 700; }
-    .sbar-btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 8px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; transition: background .2s, transform .2s; white-space: nowrap; }
+    .sbar-in { max-width: 1080px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .sbar-left { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub-bright); line-height: 1.35; }
+    .sbar-left a { color: var(--orange); text-decoration: none; font-weight: 700; display: block; cursor: pointer; }
+    .sbar-left a:hover { text-decoration: underline; }
+    .sbar-btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 8px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background .2s, transform .2s; }
     .sbar-btn:hover { background: var(--orange-d); color: #061410; transform: translateY(-1px); }
 
     /* ── TLDR SECTION (light inversion) ── */
@@ -125,8 +129,10 @@
     .panels-header { text-align: center; max-width: 780px; margin: 0 auto 64px; }
     .panels-pill { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 100px; background: rgba(238,102,62,0.10); border: 1px solid rgba(238,102,62,0.35); color: var(--orange); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; margin-bottom: 24px; }
     .panels-pill .p-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: eyebrow-pulse 2s infinite; }
-    .panels-h { font-size: clamp(36px, 5vw, 60px); font-weight: 800; letter-spacing: -.03em; line-height: 1.05; color: #061410; margin-bottom: 24px; }
-    .panels-sub { font-size: 17px; line-height: 1.55; color: rgba(6,20,16,0.7); margin: 0; }
+    .panels-h { font-size: clamp(36px, 5vw, 60px); font-weight: 800; letter-spacing: -.03em; line-height: 1.05; color: #061410; margin-bottom: 24px; text-wrap: balance; }
+    .panels-sub { font-size: 17px; line-height: 1.55; color: rgba(6,20,16,0.7); margin: 0; text-wrap: pretty; }
+    .panels-sub strong { color: #061410; font-weight: 700; }
+    .panel-item p { text-wrap: pretty; }
     .panels-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
     .panels-image-col { width: 100%; }
     .panels-image-col img { width: 100%; height: auto; border-radius: 20px; display: block; object-fit: cover; aspect-ratio: 4 / 5; }
@@ -373,8 +379,8 @@
     .fcta-meta { position: relative; z-index: 1; margin-top: 20px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
 
     /* ── BOTTOM ── */
-    #bottom { padding: 32px 24px 48px; text-align: center; }
-    .bottom-copy { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--foot); }
+    footer { padding: 40px 24px 120px; text-align: center; }
+    .foot-brand { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub); }
 
     /* ── "GET" SECTION (light inversion) ── */
     #get { background: #f3efe7; color: #061410; padding: 96px 24px; }
@@ -544,30 +550,34 @@
       .get-method-grid { grid-template-columns: 1fr; }
       #get { padding: 64px 20px; }
       #tldr { padding: 64px 20px; }
+      .sbar-in { padding: 14px 16px 22px; gap: 12px; }
+      .sbar-left { font-size: 11px; letter-spacing: .1em; line-height: 1.35; }
+      .sbar-btn { padding: 12px 18px; font-size: 9px; letter-spacing: .1em; }
       #panels { padding: 64px 20px; }
       .panels-header { margin-bottom: 40px; }
-      .panels-h { font-size: 32px; line-height: 1.08; }
-      .panels-sub { font-size: 16px; }
+      .panels-h { font-size: 44px; line-height: 1.05; }
+      .panels-sub { font-size: 16px; line-height: 1.5; }
       .panels-cols { grid-template-columns: 1fr; gap: 32px; }
       .panels-image-col img { aspect-ratio: 16 / 11; }
       .panel-item { padding: 22px 0; }
       .panel-icon { width: 38px; height: 38px; margin-bottom: 14px; }
       #topbar { padding: 12px 18px; top: 28px; }
       #topstrip { padding: 8px 18px; }
-      #hero { min-height: calc(100vh - 88px); padding: 56px 20px 56px; }
-      .h-content { justify-content: center; }
-      .h-h1 { font-size: 32px; line-height: 1.1; margin-bottom: 22px; }
-      .h-sub { font-size: 17px; line-height: 1.4; margin-bottom: 32px; font-weight: 600; }
-      .h-bullets { gap: 14px; margin: 0 0 36px; }
-      .h-bullets li { font-size: 16px; line-height: 1.5; }
+      #hero { min-height: auto; padding: 32px 20px 40px; }
+      .h-content { justify-content: flex-start; }
+      .h-h1 { font-size: 32px; line-height: 1.1; margin-bottom: 20px; }
+      .h-sub { font-size: 17px; line-height: 1.4; margin-bottom: 24px; font-weight: 600; }
+      .h-bullets { gap: 12px; margin: 0 0 28px; }
+      .h-bullets li { font-size: 15px; line-height: 1.5; }
       .h-cta-row { width: 100%; }
       .h-cta-row .btn-primary { width: 100%; justify-content: center; padding: 16px 28px; }
-      .social-proof { margin-top: 40px; flex-direction: column; align-items: center; text-align: center; gap: 14px; width: 100%; }
-      .sp-content { align-items: center; }
-      .sp-avatar { width: 36px; height: 36px; margin-left: -8px; }
-      .sp-avatar img { width: 36px; height: 36px; }
-      .sp-stars { font-size: 14px; letter-spacing: 3px; }
-      .sp-text { font-size: 13px; }
+      /* Reorder on mobile: social-proof first, then H1 → sub → bullets → CTA */
+      .social-proof { order: -1; margin-top: 0; margin-bottom: 22px; flex-direction: row; align-items: center; text-align: left; gap: 12px; }
+      .sp-content { align-items: flex-start; }
+      .sp-avatar { width: 32px; height: 32px; margin-left: -8px; }
+      .sp-avatar img { width: 32px; height: 32px; }
+      .sp-stars { font-size: 13px; letter-spacing: 2px; }
+      .sp-text { font-size: 12px; }
     }
   </style>
 </head>
@@ -615,7 +625,7 @@
 <section id="hero">
   <div class="h-content">
   <h1 class="h-h1">Build the system to create beautiful content and grow your brand.</h1>
-  <p class="h-sub">A 60-day challenge to blow up your aesthetic brand.</p>
+  <p class="h-sub">A 60-day guided challenge to build and launch your brand.</p>
   <ul class="h-bullets">
     <li>30 published posts on your account</li>
     <li>A repeatable AI-powered content system installed</li>
@@ -640,63 +650,13 @@
 </section>
 </div>
 
-<!-- TLDR -->
-<section id="tldr">
-  <div class="tldr-card">
-    <span class="tldr-eyebrow">// TLDR</span>
-    <h2 class="tldr-h">The entire offer in 30 seconds.</h2>
-    <div class="tldr-list">
-      <div class="tldr-item">
-        <span class="tldr-check">&#10003;</span>
-        <p class="tldr-text"><strong>Duration:</strong> 60 days, split between two phases &mdash; build and ship.</p>
-      </div>
-      <div class="tldr-item">
-        <span class="tldr-check">&#10003;</span>
-        <p class="tldr-text"><strong>Delivery:</strong> 6 live masterclasses + 30 daily content drops and prompts.</p>
-      </div>
-      <div class="tldr-item">
-        <span class="tldr-check">&#10003;</span>
-        <p class="tldr-text"><strong>The goal:</strong> Install an AI-powered content system, make beautiful content, and publish 30 pieces in 60 days.</p>
-      </div>
-      <div class="tldr-item">
-        <span class="tldr-check">&#10003;</span>
-        <p class="tldr-text"><strong>Who it&#8217;s for:</strong> Creative entrepreneurs who want to build a cinematic personal brand to promote their offer or business.</p>
-      </div>
-      <div class="tldr-item">
-        <span class="tldr-check">&#10003;</span>
-        <p class="tldr-text"><strong>Kickoff:</strong> The moment you enroll, you&#8217;re onboarded into our portal and get to work setting up your brand and systems.</p>
-      </div>
-      <div class="tldr-item">
-        <span class="tldr-check">&#10003;</span>
-        <p class="tldr-text"><strong>The build:</strong> The first 30 days we build your content systems, grow your skills, and map out a 30-day calendar.</p>
-      </div>
-      <div class="tldr-item">
-        <span class="tldr-check">&#10003;</span>
-        <p class="tldr-text"><strong>The ship:</strong> The next 30 days you execute the calendar through a guided content challenge, with daily drops to keep you on track.</p>
-      </div>
-      <div class="tldr-item">
-        <span class="tldr-check">&#10003;</span>
-        <p class="tldr-text"><strong>The cost:</strong> One payment of $997, or split into three payments of $367/month.</p>
-      </div>
-      <div class="tldr-item">
-        <span class="tldr-check">&#10003;</span>
-        <p class="tldr-text"><strong>100% money-back guarantee:</strong> Complete the challenge checklist to a T, and if you haven&#8217;t doubled your investment 90 days after launch, you&#8217;ll get a full refund.</p>
-      </div>
-    </div>
-    <div class="tldr-footer">
-      <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="btn-primary">Join the Challenge &rarr;</a>
-      <span class="tldr-meta">100% Money-Back Guarantee</span>
-    </div>
-  </div>
-</section>
-
-<!-- PANELS · TLDR replacement candidate (image + 3 items) -->
+<!-- PANELS · TLDR replacement (image + 3 items) -->
 <section id="panels">
   <div class="panels-inner">
     <div class="panels-header">
       <div class="panels-pill"><span class="p-dot"></span>Challenge Starts &middot; Aug 5, 2026</div>
       <h2 class="panels-h">30-Day Build. 30-Day Ship.</h2>
-      <p class="panels-sub">60 days, split in two. The first 30 you install your brand, your systems, and your 30-day content calendar. The next 30 you ship in a guided sprint with daily drops and live FAQ calls. You leave with 30 cinematic pieces live and a system that runs without me.</p>
+      <p class="panels-sub">The moment you join, you&#8217;ll have access to the first workshops to start building your brand. Once we kick off, the 60 days split into two phases: the <strong>first 30</strong>, you install your brand, systems, and 30-day content calendar. The <strong>next 30</strong>, you ship in a guided sprint with daily drops and live FAQ calls.</p>
     </div>
     <div class="panels-cols">
       <div class="panels-image-col">
@@ -708,21 +668,21 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
           </div>
           <h3>Build your brand</h3>
-          <p>Your positioning, avatar, voice, and content pillars installed as a Brand Blueprint before we go live. Every piece from Day 1 comes from the same source of truth.</p>
+          <p>Positioning, avatar, content pillars, and strategic clarity, all pulled from your brain using the Brand Blueprint exercise and packaged in a way that we can continuously reference.</p>
         </div>
         <div class="panel-item">
           <div class="panel-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
           </div>
           <h3>Build your content system</h3>
-          <p>The AI-powered Frictionless OS installed on your machine. Audit competitors, capture ideas, draft hooks, and script videos through a workflow that turns raw ideas into shot-ready posts.</p>
+          <p>The AI-powered Frictionless OS installed directly on your machine. Audit competitors, capture ideas, create powerful hooks, and script videos through a workflow that turns raw ideas into a production-ready Notion template.</p>
         </div>
         <div class="panel-item">
           <div class="panel-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
           </div>
           <h3>Post 30 pieces of content</h3>
-          <p>30 days of daily drops, style prompts, and small-group FAQ calls. You finish with 30 cinematic pieces live, a posting habit that sticks, and a brand that finally looks like your work.</p>
+          <p>You&#8217;ll finish with 30 cinematic pieces live, a posting habit that sticks, and a brand you&#8217;re finally proud to call yours.</p>
         </div>
       </div>
     </div>
@@ -1050,16 +1010,16 @@
   </div>
 </section>
 
-<!-- BOTTOM -->
-<div id="bottom">
-  <p class="bottom-copy">&copy; FSCreative&#8482; &middot; @watch.gabe</p>
-</div>
+<!-- FOOTER -->
+<footer>
+  <span class="foot-brand">FSCreative&#8482; &middot; Cohort 01 &middot; August 5, 2026</span>
+</footer>
 
 <!-- STICKY BOTTOM CTA -->
 <div id="sbar">
   <div class="sbar-in">
-    <span class="sbar-cd">100% Money-Back<br/>Guarantee</span>
-    <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="sbar-btn">Join the Challenge</a>
+    <div class="sbar-left">Questions? <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/golocalgroup/brand-strategy?background_color=ffffff&hide_gdpr_banner=1'}); return false;">Book a call</a></div>
+    <a href="https://fscreative.circle.so/checkout/challenge" target="_blank" class="sbar-btn">Join the Challenge &rarr;</a>
   </div>
 </div>
 
