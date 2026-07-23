@@ -148,10 +148,8 @@
     /* ── SHOWCASE PANELS (30Build + 30Ship, both on green bg, Jessi Jean style) ── */
     .showcase { background: var(--bg); color: var(--text); padding: 88px 24px; }
     .showcase + .showcase { padding-top: 32px; }
-    /* Chapter header — "// Here's Exactly What You Get / THE OFFER" above 30Build */
+    /* Chapter header — "// Here's Exactly What You Get / The Offer" above 30Build (reuses .showcase-eyebrow + .showcase-h) */
     .offer-intro { margin-bottom: 56px; }
-    .offer-intro-eyebrow { display: block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; color: var(--orange); margin-bottom: 20px; }
-    .offer-intro-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 900; font-size: clamp(72px, 13vw, 200px); letter-spacing: -.045em; line-height: 0.88; margin: 0; color: var(--text); text-transform: uppercase; }
     /* Rounded top corners on green sections following light sections */
     #thirtybuild, #guarantee, #faq { border-radius: 40px 40px 0 0; position: relative; z-index: 1; }
     .showcase-inner { max-width: 900px; margin: 0 auto; }
@@ -581,7 +579,6 @@
       .showcase + .showcase { padding-top: 24px; }
       .showcase:last-of-type { padding-bottom: 64px; }
       .offer-intro { margin-bottom: 36px; }
-      .offer-intro-h { font-size: 60px; letter-spacing: -.04em; }
       #thirtybuild, #guarantee, #faq { border-radius: 28px 28px 0 0; }
       .showcase-h { font-size: 64px; line-height: 0.9; letter-spacing: -.045em; }
       .showcase-subh { font-size: 20px; line-height: 1.2; }
@@ -728,8 +725,8 @@
 <section id="thirtybuild" class="showcase">
   <div class="showcase-inner">
     <div class="offer-intro">
-      <span class="offer-intro-eyebrow">// Here&#8217;s Exactly What You Get</span>
-      <h2 class="offer-intro-h">The Offer</h2>
+      <span class="showcase-eyebrow">// Here&#8217;s Exactly What You Get</span>
+      <h2 class="showcase-h">The Offer</h2>
     </div>
     <span class="showcase-eyebrow">// Days 01&ndash;30</span>
     <h2 class="showcase-h">30Build</h2>
