@@ -143,6 +143,11 @@
     .panel-icon svg { width: 20px; height: 20px; stroke: #061410; }
     .panel-item h3 { font-size: 20px; font-weight: 800; letter-spacing: -.01em; color: #061410; margin: 0 0 8px; }
     .panel-item p { font-size: 15px; line-height: 1.6; color: rgba(6,20,16,0.7); margin: 0; }
+    /* Centered check bullets (replaces image + panel-items) */
+    .panels-checks { list-style: none; padding: 0; max-width: 780px; margin: 0 auto; }
+    .panels-checks li { display: flex; align-items: center; justify-content: center; gap: 14px; padding: 22px 20px; border-bottom: 1px solid rgba(6,20,16,0.12); font-size: 18px; line-height: 1.4; color: #061410; font-weight: 500; text-align: center; }
+    .panels-checks li:first-child { border-top: 1px solid rgba(6,20,16,0.12); }
+    .panels-checks li .check { color: var(--orange); font-size: 18px; font-weight: 700; flex-shrink: 0; }
 
     /* ── SHOWCASE PANELS (30Build + 30Ship, both on green bg, Jessi Jean style) ── */
     .showcase { background: var(--bg); color: var(--text); padding: 88px 24px; }
@@ -616,6 +621,7 @@
       .panels-image-col img { aspect-ratio: 16 / 11; }
       .panel-item { padding: 22px 0; }
       .panel-icon { width: 38px; height: 38px; margin-bottom: 14px; }
+      .panels-checks li { padding: 18px 12px; font-size: 16px; line-height: 1.4; gap: 12px; text-align: left; justify-content: flex-start; }
       #topbar { padding: 12px 18px; top: 28px; }
       #topstrip { padding: 8px 18px; }
       #hero { min-height: calc(100vh - 88px); padding: 52px 20px 56px; }
@@ -713,34 +719,12 @@
       <h2 class="panels-h">People don&#8217;t buy advice anymore.<br />They buy into people.</h2>
       <p class="panels-sub">Whatever niche you&#8217;re in, there are thousands of other entrepreneurs offering the same service. Your brand is your differentiator. Our job is to get you ridiculously good at capturing and telling your story in 60 days.</p>
     </div>
-    <div class="panels-cols">
-      <div class="panels-image-col">
-        <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1782233822/Live_Workshop_kyrns1.jpg" alt="Gabe at a live workshop" />
-      </div>
-      <div class="panels-items-col">
-        <div class="panel-item">
-          <div class="panel-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-          </div>
-          <h3>You&#8217;ll build the brand you&#8217;ve been avoiding.</h3>
-          <p>Your positioning, avatar, content pillars, and strategic clarity, pulled out of your head and packaged in a Brand Blueprint you&#8217;ll reference forever.</p>
-        </div>
-        <div class="panel-item">
-          <div class="panel-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-          </div>
-          <h3>Install a content system you&#8217;ll actually use.</h3>
-          <p>The AI-powered FrictionlessOS&#8482; lives directly on your machine. Competitor audits, idea capture, hooks, and scripts all in one workflow you&#8217;ll actually open.</p>
-        </div>
-        <div class="panel-item">
-          <div class="panel-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-          </div>
-          <h3>Ship 30 cinematic pieces in 60 days.</h3>
-          <p>30 days of daily drops and live calls to keep you shipping. You leave with 30 cinematic pieces on your account, a posting habit that sticks, and a brand you&#8217;re finally proud to call yours.</p>
-        </div>
-      </div>
-    </div>
+    <ul class="panels-checks">
+      <li><span class="check">&#10003;</span> You&#8217;ll learn exactly what to post.</li>
+      <li><span class="check">&#10003;</span> You&#8217;ll build the repeatable system to capture and publish it.</li>
+      <li><span class="check">&#10003;</span> You&#8217;ll ship 30 pieces you&#8217;re proud of.</li>
+      <li><span class="check">&#10003;</span> All designed to pull clients toward you.</li>
+    </ul>
   </div>
 </section>
 
