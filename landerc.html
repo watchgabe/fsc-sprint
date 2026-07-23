@@ -147,24 +147,26 @@
     /* ── SHOWCASE PANELS (30Build + 30Ship, both on green bg, Jessi Jean style) ── */
     .showcase { background: var(--bg); color: var(--text); padding: 88px 24px; }
     .showcase + .showcase { padding-top: 32px; }
-    /* Chapter header — "THE OFFER" pill + big H + sub above the two phase cards (mirrors .panels-header layout on dark bg) */
-    .offer-header { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 1000px; margin: 0 auto 64px; }
-    .offer-pill { display: inline-flex; align-items: center; padding: 10px 20px; border-radius: 8px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; margin: 0 0 28px; }
-    .offer-h { font-size: clamp(36px, 5vw, 60px); font-weight: 800; letter-spacing: -.03em; line-height: 1.05; color: var(--text); margin: 0 0 24px; text-wrap: balance; }
-    .offer-sub { font-size: 17px; line-height: 1.55; color: var(--sub-bright); margin: 0; text-wrap: pretty; max-width: 640px; }
+    /* Chapter header for offer — reuses .panels-header layout for consistency, overrides text colors for dark bg */
+    #thirtybuild .panels-header { max-width: 1000px; margin: 0 auto 64px; }
+    #thirtybuild .panels-h { color: var(--text); margin-bottom: 28px; }
+    #thirtybuild .panels-sub { color: var(--sub-bright); max-width: 680px; }
 
-    /* Boxed phase cards — 30 Build + 30 Ship stacked */
-    .phase-cards { display: flex; flex-direction: column; gap: 16px; max-width: 900px; margin: 0 auto; }
-    .phase-card { background: var(--card); border: 1px solid var(--card-2); border-radius: 20px; padding: 34px 38px; }
-    .phase-badge { display: inline-flex; padding: 6px 14px; border-radius: 6px; background: rgba(238,102,62,0.15); color: var(--orange); font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; margin-bottom: 18px; }
-    .phase-title { font-size: clamp(20px, 2.2vw, 24px); font-weight: 800; letter-spacing: -.015em; line-height: 1.25; color: var(--text); margin: 0 0 6px; }
-    .phase-meta { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); margin-bottom: 22px; }
-    .phase-list { list-style: none; padding: 0; margin: 0 0 22px; display: flex; flex-direction: column; gap: 10px; }
-    .phase-list li { position: relative; padding-left: 20px; font-size: 15px; line-height: 1.5; color: var(--sub-bright); }
-    .phase-list li::before { content: '•'; position: absolute; left: 4px; top: 0; color: rgba(255,255,255,0.4); font-size: 15px; }
+    /* Boxed phase cards — 30 Build + 30 Ship stacked, swapped hierarchy (small tag, BIG title, days below), matches Jessi Jean reference */
+    .phase-cards { display: flex; flex-direction: column; gap: 20px; max-width: 900px; margin: 0 auto; }
+    .phase-card { background: var(--card); border: 1px solid var(--card-2); border-radius: 24px; padding: 40px 44px; }
+    .phase-eyebrow { display: block; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 20px; }
+    .phase-title { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(26px, 3.2vw, 36px); letter-spacing: -.02em; line-height: 1.2; color: var(--text); margin: 0 0 10px; text-wrap: balance; }
+    .phase-meta { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); margin-bottom: 28px; }
+    .phase-desc { font-size: 15px; line-height: 1.6; color: var(--sub-bright); margin: 0 0 28px; text-wrap: pretty; }
+    .phase-list { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 10px; }
+    .phase-list li { position: relative; padding-left: 24px; font-size: 15px; line-height: 1.5; color: var(--sub-bright); text-wrap: pretty; }
+    .phase-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 14px; height: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ee663e' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/14px no-repeat; }
     .phase-list li strong { color: var(--text); font-weight: 700; }
-    .phase-goal { font-size: 14px; line-height: 1.55; color: var(--sub-bright); margin: 0; padding-top: 6px; border-top: 1px solid var(--card-2); padding-top: 18px; }
-    .phase-goal strong { color: var(--text); font-weight: 700; }
+    .phase-outcome { background: rgba(255,255,255,0.03); border-left: 3px solid rgba(255,255,255,0.35); border-radius: 8px; padding: 18px 22px; }
+    .phase-outcome-eyebrow { display: block; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; color: rgba(255,255,255,0.65); margin-bottom: 10px; }
+    .phase-outcome-text { font-size: 14px; line-height: 1.55; color: var(--sub-bright); margin: 0; text-wrap: pretty; }
+    .phase-outcome-text strong { color: var(--text); font-weight: 700; }
     /* Rounded top corners on green sections following light sections — negative margin overlaps into the light section above so cream shows through the corner cuts */
     #thirtybuild, #guarantee, #faq { border-radius: 40px 40px 0 0; margin-top: -40px; padding-top: 128px; position: relative; z-index: 1; }
     .showcase-inner { max-width: 900px; margin: 0 auto; }
@@ -595,11 +597,12 @@
       .showcase:last-of-type { padding-bottom: 64px; }
       .offer-intro { margin-bottom: 36px; }
       #thirtybuild, #guarantee, #faq { border-radius: 28px 28px 0 0; margin-top: -28px; padding-top: 92px; }
-      .offer-header { margin-bottom: 40px; }
-      .offer-h { font-size: 32px; line-height: 1.1; }
-      .offer-sub { font-size: 15px; }
-      .phase-card { padding: 26px 24px; border-radius: 16px; }
-      .phase-title { font-size: 19px; }
+      #thirtybuild .panels-header { margin-bottom: 40px; }
+      .phase-card { padding: 28px 24px; border-radius: 18px; }
+      .phase-title { font-size: 24px; line-height: 1.2; }
+      .phase-desc { font-size: 15px; }
+      .phase-list li { font-size: 15px; }
+      .phase-outcome { padding: 16px 18px; }
       .showcase-h { font-size: 64px; line-height: 0.9; letter-spacing: -.045em; }
       .showcase-subh { font-size: 20px; line-height: 1.2; }
       .showcase-desc { font-size: 15px; margin-bottom: 24px; }
@@ -744,16 +747,17 @@
 <!-- THE OFFER (chapter header + 30 Build & 30 Ship boxed phase cards) -->
 <section id="thirtybuild" class="showcase">
   <div class="showcase-inner">
-    <div class="offer-header">
-      <div class="offer-pill">The Offer</div>
-      <h2 class="offer-h">Here&#8217;s Exactly What You Get</h2>
-      <p class="offer-sub">This is your 60-day roadmap to take you from &ldquo;I want to build my brand&rdquo; to &ldquo;I have my brand&rdquo; in 2 phases.</p>
+    <div class="panels-header">
+      <div class="panels-pill">The Offer</div>
+      <h2 class="panels-h">Here&#8217;s Exactly What You Get</h2>
+      <p class="panels-sub">This is your 60-day roadmap to take you from &ldquo;I want to build my brand&rdquo; to &ldquo;I have my brand&rdquo; in 2 phases.</p>
     </div>
     <div class="phase-cards">
       <div class="phase-card">
-        <div class="phase-badge">30 Build</div>
+        <span class="phase-eyebrow">// 30 Build</span>
         <h3 class="phase-title">Build your brand and AI-powered content system</h3>
-        <div class="phase-meta">Days 1 &ndash; 30</div>
+        <div class="phase-meta">Days 01 &ndash; 30</div>
+        <p class="phase-desc">The moment you enroll, you start. You&#8217;ll be added to our member portal and onboarded so you can get right to work with pre-recorded content before our kickoff call even starts. We then kick off phase 01 with a series of calls to build your systems.</p>
         <ul class="phase-list">
           <li><strong>4 Live workshops:</strong> Four weeks on ideation, shooting, editing, and formatting.</li>
           <li><strong>Brand Foundation:</strong> Positioning, avatar, voice, and strategic clarity.</li>
@@ -761,18 +765,25 @@
           <li><strong>Custom Hook Engine + scripts:</strong> A hook engine trained on your niche, plus scripts we build.</li>
           <li><strong>30-day content calendar:</strong> Your first month mapped and locked.</li>
         </ul>
-        <p class="phase-goal"><strong>You&#8217;ll leave knowing:</strong> what to post, how to shoot it, and a 30-day content calendar ready to ship.</p>
+        <div class="phase-outcome">
+          <span class="phase-outcome-eyebrow">// You&#8217;ll Leave Knowing</span>
+          <p class="phase-outcome-text">what to post, how to shoot it, and a 30-day content calendar ready to ship.</p>
+        </div>
       </div>
       <div class="phase-card">
-        <div class="phase-badge">30 Ship</div>
+        <span class="phase-eyebrow">// 30 Ship</span>
         <h3 class="phase-title">Shoot, edit, and publish your content with daily assistance</h3>
         <div class="phase-meta">Days 31 &ndash; 60</div>
+        <p class="phase-desc">30 days of daily drops and live sessions in the community. You post one piece a day. I show up to keep you unblocked. You finish with a full month of cinematic content live and the posting habit locked in.</p>
         <ul class="phase-list">
           <li><strong>Daily drops:</strong> A craft lesson and a new style prompt every day.</li>
           <li><strong>Live FAQ sessions:</strong> Small-group calls to unblock what you&#8217;re posting.</li>
           <li><strong>Community accountability:</strong> Your work reviewed by peers and by me.</li>
         </ul>
-        <p class="phase-goal"><strong>You&#8217;ll finish with:</strong> 30 pieces of high quality content live, a repeatable content system, and a brand you&#8217;re finally proud to call yours.</p>
+        <div class="phase-outcome">
+          <span class="phase-outcome-eyebrow">// You&#8217;ll Finish With</span>
+          <p class="phase-outcome-text">30 pieces of high quality content live, a repeatable content system, and a brand you&#8217;re finally proud to call yours.</p>
+        </div>
       </div>
     </div>
   </div>
