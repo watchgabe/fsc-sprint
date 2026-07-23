@@ -147,11 +147,11 @@
     /* ── SHOWCASE PANELS (30Build + 30Ship, both on green bg, Jessi Jean style) ── */
     .showcase { background: var(--bg); color: var(--text); padding: 88px 24px; }
     .showcase + .showcase { padding-top: 32px; }
-    /* Chapter header — "THE OFFER" pill + big H + sub above the two phase cards */
-    .offer-header { text-align: center; max-width: 900px; margin: 0 auto 56px; }
-    .offer-pill { display: inline-flex; align-items: center; padding: 10px 20px; border-radius: 8px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; margin-bottom: 24px; }
-    .offer-h { font-size: clamp(36px, 5vw, 60px); font-weight: 800; letter-spacing: -.03em; line-height: 1.05; color: var(--text); margin: 0 0 20px; text-wrap: balance; }
-    .offer-sub { font-size: 17px; line-height: 1.55; color: var(--sub-bright); margin: 0 auto; text-wrap: pretty; max-width: 640px; }
+    /* Chapter header — "THE OFFER" pill + big H + sub above the two phase cards (mirrors .panels-header layout on dark bg) */
+    .offer-header { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 1000px; margin: 0 auto 64px; }
+    .offer-pill { display: inline-flex; align-items: center; padding: 10px 20px; border-radius: 8px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; margin: 0 0 28px; }
+    .offer-h { font-size: clamp(36px, 5vw, 60px); font-weight: 800; letter-spacing: -.03em; line-height: 1.05; color: var(--text); margin: 0 0 24px; text-wrap: balance; }
+    .offer-sub { font-size: 17px; line-height: 1.55; color: var(--sub-bright); margin: 0; text-wrap: pretty; max-width: 640px; }
 
     /* Boxed phase cards — 30 Build + 30 Ship stacked */
     .phase-cards { display: flex; flex-direction: column; gap: 16px; max-width: 900px; margin: 0 auto; }
