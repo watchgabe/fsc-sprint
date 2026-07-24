@@ -198,14 +198,21 @@
     .phase-meta { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--sub); margin-bottom: 28px; }
     .phase-desc { font-size: 15px; line-height: 1.6; color: var(--sub-bright); margin: 0 0 28px; text-wrap: pretty; }
     .phase-list { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 10px; }
-    .phase-list li { position: relative; padding-left: 24px; font-size: 15px; line-height: 1.5; color: var(--sub-bright); text-wrap: pretty; }
-    .phase-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 14px; height: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ee663e' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/14px no-repeat; }
-    .phase-list li strong { color: var(--text); font-weight: 700; display: block; margin-bottom: 6px; }
-    .phase-list > li:not(:first-child) { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; margin-top: 12px; }
-    .phase-list > li:not(:first-child)::before { top: 32px; }
-    .phase-sublist { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-direction: column; gap: 6px; }
-    .phase-sublist li { position: relative; padding-left: 14px; font-size: 14px; line-height: 1.5; color: var(--sub-bright); }
-    .phase-sublist li::before { content: '·'; position: absolute; left: 2px; top: -2px; color: rgba(255,255,255,0.45); font-size: 18px; font-weight: 700; }
+    .phase-list > li { position: relative; padding-left: 24px; font-size: 15px; line-height: 1.5; color: var(--sub-bright); text-wrap: pretty; }
+    .phase-list > li::before { content: ''; position: absolute; left: 0; top: 8px; width: 14px; height: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ee663e' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/14px no-repeat; }
+    .phase-list > li > strong { color: var(--text); font-weight: 700; display: block; margin-bottom: 6px; }
+
+    /* Masterclass variant — no parent check, small eyebrow label, big title on its own line */
+    .phase-list--masters > li { padding-left: 0; }
+    .phase-list--masters > li::before { display: none; }
+    .phase-list--masters > li:not(:first-child) { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; margin-top: 12px; }
+    .phase-list--masters > li > .phase-label { display: block; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 8px; }
+    .phase-list--masters > li > strong { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(20px, 2.4vw, 26px); letter-spacing: -.015em; line-height: 1.2; color: var(--text); margin-bottom: 10px; }
+
+    /* Sub-bullets — orange check icon (no dot) */
+    .phase-sublist { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-direction: column; gap: 6px; }
+    .phase-sublist li { position: relative; padding-left: 22px; font-size: 14px; line-height: 1.5; color: var(--sub-bright); }
+    .phase-sublist li::before { content: ''; position: absolute; left: 0; top: 6px; width: 13px; height: 13px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ee663e' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/13px no-repeat; }
     .phase-outcome { background: rgba(255,255,255,0.03); border-left: 3px solid rgba(255,255,255,0.35); border-radius: 8px; padding: 18px 22px; }
     .phase-outcome-eyebrow { display: block; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; color: rgba(255,255,255,0.65); margin-bottom: 10px; }
     .phase-outcome-text { font-size: 14px; line-height: 1.55; color: var(--sub-bright); margin: 0; text-wrap: pretty; }
@@ -805,9 +812,10 @@
         <h3 class="phase-title">Build your brand and AI&#8209;powered content system</h3>
         <div class="phase-meta">Days 01 &ndash; 30</div>
         <p class="phase-desc">The first 30 days is the build. The focus here is to build your brand, the system, the skills, and a 30-day content calendar that we can then execute.</p>
-        <ul class="phase-list">
+        <ul class="phase-list phase-list--masters">
           <li>
-            <strong>Masterclass 1 &middot; Build Your Brand</strong>
+            <span class="phase-label">Masterclass 1</span>
+            <strong>Build Your Brand</strong>
             Your brand foundation installed as an AI Brain on your desktop.
             <ul class="phase-sublist">
               <li>Nail your positioning: who you serve, what you solve, why you&#8217;re different</li>
@@ -817,7 +825,8 @@
             </ul>
           </li>
           <li>
-            <strong>Masterclass 2 &middot; Install Your Content System</strong>
+            <span class="phase-label">Masterclass 2</span>
+            <strong>Install Your Content System</strong>
             The AI-powered FrictionlessOS&#8482; installed directly on your machine.
             <ul class="phase-sublist">
               <li>Install FrictionlessOS&#8482; end-to-end on your setup</li>
@@ -827,7 +836,8 @@
             </ul>
           </li>
           <li>
-            <strong>Masterclass 3 &middot; Capture Cinematic Content</strong>
+            <span class="phase-label">Masterclass 3</span>
+            <strong>Capture Cinematic Content</strong>
             The craft of shooting your story and daily moments beautifully.
             <ul class="phase-sublist">
               <li>Your minimum-viable setup: phone, tripod, natural light, mic</li>
@@ -837,7 +847,8 @@
             </ul>
           </li>
           <li>
-            <strong>Masterclass 4 &middot; Lock Your Calendar</strong>
+            <span class="phase-label">Masterclass 4</span>
+            <strong>Lock Your Calendar</strong>
             Your first 30 days of content mapped through mastering different formats.
             <ul class="phase-sublist">
               <li>Master the formats: reels, carousels, static, long-form, and how each serves your brand</li>
