@@ -200,8 +200,12 @@
     .phase-list { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-direction: column; gap: 10px; }
     .phase-list li { position: relative; padding-left: 24px; font-size: 15px; line-height: 1.5; color: var(--sub-bright); text-wrap: pretty; }
     .phase-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 14px; height: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ee663e' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/14px no-repeat; }
-    .phase-list li strong { color: var(--text); font-weight: 700; display: block; margin-bottom: 4px; }
-    .phase-list li { padding-bottom: 4px; }
+    .phase-list li strong { color: var(--text); font-weight: 700; display: block; margin-bottom: 6px; }
+    .phase-list > li:not(:first-child) { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; margin-top: 12px; }
+    .phase-list > li:not(:first-child)::before { top: 32px; }
+    .phase-sublist { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-direction: column; gap: 6px; }
+    .phase-sublist li { position: relative; padding-left: 14px; font-size: 14px; line-height: 1.5; color: var(--sub-bright); }
+    .phase-sublist li::before { content: '·'; position: absolute; left: 2px; top: -2px; color: rgba(255,255,255,0.45); font-size: 18px; font-weight: 700; }
     .phase-outcome { background: rgba(255,255,255,0.03); border-left: 3px solid rgba(255,255,255,0.35); border-radius: 8px; padding: 18px 22px; }
     .phase-outcome-eyebrow { display: block; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; color: rgba(255,255,255,0.65); margin-bottom: 10px; }
     .phase-outcome-text { font-size: 14px; line-height: 1.55; color: var(--sub-bright); margin: 0; text-wrap: pretty; }
@@ -802,10 +806,46 @@
         <div class="phase-meta">Days 01 &ndash; 30</div>
         <p class="phase-desc">The first 30 days is the build. The focus here is to build your brand, the system, the skills, and a 30-day content calendar that we can then execute.</p>
         <ul class="phase-list">
-          <li><strong>Masterclass 1 &middot; Build Your Brand</strong>Positioning, avatar, and voice built into an AI Brain on your desktop, connected to Claude.</li>
-          <li><strong>Masterclass 2 &middot; Install Your Content System</strong>The AI-powered FrictionlessOS&#8482; installed directly on your machine. Plus a Custom Hook Engine with winning hooks pulled from the top outliers in your niche.</li>
-          <li><strong>Masterclass 3 &middot; Capture Cinematic Content</strong>The craft of shooting your story and daily moments beautifully.</li>
-          <li><strong>Masterclass 4 &middot; Lock Your Calendar</strong>Your first 30 days of content mapped and locked.</li>
+          <li>
+            <strong>Masterclass 1 &middot; Build Your Brand</strong>
+            Your brand foundation installed as an AI Brain on your desktop.
+            <ul class="phase-sublist">
+              <li>Nail your positioning: who you serve, what you solve, why you&#8217;re different</li>
+              <li>Define your voice, avatar, and 3&ndash;5 content pillars</li>
+              <li>Set up your AI Brain: Claude connected to Notion so it grows with you</li>
+              <li>Package it into a Brand Blueprint you&#8217;ll reference forever</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Masterclass 2 &middot; Install Your Content System</strong>
+            The AI-powered FrictionlessOS&#8482; installed directly on your machine.
+            <ul class="phase-sublist">
+              <li>Install FrictionlessOS&#8482; end-to-end on your setup</li>
+              <li>Audit your niche&#8217;s top outliers and reverse-engineer what actually works</li>
+              <li>Build your Custom Hook Engine, trained on the winners in your space</li>
+              <li>Turn any raw idea into a shot-ready script in under 30 minutes</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Masterclass 3 &middot; Capture Cinematic Content</strong>
+            The craft of shooting your story and daily moments beautifully.
+            <ul class="phase-sublist">
+              <li>Your minimum-viable setup: phone, tripod, natural light, mic</li>
+              <li>Angles, framing, and composition that read as premium</li>
+              <li>Daily capture routine: turn everyday moments into cinematic B-roll</li>
+              <li>Editing basics: pacing, cuts, and a color grade that ships fast</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Masterclass 4 &middot; Lock Your Calendar</strong>
+            Your first 30 days of content mapped through mastering different formats.
+            <ul class="phase-sublist">
+              <li>Master the formats: reels, carousels, static, long-form, and how each serves your brand</li>
+              <li>Content waterfall: one idea, multiplied across formats and platforms</li>
+              <li>Map every post, hook, and style across the next 30 days</li>
+              <li>Leave with your calendar locked and Day 1&#8217;s post already scripted</li>
+            </ul>
+          </li>
         </ul>
         <div class="phase-outcome">
           <span class="phase-outcome-eyebrow">// You&#8217;ll Leave Knowing</span>
