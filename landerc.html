@@ -28,14 +28,48 @@
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-  <!-- Google Analytics -->
+  <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-291RR55X35"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-291RR55X35');
+    gtag('config', 'G-291RR55X35', { send_page_view: true });
   </script>
+
+  <!-- ═════════════════════════════════════════════════════════════════ -->
+  <!-- ▲ TRACKING SNIPPETS BELOW ARE COMMENTED OUT — ACTIVATE BY:          -->
+  <!--   1. Replacing __META_PIXEL_ID__ with numeric ID (Meta Events Mgr)  -->
+  <!--   2. Replacing __HOTJAR_SITE_ID__ with numeric Site ID (hotjar.com) -->
+  <!--   3. Removing the outer <!-- ... --> comment wrappers                -->
+  <!-- ═════════════════════════════════════════════════════════════════ -->
+
+  <!-- META PIXEL (uncomment + fill ID)
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '__META_PIXEL_ID__');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=__META_PIXEL_ID__&ev=PageView&noscript=1"/></noscript>
+  -->
+
+  <!-- HOTJAR (uncomment + fill ID)
+  <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:__HOTJAR_SITE_ID__,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-',".js?sv=");
+  </script>
+  -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1197,6 +1231,108 @@
     const loop = () => { if (++f % 3 === 0) draw(); requestAnimationFrame(loop); };
     window.addEventListener('resize', resize);
     resize(); loop();
+  })();
+
+  /* ─── TRACKING ─────────────────────────────────────────────────────────
+     UTM preservation + button-level attribution + custom events (GA4 + Meta)
+     - Reads incoming UTMs on page load, stores in sessionStorage
+     - Appends UTMs + utm_term (button id) to every Circle/Calendly click
+     - Fires custom events: cta_click, calendly_open, scroll_depth, faq_open
+     - Both GA4 (gtag) and Meta Pixel (fbq) fire on the same events
+  ─────────────────────────────────────────────────────────────────────── */
+  (function() {
+    // 1. Persist incoming UTMs for the session
+    const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+    const urlParams = new URLSearchParams(window.location.search);
+    const utms = {};
+    UTM_KEYS.forEach(k => {
+      const v = urlParams.get(k);
+      if (v) { utms[k] = v; sessionStorage.setItem(k, v); }
+      else { const stored = sessionStorage.getItem(k); if (stored) utms[k] = stored; }
+    });
+
+    // Helper: append UTMs + optional override to a URL
+    function withUtms(url, overrideTerm) {
+      try {
+        const u = new URL(url);
+        const merged = Object.assign({}, utms);
+        // Default source if none inbound (someone typed the URL / direct traffic)
+        if (!merged.utm_source) merged.utm_source = 'direct';
+        if (!merged.utm_medium) merged.utm_medium = 'web';
+        if (!merged.utm_campaign) merged.utm_campaign = 'cohort01';
+        if (overrideTerm) merged.utm_term = overrideTerm;
+        Object.entries(merged).forEach(([k, v]) => u.searchParams.set(k, v));
+        return u.toString();
+      } catch(e) { return url; }
+    }
+
+    // Helper: safe wrappers for both gtag + fbq
+    function trackEvent(name, params) {
+      try { if (window.gtag) gtag('event', name, params || {}); } catch(e) {}
+      try {
+        if (window.fbq) {
+          // Meta uses specific standard events; map our custom ones
+          const metaMap = {
+            'cta_click': 'InitiateCheckout',
+            'calendly_open': 'Lead',
+            'scroll_depth': 'ViewContent',
+            'faq_open': 'ViewContent'
+          };
+          const metaEvent = metaMap[name];
+          if (metaEvent) fbq('track', metaEvent, params || {});
+          fbq('trackCustom', name, params || {});
+        }
+      } catch(e) {}
+    }
+
+    // 2. Attach UTMs to every Circle checkout link + fire cta_click on click
+    // Map each CTA element to its button id (used as utm_term)
+    const CTA_MAP = [
+      { sel: '.tb-cta',        term: 'nav-cta' },
+      { sel: '#hero .btn-primary', term: 'hero-cta' },
+      { sel: '.get-reveal-btn', term: 'reveal-cta' },
+      { sel: '.sbar-btn',      term: 'sticky-cta' }
+    ];
+    CTA_MAP.forEach(({sel, term}) => {
+      document.querySelectorAll(sel).forEach(el => {
+        if (el.href && el.href.includes('circle.so')) {
+          el.href = withUtms(el.href, term);
+        }
+        el.addEventListener('click', () => {
+          trackEvent('cta_click', { button: term, value: 997, currency: 'USD' });
+        });
+      });
+    });
+
+    // 3. Calendly (Book a Call) — fire calendly_open event
+    document.querySelectorAll('a[onclick*="Calendly"]').forEach(el => {
+      el.addEventListener('click', () => {
+        trackEvent('calendly_open', { button: 'sticky-calendly' });
+      });
+    });
+
+    // 4. Scroll depth (25/50/75/100) — fires once each
+    const depthsFired = new Set();
+    const scrollDepths = [25, 50, 75, 100];
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docH > 0 ? Math.round((scrollTop / docH) * 100) : 0;
+      scrollDepths.forEach(d => {
+        if (pct >= d && !depthsFired.has(d)) {
+          depthsFired.add(d);
+          trackEvent('scroll_depth', { depth: d });
+        }
+      });
+    }, { passive: true });
+
+    // 5. FAQ open tracking — capture which questions get clicked (objection intel)
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const q = btn.querySelector('.faq-q-text');
+        if (q) trackEvent('faq_open', { question: q.textContent.trim() });
+      });
+    });
   })();
 </script>
 </body>
