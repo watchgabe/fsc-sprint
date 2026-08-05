@@ -770,6 +770,16 @@
     .op-callout strong { color: var(--orange); font-weight: 700; }
 
     /* Bold hours-only countdown */
+    .op-price-flash { display: inline-flex; align-items: baseline; gap: 14px; margin: 0 auto 20px; padding: 12px 24px; background: rgba(238, 102, 62, .08); border: 1px solid rgba(238, 102, 62, .3); border-radius: 999px; }
+    .op-price-flash .opf-was { font-family: 'Space Mono', monospace; font-size: 15px; color: var(--sub); text-decoration: line-through; text-decoration-thickness: 2px; font-weight: 700; }
+    .op-price-flash .opf-arrow { color: var(--orange); font-size: 16px; font-weight: 800; }
+    .op-price-flash .opf-now { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 26px; font-weight: 900; color: var(--orange); letter-spacing: -.02em; }
+    .op-price-flash .opf-tag { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub-bright); font-weight: 700; padding-left: 12px; border-left: 1px solid var(--card-2); margin-left: 4px; }
+    @media (max-width: 640px) {
+      .op-price-flash { padding: 10px 16px; gap: 8px; flex-wrap: wrap; justify-content: center; }
+      .op-price-flash .opf-now { font-size: 22px; }
+      .op-price-flash .opf-tag { padding-left: 0; border-left: 0; margin-left: 0; flex-basis: 100%; text-align: center; }
+    }
     .op-countdown { display: inline-flex; flex-direction: column; align-items: center; padding: 24px 40px; background: var(--card); border: 1px solid var(--card-2); border-radius: 20px; margin-bottom: 48px; }
     .oc-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 14px; }
     .oc-time { display: flex; align-items: flex-start; gap: 20px; }
@@ -824,16 +834,16 @@
       <a href="#faq" class="tb-link">FAQs</a>
     </nav>
     <div class="tb-right">
-      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge?coupon=CBC" target="_blank" class="tb-cta">Join for $897</a>
+      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge" target="_blank" class="tb-cta">Join for $897</a>
     </div>
   </div>
 </div>
 
-<!-- URGENCY BANNER (sticky top) -->
+<!-- URGENCY BANNER (top of body, non-sticky) -->
 <div id="urgency">
   <div class="urgency-inner">
-    <span>&#9733; Workshop attendee offer &middot; $100 off ends in</span>
-    <span class="urgency-count" id="urgency-count">--h --m --s</span>
+    <span>&#9733; Limited time &middot; <strong>$997</strong> &rarr; <strong>$897</strong> &middot; Ends in</span>
+    <span class="urgency-count" id="urgency-count">--</span>
   </div>
 </div>
 
@@ -879,9 +889,18 @@
   <div class="op-inner">
     <p class="op-callout">You just watched the framework. <strong>Now install it with me.</strong></p>
 
+    <div class="op-price-flash">
+      <span class="opf-was">$997</span>
+      <span class="opf-arrow">&rarr;</span>
+      <span class="opf-now">$897</span>
+      <span class="opf-tag">Attendee price &middot; Limited time</span>
+    </div>
+
     <div class="op-countdown">
-      <div class="oc-label">Offer Ends In</div>
+      <div class="oc-label">$897 Price Ends In</div>
       <div class="oc-time">
+        <div class="oc-cell"><span class="oc-num" id="oc-d">--</span><span class="oc-cellabel">Days</span></div>
+        <span class="oc-sep">:</span>
         <div class="oc-cell"><span class="oc-num" id="oc-h">--</span><span class="oc-cellabel">Hours</span></div>
         <span class="oc-sep">:</span>
         <div class="oc-cell"><span class="oc-num" id="oc-m">--</span><span class="oc-cellabel">Minutes</span></div>
@@ -899,9 +918,9 @@
     </ul>
 
     <div class="op-cta-row">
-      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge?coupon=CBC" target="_blank" class="op-cta">Join the Challenge for $897 &rarr;</a>
+      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge" target="_blank" class="op-cta">Join the Challenge for $897 &rarr;</a>
     </div>
-    <p class="op-plan-note">Want to split it? Use code <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge?coupon=CBCPLAN" target="_blank">CBCPLAN</a> for 3 payments.</p>
+    <p class="op-plan-note">Or split into 3 payments at checkout.</p>
 
     <div class="op-proof" style="margin-top: 40px;">
       <div class="sp-avatars">
@@ -1107,7 +1126,7 @@
         <span class="reveal-price-big">$897</span>
       </div>
 
-      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge?coupon=CBC" target="_blank" class="get-reveal-btn">Lock in $897 &rarr;</a>
+      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge" target="_blank" class="get-reveal-btn">Lock in $897 &rarr;</a>
       <div class="replay-count-inline">Offer ends in <span id="reveal-count">--h --m --s</span></div>
     </div>
   </div>
@@ -1174,8 +1193,8 @@
 <!-- STICKY BOTTOM CTA -->
 <div id="sbar">
   <div class="sbar-in">
-    <div class="sbar-left">Offer ends <span id="sbar-count">soon</span></div>
-    <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge?coupon=CBC" target="_blank" class="sbar-btn">Lock in $897 &rarr;</a>
+    <div class="sbar-left">$997 &rarr; $897 &middot; ends <span id="sbar-count">soon</span></div>
+    <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge" target="_blank" class="sbar-btn">Lock in $897 &rarr;</a>
   </div>
 </div>
 
@@ -1197,9 +1216,8 @@
 
   // Countdown 1 — Cohort kickoff Aug 12, 2026 at 7PM MT (top strip)
   const TARGET = new Date('2026-08-13T01:00:00Z');
-  // Countdown 2 — Replay $897 offer deadline. Default: Sat Jul 26 2026 8PM MT (Sun Jul 27 02:00 UTC).
-  // ▲ CHECKLIST: swap this ISO string when Gabe confirms the exact deadline.
-  const OFFER_TARGET = new Date('2026-07-27T02:00:00Z');
+  // Countdown 2 — $897 offer deadline. Synced to Circle's price-lock timer: Aug 6, 2026 · 8:14 PM MT.
+  const OFFER_TARGET = new Date('2026-08-07T02:14:00Z');
 
   function pad(n) { return String(n).padStart(2, '0'); }
   function tick() {
@@ -1222,17 +1240,20 @@
       setOffer('urgency-count', 'Offer ended');
       setOffer('reveal-count', 'Offer ended');
       setOffer('sbar-count', 'ended');
+      setOffer('oc-d', '00');
       setOffer('oc-h', '00');
       setOffer('oc-m', '00');
       setOffer('oc-s', '00');
     } else {
-      const oh = Math.floor(oDiff / 3600000);
+      const od = Math.floor(oDiff / 86400000);
+      const oh = Math.floor((oDiff % 86400000) / 3600000);
       const om = Math.floor((oDiff % 3600000) / 60000);
       const os = Math.floor((oDiff % 60000) / 1000);
-      const compact = oh + 'h ' + pad(om) + 'm ' + pad(os) + 's';
+      const compact = od + 'd ' + pad(oh) + 'h ' + pad(om) + 'm ' + pad(os) + 's';
       setOffer('urgency-count', compact);
       setOffer('reveal-count', compact);
       setOffer('sbar-count', 'in ' + compact);
+      setOffer('oc-d', pad(od));
       setOffer('oc-h', pad(oh));
       setOffer('oc-m', pad(om));
       setOffer('oc-s', pad(os));
