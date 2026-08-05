@@ -833,15 +833,17 @@
     .fc-sub { font-size: clamp(17px, 1.7vw, 20px); line-height: 1.4; color: var(--sub-bright); font-weight: 500; max-width: 560px; margin: 0 auto 40px; text-wrap: pretty; }
     #final-cta .op-countdown { margin-bottom: 24px; }
     #final-cta .fc-code { margin: 0 auto 24px; }
-    .fc-cta-row { display: flex; justify-content: center; margin-bottom: 0; }
-    .fc-cta { display: inline-flex; align-items: center; gap: 10px; padding: 18px 36px; border-radius: 8px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; transition: background .2s, transform .2s; }
+    .fc-cta-row { display: flex; justify-content: center; align-items: stretch; gap: 14px; margin-bottom: 0; flex-wrap: wrap; }
+    .fc-cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 18px 36px; border-radius: 8px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; transition: background .2s, transform .2s; border: 1px solid transparent; }
     .fc-cta:hover { background: var(--orange-d); transform: translateY(-1px); }
+    .fc-cta--alt { background: #ffffff; color: #061410; border-color: #ffffff; }
+    .fc-cta--alt:hover { background: #e8e5dc; color: #061410; }
     .fc-code { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--sub-bright); margin: 0; }
     .fc-code strong { color: var(--orange); font-weight: 800; padding: 3px 9px; border: 1px dashed var(--orange); border-radius: 6px; letter-spacing: .16em; }
     @media (max-width: 640px) {
       #final-cta { padding: 24px 20px 88px; }
+      .fc-cta-row { width: 100%; flex-direction: column; gap: 10px; }
       .fc-cta { padding: 16px 28px; width: 100%; justify-content: center; }
-      .fc-cta-row { width: 100%; }
     }
   </style>
 </head>
@@ -869,7 +871,7 @@
       <a href="#final-cta" class="tb-link">Join</a>
     </nav>
     <div class="tb-right">
-      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge-discount" target="_blank" class="tb-cta">Join the Challenge</a>
+      <a href="https://fscreative.live" class="tb-cta">Join the Challenge</a>
     </div>
   </div>
 </div>
@@ -931,6 +933,7 @@
 
     <div class="fc-cta-row">
       <a href="https://fscreative.live" class="fc-cta">Get the full details &rarr;</a>
+      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge?utm_source=direct&amp;utm_medium=web&amp;utm_campaign=cohort01&amp;utm_term=nav-cta" target="_blank" class="fc-cta fc-cta--alt">Go to Checkout &rarr;</a>
     </div>
   </div>
 </section>
@@ -1094,8 +1097,7 @@
     // Map each CTA element to its button id (used as utm_term)
     const CTA_MAP = [
       { sel: '.tb-cta',        term: 'nav-cta' },
-      { sel: '.op-cta',        term: 'hero-cta' },
-      { sel: '.get-reveal-btn', term: 'reveal-cta' },
+      { sel: '.fc-cta:not(.fc-cta--alt)', term: 'final-cta' },
       { sel: '.sbar-btn',      term: 'sticky-cta' }
     ];
     CTA_MAP.forEach(({sel, term}) => {
