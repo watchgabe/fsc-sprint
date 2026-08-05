@@ -754,6 +754,7 @@
     .sum-h { font-size: clamp(28px, 3.6vw, 40px); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; color: var(--text); margin: 0 0 40px; text-wrap: balance; }
     .sum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: left; }
     .sum-grid--two { grid-template-columns: repeat(2, 1fr); max-width: 720px; margin: 0 auto; }
+    .sum-grid--one { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
     .sum-card { background: var(--card); border: 1px solid var(--card-2); border-radius: 16px; padding: 28px 26px; }
     .sum-card-num { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 12px; display: block; }
     .sum-card-title { font-size: 17px; font-weight: 800; letter-spacing: -.01em; color: var(--text); margin: 0 0 8px; }
@@ -814,10 +815,22 @@
       .op-cta-row { width: 100%; }
     }
 
-    /* Replay reveal card (rebuilt from .get-reveal-card with $897 + countdown) */
-    .replay-price-flag { display: inline-block; background: var(--orange); color: #061410; padding: 8px 18px; border-radius: 8px; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; margin-bottom: 20px; }
-    .replay-was-price { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: line-through; }
-    .replay-count-inline { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-top: 14px; text-align: center; }
+    /* Final CTA (push to landing page) */
+    #final-cta { background: var(--bg); padding: 32px 24px 120px; }
+    .fc-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+    .fc-eyebrow { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin: 0 0 20px; }
+    .fc-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(32px, 5vw, 56px); letter-spacing: -.03em; line-height: 1.05; color: var(--text); margin: 0 auto 20px; max-width: 720px; text-wrap: balance; }
+    .fc-sub { font-size: clamp(17px, 1.7vw, 20px); line-height: 1.4; color: var(--sub-bright); font-weight: 500; max-width: 560px; margin: 0 auto 36px; text-wrap: pretty; }
+    .fc-cta-row { display: flex; justify-content: center; margin-bottom: 20px; }
+    .fc-cta { display: inline-flex; align-items: center; gap: 10px; padding: 18px 36px; border-radius: 8px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; transition: background .2s, transform .2s; }
+    .fc-cta:hover { background: var(--orange-d); transform: translateY(-1px); }
+    .fc-code { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--sub-bright); margin: 0; }
+    .fc-code strong { color: var(--orange); font-weight: 800; padding: 3px 9px; border: 1px dashed var(--orange); border-radius: 6px; letter-spacing: .16em; }
+    @media (max-width: 640px) {
+      #final-cta { padding: 24px 20px 88px; }
+      .fc-cta { padding: 16px 28px; width: 100%; justify-content: center; }
+      .fc-cta-row { width: 100%; }
+    }
   </style>
 </head>
 <body>
@@ -840,8 +853,8 @@
     </a>
     <nav class="tb-nav">
       <a href="#video-hero" class="tb-link">Replay</a>
-      <a href="#thirtybuild" class="tb-link">The Offer</a>
-      <a href="#guarantee" class="tb-link">Guarantee</a>
+      <a href="#summary" class="tb-link">Resources</a>
+      <a href="#final-cta" class="tb-link">Join</a>
     </nav>
     <div class="tb-right">
       <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge-discount" target="_blank" class="tb-cta">Join for $897</a>
@@ -861,304 +874,32 @@
   </div>
 </section>
 
-<!-- YOUR RESOURCES · 2 prompts from the workshop -->
+<!-- YOUR RESOURCE · the Brand Foundation Prompt Pack -->
 <section id="summary">
   <div class="sum-inner">
-    <span class="sum-eyebrow">// Your Resources</span>
-    <h2 class="sum-h">Two prompts to start your ideation.</h2>
-    <div class="sum-grid sum-grid--two">
+    <span class="sum-eyebrow">// Your Resource</span>
+    <h2 class="sum-h">The prompt pack from the workshop.</h2>
+    <div class="sum-grid sum-grid--one">
       <div class="sum-card">
-        <span class="sum-card-num">01</span>
-        <h3 class="sum-card-title">Prompt 01</h3>
-        <p class="sum-card-desc">[Add prompt description here.]</p>
-        <a href="#" class="sum-card-btn" target="_blank" rel="noopener">Access prompt &rarr;</a>
-      </div>
-      <div class="sum-card">
-        <span class="sum-card-num">02</span>
-        <h3 class="sum-card-title">Prompt 02</h3>
-        <p class="sum-card-desc">[Add prompt description here.]</p>
-        <a href="#" class="sum-card-btn" target="_blank" rel="noopener">Access prompt &rarr;</a>
+        <span class="sum-card-num">Cinematic Brand Playbook</span>
+        <h3 class="sum-card-title">The Brand Foundation Prompt Pack</h3>
+        <p class="sum-card-desc">A 45-minute AI interview that walks you through the five phases of your brand: direction, story, people, content, and vision. One paste, one conversation, one document you&#8217;ll reference forever.</p>
+        <a href="https://citrine-giver-f51.notion.site/Cinematic-Brand-Playbook-Prompt-Pack-dc86dd5462bb82cebccb8176dc76c2f2" class="sum-card-btn" target="_blank" rel="noopener">Open in Notion &rarr;</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- OFFER PANEL · video → countdown → mini-hero → CTA -->
-<section id="offer-panel">
-  <div class="op-inner">
-    <p class="op-callout">Ready to build this together? <strong>Join the brand launch challenge.</strong></p>
-
-    <div class="op-price-flash">
-      <span class="opf-was">$997</span>
-      <span class="opf-arrow">&rarr;</span>
-      <span class="opf-now">$897</span>
-      <span class="opf-tag">Attendee price &middot; Limited time</span>
+<!-- FINAL CTA · push to landing page with code CBC -->
+<section id="final-cta">
+  <div class="fc-inner">
+    <p class="fc-eyebrow">Ready to build this together?</p>
+    <h2 class="fc-h">Join the Cinematic Brand Challenge.</h2>
+    <p class="fc-sub">Save $100 by joining the brand launch challenge before the timer runs out.</p>
+    <div class="fc-cta-row">
+      <a href="https://fscreative.live" class="fc-cta">Get the full details &rarr;</a>
     </div>
-
-    <div class="op-countdown">
-      <div class="oc-label">$897 Price Ends In</div>
-      <div class="oc-time">
-        <div class="oc-cell"><span class="oc-num" id="oc-d">--</span><span class="oc-cellabel">Days</span></div>
-        <span class="oc-sep">:</span>
-        <div class="oc-cell"><span class="oc-num" id="oc-h">--</span><span class="oc-cellabel">Hours</span></div>
-        <span class="oc-sep">:</span>
-        <div class="oc-cell"><span class="oc-num" id="oc-m">--</span><span class="oc-cellabel">Minutes</span></div>
-        <span class="oc-sep">:</span>
-        <div class="oc-cell"><span class="oc-num" id="oc-s">--</span><span class="oc-cellabel">Seconds</span></div>
-      </div>
-    </div>
-
-    <h2 class="op-h1">Build the system to create beautiful content and grow your brand.</h2>
-    <p class="op-sub">A 60-day guided challenge to build and launch your brand.</p>
-    <ul class="op-bullets">
-      <li>30 published posts on your account</li>
-      <li>A repeatable AI-powered content system installed</li>
-      <li>The skills to capture your life cinematically</li>
-    </ul>
-
-    <div class="op-cta-row">
-      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge-discount" target="_blank" class="op-cta">Join the Challenge for $897 &rarr;</a>
-    </div>
-    <p class="op-plan-note">Or split into 3 payments at checkout.</p>
-
-    <div class="op-proof" style="margin-top: 40px;">
-      <div class="sp-avatars">
-        <div class="sp-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799121/theresa_axof4n.jpg" alt="" /></div>
-        <div class="sp-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/matthew_bdohws.jpg" alt="" /></div>
-        <div class="sp-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/lorena_p59fdv.jpg" alt="" /></div>
-        <div class="sp-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799119/joab_kajmku.png" alt="" /></div>
-      </div>
-      <div class="sp-content">
-        <div class="sp-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
-        <div class="sp-text"><strong>100+ students</strong> trained by Gabe</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- THE OFFER (chapter header + 30 Build & 30 Ship boxed phase cards) -->
-<section id="thirtybuild" class="showcase">
-  <div class="showcase-inner">
-    <div class="panels-header">
-      <div class="panels-pill">The Offer</div>
-      <h2 class="panels-h">Here&#8217;s Exactly What You Get</h2>
-      <p class="panels-sub">This is your 60-day roadmap to take you from &ldquo;I want to build my brand&rdquo; to &ldquo;I have my brand&rdquo; in 2 phases.</p>
-    </div>
-    <div class="phase-cards">
-      <div class="phase-card">
-        <span class="phase-eyebrow">// 30 Build</span>
-        <h3 class="phase-title">Build your brand and AI&#8209;powered content system</h3>
-        <div class="phase-meta">Days 01 &ndash; 30</div>
-        <p class="phase-desc">The first 30 days is the build. The focus here is to build your brand, the system, the skills, and a 30-day content calendar that we can then execute.</p>
-        <ul class="phase-list phase-list--masters">
-          <li>
-            <span class="phase-label">Masterclass 1</span>
-            <strong>Build Your Brand</strong>
-            Your brand foundation installed as an AI Brain on your desktop.
-            <ul class="phase-sublist">
-              <li>Nail your positioning: who you serve, what you solve, why you&#8217;re different</li>
-              <li>Define your voice, avatar, and 3&ndash;5 content pillars</li>
-              <li>Set up your AI Brain: Claude connected to Notion so it grows with you</li>
-              <li>Package it into a Brand Blueprint you&#8217;ll reference forever</li>
-            </ul>
-          </li>
-          <li>
-            <span class="phase-label">Masterclass 2</span>
-            <strong>Install Your Content System</strong>
-            The AI-powered FrictionlessOS&#8482; installed directly on your machine.
-            <ul class="phase-sublist">
-              <li>Install FrictionlessOS&#8482; end-to-end on your setup</li>
-              <li>Audit your niche&#8217;s top outliers and reverse-engineer what actually works</li>
-              <li>Build your Custom Hook Engine, trained on the winners in your space</li>
-              <li>Turn any raw idea into a shot-ready script in under 30 minutes</li>
-            </ul>
-          </li>
-          <li>
-            <span class="phase-label">Masterclass 3</span>
-            <strong>Capture Cinematic Content</strong>
-            The craft of shooting your story and daily moments beautifully.
-            <ul class="phase-sublist">
-              <li>Your minimum-viable setup: phone, tripod, natural light, mic</li>
-              <li>Angles, framing, and composition that read as premium</li>
-              <li>Daily capture routine: turn everyday moments into cinematic B-roll</li>
-              <li>Editing basics: pacing, cuts, and a color grade that ships fast</li>
-            </ul>
-          </li>
-          <li>
-            <span class="phase-label">Masterclass 4</span>
-            <strong>Lock Your Calendar</strong>
-            Your first 30 days of content mapped through mastering different formats.
-            <ul class="phase-sublist">
-              <li>Master the formats: reels, carousels, static, long-form, and how each serves your brand</li>
-              <li>Content waterfall: one idea, multiplied across formats and platforms</li>
-              <li>Map every post, hook, and style across the next 30 days</li>
-              <li>Leave with your calendar locked and Day 1&#8217;s post already scripted</li>
-            </ul>
-          </li>
-        </ul>
-        <div class="phase-outcome">
-          <span class="phase-outcome-eyebrow">// You&#8217;ll Leave Knowing</span>
-          <p class="phase-outcome-text">what to post, how to shoot it, and a 30-day content calendar ready to ship.</p>
-        </div>
-      </div>
-      <div class="phase-card">
-        <span class="phase-eyebrow">// 30 Ship</span>
-        <h3 class="phase-title">Daily assistance to guide you through publishing your 30 pieces</h3>
-        <div class="phase-meta">Days 31 &ndash; 60</div>
-        <p class="phase-desc">The next 30 days is the ship. This is a 30-day posting challenge where you&#8217;ll be posting one time per day, and I&#8217;ll be helping every day through Daily Drops to give you tips on how to finish your full month. There will also be live FAQ sessions where you can ask direct questions.</p>
-        <ul class="phase-list">
-          <li><strong>Daily drops:</strong> A craft lesson and a new style prompt every day.</li>
-          <li><strong>Live FAQ sessions:</strong> Group calls to ask questions about exactly what&#8217;s slowing you down.</li>
-          <li><strong>Community accountability:</strong> Your work reviewed by peers and by me.</li>
-        </ul>
-        <div class="phase-outcome">
-          <span class="phase-outcome-eyebrow">// You&#8217;ll Finish With</span>
-          <p class="phase-outcome-text">30 pieces of high quality content live, a repeatable content system, and a brand you&#8217;re finally proud to call yours.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GET (bonuses + reveal, moved directly under offer) -->
-<section id="get">
-  <div class="get-inner">
-    <div class="get-block-wrap">
-      <p class="get-block-pre">// Included Free</p>
-      <h3 class="get-bonus-h">Bonuses</h3>
-      <div class="get-bonus-grid">
-        <div class="get-bonus-card">
-          <span class="get-bonus-tag">Bonus 01</span>
-          <h4 class="get-bonus-title">The Creator Confidence Masterclass</h4>
-          <p class="get-bonus-desc">A module designed to get you comfortable in front of the camera &mdash; exercises and mindset shifts to make being on camera feel natural.</p>
-          <span class="get-bonus-value"><s>$97</s> <span class="arrow">&rarr;</span> FREE</span>
-        </div>
-        <div class="get-bonus-card">
-          <span class="get-bonus-tag">Bonus 02</span>
-          <h4 class="get-bonus-title">The Cinematic Storyteller&#8217;s Guide</h4>
-          <p class="get-bonus-desc">A tool that lets you build sequences and tell your story cinematically. Includes all my top angles, shooting tips, and techniques for producing cinematic content.</p>
-          <span class="get-bonus-value"><s>$297</s> <span class="arrow">&rarr;</span> FREE</span>
-        </div>
-        <div class="get-bonus-card">
-          <span class="get-bonus-tag">Bonus 03</span>
-          <h4 class="get-bonus-title">The Endless Ideas Kit</h4>
-          <p class="get-bonus-desc">A series of AI-powered workflows that let you generate endless ideas you can pull straight into your content.</p>
-          <span class="get-bonus-value"><s>$97</s> <span class="arrow">&rarr;</span> FREE</span>
-        </div>
-        <div class="get-bonus-card">
-          <span class="get-bonus-tag">Bonus 04</span>
-          <h4 class="get-bonus-title">Credit for Future Mentorship</h4>
-          <p class="get-bonus-desc">A $497 credit you can apply to any future project I run, product I release, or private strategy session with me.</p>
-          <span class="get-bonus-value"><s>$497</s> <span class="arrow">&rarr;</span> FREE</span>
-        </div>
-        <div class="get-bonus-card featured">
-          <span class="get-bonus-tag">Also Included Free</span>
-          <h4 class="get-bonus-title">One Year Access to the Member&#8217;s Platform</h4>
-          <p class="get-bonus-desc">Full access to our Circle community for a year. If you fall behind or need to pause the challenge, you keep access to every workshop, every daily drop, and every member for the whole year.</p>
-          <span class="get-bonus-value"><s>$1,164</s> <span class="arrow">&rarr;</span> FREE</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="get-reveal-card">
-      <h3 class="reveal-header">Join the Challenge</h3>
-
-      <div class="reveal-section">
-        <span class="reveal-section-label">The Core Offer</span>
-        <div class="reveal-item">
-          <span class="reveal-item-name">4 live masterclasses</span>
-          <span class="reveal-item-value">$800</span>
-        </div>
-        <div class="reveal-item">
-          <span class="reveal-item-name">FrictionlessOS&#8482; install</span>
-          <span class="reveal-item-value">$497</span>
-        </div>
-        <div class="reveal-item">
-          <span class="reveal-item-name">30-day custom content calendar</span>
-          <span class="reveal-item-value">$997</span>
-        </div>
-        <div class="reveal-item">
-          <span class="reveal-item-name">Daily drops &middot; 30 days</span>
-          <span class="reveal-item-value">$497</span>
-        </div>
-        <div class="reveal-item">
-          <span class="reveal-item-name">2 live FAQ sessions</span>
-          <span class="reveal-item-value">$400</span>
-        </div>
-      </div>
-
-      <div class="reveal-section">
-        <span class="reveal-section-label">The Bonuses</span>
-        <div class="reveal-item">
-          <span class="reveal-item-name">The Creator Confidence Masterclass</span>
-          <span class="reveal-item-value">$97</span>
-        </div>
-        <div class="reveal-item">
-          <span class="reveal-item-name">The Cinematic Storyteller&#8217;s Guide</span>
-          <span class="reveal-item-value">$297</span>
-        </div>
-        <div class="reveal-item">
-          <span class="reveal-item-name">The Endless Ideas Kit</span>
-          <span class="reveal-item-value">$97</span>
-        </div>
-        <div class="reveal-item">
-          <span class="reveal-item-name">Credit for Future Mentorship</span>
-          <span class="reveal-item-value">$497</span>
-        </div>
-        <div class="reveal-item">
-          <span class="reveal-item-name">One Year Access to the Member&#8217;s Platform</span>
-          <span class="reveal-item-value">$1,164</span>
-        </div>
-      </div>
-
-      <div class="reveal-total">
-        <span class="reveal-total-label">Total Value</span>
-        <span class="reveal-total-value">$5,343</span>
-      </div>
-
-      <div class="reveal-price-row">
-        <div class="reveal-price-info">
-          <span class="replay-price-flag">Workshop Attendee Offer</span>
-          <span class="reveal-price-label">Your Price</span>
-          <span class="reveal-price-sub"><span class="replay-was-price">Was $997</span> &middot; save $100. That&#8217;s <strong>83% off</strong> the total value.</span>
-        </div>
-        <span class="reveal-price-big">$897</span>
-      </div>
-
-      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge-discount" target="_blank" class="get-reveal-btn">Lock in $897 &rarr;</a>
-      <div class="replay-count-inline">Offer ends in <span id="reveal-count">--h --m --s</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- GUARANTEE -->
-<section id="guarantee">
-  <div class="g-inner">
-    <div class="panels-header">
-      <div class="panels-pill">The Promise</div>
-      <h2 class="panels-h">Our Guarantee</h2>
-      <p class="panels-sub">If 90 days after your launch you followed the checklist and haven&#8217;t <strong>2x&#8217;d your investment ($2,000)</strong>, every dollar comes back.</p>
-    </div>
-    <div class="g-cols">
-      <div class="g-col">
-        <h3 class="g-sub-h">Why I can put this in writing</h3>
-        <p>The install is built. The Brand Blueprint is a templated exercise. The FrictionlessOS&#8482; is pre-configured. The hook engine ships with trained prompts. The scripts use proven structures from your closest competitors. The visual identity drops straight into Canva. None of it is theory.</p>
-        <p>The only thing you have to do is the work in front of you each week.</p>
-        <p>On Day 1 of the challenge, you&#8217;ll receive the checklist. Follow it to the T. If 90 days after you go live you haven&#8217;t pulled $2,000, you get a full refund. No essays, no calls, no friction.</p>
-      </div>
-      <div class="g-col">
-        <h3 class="g-sub-h">What&#8217;s required</h3>
-        <ul class="g-list">
-          <li>Attend all 4 live masterclasses and 2 FAQ sessions (live or replay within 7 days)</li>
-          <li>Submit your completed Brand Blueprint by end of Week 1</li>
-          <li>Install your FrictionlessOS&#8482;</li>
-          <li>Go live with content inside the 60-day install window</li>
-          <li>Track your sales for the 90 days following your launch date</li>
-        </ul>
-        <p class="g-closing">Do all of that and don&#8217;t hit $2,000, you get a full refund.</p>
-      </div>
-    </div>
-    <p class="g-terms">Full terms available on request</p>
+    <p class="fc-code">Use code <strong>CBC</strong> at checkout to unlock your discount.</p>
   </div>
 </section>
 
