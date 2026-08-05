@@ -140,6 +140,7 @@
 
     /* ── STICKY BOTTOM CTA (mobile only) ── */
     #sbar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background: var(--card); border-top: 1px solid var(--card-2); transform: translateY(110%); transition: transform .35s cubic-bezier(.4,0,.2,1); padding-bottom: env(safe-area-inset-bottom, 0px); }
+    @media (min-width: 641px) { #sbar { display: none !important; } }
     #sbar.vis { transform: translateY(0); }
     .sbar-in { max-width: 1080px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .sbar-left { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub-bright); line-height: 1.35; }
@@ -754,8 +755,17 @@
     .sum-h { font-size: clamp(28px, 3.6vw, 40px); font-weight: 800; letter-spacing: -.02em; line-height: 1.15; color: var(--text); margin: 0 0 40px; text-wrap: balance; }
     .sum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: left; }
     .sum-grid--two { grid-template-columns: repeat(2, 1fr); max-width: 720px; margin: 0 auto; }
-    .sum-grid--one { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
+    .sum-grid--one { grid-template-columns: 1fr; max-width: 720px; margin: 0 auto; }
     .sum-card { background: var(--card); border: 1px solid var(--card-2); border-radius: 16px; padding: 28px 26px; }
+    .sum-card--split { padding: 0; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .sum-card--split .sum-card-media { width: 100%; min-height: 260px; overflow: hidden; }
+    .sum-card--split .sum-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .sum-card--split .sum-card-body { padding: 32px 32px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    @media (max-width: 640px) {
+      .sum-card--split { grid-template-columns: 1fr; }
+      .sum-card--split .sum-card-media { min-height: 200px; max-height: 240px; }
+      .sum-card--split .sum-card-body { padding: 24px 22px 28px; align-items: center; text-align: center; }
+    }
     .sum-card-num { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 12px; display: block; }
     .sum-card-title { font-size: 17px; font-weight: 800; letter-spacing: -.01em; color: var(--text); margin: 0 0 8px; }
     .sum-card-desc { font-size: 14px; line-height: 1.55; color: var(--sub-bright); margin: 0 0 18px; text-wrap: pretty; }
@@ -820,12 +830,16 @@
     .fc-inner { max-width: 780px; margin: 0 auto; text-align: center; }
     .fc-eyebrow { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin: 0 0 20px; }
     .fc-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(32px, 5vw, 56px); letter-spacing: -.03em; line-height: 1.05; color: var(--text); margin: 0 auto 20px; max-width: 720px; text-wrap: balance; }
-    .fc-sub { font-size: clamp(17px, 1.7vw, 20px); line-height: 1.4; color: var(--sub-bright); font-weight: 500; max-width: 560px; margin: 0 auto 36px; text-wrap: pretty; }
+    .fc-sub { font-size: clamp(17px, 1.7vw, 20px); line-height: 1.4; color: var(--sub-bright); font-weight: 500; max-width: 560px; margin: 0 auto 40px; text-wrap: pretty; }
+    #final-cta .op-countdown { margin-bottom: 24px; }
+    #final-cta .op-price-flash { margin-bottom: 36px; }
     .fc-cta-row { display: flex; justify-content: center; margin-bottom: 20px; }
     .fc-cta { display: inline-flex; align-items: center; gap: 10px; padding: 18px 36px; border-radius: 8px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; transition: background .2s, transform .2s; }
     .fc-cta:hover { background: var(--orange-d); transform: translateY(-1px); }
-    .fc-code { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--sub-bright); margin: 0; }
+    .fc-code { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--sub-bright); margin: 0 0 8px; }
     .fc-code strong { color: var(--orange); font-weight: 800; padding: 3px 9px; border: 1px dashed var(--orange); border-radius: 6px; letter-spacing: .16em; }
+    .fc-code--plan { color: var(--sub); font-size: 11px; margin-top: 6px; margin-bottom: 0; }
+    .fc-code--plan strong { padding: 2px 7px; font-size: 10px; }
     @media (max-width: 640px) {
       #final-cta { padding: 24px 20px 88px; }
       .fc-cta { padding: 16px 28px; width: 100%; justify-content: center; }
@@ -857,7 +871,7 @@
       <a href="#final-cta" class="tb-link">Join</a>
     </nav>
     <div class="tb-right">
-      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge-discount" target="_blank" class="tb-cta">Join for $897</a>
+      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge-discount" target="_blank" class="tb-cta">Join the Challenge</a>
     </div>
   </div>
 </div>
@@ -880,11 +894,16 @@
     <span class="sum-eyebrow">// Your Resource</span>
     <h2 class="sum-h">The prompt pack from the workshop.</h2>
     <div class="sum-grid sum-grid--one">
-      <div class="sum-card">
-        <span class="sum-card-num">Cinematic Brand Playbook</span>
-        <h3 class="sum-card-title">The Brand Foundation Prompt Pack</h3>
-        <p class="sum-card-desc">A 45-minute AI interview that walks you through the five phases of your brand: direction, story, people, content, and vision. One paste, one conversation, one document you&#8217;ll reference forever.</p>
-        <a href="https://citrine-giver-f51.notion.site/Cinematic-Brand-Playbook-Prompt-Pack-dc86dd5462bb82cebccb8176dc76c2f2" class="sum-card-btn" target="_blank" rel="noopener">Open in Notion &rarr;</a>
+      <div class="sum-card sum-card--split">
+        <div class="sum-card-media">
+          <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1785900374/Screenshot_2026-08-04_at_9.25.29_PM_czf1lf.png" alt="Cinematic Brand Playbook Prompt Pack" />
+        </div>
+        <div class="sum-card-body">
+          <span class="sum-card-num">Cinematic Brand Playbook</span>
+          <h3 class="sum-card-title">The Brand Foundation Prompt Pack</h3>
+          <p class="sum-card-desc">A 45-minute AI interview that walks you through the five phases of your brand: direction, story, people, content, and vision. One paste, one conversation, one document you&#8217;ll reference forever.</p>
+          <a href="https://citrine-giver-f51.notion.site/Cinematic-Brand-Playbook-Prompt-Pack-dc86dd5462bb82cebccb8176dc76c2f2" class="sum-card-btn" target="_blank" rel="noopener">Open in Notion &rarr;</a>
+        </div>
       </div>
     </div>
   </div>
@@ -896,10 +915,32 @@
     <p class="fc-eyebrow">Ready to build this together?</p>
     <h2 class="fc-h">Join the Cinematic Brand Challenge.</h2>
     <p class="fc-sub">Save $100 by joining the brand launch challenge before the timer runs out.</p>
+
+    <div class="op-countdown">
+      <div class="oc-label">$897 Price Ends In</div>
+      <div class="oc-time">
+        <div class="oc-cell"><span class="oc-num" id="oc-d">--</span><span class="oc-cellabel">Days</span></div>
+        <span class="oc-sep">:</span>
+        <div class="oc-cell"><span class="oc-num" id="oc-h">--</span><span class="oc-cellabel">Hours</span></div>
+        <span class="oc-sep">:</span>
+        <div class="oc-cell"><span class="oc-num" id="oc-m">--</span><span class="oc-cellabel">Minutes</span></div>
+        <span class="oc-sep">:</span>
+        <div class="oc-cell"><span class="oc-num" id="oc-s">--</span><span class="oc-cellabel">Seconds</span></div>
+      </div>
+    </div>
+
+    <div class="op-price-flash">
+      <span class="opf-was">$997</span>
+      <span class="opf-arrow">&rarr;</span>
+      <span class="opf-now">$897</span>
+      <span class="opf-tag">Attendee price &middot; Limited time</span>
+    </div>
+
     <div class="fc-cta-row">
       <a href="https://fscreative.live" class="fc-cta">Get the full details &rarr;</a>
     </div>
     <p class="fc-code">Use code <strong>CBC</strong> at checkout to unlock your discount.</p>
+    <p class="fc-code fc-code--plan">If you want the payment plan, use code <strong>CBCPLAN</strong>.</p>
   </div>
 </section>
 
@@ -912,7 +953,7 @@
 <div id="sbar">
   <div class="sbar-in">
     <div class="sbar-left">$997 &rarr; $897 &middot; ends <span id="sbar-count">soon</span></div>
-    <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge-discount" target="_blank" class="sbar-btn">Lock in $897 &rarr;</a>
+    <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge-discount" target="_blank" class="sbar-btn">Join the Challenge</a>
   </div>
 </div>
 
