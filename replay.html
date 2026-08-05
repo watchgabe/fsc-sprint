@@ -763,13 +763,42 @@
       .sum-card { padding: 22px 22px; }
     }
 
-    /* Transition callout (video → offer) */
-    #transition { background: var(--bg); padding: 0 24px 24px; text-align: center; }
-    .trans-inner { max-width: 780px; margin: 0 auto; }
-    .trans-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -.02em; line-height: 1.15; color: var(--text); margin: 0; text-wrap: balance; }
-    .trans-h strong { color: var(--orange); font-weight: 800; }
+    /* Offer panel — video → countdown → mini-hero with H1 + bullets + CTA + proof */
+    #offer-panel { background: var(--bg); padding: 0 24px 96px; }
+    .op-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .op-callout { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--sub); font-weight: 700; margin: 0 0 28px; }
+    .op-callout strong { color: var(--orange); font-weight: 700; }
+
+    /* Bold hours-only countdown */
+    .op-countdown { display: inline-flex; flex-direction: column; align-items: center; padding: 24px 40px; background: var(--card); border: 1px solid var(--card-2); border-radius: 20px; margin-bottom: 48px; }
+    .oc-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 14px; }
+    .oc-time { display: flex; align-items: flex-start; gap: 20px; }
+    .oc-cell { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 70px; }
+    .oc-num { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 900; font-size: clamp(48px, 7vw, 80px); letter-spacing: -.03em; line-height: 0.9; color: var(--text); }
+    .oc-cellabel { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); }
+    .oc-sep { font-family: 'Helvetica Neue', sans-serif; font-weight: 900; font-size: clamp(48px, 7vw, 80px); line-height: 0.9; color: var(--sub); }
+
+    /* Mini-hero content */
+    .op-h1 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(32px, 5vw, 56px); letter-spacing: -.03em; line-height: 1.05; color: var(--text); margin: 0 auto 20px; max-width: 780px; text-wrap: balance; }
+    .op-sub { font-size: clamp(17px, 1.7vw, 20px); line-height: 1.4; color: var(--text); font-weight: 600; max-width: 600px; margin: 0 auto 28px; }
+    .op-bullets { list-style: none; padding: 0; margin: 0 auto 32px; max-width: 460px; text-align: left; display: flex; flex-direction: column; gap: 12px; }
+    .op-bullets li { padding-left: 28px; position: relative; font-size: 16px; line-height: 1.5; color: var(--sub-bright); font-weight: 600; }
+    .op-bullets li::before { content: ''; position: absolute; left: 0; top: 5px; width: 20px; height: 20px; border-radius: 50%; background: var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23061410' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") center/12px no-repeat; }
+    .op-cta-row { display: flex; justify-content: center; margin-bottom: 32px; }
+    .op-cta { display: inline-flex; align-items: center; gap: 10px; padding: 18px 36px; border-radius: 8px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; transition: background .2s, transform .2s; }
+    .op-cta:hover { background: var(--orange-d); transform: translateY(-1px); }
+    .op-plan-note { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); margin-top: 12px; }
+    .op-plan-note a { color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
+    .op-proof { display: inline-flex; align-items: center; gap: 14px; }
+    .op-proof .sp-avatars { display: flex; }
+
     @media (max-width: 720px) {
-      #transition { padding: 0 20px 20px; }
+      #offer-panel { padding: 0 20px 64px; }
+      .op-countdown { padding: 20px 24px; margin-bottom: 36px; }
+      .oc-time { gap: 12px; }
+      .oc-cell { min-width: 54px; }
+      .op-cta { padding: 16px 28px; width: 100%; justify-content: center; }
+      .op-cta-row { width: 100%; }
     }
 
     /* Replay reveal card (rebuilt from .get-reveal-card with $897 + countdown) */
@@ -781,22 +810,6 @@
 <body>
 
 <canvas id="grain"></canvas>
-
-<!-- TOP STRIP (countdown) -->
-<div id="topstrip">
-  <div class="ts-in">
-    <span class="ts-label"><span class="ts-dot"></span>Challenge Starts In</span>
-    <span class="ts-time">
-      <span class="ts-unit"><span class="ts-num" id="tb-d">00</span><span class="ts-suf">Days</span></span>
-      <span class="ts-sep">:</span>
-      <span class="ts-unit"><span class="ts-num" id="tb-h">00</span><span class="ts-suf">Hrs</span></span>
-      <span class="ts-sep">:</span>
-      <span class="ts-unit"><span class="ts-num" id="tb-m">00</span><span class="ts-suf">Min</span></span>
-      <span class="ts-sep">:</span>
-      <span class="ts-unit"><span class="ts-num" id="tb-s">00</span><span class="ts-suf">Sec</span></span>
-    </span>
-  </div>
-</div>
 
 <!-- TOP HEADER BAR -->
 <div id="topbar">
@@ -811,7 +824,7 @@
       <a href="#faq" class="tb-link">FAQs</a>
     </nav>
     <div class="tb-right">
-      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge" target="_blank" class="tb-cta">Join the Challenge</a>
+      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge?coupon=CBC" target="_blank" class="tb-cta">Join for $897</a>
     </div>
   </div>
 </div>
@@ -831,13 +844,7 @@
     <h1 class="vh-h1">Missed the Cinematic Brand Playbook?</h1>
     <p class="vh-sub">Watch the full 60-minute replay below. Then scroll down for the attendee-only offer on the Cinematic Brand Challenge &mdash; $100 off, ends in 48 hours.</p>
     <div class="vh-video-wrap">
-      <!-- ▲ PLACEHOLDER: swap this <div> with the actual YouTube embed iframe once Gabe uploads. Example format:
-           <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      -->
-      <div class="vh-placeholder">
-        <strong>&larr; VIDEO EMBED PENDING &rarr;</strong>
-        <span>Waiting on YouTube unlisted URL from Gabe. Paste iframe here.</span>
-      </div>
+      <iframe src="https://www.youtube.com/embed/qrwsNjsFWSo?rel=0" title="Cinematic Brand Playbook · Workshop Replay" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
   </div>
 </section>
@@ -867,10 +874,47 @@
   </div>
 </section>
 
-<!-- TRANSITION · from video → offer -->
-<section id="transition">
-  <div class="trans-inner">
-    <h2 class="trans-h">You just watched the framework. <strong>Now install it with me.</strong></h2>
+<!-- OFFER PANEL · video → countdown → mini-hero → CTA -->
+<section id="offer-panel">
+  <div class="op-inner">
+    <p class="op-callout">You just watched the framework. <strong>Now install it with me.</strong></p>
+
+    <div class="op-countdown">
+      <div class="oc-label">Offer Ends In</div>
+      <div class="oc-time">
+        <div class="oc-cell"><span class="oc-num" id="oc-h">--</span><span class="oc-cellabel">Hours</span></div>
+        <span class="oc-sep">:</span>
+        <div class="oc-cell"><span class="oc-num" id="oc-m">--</span><span class="oc-cellabel">Minutes</span></div>
+        <span class="oc-sep">:</span>
+        <div class="oc-cell"><span class="oc-num" id="oc-s">--</span><span class="oc-cellabel">Seconds</span></div>
+      </div>
+    </div>
+
+    <h2 class="op-h1">Build the system to create beautiful content and grow your brand.</h2>
+    <p class="op-sub">A 60-day guided challenge to build and launch your brand.</p>
+    <ul class="op-bullets">
+      <li>30 published posts on your account</li>
+      <li>A repeatable AI-powered content system installed</li>
+      <li>The skills to capture your life cinematically</li>
+    </ul>
+
+    <div class="op-cta-row">
+      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge?coupon=CBC" target="_blank" class="op-cta">Join the Challenge for $897 &rarr;</a>
+    </div>
+    <p class="op-plan-note">Want to split it? Use code <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge?coupon=CBCPLAN" target="_blank">CBCPLAN</a> for 3 payments.</p>
+
+    <div class="op-proof" style="margin-top: 40px;">
+      <div class="sp-avatars">
+        <div class="sp-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799121/theresa_axof4n.jpg" alt="" /></div>
+        <div class="sp-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/matthew_bdohws.jpg" alt="" /></div>
+        <div class="sp-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/lorena_p59fdv.jpg" alt="" /></div>
+        <div class="sp-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799119/joab_kajmku.png" alt="" /></div>
+      </div>
+      <div class="sp-content">
+        <div class="sp-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+        <div class="sp-text"><strong>100+ students</strong> trained by Gabe</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1063,7 +1107,7 @@
         <span class="reveal-price-big">$897</span>
       </div>
 
-      <a href="__CHECKOUT_URL_897__" target="_blank" class="get-reveal-btn">Lock in $897 &rarr;</a>
+      <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge?coupon=CBC" target="_blank" class="get-reveal-btn">Lock in $897 &rarr;</a>
       <div class="replay-count-inline">Offer ends in <span id="reveal-count">--h --m --s</span></div>
     </div>
   </div>
@@ -1131,7 +1175,7 @@
 <div id="sbar">
   <div class="sbar-in">
     <div class="sbar-left">Offer ends <span id="sbar-count">soon</span></div>
-    <a href="__CHECKOUT_URL_897__" target="_blank" class="sbar-btn">Lock in $897 &rarr;</a>
+    <a href="https://fscreative.circle.so/checkout/cinematic-brand-challenge?coupon=CBC" target="_blank" class="sbar-btn">Lock in $897 &rarr;</a>
   </div>
 </div>
 
@@ -1171,21 +1215,28 @@
       setText('tb-d', d); setText('tb-h', h); setText('tb-m', m); setText('tb-s', s);
     }
 
-    // Offer countdown → urgency banner, reveal card, sticky bar
+    // Offer countdown → urgency banner, big hero countdown, reveal card, sticky bar
     const oDiff = OFFER_TARGET - Date.now();
-    let oText;
+    const setOffer = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
     if (oDiff <= 0) {
-      oText = 'Offer ended';
+      setOffer('urgency-count', 'Offer ended');
+      setOffer('reveal-count', 'Offer ended');
+      setOffer('sbar-count', 'ended');
+      setOffer('oc-h', '00');
+      setOffer('oc-m', '00');
+      setOffer('oc-s', '00');
     } else {
       const oh = Math.floor(oDiff / 3600000);
       const om = Math.floor((oDiff % 3600000) / 60000);
       const os = Math.floor((oDiff % 60000) / 1000);
-      oText = oh + 'h ' + pad(om) + 'm ' + pad(os) + 's';
+      const compact = oh + 'h ' + pad(om) + 'm ' + pad(os) + 's';
+      setOffer('urgency-count', compact);
+      setOffer('reveal-count', compact);
+      setOffer('sbar-count', 'in ' + compact);
+      setOffer('oc-h', pad(oh));
+      setOffer('oc-m', pad(om));
+      setOffer('oc-s', pad(os));
     }
-    const setOffer = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-    setOffer('urgency-count', oText);
-    setOffer('reveal-count', oText);
-    setOffer('sbar-count', 'in ' + oText);
   }
   tick();
   setInterval(tick, 1000);
