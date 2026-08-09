@@ -724,7 +724,7 @@
 <!-- TOP STRIP (countdown) -->
 <div id="topstrip">
   <div class="ts-in">
-    <span class="ts-label"><span class="ts-dot"></span>Offer Ends In</span>
+    <span class="ts-label"><span class="ts-dot"></span>Challenge Starts In</span>
     <span class="ts-time">
       <span class="ts-unit"><span class="ts-num" id="tb-d">00</span><span class="ts-suf">Days</span></span>
       <span class="ts-sep">:</span>
@@ -1235,8 +1235,8 @@
     }
   }
 
-  // Countdown — enrollment closes tonight (Aug 9, 2026) at midnight MT (06:00 UTC Aug 10)
-  const TARGET = new Date('2026-08-10T06:00:00Z');
+  // Countdown — target August 25, 2026 at 7PM MT (01:00 UTC Aug 26)
+  const TARGET = new Date('2026-08-26T01:00:00Z');
   function pad(n) { return String(n).padStart(2, '0'); }
   function tick() {
     const diff = TARGET - Date.now();
