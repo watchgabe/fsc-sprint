@@ -405,11 +405,8 @@
     .g-list li::before { content: '\2713'; position: absolute; left: 0; top: 0; color: var(--orange); font-weight: 700; }
     .g-closing { font-size: 14px; line-height: 1.6; color: var(--text); font-weight: 700; margin: 0; padding-top: 16px; border-top: 1px solid var(--card-2); }
     .g-terms { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--sub); margin-top: 36px; text-align: center; }
-    .g-prereq { background: var(--card); border: 1px solid var(--card-2); border-left: 3px solid var(--orange); border-radius: 12px; padding: 20px 24px; margin: 0 auto 40px; max-width: 720px; text-align: left; }
-    .g-prereq-label { display: block; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 8px; }
-    .g-prereq-text { font-size: 15px; line-height: 1.55; color: var(--sub-bright); margin: 0; text-wrap: pretty; }
-    .g-prereq-text strong { color: var(--text); font-weight: 700; }
-    @media (max-width: 640px) { .g-prereq { padding: 16px 18px; margin-bottom: 32px; } }
+    .g-prereq-note { font-size: 13px; line-height: 1.55; color: var(--sub-bright); margin: 0 0 18px; }
+    .g-prereq-note strong { color: var(--orange); font-weight: 700; }
 
     /* ── COACH ── */
     #coach { padding: 96px 24px; max-width: 920px; margin: 0 auto; }
@@ -1119,10 +1116,6 @@
       <h2 class="panels-h">Our Guarantee</h2>
       <p class="panels-sub">If 90 days after your launch you followed the checklist and haven&#8217;t <strong>2x&#8217;d your investment ($2,000)</strong>, every dollar comes back.</p>
     </div>
-    <div class="g-prereq">
-      <span class="g-prereq-label">Prerequisite</span>
-      <p class="g-prereq-text">You have an <strong>active offer</strong> with at least 3 paying customers or $2,000 in customer LTV in the last 12 months. The Challenge builds attention for what you already sell. It doesn&#8217;t create the offer for you.</p>
-    </div>
     <div class="g-cols">
       <div class="g-col">
         <h3 class="g-sub-h">Why I can put this in writing</h3>
@@ -1132,6 +1125,7 @@
       </div>
       <div class="g-col">
         <h3 class="g-sub-h">What&#8217;s required</h3>
+        <p class="g-prereq-note"><strong>Prerequisite:</strong> Active offer with 3+ paying customers or $2,000 in customer LTV in the last 12 months.</p>
         <ul class="g-list">
           <li>Attend all 4 live masterclasses and 2 Q&amp;A sessions (live or replay within 7 days)</li>
           <li>Submit your completed Brand Blueprint by end of Week 1</li>
