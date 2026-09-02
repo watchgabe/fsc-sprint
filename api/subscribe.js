@@ -34,6 +34,10 @@ const LEAD_MAGNETS = {
     tagId: 20595953,
     redirect: 'https://citrine-giver-f51.notion.site/Batch-Creation-Guide-2d16dd5462bb81e3840ad60fd7170bff?source=copy_link',
   },
+  'cbc-waitlist': {
+    name: 'Cinematic Brand Challenge Waitlist',
+    tagId: 23039551,
+  },
 };
 
 const KIT_API_BASE = 'https://api.convertkit.com/v3';

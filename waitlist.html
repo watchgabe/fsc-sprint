@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waitlist &middot; Cinematic Brand Challenge</title>
+  <meta name="description" content="Doors are closed. Join the Cinematic Brand Challenge waitlist to be notified the moment the next cohort opens." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://fscreative.live/waitlist" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="FSCreative" />
+  <meta property="og:title" content="Waitlist &middot; Cinematic Brand Challenge" />
+  <meta property="og:description" content="Doors are closed. Join the waitlist to be notified when the next cohort opens." />
+  <meta property="og:url" content="https://fscreative.live/waitlist" />
+  <meta property="og:image" content="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Waitlist &middot; Cinematic Brand Challenge" />
+  <meta name="twitter:description" content="Doors are closed. Join the waitlist to be notified when the next cohort opens." />
+
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-291RR55X35"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-291RR55X35');
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1972451974158131');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1972451974158131&ev=PageView&noscript=1"/></noscript>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #061410;
+      --card: #091a14;
+      --card-2: #0f261c;
+      --text: #ffffff;
+      --sub: rgba(255,255,255,0.42);
+      --sub-bright: rgba(255,255,255,0.66);
+      --orange: #ee663e;
+      --orange-d: #d75733;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    #grain { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    header.top {
+      padding: 24px;
+      z-index: 2;
+      position: relative;
+    }
+    .top-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo img { display: block; height: 32px; }
+
+    main.wl {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+    .wl-inner {
+      max-width: 640px;
+      width: 100%;
+      text-align: center;
+    }
+    .wl-eyebrow {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .wl-h1 {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 900;
+      font-size: clamp(40px, 6.5vw, 72px);
+      letter-spacing: -.03em;
+      line-height: 1.02;
+      color: var(--text);
+      margin: 0 0 24px;
+      text-wrap: balance;
+    }
+    .wl-sub {
+      font-size: clamp(16px, 1.6vw, 19px);
+      line-height: 1.55;
+      color: var(--sub-bright);
+      margin: 0 auto 44px;
+      max-width: 480px;
+      font-weight: 500;
+      text-wrap: pretty;
+    }
+
+    .wl-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .wl-input {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 8px;
+      background: var(--card);
+      border: 1px solid var(--card-2);
+      color: var(--text);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      transition: border-color .2s, background .2s;
+      -webkit-appearance: none;
+    }
+    .wl-input::placeholder { color: var(--sub); }
+    .wl-input:focus {
+      outline: none;
+      border-color: var(--orange);
+      background: #0d1d16;
+    }
+    .wl-btn {
+      width: 100%;
+      padding: 18px 24px;
+      border-radius: 8px;
+      background: var(--orange);
+      color: #061410;
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      border: 0;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+    .wl-btn:hover:not(:disabled) { background: var(--orange-d); transform: translateY(-1px); }
+    .wl-btn:disabled { opacity: .6; cursor: not-allowed; }
+    .wl-note {
+      margin-top: 20px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--sub);
+    }
+    .wl-error {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #ff8b6b;
+      line-height: 1.5;
+    }
+    .wl-error[hidden] { display: none; }
+
+    .wl-success {
+      text-align: center;
+    }
+    .wl-success-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(238, 102, 62, .12);
+      border: 1px solid rgba(238, 102, 62, .3);
+      margin-bottom: 24px;
+      color: var(--orange);
+      font-size: 26px;
+      font-weight: 800;
+    }
+    .wl-success-h {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: clamp(28px, 3.5vw, 38px);
+      letter-spacing: -.02em;
+      color: var(--text);
+      margin: 0 0 16px;
+    }
+    .wl-success-sub {
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--sub-bright);
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    footer.wl-foot {
+      padding: 32px 24px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--sub);
+      text-align: center;
+      z-index: 2;
+      position: relative;
+    }
+
+    @media (max-width: 640px) {
+      main.wl { padding: 20px 20px 60px; }
+      .wl-sub { margin-bottom: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="grain"></div>
+
+<header class="top">
+  <div class="top-inner">
+    <a href="/" class="logo" aria-label="FSCreative">
+      <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778549021/Asset_1_4x_kwj8bj.png" alt="FSCreative" />
+    </a>
+  </div>
+</header>
+
+<main class="wl">
+  <div class="wl-inner">
+    <div id="wl-form-wrap">
+      <span class="wl-eyebrow">// Cinematic Brand Challenge</span>
+      <h1 class="wl-h1">Doors are closed.</h1>
+      <p class="wl-sub">Cohort 01 is in. When the next cohort opens, waitlist gets first access and a founding-cohort rate that won&#8217;t be public.</p>
+
+      <form class="wl-form" id="wl-form" novalidate>
+        <input type="text" name="first_name" class="wl-input" placeholder="First name (optional)" autocomplete="given-name" />
+        <input type="email" name="email" class="wl-input" placeholder="Your email" autocomplete="email" required />
+        <button type="submit" class="wl-btn" id="wl-submit">Join the waitlist</button>
+      </form>
+      <p class="wl-note">No spam. Just the door reopening.</p>
+      <p class="wl-error" id="wl-error" hidden></p>
+    </div>
+
+    <div class="wl-success" id="wl-success" hidden>
+      <div class="wl-success-icon">&#10003;</div>
+      <h2 class="wl-success-h">You&#8217;re on the list.</h2>
+      <p class="wl-success-sub">Watch your inbox. When the next cohort opens you&#8217;ll be the first to know.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="wl-foot">
+  &copy; FSCreative &middot; info@watchgabe.com
+</footer>
+
+<script>
+  const form = document.getElementById('wl-form');
+  const submitBtn = document.getElementById('wl-submit');
+  const errorEl = document.getElementById('wl-error');
+  const formWrap = document.getElementById('wl-form-wrap');
+  const successEl = document.getElementById('wl-success');
+
+  function showError(msg) {
+    errorEl.textContent = msg;
+    errorEl.hidden = false;
+  }
+  function clearError() {
+    errorEl.hidden = true;
+    errorEl.textContent = '';
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearError();
+
+    const data = new FormData(form);
+    const email = (data.get('email') || '').toString().trim();
+    const first_name = (data.get('first_name') || '').toString().trim();
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showError('Please enter a valid email address.');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Adding you...';
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, first_name, lead_magnet: 'cbc-waitlist' })
+      });
+      const body = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        const detail = body && body.detail && typeof body.detail === 'string' ? body.detail : '';
+        showError(detail || 'Something went wrong. Try again in a moment.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Join the waitlist';
+        return;
+      }
+
+      // success: swap panels + fire analytics
+      formWrap.hidden = true;
+      successEl.hidden = false;
+      try { window.gtag && gtag('event', 'waitlist_signup', { list: 'cbc-waitlist' }); } catch(_) {}
+      try { window.fbq && fbq('track', 'Lead', { content_name: 'CBC Waitlist' }); } catch(_) {}
+    } catch (err) {
+      showError('Network error. Check your connection and try again.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Join the waitlist';
+    }
+  });
+</script>
+
+</body>
+</html>
