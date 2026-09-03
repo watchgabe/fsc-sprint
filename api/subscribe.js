@@ -64,36 +64,49 @@ export default async function handler(req, res) {
 
   const lm = LEAD_MAGNETS[lead_magnet];
 
-  let endpoint;
-  if (lm.sequenceId) {
-    endpoint = `/sequences/${lm.sequenceId}/subscribers`;
-  } else if (lm.tagId) {
-    endpoint = `/tags/${lm.tagId}/subscribers`;
-  } else {
+  if (!lm.sequenceId && !lm.tagId) {
     return res.status(500).json({ error: 'lm_misconfigured', detail: `${lead_magnet} has no sequenceId or tagId.` });
   }
 
+  const kitHeaders = {
+    'Content-Type': 'application/json',
+    'X-Kit-Api-Key': apiKey,
+  };
+
   try {
-    const kitRes = await fetch(`${KIT_API_BASE}${endpoint}`, {
+    // Step 1: upsert the subscriber (Kit v4 dedupes on email_address).
+    const createRes = await fetch(`${KIT_API_BASE}/subscribers`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Kit-Api-Key': apiKey,
-      },
+      headers: kitHeaders,
       body: JSON.stringify({
         email_address: email,
         first_name: first_name || undefined,
       }),
     });
-
-    const data = await kitRes.json();
-    if (!kitRes.ok) {
-      return res.status(502).json({ error: 'kit_error', detail: data });
+    const createData = await createRes.json();
+    if (!createRes.ok || !createData.subscriber || !createData.subscriber.id) {
+      return res.status(502).json({ error: 'kit_error', detail: createData, step: 'create_subscriber' });
     }
+    const subscriberId = createData.subscriber.id;
+
+    // Step 2: attach to sequence or tag by id.
+    const attachPath = lm.sequenceId
+      ? `/sequences/${lm.sequenceId}/subscribers/${subscriberId}`
+      : `/tags/${lm.tagId}/subscribers/${subscriberId}`;
+
+    const attachRes = await fetch(`${KIT_API_BASE}${attachPath}`, {
+      method: 'POST',
+      headers: kitHeaders,
+    });
+    const attachData = await attachRes.json();
+    if (!attachRes.ok) {
+      return res.status(502).json({ error: 'kit_error', detail: attachData, step: 'attach' });
+    }
+
     return res.status(200).json({
       ok: true,
       redirect: lm.redirect || null,
-      subscriber: data.subscriber,
+      subscriber: attachData.subscriber,
     });
   } catch (err) {
     return res.status(500).json({ error: 'kit_request_failed', detail: err.message });
