@@ -287,10 +287,32 @@
     .bb-logo img { height: 26px; width: auto; display: block; }
 
     /* ── HERO ── */
-    #hero-wrap { position: relative; background-image: url('https://res.cloudinary.com/dy0kchxh8/image/upload/v1782233822/Live_Workshop_kyrns1.jpg'); background-size: cover; background-position: 78% 35%; background-repeat: no-repeat; }
-    #hero-wrap::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,20,16,1) 0%, rgba(6,20,16,0.95) 28%, rgba(6,20,16,0.6) 55%, rgba(6,20,16,0.1) 85%, rgba(6,20,16,0) 100%); pointer-events: none; z-index: 0; }
-    #hero { position: relative; z-index: 1; padding: 48px 24px 40px; max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 92px); display: flex; flex-direction: column; }
-    .h-content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    #hero-wrap { position: relative; background: var(--bg); }
+    #hero { position: relative; z-index: 1; padding: 56px 24px 72px; max-width: 1200px; margin: 0 auto; }
+    .h-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: stretch; min-height: 560px; }
+    .h-photo { border-radius: 20px; overflow: hidden; background: var(--card); }
+    .h-photo img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 480px; }
+    .h-form-col { display: flex; flex-direction: column; justify-content: center; padding: 12px 0; }
+    .h-eyebrow { display: inline-block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 22px; }
+    .h-form { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+    .h-input { width: 100%; padding: 16px 20px; border-radius: 8px; background: var(--card); border: 1px solid var(--card-2); color: var(--text); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; -webkit-appearance: none; transition: border-color .2s, background .2s; }
+    .h-input::placeholder { color: rgba(255,255,255,0.42); }
+    .h-input:focus { outline: none; border-color: var(--orange); background: #0d1d16; }
+    .h-submit { width: 100%; padding: 18px 22px; border-radius: 8px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; border: 0; cursor: pointer; transition: background .2s, transform .2s; margin-top: 4px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
+    .h-submit:hover:not(:disabled) { background: var(--orange-d); transform: translateY(-1px); }
+    .h-submit:disabled { opacity: .6; cursor: not-allowed; }
+    .h-fine { margin-top: 16px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.42); }
+    .h-error { margin-top: 14px; font-size: 14px; color: #ff8b6b; line-height: 1.5; }
+    .h-error[hidden] { display: none; }
+    .h-success { display: flex; flex-direction: column; justify-content: center; }
+    .h-success-icon { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: rgba(238,102,62,0.14); border: 1px solid rgba(238,102,62,0.34); margin-bottom: 22px; color: var(--orange); font-size: 24px; font-weight: 800; }
+    .h-success-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(26px, 3vw, 34px); letter-spacing: -.02em; color: var(--text); margin: 0 0 14px; }
+    .h-success-sub { font-size: 16px; line-height: 1.55; color: rgba(255,255,255,0.66); margin: 0; max-width: 420px; }
+    @media (max-width: 900px) {
+      #hero { padding: 32px 20px 56px; }
+      .h-inner { grid-template-columns: 1fr; gap: 28px; min-height: 0; }
+      .h-photo img { min-height: 300px; max-height: 380px; }
+    }
     .social-proof { display: inline-flex; align-items: center; gap: 16px; margin-top: 36px; }
     .sp-avatars { display: flex; }
     .sp-avatar { width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--bg); margin-left: -10px; overflow: hidden; background: var(--orange); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 13px; }
@@ -745,29 +767,29 @@
 <!-- HERO -->
 <div id="hero-wrap">
 <section id="hero">
-  <div class="h-content">
-  <h1 class="h-h1">Build the system to create beautiful content and grow your brand.</h1>
-  <p class="h-sub">A 60-day guided challenge to build and launch your brand.</p>
-  <ul class="h-bullets">
-    <li>30 published posts on your account</li>
-    <li>A repeatable AI-powered content system installed</li>
-    <li>The skills to capture your life cinematically</li>
-  </ul>
-  <div class="h-cta-row">
-    <a href="#waitlist" data-waitlist class="btn-primary">Join the Waitlist &rarr;</a>
-  </div>
-  <div class="social-proof">
-    <div class="sp-avatars">
-      <div class="sp-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799121/theresa_axof4n.jpg" alt="" /></div>
-      <div class="sp-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/matthew_bdohws.jpg" alt="" /></div>
-      <div class="sp-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799120/lorena_p59fdv.jpg" alt="" /></div>
-      <div class="sp-avatar"><img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1773799119/joab_kajmku.png" alt="" /></div>
+  <div class="h-inner">
+    <div class="h-photo">
+      <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1782233822/Live_Workshop_kyrns1.jpg" alt="Gabe Harris at his studio" />
     </div>
-    <div class="sp-content">
-      <div class="sp-stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
-      <div class="sp-text"><strong>100+ students</strong> trained by Gabe</div>
+    <div class="h-form-col">
+      <div id="h-form-wrap">
+        <span class="h-eyebrow">// Cinematic Brand Challenge</span>
+        <h1 class="h-h1">Cohort 01 is underway.</h1>
+        <p class="h-sub">Enter your info below to be notified the moment the next cohort opens. Waitlist gets first access and a founding-cohort rate that won&#8217;t be public.</p>
+        <form class="h-form" id="h-waitlist-form" novalidate>
+          <input type="text" name="first_name" class="h-input" placeholder="First name" autocomplete="given-name" />
+          <input type="email" name="email" class="h-input" placeholder="Email" autocomplete="email" required />
+          <button type="submit" class="h-submit" id="h-waitlist-submit">Join the Waitlist &rarr;</button>
+        </form>
+        <p class="h-error" id="h-waitlist-error" hidden></p>
+        <p class="h-fine">By joining, you agree to receive waitlist updates. Unsubscribe anytime.</p>
+      </div>
+      <div class="h-success" id="h-waitlist-success" hidden>
+        <div class="h-success-icon">&#10003;</div>
+        <h2 class="h-success-h">You&#8217;re on the list.</h2>
+        <p class="h-success-sub">Watch your inbox. When the next cohort opens you&#8217;ll be the first to know.</p>
+      </div>
     </div>
-  </div>
   </div>
 </section>
 </div>
@@ -1398,6 +1420,56 @@
         errorEl.hidden = false;
         submitBtn.disabled = false;
         submitBtn.textContent = 'Join the waitlist';
+      }
+    });
+  })();
+
+  // Hero inline waitlist form — mirrors the modal submit flow
+  (function() {
+    const hForm = document.getElementById('h-waitlist-form');
+    const hSubmit = document.getElementById('h-waitlist-submit');
+    const hError = document.getElementById('h-waitlist-error');
+    const hFormWrap = document.getElementById('h-form-wrap');
+    const hSuccess = document.getElementById('h-waitlist-success');
+    if (!hForm) return;
+
+    hForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hError.hidden = true;
+      const data = new FormData(hForm);
+      const email = (data.get('email') || '').toString().trim();
+      const first_name = (data.get('first_name') || '').toString().trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        hError.textContent = 'Please enter a valid email address.';
+        hError.hidden = false;
+        return;
+      }
+      hSubmit.disabled = true;
+      hSubmit.textContent = 'Adding you...';
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, first_name, lead_magnet: 'cbc-waitlist' })
+        });
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          const detail = body && body.detail && typeof body.detail === 'string' ? body.detail : '';
+          hError.textContent = detail || 'Something went wrong. Try again in a moment.';
+          hError.hidden = false;
+          hSubmit.disabled = false;
+          hSubmit.textContent = 'Join the Waitlist →';
+          return;
+        }
+        hFormWrap.hidden = true;
+        hSuccess.hidden = false;
+        try { window.gtag && gtag('event', 'waitlist_signup', { list: 'cbc-waitlist', source: 'hero-inline' }); } catch(_) {}
+        try { window.fbq && fbq('track', 'Lead', { content_name: 'CBC Waitlist' }); } catch(_) {}
+      } catch (err) {
+        hError.textContent = 'Network error. Check your connection and try again.';
+        hError.hidden = false;
+        hSubmit.disabled = false;
+        hSubmit.textContent = 'Join the Waitlist →';
       }
     });
   })();
