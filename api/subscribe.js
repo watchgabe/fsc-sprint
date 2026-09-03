@@ -40,7 +40,7 @@ const LEAD_MAGNETS = {
   },
 };
 
-const KIT_API_BASE = 'https://api.convertkit.com/v3';
+const KIT_API_BASE = 'https://api.kit.com/v4';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -48,8 +48,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'method_not_allowed' });
   }
 
-  const apiSecret = process.env.KIT_API_KEY;
-  if (!apiSecret) {
+  const apiKey = process.env.KIT_API_KEY;
+  if (!apiKey) {
     return res.status(500).json({ error: 'server_misconfigured', detail: 'KIT_API_KEY missing' });
   }
 
@@ -66,9 +66,9 @@ export default async function handler(req, res) {
 
   let endpoint;
   if (lm.sequenceId) {
-    endpoint = `/sequences/${lm.sequenceId}/subscribe`;
+    endpoint = `/sequences/${lm.sequenceId}/subscribers`;
   } else if (lm.tagId) {
-    endpoint = `/tags/${lm.tagId}/subscribe`;
+    endpoint = `/tags/${lm.tagId}/subscribers`;
   } else {
     return res.status(500).json({ error: 'lm_misconfigured', detail: `${lead_magnet} has no sequenceId or tagId.` });
   }
@@ -76,10 +76,12 @@ export default async function handler(req, res) {
   try {
     const kitRes = await fetch(`${KIT_API_BASE}${endpoint}`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Kit-Api-Key': apiKey,
+      },
       body: JSON.stringify({
-        api_secret: apiSecret,
-        email,
+        email_address: email,
         first_name: first_name || undefined,
       }),
     });
@@ -91,7 +93,7 @@ export default async function handler(req, res) {
     return res.status(200).json({
       ok: true,
       redirect: lm.redirect || null,
-      subscription: data.subscription,
+      subscriber: data.subscriber,
     });
   } catch (err) {
     return res.status(500).json({ error: 'kit_request_failed', detail: err.message });
