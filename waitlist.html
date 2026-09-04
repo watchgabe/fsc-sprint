@@ -124,7 +124,8 @@
     .ts-sep { color: rgba(6,20,16,0.35); }
 
     /* ── TOP HEADER BAR ── */
-    #topbar { background: var(--card); border-bottom: 1px solid var(--card-2); padding: 14px 24px; position: sticky; top: 32px; z-index: 100; }
+    [hidden] { display: none !important; }
+    #topbar { background: var(--card); border-bottom: 1px solid var(--card-2); padding: 14px 24px; position: sticky; top: 0; z-index: 100; }
     .tb-in { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 24px; }
     .tb-logo { display: inline-flex; align-items: center; flex-shrink: 0; }
     .tb-logo img { height: 22px; width: auto; display: block; }
@@ -287,31 +288,29 @@
     .bb-logo img { height: 26px; width: auto; display: block; }
 
     /* ── HERO ── */
-    #hero-wrap { position: relative; background: var(--bg); }
-    #hero { position: relative; z-index: 1; padding: 56px 24px 72px; max-width: 1200px; margin: 0 auto; }
-    .h-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: stretch; min-height: 560px; }
-    .h-photo { border-radius: 20px; overflow: hidden; background: var(--card); }
-    .h-photo img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 480px; }
-    .h-form-col { display: flex; flex-direction: column; justify-content: center; padding: 12px 0; }
-    .h-eyebrow { display: inline-block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 22px; }
-    .h-form { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
-    .h-input { width: 100%; padding: 16px 20px; border-radius: 8px; background: var(--card); border: 1px solid var(--card-2); color: var(--text); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; -webkit-appearance: none; transition: border-color .2s, background .2s; }
-    .h-input::placeholder { color: rgba(255,255,255,0.42); }
-    .h-input:focus { outline: none; border-color: var(--orange); background: #0d1d16; }
+    #hero-wrap { position: relative; background-image: url('https://res.cloudinary.com/dy0kchxh8/image/upload/v1782233822/Live_Workshop_kyrns1.jpg'); background-size: cover; background-position: 78% 35%; background-repeat: no-repeat; }
+    #hero-wrap::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,20,16,1) 0%, rgba(6,20,16,0.95) 28%, rgba(6,20,16,0.6) 55%, rgba(6,20,16,0.1) 85%, rgba(6,20,16,0) 100%); pointer-events: none; z-index: 0; }
+    #hero { position: relative; z-index: 1; padding: 56px 24px 64px; max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 62px); display: flex; align-items: center; }
+    .h-card { width: 100%; max-width: 520px; }
+    .h-eyebrow { display: inline-block; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 20px; }
+    .h-form { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
+    .h-input { width: 100%; padding: 16px 20px; border-radius: 8px; background: rgba(9,26,20,0.85); border: 1px solid var(--card-2); color: var(--text); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; -webkit-appearance: none; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); transition: border-color .2s, background .2s; }
+    .h-input::placeholder { color: rgba(255,255,255,0.5); }
+    .h-input:focus { outline: none; border-color: var(--orange); background: rgba(13,29,22,0.95); }
     .h-submit { width: 100%; padding: 18px 22px; border-radius: 8px; background: var(--orange); color: #061410; font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; border: 0; cursor: pointer; transition: background .2s, transform .2s; margin-top: 4px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
     .h-submit:hover:not(:disabled) { background: var(--orange-d); transform: translateY(-1px); }
     .h-submit:disabled { opacity: .6; cursor: not-allowed; }
-    .h-fine { margin-top: 16px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.42); }
+    .h-fine { margin-top: 16px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.48); }
     .h-error { margin-top: 14px; font-size: 14px; color: #ff8b6b; line-height: 1.5; }
-    .h-error[hidden] { display: none; }
-    .h-success { display: flex; flex-direction: column; justify-content: center; }
+    .h-success { max-width: 520px; }
     .h-success-icon { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: rgba(238,102,62,0.14); border: 1px solid rgba(238,102,62,0.34); margin-bottom: 22px; color: var(--orange); font-size: 24px; font-weight: 800; }
-    .h-success-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(26px, 3vw, 34px); letter-spacing: -.02em; color: var(--text); margin: 0 0 14px; }
-    .h-success-sub { font-size: 16px; line-height: 1.55; color: rgba(255,255,255,0.66); margin: 0; max-width: 420px; }
-    @media (max-width: 900px) {
-      #hero { padding: 32px 20px 56px; }
-      .h-inner { grid-template-columns: 1fr; gap: 28px; min-height: 0; }
-      .h-photo img { min-height: 300px; max-height: 380px; }
+    .h-success-h { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-size: clamp(30px, 3.4vw, 42px); letter-spacing: -.02em; color: var(--text); margin: 0 0 14px; }
+    .h-success-sub { font-size: 17px; line-height: 1.55; color: var(--text); margin: 0; max-width: 460px; }
+    @media (max-width: 640px) {
+      #hero-wrap { background-image: url('https://res.cloudinary.com/dy0kchxh8/image/upload/v1782234450/Copy_of_Template_jox4rh.jpg'); background-position: center top; }
+      #hero-wrap::before { background: linear-gradient(180deg, rgba(6,20,16,0.55) 0%, rgba(6,20,16,0.85) 60%, rgba(6,20,16,1) 100%); }
+      #hero { padding: 40px 20px 56px; min-height: calc(100vh - 60px); }
+      .h-card { max-width: 100%; }
     }
     .social-proof { display: inline-flex; align-items: center; gap: 16px; margin-top: 36px; }
     .sp-avatars { display: flex; }
@@ -722,7 +721,7 @@
       .panel-item { padding: 22px 0; }
       .panel-icon { width: 38px; height: 38px; margin-bottom: 14px; }
       .panels-checks li { padding: 18px 12px; font-size: 16px; line-height: 1.4; gap: 12px; text-align: left; justify-content: flex-start; }
-      #topbar { padding: 12px 18px; top: 28px; }
+      #topbar { padding: 12px 18px; top: 0; }
       #topstrip { padding: 8px 18px; }
       #hero { min-height: calc(100vh - 88px); padding: 52px 20px 56px; }
       .h-content { justify-content: center; }
@@ -767,29 +766,22 @@
 <!-- HERO -->
 <div id="hero-wrap">
 <section id="hero">
-  <div class="h-inner">
-    <div class="h-photo">
-      <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1782233822/Live_Workshop_kyrns1.jpg" alt="Gabe Harris at his studio" />
-    </div>
-    <div class="h-form-col">
-      <div id="h-form-wrap">
-        <span class="h-eyebrow">// Cinematic Brand Challenge</span>
-        <h1 class="h-h1">Cohort 01 is underway.</h1>
-        <p class="h-sub">Enter your info below to be notified the moment the next cohort opens. Waitlist gets first access and a founding-cohort rate that won&#8217;t be public.</p>
-        <form class="h-form" id="h-waitlist-form" novalidate>
-          <input type="text" name="first_name" class="h-input" placeholder="First name" autocomplete="given-name" />
-          <input type="email" name="email" class="h-input" placeholder="Email" autocomplete="email" required />
-          <button type="submit" class="h-submit" id="h-waitlist-submit">Join the Waitlist &rarr;</button>
-        </form>
-        <p class="h-error" id="h-waitlist-error" hidden></p>
-        <p class="h-fine">By joining, you agree to receive waitlist updates. Unsubscribe anytime.</p>
-      </div>
-      <div class="h-success" id="h-waitlist-success" hidden>
-        <div class="h-success-icon">&#10003;</div>
-        <h2 class="h-success-h">You&#8217;re on the list.</h2>
-        <p class="h-success-sub">Watch your inbox. When the next cohort opens you&#8217;ll be the first to know.</p>
-      </div>
-    </div>
+  <div class="h-card" id="h-form-wrap">
+    <span class="h-eyebrow">// Cinematic Brand Challenge</span>
+    <h1 class="h-h1">Cohort 01 is underway.</h1>
+    <p class="h-sub">Enter your info below to be notified the moment the next cohort opens. Waitlist gets first access and a founding-cohort rate that won&#8217;t be public.</p>
+    <form class="h-form" id="h-waitlist-form" novalidate>
+      <input type="text" name="first_name" class="h-input" placeholder="First name" autocomplete="given-name" />
+      <input type="email" name="email" class="h-input" placeholder="Email" autocomplete="email" required />
+      <button type="submit" class="h-submit" id="h-waitlist-submit">Join the Waitlist &rarr;</button>
+    </form>
+    <p class="h-error" id="h-waitlist-error" hidden></p>
+    <p class="h-fine">By joining, you agree to receive waitlist updates. Unsubscribe anytime.</p>
+  </div>
+  <div class="h-card h-success" id="h-waitlist-success" hidden>
+    <div class="h-success-icon">&#10003;</div>
+    <h2 class="h-success-h">You&#8217;re on the list.</h2>
+    <p class="h-success-sub">Watch your inbox. When the next cohort opens you&#8217;ll be the first to know.</p>
   </div>
 </section>
 </div>
