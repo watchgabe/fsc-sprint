@@ -6,6 +6,16 @@
       "source": "/",
       "destination": "/waitlist",
       "permanent": false
+    },
+    {
+      "source": "/GAP",
+      "destination": "/gap",
+      "permanent": false
+    },
+    {
+      "source": "/Gap",
+      "destination": "/gap",
+      "permanent": false
     }
   ]
 }
