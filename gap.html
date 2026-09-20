@@ -259,36 +259,69 @@ table.score td.box {
   color: var(--orange); margin: 12px 0 0; word-break: break-all;
 }
 
-/* ── Gate ── */
-.gate { max-width: 460px; }
-.gate label {
+/* ── Gate overlay ── */
+body.locked { overflow: hidden; }
+body.locked #page {
+  filter: blur(7px);
+  pointer-events: none;
+  user-select: none;
+}
+#page { transition: filter 0.4s ease; }
+
+.overlay {
+  position: fixed; inset: 0; z-index: 9000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  background: rgba(4, 12, 9, 0.72);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  overflow-y: auto;
+}
+.overlay[hidden] { display: none !important; }
+
+.modal {
+  width: 100%; max-width: 420px;
+  background: var(--card);
+  border: 1px solid var(--join-border);
+  border-radius: 16px;
+  padding: 30px 26px;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+  margin: auto;
+}
+.modal .mark { width: 34px; height: 34px; display: block; margin: 0 0 18px; }
+.modal h2 { font-size: 25px; margin: 0 0 10px; color: var(--text); }
+.modal .modal-sub {
+  font-size: 14px; line-height: 1.6; color: var(--sub-bright); margin: 0 0 22px;
+}
+.modal label {
   display: block; font-family: 'Space Mono', monospace; font-size: 9px;
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--sub);
   margin: 0 0 6px;
 }
-.gate input {
+.modal input {
   width: 100%; padding: 12px 13px; margin: 0 0 14px;
   background: var(--bg); color: var(--text);
   border: 1px solid var(--border); border-radius: 8px;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px;
 }
-.gate input:focus { outline: none; border-color: var(--orange); }
-.gate input::placeholder { color: var(--sub); }
-.gate button {
-  width: 100%; padding: 13px 22px;
+.modal input:focus { outline: none; border-color: var(--orange); }
+.modal input::placeholder { color: var(--sub); }
+.modal button.submit {
+  width: 100%; padding: 14px 22px; margin: 4px 0 0;
   background: var(--btn-bg); color: var(--btn-text);
   border: 0; border-radius: 8px; cursor: pointer;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700; font-size: 13px;
 }
-.gate button:disabled { opacity: 0.55; cursor: default; }
-.gate .err {
-  color: var(--orange); font-size: 12px; line-height: 1.5; margin: 10px 0 0;
+.modal button.submit:disabled { opacity: 0.55; cursor: default; }
+.modal .err {
+  color: var(--orange); font-size: 12px; line-height: 1.5; margin: 12px 0 0;
 }
-.gate .fine {
+.modal .fine {
   font-family: 'Space Mono', monospace; font-size: 9px; line-height: 1.7;
-  letter-spacing: 0.06em; color: var(--sub); margin: 12px 0 0;
+  letter-spacing: 0.06em; color: var(--sub); margin: 14px 0 0;
 }
+
 .known {
   display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
   font-family: 'Space Mono', monospace; font-size: 9px;
@@ -305,7 +338,16 @@ table.score td.box {
   color: var(--orange); text-decoration: underline;
 }
 .known[hidden] { display: none !important; }
-@media print { .known, .gate { display: none !important; } }
+
+@media print {
+  .known, .overlay { display: none !important; }
+  body.locked { overflow: visible; }
+  body.locked #page { filter: none; pointer-events: auto; }
+}
+@media (max-width: 480px) {
+  .modal { padding: 26px 20px; }
+  .modal h2 { font-size: 22px; }
+}
 
 /* ── Footer ── */
 footer {
@@ -340,7 +382,7 @@ footer {
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap" id="page">
 
   <!-- ── Header lockup ── -->
   <header class="header">
@@ -365,22 +407,6 @@ footer {
     <p class="sub">Read time: about nine minutes. There's a scorecard at the back you can run on your next five ideas.</p>
   </section>
 
-  <!-- ── Gate ── -->
-  <section id="gate" class="card feature gate" hidden>
-    <p class="eyebrow">Free, and yours in one click</p>
-    <h3>Where should I send it?</h3>
-    <p class="sub">Drop your name and email and the full guide opens right here. No waiting on an email.</p>
-    <form id="gate-form" novalidate>
-      <label for="g-name">First name</label>
-      <input id="g-name" name="first_name" type="text" autocomplete="given-name" placeholder="Gabe" required>
-      <label for="g-email">Email</label>
-      <input id="g-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
-      <button type="submit" id="g-submit">Open the guide</button>
-      <p class="err" id="g-error" hidden></p>
-      <p class="fine">One email, then the guide. I won't spam you and you can leave any time.</p>
-    </form>
-  </section>
-
   <!-- ── Known visitor chip ── -->
   <div class="known" id="known" hidden>
     <span>Welcome back,</span>
@@ -388,8 +414,8 @@ footer {
     <button type="button" id="known-reset">Not you?</button>
   </div>
 
-  <!-- ── Guide (revealed after opt-in) ── -->
-  <div id="guide" hidden>
+  <!-- ── Guide (blurred behind the overlay until opt-in) ── -->
+  <div id="guide">
 
   <hr class="rule">
 
@@ -681,6 +707,25 @@ footer {
 
 </div>
 
+<!-- ── Gate overlay ── -->
+<div class="overlay" id="overlay" hidden role="dialog" aria-modal="true" aria-labelledby="ov-title">
+  <div class="modal">
+    <img class="mark" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
+    <p class="eyebrow">Free guide</p>
+    <h2 id="ov-title">Your resources are inside</h2>
+    <p class="modal-sub">Drop your name and email and the full guide unlocks right here. Nothing to wait for.</p>
+    <form id="gate-form" novalidate>
+      <label for="g-name">First name</label>
+      <input id="g-name" name="first_name" type="text" autocomplete="given-name" placeholder="Gabe" required>
+      <label for="g-email">Email</label>
+      <input id="g-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+      <button type="submit" class="submit" id="g-submit">Unlock the guide</button>
+      <p class="err" id="g-error" hidden></p>
+      <p class="fine">You'll land on my list, and you can leave any time.</p>
+    </form>
+  </div>
+</div>
+
 <script>
 /* ── Lead gate ──────────────────────────────────────────────────────
    One record per browser, shared across every page on this origin.
@@ -691,7 +736,7 @@ footer {
   var KEY  = 'fsc_lead';
   var SLUG = 'gap-framework';
 
-  var gate    = document.getElementById('gate');
+  var overlay = document.getElementById('overlay');
   var guide   = document.getElementById('guide');
   var known   = document.getElementById('known');
   var kName   = document.getElementById('known-name');
@@ -716,8 +761,8 @@ footer {
   }
 
   function unlock(rec, returning) {
-    gate.hidden = true;
-    guide.hidden = false;
+    overlay.hidden = true;
+    document.body.classList.remove('locked');
     if (returning && rec && rec.first_name) {
       kName.textContent = rec.first_name;
       known.hidden = false;
@@ -725,9 +770,11 @@ footer {
   }
 
   function lock() {
-    gate.hidden = false;
-    guide.hidden = true;
+    overlay.hidden = false;
+    document.body.classList.add('locked');
     known.hidden = true;
+    // Focus the first field so a keyboard or mobile visitor can just type.
+    setTimeout(function () { try { nameEl.focus(); } catch (e) {} }, 60);
   }
 
   // Decide what to show. If storage is unavailable, fail open rather than
