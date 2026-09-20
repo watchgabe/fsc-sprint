@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The GAP Framework — FSCreative™</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ── Shared ── */
+:root { --max: 720px; }
+
+/* ── Dark mode (default) ── */
+:root,
+[data-mode="dark"] {
+  --bg:          #061410;
+  --card:        #091a14;
+  --border:      #0f261c;
+  --text:        #ffffff;
+  --sub:         rgba(255,255,255,0.38);
+  --sub-bright:  rgba(255,255,255,0.55);
+  --orange:      #ee663e;
+  --btn-bg:      #ffffff;
+  --btn-text:    #061410;
+  --foot:        rgba(255,255,255,0.15);
+  --join-bg:     rgba(238,102,62,0.08);
+  --join-border: rgba(238,102,62,0.28);
+  --rule:        rgba(255,255,255,0.08);
+}
+
+/* ── Light mode ── */
+[data-mode="light"] {
+  --bg:          #f5f0ea;
+  --card:        #ece6de;
+  --border:      #d8d0c6;
+  --text:        #061410;
+  --sub:         #7a7570;
+  --sub-bright:  #5a5550;
+  --orange:      #ee663e;
+  --btn-bg:      #061410;
+  --btn-text:    #ffffff;
+  --foot:        #b0a89e;
+  --join-bg:     rgba(238,102,62,0.06);
+  --join-border: rgba(238,102,62,0.22);
+  --rule:        rgba(6,20,16,0.10);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  transition: background-color 0.35s ease, color 0.35s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 52px 28px 72px;
+}
+
+/* ── Header lockup ── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 24px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--rule);
+}
+.lockup { display: flex; align-items: center; gap: 12px; }
+.lockup img.icon { width: 32px; height: 32px; display: block; flex-shrink: 0; }
+.lockup .brand { display: flex; flex-direction: column; gap: 2px; line-height: 1; }
+.lockup .wordmark {
+  font-weight: 700; font-size: 15px; letter-spacing: -0.01em; color: var(--text);
+}
+.lockup .project {
+  font-family: 'Space Mono', monospace; font-size: 9px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--sub-bright);
+}
+.toggle {
+  margin-left: auto; flex-shrink: 0;
+  display: flex; align-items: center; gap: 8px;
+  cursor: pointer; user-select: none;
+}
+.toggle .track {
+  width: 34px; height: 18px; border-radius: 100px;
+  background: var(--border); position: relative;
+  transition: background-color 0.35s ease;
+}
+[data-mode="light"] .toggle .track { background: var(--orange); }
+.toggle .thumb {
+  position: absolute; top: 2px; left: 2px;
+  width: 14px; height: 14px; border-radius: 100px;
+  background: #fff; transition: transform 0.25s ease;
+}
+[data-mode="light"] .toggle .thumb { transform: translateX(16px); }
+.toggle .label {
+  font-family: 'Space Mono', monospace; font-size: 8px;
+  text-transform: uppercase; letter-spacing: 0.12em; color: var(--sub);
+}
+
+/* ── Typography ── */
+.eyebrow {
+  font-family: 'Space Mono', monospace; font-size: 9px;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange);
+  margin: 0 0 14px;
+}
+h1 {
+  font-weight: 700; font-size: 46px; line-height: 1.02;
+  letter-spacing: -0.03em; margin: 0 0 18px;
+}
+h1 .serif {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic; font-weight: 400; letter-spacing: -0.01em;
+}
+h2 {
+  font-weight: 700; font-size: 26px; line-height: 1.1;
+  letter-spacing: -0.02em; margin: 0 0 12px;
+}
+h3 {
+  font-weight: 700; font-size: 17px; letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+.lede {
+  font-size: 16px; line-height: 1.6; color: var(--sub-bright);
+  margin: 0 0 20px;
+}
+p { font-size: 14px; line-height: 1.68; margin: 0 0 14px; color: var(--text); }
+p.sub { color: var(--sub-bright); }
+.serif-accent {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic; font-size: 21px; line-height: 1.4;
+  color: var(--text); margin: 0 0 16px;
+}
+strong { font-weight: 700; }
+.hl { color: var(--orange); }
+
+/* ── Section ── */
+section { margin-bottom: 44px; }
+.sec-label {
+  font-family: 'Space Mono', monospace; font-size: 9px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--sub); margin: 0 0 10px;
+}
+hr.rule {
+  border: 0; border-top: 1px solid var(--rule);
+  margin: 0 0 32px;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 20px;
+  margin: 0 0 16px;
+}
+.card.feature {
+  background: var(--join-bg);
+  border-color: var(--join-border);
+}
+.card.feature h3, .card.feature h2 { color: var(--orange); }
+
+/* ── Letter block ── */
+.letter {
+  display: flex; align-items: baseline; gap: 14px; margin: 0 0 10px;
+}
+.letter .glyph {
+  font-weight: 700; font-size: 44px; line-height: 1;
+  color: var(--orange); letter-spacing: -0.03em; flex-shrink: 0;
+  min-width: 34px;
+}
+.letter .name {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic; font-size: 24px; color: var(--text);
+}
+.question {
+  font-weight: 700; font-size: 22px; line-height: 1.18;
+  letter-spacing: -0.02em; margin: 0 0 16px;
+}
+
+/* ── Arrow list ── */
+ul.arrows { list-style: none; padding: 0; margin: 0 0 16px; }
+ul.arrows li {
+  font-size: 14px; line-height: 1.6; margin: 0 0 9px;
+  padding-left: 22px; position: relative; color: var(--text);
+}
+ul.arrows li::before {
+  content: "→"; position: absolute; left: 0;
+  color: var(--orange); font-size: 13px;
+}
+
+/* ── Aside ── */
+.aside {
+  font-family: 'Space Mono', monospace; font-size: 11px;
+  line-height: 1.6; color: var(--sub-bright);
+  border-left: 2px solid var(--join-border);
+  padding: 2px 0 2px 14px; margin: 16px 0 0;
+}
+
+/* ── Verdict rows ── */
+.verdict { margin: 0 0 14px; }
+.verdict .idea {
+  font-size: 15px; line-height: 1.45; margin: 0 0 7px; font-weight: 700;
+}
+.marks {
+  font-family: 'Space Mono', monospace; font-size: 10px;
+  letter-spacing: 0.06em; color: var(--sub-bright);
+}
+.marks .yes { color: var(--orange); }
+.marks .no  { color: var(--sub); }
+.verdict .why {
+  font-size: 13px; line-height: 1.55; color: var(--sub-bright); margin: 6px 0 0;
+}
+
+/* ── Scorecard ── */
+table.score {
+  width: 100%; border-collapse: collapse; margin: 0 0 8px;
+  font-size: 13px;
+}
+table.score th {
+  text-align: left; font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--sub); font-weight: 400;
+  padding: 0 8px 10px 0; border-bottom: 1px solid var(--rule);
+}
+table.score td {
+  padding: 12px 8px 12px 0; border-bottom: 1px solid var(--rule);
+  vertical-align: top; line-height: 1.5;
+}
+table.score td.q { font-weight: 700; }
+table.score td.box {
+  width: 74px; color: var(--sub);
+  font-family: 'Space Mono', monospace; font-size: 11px;
+}
+
+/* ── Pipes grid ── */
+.pipes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.pipes .col h3 { margin-bottom: 10px; }
+.pipes ol { margin: 0; padding-left: 18px; }
+.pipes li { font-size: 13px; line-height: 1.6; margin-bottom: 6px; }
+.pipes code {
+  font-family: 'Space Mono', monospace; font-size: 11px; color: var(--orange);
+}
+
+/* ── CTA ── */
+.cta-btn {
+  display: inline-block;
+  background: var(--btn-bg); color: var(--btn-text);
+  border-radius: 8px; padding: 12px 22px;
+  font-weight: 700; font-size: 13px; text-decoration: none;
+  margin: 6px 0 0;
+}
+.cta-url {
+  font-family: 'Space Mono', monospace; font-size: 11px;
+  color: var(--orange); margin: 12px 0 0; word-break: break-all;
+}
+
+/* ── Footer ── */
+footer {
+  margin-top: 46px; padding-top: 22px;
+  border-top: 1px solid var(--rule);
+  font-family: 'Space Mono', monospace; font-size: 9px;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--foot);
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+
+/* ── Print ── */
+@media print {
+  @page { size: A4; margin: 14mm; }
+  html, body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background: var(--bg) !important;
+  }
+  .wrap { padding: 0; max-width: 100%; }
+  .toggle { display: none; }
+  .page-break { break-before: page; page-break-before: always; }
+  section, .card, .verdict, table.score { break-inside: avoid; page-break-inside: avoid; }
+  h1, h2, h3 { break-after: avoid; page-break-after: avoid; }
+  a { text-decoration: none; color: inherit; }
+}
+
+@media (max-width: 560px) {
+  h1 { font-size: 34px; }
+  h2 { font-size: 22px; }
+  .pipes { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ── Header lockup ── -->
+  <header class="header">
+    <div class="lockup">
+      <img class="icon" src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="FSCreative" />
+      <div class="brand">
+        <span class="wordmark">FSCreative&#8482;</span>
+        <span class="project">The GAP Framework</span>
+      </div>
+    </div>
+    <div class="toggle" id="toggle" role="button" tabindex="0" aria-label="Toggle light/dark mode">
+      <span class="track"><span class="thumb"></span></span>
+      <span class="label" id="toggleLabel">Light</span>
+    </div>
+  </header>
+
+  <!-- ── Cover ── -->
+  <section>
+    <p class="eyebrow">A Simple Framework To Test An Idea</p>
+    <h1>Three questions to decide if<br>an idea is <span class="serif">worth developing</span></h1>
+    <p class="lede">Most of the effort in content goes into hooks, lighting and edits. The thing that actually decides whether a post works is the one people spend the least time on. This is the filter I run before I pick up a camera.</p>
+    <p class="sub">Read time: about nine minutes. There's a scorecard at the back you can run on your next five ideas.</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── The problem ── -->
+  <section>
+    <p class="sec-label">01 / The problem</p>
+    <h2>No hook and no set of visuals can save a bad idea</h2>
+    <p>The hook gets somebody to watch. The visuals keep them around for a few seconds longer. A good original idea is what makes them follow, save it, send it to someone, and come back looking for you next week.</p>
+    <p>Topics are the 80/20 of this whole thing. Pick a topic the person you're trying to reach doesn't care about, and no hook in the world saves it. Pick the right one and even a mediocre hook works.</p>
+    <p class="serif-accent">Great hook. Great lighting. Nobody cared.</p>
+    <p>If that has happened to you, the problem almost certainly sat upstream of the shoot. The idea was dead before the camera came out, and no amount of craft further down the line could bring it back.</p>
+    <div class="card">
+      <h3>What this costs you</h3>
+      <ul class="arrows">
+        <li>A shoot day spent on something that was never going to land</li>
+        <li>An edit you hated doing because you could already feel it was flat</li>
+        <li>The confidence hit of posting something good and watching it do nothing</li>
+      </ul>
+      <p class="aside">The fix is not working harder on the post. It is spending ninety seconds on the idea before any of that starts.</p>
+    </div>
+  </section>
+
+  <div class="page-break"></div>
+
+  <!-- ── Framework intro ── -->
+  <section>
+    <p class="sec-label">02 / The framework</p>
+    <h2>GAP</h2>
+    <p class="lede">A simple set of questions to decide whether your idea has the legs to be worth developing. If it fails one of these, it's probably worth remixing, reframing, or scrapping.</p>
+    <div class="card feature">
+      <h3>Three questions. Fail one, kill the topic.</h3>
+      <ul class="arrows">
+        <li><strong>G &mdash; Gap.</strong> Did they learn something they didn't know they were missing?</li>
+        <li><strong>A &mdash; Anchored.</strong> Can you trace it to something you actually lived?</li>
+        <li><strong>P &mdash; Practical.</strong> Can they DO something after watching?</li>
+      </ul>
+    </div>
+    <p>Three ticks and it ships. Any cross and you either rebuild the idea until it passes, or you let it go and pick another one. Letting it go is not a failure. It's the whole point of having a filter.</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── G ── -->
+  <section>
+    <p class="sec-label">03 / The first question</p>
+    <div class="letter">
+      <span class="glyph">G</span>
+      <span class="name">Knowledge Gap</span>
+    </div>
+    <p class="question">Did they learn something they didn't know they were missing?</p>
+    <p>A gap is the distance between what somebody believes right now and what's actually true. Closing it is the moment they stop scrolling, sit back slightly, and think about it for a second longer than they meant to.</p>
+    <ul class="arrows">
+      <li>Nobody needs another post that says "consistency is key"</li>
+      <li>You need to say something that makes them stop and think</li>
+      <li>Explain your own aha moments, because they can unlock the same feeling in someone else</li>
+      <li>If a smart person in your audience already knows it, kill it</li>
+    </ul>
+    <h3>How to find the gap in an idea you already have</h3>
+    <p>Take the idea and write down the sentence your audience would say about it right now. Then write the sentence you'd say. If those two sentences are the same, there's no gap and you're about to spend a day agreeing with people. If they're different, the distance between them is your post.</p>
+    <p class="aside">Regurgitation is the most common reason a well-made post dies. The craft was fine. The idea was borrowed.</p>
+  </section>
+
+  <div class="page-break"></div>
+
+  <!-- ── A ── -->
+  <section>
+    <p class="sec-label">04 / The second question</p>
+    <div class="letter">
+      <span class="glyph">A</span>
+      <span class="name">Anchored</span>
+    </div>
+    <p class="question">Can you trace it to something you actually lived?</p>
+    <p>Anchored means the idea traces back to something that happened to you. Not something you read in a book, watched on YouTube, or heard on a podcast. It happened to you, or you were there, or you did the work.</p>
+    <ul class="arrows">
+      <li>If you can't trace it to a specific moment, it's floating</li>
+      <li>The easiest way to build credibility is through your experiences, losses, and lessons</li>
+      <li>Floating ideas are the ones anybody could have posted, which is why nobody remembers who did</li>
+    </ul>
+
+    <div class="card">
+      <h3>The 5 Anchors</h3>
+      <p class="sub">Every post should touch at least one.</p>
+      <ul class="arrows">
+        <li><strong>Expertise</strong> &nbsp;&middot;&nbsp; what you know</li>
+        <li><strong>Story</strong> &nbsp;&middot;&nbsp; where you came from</li>
+        <li><strong>Humanity</strong> &nbsp;&middot;&nbsp; who you actually are</li>
+        <li><strong>Aspiration</strong> &nbsp;&middot;&nbsp; what you're building</li>
+        <li><strong>Service</strong> &nbsp;&middot;&nbsp; what you give away</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Your unfair advantages</h3>
+      <p class="sub">The raw material nobody else has access to.</p>
+      <ul class="arrows">
+        <li>Skills you've built over years</li>
+        <li>Taste, and the specific things you find good or unbearable</li>
+        <li>Personality traits, including the inconvenient ones</li>
+        <li>Your current circumstances, whatever they happen to be</li>
+        <li>Where you live and how that changed you</li>
+        <li>Experiences, especially the expensive ones</li>
+        <li>Friends, family, and the people in the room with you</li>
+      </ul>
+      <p class="aside">This list is the reason two people can teach the same thing and only one of them gets followed.</p>
+    </div>
+  </section>
+
+  <div class="page-break"></div>
+
+  <!-- ── P ── -->
+  <section>
+    <p class="sec-label">05 / The third question</p>
+    <div class="letter">
+      <span class="glyph">P</span>
+      <span class="name">Practical</span>
+    </div>
+    <p class="question">Can they DO something after watching?</p>
+    <p>Practical means somebody watching can act. A prompt they can copy, a framework they can install, a step they can take this afternoon. Content that entertains without giving them an action gets consumed and forgotten by dinner.</p>
+    <ul class="arrows">
+      <li>A prompt they can use, a framework they can install, or a step they can take</li>
+      <li>Content that entertains without an action gets consumed and forgotten</li>
+      <li>Give them something they can use off the platform</li>
+      <li>If they walk away impressed but idle, add a "here's what to do" beat</li>
+    </ul>
+    <h3>The most common miss</h3>
+    <p>This is the question people skip, and it's why genuinely good ideas underperform. The insight is real, the story is real, and then it ends. Adding one concrete instruction at the end is often the entire difference between a post people like and a post people save.</p>
+    <p class="aside">A saved post is somebody planning to come back and do the thing. That's the signal worth chasing.</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── Worked examples ── -->
+  <section>
+    <p class="sec-label">06 / Run it on real ideas</p>
+    <h2>Three topics, three verdicts</h2>
+
+    <div class="card">
+      <div class="verdict">
+        <p class="idea">"Here's the exact system I use to shoot a month's worth of B-roll in one day."</p>
+        <p class="marks"><span class="yes">&#10003; Knowledge Gap</span> &nbsp; <span class="yes">&#10003; Anchored</span> &nbsp; <span class="yes">&#10003; Practical</span></p>
+        <p class="why">Ships. It closes a real gap, it's traceable to a system you actually run, and there's something to copy at the end.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="verdict">
+        <p class="idea">"Personal brand is the only moat AI can't clone."</p>
+        <p class="marks"><span class="yes">&#10003; Knowledge Gap</span> &nbsp; <span class="yes">&#10003; Anchored</span> &nbsp; <span class="no">&#10007; Practical</span></p>
+        <p class="why">Rebuild it. Strong insight, real conviction, and nothing for the viewer to do. Add a "here's what to do about it" beat and it passes.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="verdict">
+        <p class="idea">"You have to post more content."</p>
+        <p class="marks"><span class="no">&#10007; Knowledge Gap</span> &nbsp; <span class="no">&#10007; Anchored</span> &nbsp; <span class="no">&#10007; Practical</span></p>
+        <p class="why">Scrap it. Obvious, borrowed, and there's no action in it. Somebody with twenty posts and six hundred followers said this, and it wasn't theirs either.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-break"></div>
+
+  <!-- ── What to do when it fails ── -->
+  <section>
+    <p class="sec-label">07 / When an idea fails</p>
+    <h2>Remix, reframe, or scrap</h2>
+    <p>A cross is information, not a verdict on you. Three things you can do with it.</p>
+
+    <div class="card">
+      <h3>Remix it</h3>
+      <p class="sub">Usually fixes a failed <strong>Gap</strong>.</p>
+      <p>The topic is fine, the angle is tired. Change who it's aimed at, invert the claim, or attach it to a framework of your own so it stops being the version everybody has already seen.</p>
+    </div>
+
+    <div class="card">
+      <h3>Reframe it</h3>
+      <p class="sub">Usually fixes a failed <strong>Anchor</strong>.</p>
+      <p>The idea is good and it isn't yours yet. Find the moment in your own life where you learned it. Rebuild the post around that moment and let the lesson come out of the story instead of arriving first.</p>
+    </div>
+
+    <div class="card">
+      <h3>Scrap it</h3>
+      <p class="sub">Usually the right call on a failed <strong>Practical</strong> you can't fix.</p>
+      <p>If you can't name a single thing somebody should do after watching, and adding one would feel bolted on, let it go. There are more ideas. Killing one costs ninety seconds. Shooting one costs a day.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── Scorecard ── -->
+  <section>
+    <p class="sec-label">08 / The scorecard</p>
+    <h2>Run it on your next five ideas</h2>
+    <p>Write the idea at the top. Answer each question with a yes or a no, then write the verdict. Ninety seconds per idea is enough.</p>
+
+    <div class="card">
+      <p class="sec-label">Idea</p>
+      <p class="sub">________________________________________________</p>
+      <table class="score">
+        <tr>
+          <th>Question</th>
+          <th>Yes / No</th>
+        </tr>
+        <tr>
+          <td class="q">G &nbsp; Did they learn something they didn't know they were missing?<br>
+            <span class="marks">If no: remix the angle.</span></td>
+          <td class="box">&#9633; Y &nbsp; &#9633; N</td>
+        </tr>
+        <tr>
+          <td class="q">A &nbsp; Can you trace it to something you actually lived?<br>
+            <span class="marks">If no: reframe around a real moment.</span></td>
+          <td class="box">&#9633; Y &nbsp; &#9633; N</td>
+        </tr>
+        <tr>
+          <td class="q">P &nbsp; Can they DO something after watching?<br>
+            <span class="marks">If no: add the action beat, or scrap it.</span></td>
+          <td class="box">&#9633; Y &nbsp; &#9633; N</td>
+        </tr>
+        <tr>
+          <td class="q">Which of the 5 Anchors does it touch?<br>
+            <span class="marks">Expertise / Story / Humanity / Aspiration / Service</span></td>
+          <td class="box">__________</td>
+        </tr>
+        <tr>
+          <td class="q">Verdict</td>
+          <td class="box">Ship / Rebuild / Scrap</td>
+        </tr>
+      </table>
+    </div>
+    <p class="aside">Print this page five times, or rebuild it as a table in whatever you already use. The format matters far less than running it before the shoot instead of after.</p>
+  </section>
+
+  <div class="page-break"></div>
+
+  <!-- ── Where ideas come from ── -->
+  <section>
+    <p class="sec-label">09 / Feeding the filter</p>
+    <h2>Where the ideas come from</h2>
+    <p>A filter is only as good as what you put through it. Seven places to pull from, so you're choosing between ideas rather than reaching for whatever surfaced.</p>
+    <div class="pipes">
+      <div class="col card">
+        <h3>Internal</h3>
+        <ol>
+          <li>Random thoughts, captured the moment they happen</li>
+          <li>AI interviews, where you get interrogated on one question</li>
+          <li>Coaching and client calls</li>
+          <li>Your own winners, mined for what actually worked</li>
+        </ol>
+      </div>
+      <div class="col card">
+        <h3>External</h3>
+        <ol>
+          <li>Long-form content from people worth learning from</li>
+          <li>Competitor outliers, meaning their posts that beat their own average</li>
+          <li>Scroll reactions, the things that genuinely annoy or move you</li>
+        </ol>
+      </div>
+    </div>
+    <p class="aside">Record everything. Every conversation, every walk, every huddle. The brain you feed is the brain you get to mine later.</p>
+    <p><strong>One rule that sits over all of it:</strong> <span class="hl">AI amplifies. It never originates.</span> You are the source. Everything you speak about should tie back to a real experience, a lesson learned, or a topic you have genuine authority in.</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── CTA ── -->
+  <section>
+    <div class="card feature">
+      <p class="eyebrow">Next step</p>
+      <h2>Want the rest of the system?</h2>
+      <p>GAP is the topic filter. It sits inside a bigger system that covers which job each post is doing, how to build a cinematic personal brand without burning out, and the AI prompts you can run the same day.</p>
+      <ul class="arrows">
+        <li>Why content is the highest-leverage skill you can learn as an entrepreneur</li>
+        <li>Why AI-flooded feeds are your biggest opportunity in a decade</li>
+        <li>The roadmap to starting your cinematic personal brand without burning out</li>
+      </ul>
+      <p class="sub">A free 60-minute live session on Zoom. You get the replay, the slides, and the worksheets after.</p>
+      <a class="cta-btn" href="https://workshop.fscreative.live">Save your seat</a>
+      <p class="cta-url">workshop.fscreative.live</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>FSCreative&#8482; &nbsp;&middot;&nbsp; FrictionlessOS&#8482;</span>
+    <span>The GAP Framework</span>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('toggle');
+  var label = document.getElementById('toggleLabel');
+  function set(mode) {
+    root.setAttribute('data-mode', mode);
+    label.textContent = (mode === 'dark') ? 'Light' : 'Dark';
+  }
+  set('dark');
+  function flip() {
+    set(root.getAttribute('data-mode') === 'dark' ? 'light' : 'dark');
+  }
+  btn.addEventListener('click', flip);
+  btn.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
+  });
+})();
+</script>
+</body>
+</html>
