@@ -259,6 +259,53 @@ table.score td.box {
   color: var(--orange); margin: 12px 0 0; word-break: break-all;
 }
 
+/* ── Gate ── */
+.gate { max-width: 460px; }
+.gate label {
+  display: block; font-family: 'Space Mono', monospace; font-size: 9px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--sub);
+  margin: 0 0 6px;
+}
+.gate input {
+  width: 100%; padding: 12px 13px; margin: 0 0 14px;
+  background: var(--bg); color: var(--text);
+  border: 1px solid var(--border); border-radius: 8px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px;
+}
+.gate input:focus { outline: none; border-color: var(--orange); }
+.gate input::placeholder { color: var(--sub); }
+.gate button {
+  width: 100%; padding: 13px 22px;
+  background: var(--btn-bg); color: var(--btn-text);
+  border: 0; border-radius: 8px; cursor: pointer;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700; font-size: 13px;
+}
+.gate button:disabled { opacity: 0.55; cursor: default; }
+.gate .err {
+  color: var(--orange); font-size: 12px; line-height: 1.5; margin: 10px 0 0;
+}
+.gate .fine {
+  font-family: 'Space Mono', monospace; font-size: 9px; line-height: 1.7;
+  letter-spacing: 0.06em; color: var(--sub); margin: 12px 0 0;
+}
+.known {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  font-family: 'Space Mono', monospace; font-size: 9px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--sub);
+  margin: 0 0 26px; padding: 10px 14px;
+  border: 1px solid var(--border); border-radius: 8px;
+  background: var(--card);
+}
+.known .who { color: var(--sub-bright); }
+.known button {
+  margin-left: auto; background: none; border: 0; cursor: pointer; padding: 0;
+  font-family: 'Space Mono', monospace; font-size: 9px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--orange); text-decoration: underline;
+}
+@media print { .known, .gate { display: none !important; } }
+
 /* ── Footer ── */
 footer {
   margin-top: 46px; padding-top: 22px;
@@ -316,6 +363,32 @@ footer {
     <p class="lede">Most of the effort in content goes into hooks, lighting and edits. The thing that actually decides whether a post works is the one people spend the least time on. This is the filter I run before I pick up a camera.</p>
     <p class="sub">Read time: about nine minutes. There's a scorecard at the back you can run on your next five ideas.</p>
   </section>
+
+  <!-- ── Gate ── -->
+  <section id="gate" class="card feature gate" hidden>
+    <p class="eyebrow">Free, and yours in one click</p>
+    <h3>Where should I send it?</h3>
+    <p class="sub">Drop your name and email and the full guide opens right here. No waiting on an email.</p>
+    <form id="gate-form" novalidate>
+      <label for="g-name">First name</label>
+      <input id="g-name" name="first_name" type="text" autocomplete="given-name" placeholder="Gabe" required>
+      <label for="g-email">Email</label>
+      <input id="g-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+      <button type="submit" id="g-submit">Open the guide</button>
+      <p class="err" id="g-error" hidden></p>
+      <p class="fine">One email, then the guide. I won't spam you and you can leave any time.</p>
+    </form>
+  </section>
+
+  <!-- ── Known visitor chip ── -->
+  <div class="known" id="known" hidden>
+    <span>Welcome back,</span>
+    <span class="who" id="known-name"></span>
+    <button type="button" id="known-reset">Not you?</button>
+  </div>
+
+  <!-- ── Guide (revealed after opt-in) ── -->
+  <div id="guide" hidden>
 
   <hr class="rule">
 
@@ -598,6 +671,8 @@ footer {
     </div>
   </section>
 
+  </div><!-- /#guide -->
+
   <footer>
     <span>FSCreative&#8482; &nbsp;&middot;&nbsp; FrictionlessOS&#8482;</span>
     <span>The GAP Framework</span>
@@ -606,6 +681,124 @@ footer {
 </div>
 
 <script>
+/* ── Lead gate ──────────────────────────────────────────────────────
+   One record per browser, shared across every page on this origin.
+   Any other lead magnet on fscreative.live can read the same key and
+   skip its own gate. Subdomains are a different origin and will not.
+------------------------------------------------------------------- */
+(function () {
+  var KEY  = 'fsc_lead';
+  var SLUG = 'gap-framework';
+
+  var gate    = document.getElementById('gate');
+  var guide   = document.getElementById('guide');
+  var known   = document.getElementById('known');
+  var kName   = document.getElementById('known-name');
+  var kReset  = document.getElementById('known-reset');
+  var form    = document.getElementById('gate-form');
+  var nameEl  = document.getElementById('g-name');
+  var mailEl  = document.getElementById('g-email');
+  var btn     = document.getElementById('g-submit');
+  var errEl   = document.getElementById('g-error');
+
+  function read() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw) return null;
+      var v = JSON.parse(raw);
+      return (v && v.email) ? v : null;
+    } catch (e) { return null; }
+  }
+
+  function save(rec) {
+    try { localStorage.setItem(KEY, JSON.stringify(rec)); } catch (e) {}
+  }
+
+  function unlock(rec, returning) {
+    gate.hidden = true;
+    guide.hidden = false;
+    if (returning && rec && rec.first_name) {
+      kName.textContent = rec.first_name;
+      known.hidden = false;
+    }
+  }
+
+  function lock() {
+    gate.hidden = false;
+    guide.hidden = true;
+    known.hidden = true;
+  }
+
+  // Decide what to show. If storage is unavailable, fail open rather than
+  // trapping someone behind a gate that can never remember them.
+  var existing = read();
+  if (existing) {
+    unlock(existing, true);
+  } else {
+    var storageWorks = true;
+    try {
+      localStorage.setItem('__fsc_probe', '1');
+      localStorage.removeItem('__fsc_probe');
+    } catch (e) { storageWorks = false; }
+    if (storageWorks) { lock(); } else { unlock(null, false); }
+  }
+
+  kReset.addEventListener('click', function () {
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    lock();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    errEl.hidden = true;
+
+    var first_name = nameEl.value.trim();
+    var email = mailEl.value.trim();
+
+    if (!first_name) {
+      errEl.textContent = 'Pop your first name in so I know who I am talking to.';
+      errEl.hidden = false; nameEl.focus(); return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errEl.textContent = 'That email does not look right. Mind checking it?';
+      errEl.hidden = false; mailEl.focus(); return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'One sec...';
+
+    try {
+      var res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, first_name: first_name, lead_magnet: SLUG })
+      });
+      var body = await res.json().catch(function () { return {}; });
+
+      if (!res.ok) {
+        var detail = (body && typeof body.detail === 'string') ? body.detail : '';
+        errEl.textContent = detail || 'Something went wrong there. Try again in a moment.';
+        errEl.hidden = false;
+        btn.disabled = false;
+        btn.textContent = 'Open the guide';
+        return;
+      }
+
+      save({ first_name: first_name, email: email, at: Date.now() });
+      unlock({ first_name: first_name, email: email }, false);
+      try { window.gtag && gtag('event', 'lead_magnet_optin', { magnet: SLUG }); } catch (_) {}
+      try { window.fbq && fbq('track', 'Lead', { content_name: 'The GAP Framework' }); } catch (_) {}
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      errEl.textContent = 'Network error. Check your connection and try again.';
+      errEl.hidden = false;
+      btn.disabled = false;
+      btn.textContent = 'Open the guide';
+    }
+  });
+})();
+
 (function () {
   var root = document.documentElement;
   var btn = document.getElementById('toggle');

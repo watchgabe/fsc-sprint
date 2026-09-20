@@ -2,12 +2,20 @@
 //
 // POST body: { email, first_name, lead_magnet }
 // `lead_magnet` is a slug from LEAD_MAGNETS below.
-// Subscribes via Kit v3 REST API.
+// Subscribes via Kit v4 REST API.
+//
+// Every subscriber gets ALWAYS_TAGS (new-subscriber) on top of whatever the
+// lead magnet itself specifies, so there is one list of everyone who has ever
+// opted in anywhere, plus a per-magnet tag for segmenting.
+// A magnet may declare `tagId` (single) or `tagIds` (array). Both work.
 //   - Cinematic Storyteller's Guide → existing sequence (delivery via email).
 //   - All other LMs → Kit tag (no sequence). Response includes `redirect` URL
 //     so the client can send the visitor straight to the resource.
 //
 // Requires Vercel env var: KIT_API_KEY (the Kit "API Secret" from Settings → Advanced).
+
+// Applied to every successful opt-in, regardless of which magnet they came through.
+const ALWAYS_TAGS = [23768062]; // new-subscriber
 
 const LEAD_MAGNETS = {
   'cinematic-storytellers-guide': {
@@ -38,6 +46,10 @@ const LEAD_MAGNETS = {
     name: 'Cinematic Brand Challenge Waitlist',
     tagId: 23039551,
   },
+  'gap-framework': {
+    name: 'The GAP Framework',
+    tagId: 23768063,
+  },
 };
 
 const KIT_API_BASE = 'https://api.kit.com/v4';
@@ -64,8 +76,9 @@ export default async function handler(req, res) {
 
   const lm = LEAD_MAGNETS[lead_magnet];
 
-  if (!lm.sequenceId && !lm.tagId) {
-    return res.status(500).json({ error: 'lm_misconfigured', detail: `${lead_magnet} has no sequenceId or tagId.` });
+  const magnetTagIds = lm.tagIds || (lm.tagId ? [lm.tagId] : []);
+  if (!lm.sequenceId && magnetTagIds.length === 0) {
+    return res.status(500).json({ error: 'lm_misconfigured', detail: `${lead_magnet} has no sequenceId, tagId or tagIds.` });
   }
 
   const kitHeaders = {
@@ -89,24 +102,46 @@ export default async function handler(req, res) {
     }
     const subscriberId = createData.subscriber.id;
 
-    // Step 2: attach to sequence or tag by id.
-    const attachPath = lm.sequenceId
-      ? `/sequences/${lm.sequenceId}/subscribers/${subscriberId}`
-      : `/tags/${lm.tagId}/subscribers/${subscriberId}`;
-
-    const attachRes = await fetch(`${KIT_API_BASE}${attachPath}`, {
-      method: 'POST',
-      headers: kitHeaders,
-    });
-    const attachData = await attachRes.json();
-    if (!attachRes.ok) {
-      return res.status(502).json({ error: 'kit_error', detail: attachData, step: 'attach' });
+    // Step 2: attach the sequence, if this magnet uses one.
+    if (lm.sequenceId) {
+      const seqRes = await fetch(
+        `${KIT_API_BASE}/sequences/${lm.sequenceId}/subscribers/${subscriberId}`,
+        { method: 'POST', headers: kitHeaders }
+      );
+      if (!seqRes.ok) {
+        const seqData = await seqRes.json().catch(() => ({}));
+        return res.status(502).json({ error: 'kit_error', detail: seqData, step: 'attach_sequence' });
+      }
     }
 
+    // Step 3: attach every tag (the global ones plus this magnet's own).
+    // De-duped so a magnet that reuses a global tag doesn't double-post.
+    const allTagIds = [...new Set([...ALWAYS_TAGS, ...magnetTagIds])];
+    const tagFailures = [];
+
+    for (const tagId of allTagIds) {
+      try {
+        const tagRes = await fetch(
+          `${KIT_API_BASE}/tags/${tagId}/subscribers/${subscriberId}`,
+          { method: 'POST', headers: kitHeaders }
+        );
+        if (!tagRes.ok) {
+          const tagData = await tagRes.json().catch(() => ({}));
+          tagFailures.push({ tagId, detail: tagData });
+        }
+      } catch (e) {
+        tagFailures.push({ tagId, detail: e.message });
+      }
+    }
+
+    // The subscriber exists at this point, so a tag failure is not worth
+    // failing the whole request over. Report it and let them through.
     return res.status(200).json({
       ok: true,
       redirect: lm.redirect || null,
-      subscriber: attachData.subscriber,
+      subscriber_id: subscriberId,
+      tags_applied: allTagIds.filter(id => !tagFailures.some(f => f.tagId === id)),
+      tag_failures: tagFailures.length ? tagFailures : undefined,
     });
   } catch (err) {
     return res.status(500).json({ error: 'kit_request_failed', detail: err.message });
