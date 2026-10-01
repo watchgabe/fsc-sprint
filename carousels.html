@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="The four carousel types, the craft rules, and how to build them in Canva and Premiere. A free guide from Gabe Harris.">
+<link rel="icon" href="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>The Carousel Playbook</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<meta name="theme-color" content="#ffffff">
+<style>
+/* Launch HQ look, no rail: one white column, soft cards, green works / orange warns */
+:root{
+  --bg:#ffffff; --card:#ffffff; --glass:#f5f5f6; --field:#f4f4f5; --hover:#fafafa;
+  --line:#e8e8ea; --hair:rgba(20,21,24,.09);
+  --ink:#111815; --ink-2:#4d5451; --dim:#656d69; --mute:#6f7470;
+  --accent:#158452; --accent-ink:#0e5c39; --accent-soft:#e2f1e9; --accent-line:#cbe5d7;
+  --orange:#ee663e; --orange-soft:#fdeae3; --orange-ink:#8a3416; --orange-line:#f5cdbc;
+  --rail:#141518; --rail-text:#eceef0; --rail-dim:#8b9095;
+  --inv:#141518; --inv-ink:#ffffff; --inv-hover:#2a2d33;
+  --track:#e2e3e6; --ring:#d9d4cb;
+  --shadow-card:0 1px 2px rgba(16,24,40,.04), 0 8px 24px rgba(16,24,40,.05);
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --bg:#0d0e10; --card:#17181b; --glass:#1d1f23; --field:#212328; --hover:#1e2024;
+  --line:#2b2d32; --hair:rgba(255,255,255,.09);
+  --ink:#eceef0; --ink-2:#bcc2be; --dim:#9aa19d; --mute:#7f8681;
+  --accent:#158452; --accent-ink:#6fdca8; --accent-soft:#16352a; --accent-line:#245a42;
+  --orange:#ee663e; --orange-soft:#3a2118; --orange-ink:#ffab8e; --orange-line:#5a3425;
+  --rail:#1c1e22; --inv:#eceef0; --inv-ink:#111315; --inv-hover:#ffffff;
+  --track:#34373c; --ring:#4a4e55;
+  --shadow-card:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0d0e10; --card:#17181b; --glass:#1d1f23; --field:#212328; --hover:#1e2024;
+  --line:#2b2d32; --hair:rgba(255,255,255,.09);
+  --ink:#eceef0; --ink-2:#bcc2be; --dim:#9aa19d; --mute:#7f8681;
+  --accent:#158452; --accent-ink:#6fdca8; --accent-soft:#16352a; --accent-line:#245a42;
+  --orange:#ee663e; --orange-soft:#3a2118; --orange-ink:#ffab8e; --orange-line:#5a3425;
+  --rail:#1c1e22; --inv:#eceef0; --inv-ink:#111315; --inv-hover:#ffffff;
+  --track:#34373c; --ring:#4a4e55;
+  --shadow-card:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.6;margin:0;
+  -webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+.wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:0 64px}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);
+  border-bottom:1px solid var(--hair)}
+.bar-in{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:12px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand img{width:32px;height:32px;display:block;flex:none}
+.brand .nm{font-size:14px;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.brand .cap{font-size:11px;font-weight:500;color:var(--dim);line-height:1.2}
+.theme-seg{display:flex;gap:2px;background:var(--field);border-radius:999px;padding:3px;flex:none}
+.theme-seg button{font:inherit;font-size:11px;font-weight:600;color:var(--dim);background:none;border:0;
+  border-radius:999px;padding:6px 11px;cursor:pointer;min-height:32px}
+.theme-seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(16,24,40,.08)}
+.theme-seg button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+
+/* hero */
+.hero{padding-block:44px 30px}
+.pill-live{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.02em;
+  background:var(--accent-soft);color:var(--accent-ink);border:1px solid var(--accent-line);border-radius:999px;padding:5px 12px;margin-bottom:16px}
+.pill-live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.eyebrow{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--dim);margin:0 0 14px}
+h1{font-size:clamp(28px,6.4vw,40px);font-weight:800;letter-spacing:-.035em;line-height:1.08;margin:0 0 14px;text-wrap:balance}
+.standfirst{font-size:16px;color:var(--ink-2);max-width:62ch;margin:0;font-weight:500;line-height:1.55}
+
+/* stat row */
+.bigs{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:26px 0 0}
+.big{background:var(--glass);border-radius:14px;padding:14px 13px;min-width:0}
+.big .n{font-size:26px;font-weight:700;letter-spacing:-.03em;line-height:1.1;display:block;color:var(--accent-ink)}
+.big .l{font-size:11px;font-weight:500;color:var(--dim);margin-top:3px;display:block;line-height:1.3}
+
+/* sections */
+/* timeline: green node per section, hairline rail between */
+.tl{position:relative;padding-left:30px}
+.tl::before{content:"";position:absolute;left:5px;top:10px;bottom:0;width:2px;background:var(--line);border-radius:2px}
+section{padding-block:30px;position:relative}
+section+section::after{content:"";position:absolute;left:-25px;right:0;top:0;height:1px;background:var(--hair)}
+section>.sect-k::before{content:"";position:absolute;left:-30px;top:3px;width:12px;height:12px;border-radius:50%;
+  background:var(--bg);border:2.5px solid var(--accent);box-sizing:border-box}
+.sect-k{position:relative;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent-ink);margin:0 0 10px}
+h2{font-size:clamp(21px,4.2vw,26px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin:0 0 14px;text-wrap:balance}
+h3{font-size:17px;font-weight:600;letter-spacing:-.02em;margin:26px 0 7px}
+p{margin:0 0 13px;max-width:68ch;color:var(--ink-2);font-weight:500}
+p.k{color:var(--ink)}
+strong{font-weight:700;color:var(--ink)}
+.pull{font-size:18px;font-weight:600;letter-spacing:-.02em;color:var(--ink);line-height:1.4;margin:0 0 16px;max-width:52ch}
+
+/* type cards */
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:18px}
+.tc{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:16px;box-shadow:var(--shadow-card);min-width:0}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  background:var(--accent-soft);color:var(--accent-ink);border-radius:999px;padding:4px 10px;margin-bottom:9px}
+.tc h4{font-size:15px;font-weight:600;letter-spacing:-.02em;margin:0 0 5px}
+.tc p{font-size:13px;margin:0;color:var(--dim)}
+
+/* rules */
+.rules{display:grid;gap:10px;margin-top:16px}
+.rule{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow-card)}
+.rule b{display:block;font-size:14.5px;font-weight:650;letter-spacing:-.01em;color:var(--ink);margin-bottom:3px}
+.rule span{display:block;font-size:13.5px;color:var(--dim);font-weight:500;line-height:1.5}
+
+/* callout */
+/* highlight block, same shape as the Launch HQ today-bar */
+.note{background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:11px;
+  padding:12px 15px;margin:18px 0;font-size:13.5px;color:var(--accent-ink);font-weight:500;line-height:1.5}
+.note b{color:var(--accent-ink);font-weight:700}
+.note.warn{background:var(--orange-soft);border-color:var(--orange-line);color:var(--orange-ink)}
+.note.warn b{color:var(--orange-ink)}
+
+/* before/after */
+.ba{display:grid;gap:10px;margin:16px 0}
+.ba div{background:var(--field);border-radius:12px;padding:13px 15px}
+.ba .t{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--dim);margin:0 0 5px}
+.ba p{margin:0;font-size:13.5px;color:var(--ink-2)}
+
+/* checklist */
+.cks{display:grid;gap:8px;margin-top:16px}
+.cki{display:flex;align-items:flex-start;gap:11px;background:var(--card);border:1px solid var(--hair);
+  border-radius:12px;padding:12px 14px;box-shadow:var(--shadow-card);min-height:44px}
+.hk{width:19px;height:19px;border-radius:50%;border:2px solid var(--accent-line);background:var(--accent-soft);
+  flex:none;margin-top:1px;position:relative}
+.hk::after{content:"";position:absolute;left:5px;top:2px;width:4px;height:8px;border:solid var(--accent);
+  border-width:0 2px 2px 0;transform:rotate(45deg)}
+.cki span{font-size:13.5px;font-weight:500;color:var(--ink-2);min-width:0}
+
+/* cta */
+.cta{background:var(--rail);border-radius:22px;padding:28px 24px;margin-top:34px;color:var(--rail-text)}
+.cta h2{color:var(--rail-text);margin-bottom:10px}
+.cta p{color:var(--rail-dim);max-width:54ch}
+.btn{display:inline-flex;align-items:center;min-height:44px;background:var(--accent);color:#fff;
+  font-size:13.5px;font-weight:700;letter-spacing:-.01em;border-radius:999px;padding:0 24px;
+  text-decoration:none;margin-top:10px}
+.btn:hover{filter:brightness(1.06)}
+.foot{font-size:11.5px;color:var(--mute);font-weight:500;margin-top:26px;padding-top:18px;border-top:1px solid var(--hair)}
+
+@media (max-width:760px){
+  body{font-size:14.5px}
+  .wrap{padding-inline:16px}
+  .bar-in{padding-inline:16px}
+  .tl{padding-left:22px}
+  .tl::before{left:4px}
+  section>.sect-k::before{left:-22px;width:10px;height:10px;top:4px}
+  section+section::after{left:-18px}
+  .cta{padding:22px 18px;border-radius:18px}
+  .bigs{grid-template-columns:repeat(2,1fr)}
+  .hero{padding-block:30px 24px}
+  .brand .cap{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <div class="brand">
+      <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="">
+      <div>
+        <div class="nm">FSCreative&#8482;</div>
+        <div class="cap">Carousel Playbook</div>
+      </div>
+    </div>
+    <div class="theme-seg" id="themeSeg" role="group" aria-label="Theme">
+      <button type="button" data-t="auto">Auto</button>
+      <button type="button" data-t="light">Light</button>
+      <button type="button" data-t="dark">Dark</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <span class="pill-live">Free guide</span>
+    <p class="eyebrow">Gabe Harris &middot; FSCreative</p>
+    <h1>The Carousel Playbook</h1>
+    <p class="standfirst">Carousels are the cheapest content you will ever make and the most forgiving. The viewer sets the pace, the format is completely templatized, and every one you build becomes the next one. Here is the whole system.</p>
+    <div class="bigs">
+      <div class="big"><span class="n">4</span><span class="l">Types that cover everything</span></div>
+      <div class="big"><span class="n">7&ndash;10</span><span class="l">Slides, the sweet spot</span></div>
+      <div class="big"><span class="n">2</span><span class="l">Hooks in every post</span></div>
+      <div class="big"><span class="n">10</span><span class="l">Checks before you post</span></div>
+    </div>
+  </div>
+
+  <div class="tl">
+  <section>
+    <p class="sect-k">The case</p>
+    <h2>Why carousels earn a slot every week</h2>
+    <p class="pull">In a reel you decide how long somebody sits with each beat. In a carousel they decide.</p>
+    <p>That difference is worth more than it sounds. Because the viewer controls the pace, you can go deeper and trust them to take what they need. Nothing gets cut away before it lands.</p>
+    <p><strong>Reels find new people. Carousels feed the people you already have.</strong> Instagram used to throttle carousel reach, which is why much of the internet quietly stopped bothering with them. That changed. A trending sound can now land a carousel on the Reels tab, so the ceiling is far higher than its reputation suggests. Several of my most viral posts are carousels.</p>
+    <p><strong>Seven to ten slides is the sweet spot.</strong> You get up to twenty. The only time I have used all twenty was a post giving away twenty frames people could go steal.</p>
+    <div class="note"><b>Always add a sound.</b> People engage more with audio, and the sound is what makes the post eligible for the Reels tab. Skipping it caps your reach before anyone has seen a single slide.</div>
+    <p><strong>It is the cheapest thing you will make.</strong> The copy usually already exists inside an idea you have written down. Same hook, same story shape, different container. And because the layout is templatized, build number twelve takes a fraction of the time build number one did.</p>
+  </section>
+
+  <section>
+    <p class="sect-k">The map</p>
+    <h2>Four types, four different jobs</h2>
+    <p>Every carousel worth posting is one of these four. They blur at the edges, so when you get stuck deciding which one you are making, use this test: <strong>what does the reader walk away with?</strong></p>
+    <div class="grid4">
+      <div class="tc"><span class="tag">Type 01</span><h4>Inspiration</h4><p>They walk away believing the thing is available to them.</p></div>
+      <div class="tc"><span class="tag">Type 02</span><h4>Tactical guides</h4><p>They walk away with steps they can run today.</p></div>
+      <div class="tc"><span class="tag">Type 03</span><h4>Advice</h4><p>They walk away with a lens you learned the hard way.</p></div>
+      <div class="tc"><span class="tag">Type 04</span><h4>Postcards</h4><p>They walk away knowing who you actually are.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sect-k">Type 01</p>
+    <h2>Inspiration</h2>
+    <p class="pull">An achievement on its own reads as showing off. Paired with what it cost, the same achievement reads as proof.</p>
+    <p>"I made $740,000" is bragging. "I grew up with nothing, worked ten times harder than everyone around me, and made $740,000" gives somebody a reason to keep going. The struggle is what converts the number into something useful.</p>
+    <h3>Why it works: vicarious motivation</h3>
+    <p>People do not need to experience a reward themselves to be motivated toward it. Watching somebody else get there is enough. I did not decide any of this was possible because someone told me it was. I watched Casey Neistat videos from a house in Kansas.</p>
+    <h3>Your reader feels behind</h3>
+    <p>They graduated late, started late, and are still figuring it out at an age where they assumed they would have it sorted. Your job in this format is to tell them the timeline they are measuring themselves against was never real.</p>
+    <div class="note"><b>"But I haven't done anything impressive."</b> Go back to your authority ranking. Somebody is standing exactly where you were two years ago, and the thing that feels mundane to you now is the thing they are trying to reach.</div>
+    <p><strong>Where it sits:</strong> the viral layer. Think broad, think relatable, and tell your story so somebody else can live through it.</p>
+  </section>
+
+  <section>
+    <p class="sect-k">Type 02</p>
+    <h2>Tactical guides</h2>
+    <p class="pull">The only bar that matters here is saveability. Build something somebody can save and implement later.</p>
+    <p>A guide breaks something you know into steps somebody can actually follow. Direct, simple, implementable. A knowledge dump pointed at one outcome.</p>
+    <p><strong>The reason it matters is positioning.</strong> Anyone can claim they are good at something. A guide shows the actual thinking, and that is what makes a person believe you could do it for them. If they get value from it, their next thought is what else this person could help with.</p>
+    <h3>Make it yours, not a list of tips</h3>
+    <p>The problem is universal. The approach is yours. Keep the story, the reason you work that way, and the thing you got wrong first. "Record yourself every day without posting" is fine. "When I first did this my whole focus was eye contact and cutting filler words" is believable. Say out loud that it is your approach rather than the only one.</p>
+    <h3>Simplify until a fifth grader gets it</h3>
+    <p>Swap expert language for plain language, add an analogy, add an example.</p>
+    <div class="ba">
+      <div><p class="t">Before</p><p>"Shoot S-Log3 and convert to Rec. 709 in post to retain dynamic range."</p></div>
+      <div><p class="t">After</p><p>"Filming in log gets the most out of your camera. It comes back flat, and you fix it with a color grade."</p></div>
+    </div>
+    <p>The people who already know what Rec. 709 is do not need your guide. The people who need it will not get past the jargon, and nobody is impressed by language they cannot read.</p>
+    <h3>One slice, not the whole process</h3>
+    <p>The instinct is to dump everything so the post feels complete. That is exactly what makes it unreadable. Pick one narrow piece and go deep. Your page becomes a portfolio of guides over time, so no single post has to carry all of it.</p>
+    <h3>"If I give it away free, why would anyone buy?"</h3>
+    <p>Your feed is a collage of the different ways you can help. It is not the map. Giving unconditionally proves you know what you are doing, and your offer is the roadmap that ties the scattered pieces together and installs them fast. People stopped paying for information a long time ago. They pay for implementation and speed.</p>
+    <p><strong>Where it sits:</strong> the value layer, though a good one goes viral just as easily.</p>
+  </section>
+
+  <section>
+    <p class="sect-k">Type 03</p>
+    <h2>Advice</h2>
+    <p class="pull">Advice comes from a peer rather than an authority. A few steps ahead, not at the top.</p>
+    <p>You went through the thing recently, or you are still in the middle of it. The person reading is where you were a few months ago. That gap is the whole position, and it is why this format builds more trust than a guide written from a podium.</p>
+    <h3>The format that does the work for you</h3>
+    <p>"I'm 35, and these are the things I wish I knew at 25." Stating the age immediately establishes a real gap, so anybody at 23 or 26 reads it and knows there is something in it for them.</p>
+    <p>It does not have to be age. "I've been building my personal brand for three years, here's what I wish I'd found out in the first 30 days" does the same job off career stage. The "I wish I knew" framing carries most of the weight on its own.</p>
+    <h3>Anchor every line to something real</h3>
+    <p>What goes on these slides cannot be things you read somewhere. They should be lessons you actually took from relationships, from business, from failing, from the ups and the downs. Run each one through a situation you lived and can tell as a story, and it becomes easy to understand and impossible to fake. That is also what makes you an authority, because every piece of it traces back to something you were genuinely in.</p>
+    <h3>No wins yet? Lean into that</h3>
+    <p>"I posted for 100 days and lost followers, here's what I'd skip next time." "Three mistakes I made starting out." A payoff does not have to be a win. Sometimes it is a realization you arrived at. Honesty about what is working and what is not helps the person standing in the same spot, which means the excuse of having nothing to share goes away.</p>
+    <div class="note"><b>Every slide is a hook for a future video.</b> One advice carousel is also a content calendar, one video per slide. It works in reverse too: take the videos of yours that performed and turn each into a slide.</div>
+    <p>One more thing worth knowing. My "35 to 25" carousel was plain text on colored backgrounds, the first graphic carousel I ever made, and I posted it feeling a bit weird about it. It became one of my biggest posts ever. No photography required.</p>
+  </section>
+
+  <section>
+    <p class="sect-k">Type 04</p>
+    <h2>Postcards and life updates</h2>
+    <p class="pull">The least produced thing you will post, and often the one people reply to.</p>
+    <p>Minimal text, sometimes none at all, built from frames you already shot for something else. You are already capturing B-roll for your videos. This format pays you back for it a second time.</p>
+    <h3>This is where your craft finally gets looked at</h3>
+    <p>In a reel your best frame gets a second or two before you cut away. In a carousel somebody can sit on it as long as they want, so the grade, the composition and the angles get appreciated instead of glimpsed. Everyone else is posting a template and a stock photo. Yours are frames you shot and graded yourself.</p>
+    <h3>Keep the text out of the way</h3>
+    <p>A headline and a sentence, sometimes nothing. The whole story lives in the caption instead. The images carry the moment, and the text is only there so somebody knows what they are looking at.</p>
+    <h3>Cadence beats inspiration</h3>
+    <p>Weekly recap, month in review, or a recap of something that actually happened. A recurring one is easier to sustain because the format does the thinking for you and people start expecting it. Monthly is the easiest rhythm to hold.</p>
+    <p>My July recap was the first flight of the year, the 4th in Kansas, a video at nearly a million views, bringing my dog back to Mexico, announcing the Challenge, and hitting 60k. None of those needed a dedicated post. They all went in one recap.</p>
+  </section>
+
+  <section>
+    <p class="sect-k">Craft</p>
+    <h2>The rules that apply to all four</h2>
+    <div class="rules">
+      <div class="rule"><b>Slide 1 and slide 2 are both hooks</b><span>Instagram shows your second slide to people who swiped past the first, so the post gets a second shot in the feed. Make them different from each other. A question on one, a contrarian angle on the other.</span></div>
+      <div class="rule"><b>Every slide earns the next swipe</b><span>Keep it sequential so the whole thing reads as a process. A brain dump of unrelated points loses people on slide three.</span></div>
+      <div class="rule"><b>Contrast is the entire game</b><span>White text on a light photo needs the background darkened or an outline on the text. Simple fonts only. Anything that takes effort to read gets skipped.</span></div>
+      <div class="rule"><b>Stack multi-point slides downward</b><span>Eyes move top to bottom. Fight that and you lose comprehension for no reason.</span></div>
+      <div class="rule"><b>Match the emotion, not the moment</b><span>The photo does not have to be from the day it describes. It has to feel like the line it sits under.</span></div>
+      <div class="rule"><b>Pass the glance test</b><span>Somebody should look at the cover and know instantly that the post is for them.</span></div>
+      <div class="rule"><b>Put the payoff in the caption</b><span>Seven to ten slides, and whatever does not fit goes below. That overflow is usually the best part.</span></div>
+      <div class="rule"><b>Show your proof early</b><span>If the proof is not already obvious from your feed, put it on slide two or three. Show that you are eligible to talk about the thing.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="sect-k">Build</p>
+    <h2>How to actually make one</h2>
+    <p>Before you build anything, make a Projects folder with a carousels folder inside it. Every time you create a new style, it goes in there. That one habit is what makes reposting, remixing and finding old work easy six months from now.</p>
+    <h3>Canva for static</h3>
+    <p>It syncs to your phone, so anything built on the laptop is instantly on mobile. You can pull up an old carousel on the go, drop in new images, tweak the copy and post. It also stores your uploads permanently, so a portraits folder of headshots gets reused across everything.</p>
+    <p>Set your colors and fonts once in the brand kit. After that you can hit shuffle on any carousel and it recolors the whole thing to your palette.</p>
+    <div class="note warn"><b>The export setting everyone misses.</b> For video carousels, choose MP4 at max quality, then tick "download pages as separate files." Without it, Canva exports the entire carousel as one single video. For stills, use PNG and bump to 2x.</div>
+    <p>One honest warning: the trimmer inside Canva is rough. You cannot zoom, it is hard to see where you are, and it flashes while you scrub. Export your clips individually at five or ten seconds from your editor, then drag those in.</p>
+    <h3>Premiere for video</h3>
+    <p>Same process. Build the graphics and copy first, get them right, then drag B-roll underneath and size it.</p>
+    <p>The one reason to stay in Premiere is sound effects. Instagram will not let you use their music and your own sound effects at the same time. The workaround: screen record the audio off Instagram on your phone, AirDrop it over, drop it into the project, and layer the music underneath your own clicks and shutters. Export each slide in sequential order and the carousel keeps both.</p>
+  </section>
+
+  <section>
+    <p class="sect-k">Before you post</p>
+    <h2>The ten-point check</h2>
+    <div class="cks">
+      <div class="cki"><span class="hk"></span><span>One narrow topic with one clear outcome</span></div>
+      <div class="cki"><span class="hk"></span><span>Seven to ten slides, and under ten is better</span></div>
+      <div class="cki"><span class="hk"></span><span>Slide 1 and slide 2 both work as openers, and they differ</span></div>
+      <div class="cki"><span class="hk"></span><span>The cover passes the glance test</span></div>
+      <div class="cki"><span class="hk"></span><span>Proof is visible by slide three</span></div>
+      <div class="cki"><span class="hk"></span><span>One idea per slide, in plain language</span></div>
+      <div class="cki"><span class="hk"></span><span>Text is readable at arm's length on a phone</span></div>
+      <div class="cki"><span class="hk"></span><span>The payoff lives in the caption</span></div>
+      <div class="cki"><span class="hk"></span><span>A sound is attached</span></div>
+      <div class="cki"><span class="hk"></span><span>The file is saved into your carousels folder for next time</span></div>
+    </div>
+  </section>
+
+  </div>
+
+  <div class="cta">
+    <h2>Want the rest of the system?</h2>
+    <p>Carousels are one format out of five. The full roadmap covers how to capture cinematic content on a phone, how to build a B-roll library you can pull from for a year, and how to run the whole thing on a schedule you can actually hold.</p>
+    <p>I teach it live and free every week in the Cinematic Brand Playbook workshop.</p>
+    <a class="btn" href="https://workshop.fscreative.live">Save your seat</a>
+  </div>
+
+  <p class="foot">FSCreative&#8482; &middot; Built by Gabe Harris to help you level up your content and personal brand</p>
+
+</div>
+
+<script>
+(function(){
+  var seg=document.getElementById('themeSeg'), K='fsc-theme';
+  var host=document.documentElement.getAttribute('data-theme'); // artifact host may set this
+  var saved=null; try{ saved=localStorage.getItem(K); }catch(e){}
+  var cur = saved || (host ? host : 'auto');
+  function apply(v,write){
+    if(v==='auto'){ if(host){ document.documentElement.setAttribute('data-theme',host); }
+                    else { document.documentElement.removeAttribute('data-theme'); } }
+    else { document.documentElement.setAttribute('data-theme',v); }
+    Array.prototype.forEach.call(seg.children,function(b){
+      var on=b.dataset.t===v; b.classList.toggle('on',on); b.setAttribute('aria-pressed',on?'true':'false');
+    });
+    var m=document.querySelector('meta[name="theme-color"]');
+    if(m) m.setAttribute('content', getComputedStyle(document.body).backgroundColor);
+    if(write){ try{ localStorage.setItem(K,v); }catch(e){} }
+  }
+  seg.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(b) apply(b.dataset.t,true);
+  });
+  apply(cur,false);
+})();
+</script>
+
+</body>
+</html>
