@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -25,17 +25,7 @@
   --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
   color-scheme:light;
 }
-@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
-  --bg:#0d0e10; --card:#17181b; --glass:#1d1f23; --field:#212328; --hover:#1e2024;
-  --line:#2b2d32; --hair:rgba(255,255,255,.09);
-  --ink:#eceef0; --ink-2:#bcc2be; --dim:#9aa19d; --mute:#7f8681;
-  --accent:#158452; --accent-ink:#6fdca8; --accent-soft:#16352a; --accent-line:#245a42;
-  --orange:#ee663e; --orange-soft:#3a2118; --orange-ink:#ffab8e; --orange-line:#5a3425;
-  --rail:#1c1e22; --inv:#eceef0; --inv-ink:#111315; --inv-hover:#ffffff;
-  --track:#34373c; --ring:#4a4e55;
-  --shadow-card:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
-  color-scheme:dark;
-}}
+/* Light is the default. Dark is opt-in only, never from the OS. */
 :root[data-theme="dark"]{
   --bg:#0d0e10; --card:#17181b; --glass:#1d1f23; --field:#212328; --hover:#1e2024;
   --line:#2b2d32; --hair:rgba(255,255,255,.09);
@@ -174,7 +164,6 @@ strong{font-weight:700;color:var(--ink)}
       </div>
     </div>
     <div class="theme-seg" id="themeSeg" role="group" aria-label="Theme">
-      <button type="button" data-t="auto">Auto</button>
       <button type="button" data-t="light">Light</button>
       <button type="button" data-t="dark">Dark</button>
     </div>
@@ -335,8 +324,7 @@ strong{font-weight:700;color:var(--ink)}
 
   <div class="cta">
     <h2>Want the rest of the system?</h2>
-    <p>Carousels are one format out of five. The full roadmap covers how to capture cinematic content on a phone, how to build a B-roll library you can pull from for a year, and how to run the whole thing on a schedule you can actually hold.</p>
-    <p>I teach it live and free every week in the Cinematic Brand Playbook workshop.</p>
+    <p>Join my next workshop, where we go deeper on all the different elements of building out your personal brand. Live and free, every week.</p>
     <a class="btn" href="https://workshop.fscreative.live">Save your seat</a>
   </div>
 
@@ -347,13 +335,9 @@ strong{font-weight:700;color:var(--ink)}
 <script>
 (function(){
   var seg=document.getElementById('themeSeg'), K='fsc-theme';
-  var host=document.documentElement.getAttribute('data-theme'); // artifact host may set this
   var saved=null; try{ saved=localStorage.getItem(K); }catch(e){}
-  var cur = saved || (host ? host : 'auto');
   function apply(v,write){
-    if(v==='auto'){ if(host){ document.documentElement.setAttribute('data-theme',host); }
-                    else { document.documentElement.removeAttribute('data-theme'); } }
-    else { document.documentElement.setAttribute('data-theme',v); }
+    document.documentElement.setAttribute('data-theme', v==='dark' ? 'dark' : 'light');
     Array.prototype.forEach.call(seg.children,function(b){
       var on=b.dataset.t===v; b.classList.toggle('on',on); b.setAttribute('aria-pressed',on?'true':'false');
     });
@@ -364,7 +348,7 @@ strong{font-weight:700;color:var(--ink)}
   seg.addEventListener('click',function(e){
     var b=e.target.closest('button'); if(b) apply(b.dataset.t,true);
   });
-  apply(cur,false);
+  apply(saved==='dark' ? 'dark' : 'light', false);
 })();
 </script>
 
