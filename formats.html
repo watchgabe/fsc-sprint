@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Every FSCreative content format, with real examples you can watch. Filter by type, click a format for the breakdown.">
+<link rel="icon" href="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>The Format Library</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* Launch HQ look: dark rail left, white work surface right, green works */
+:root{
+ --bg:#ffffff;--card:#ffffff;--glass:#f5f5f6;--field:#f4f4f5;--hover:#fafafa;
+ --line:#e8e8ea;--hair:rgba(20,21,24,.09);
+ --ink:#111815;--ink-2:#4d5451;--dim:#656d69;--mute:#6f7470;
+ --accent:#158452;--accent-ink:#0e5c39;--accent-soft:#e2f1e9;--accent-line:#cbe5d7;
+ --orange:#ee663e;--orange-soft:#fdeae3;--orange-ink:#8a3416;--orange-line:#f5cdbc;
+ --rail:#141518;--rail-2:#1f2125;--rail-text:#eceef0;--rail-dim:#8b9095;
+ --inv:#141518;--inv-ink:#ffffff;--ring:#d9d4cb;
+ --shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.05);
+ --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+ color-scheme:light;
+}
+:root[data-theme="dark"]{
+ --bg:#0d0e10;--card:#17181b;--glass:#1d1f23;--field:#212328;--hover:#1e2024;
+ --line:#2b2d32;--hair:rgba(255,255,255,.09);
+ --ink:#eceef0;--ink-2:#bcc2be;--dim:#9aa19d;--mute:#7f8681;
+ --accent:#158452;--accent-ink:#6fdca8;--accent-soft:#16352a;--accent-line:#245a42;
+ --orange:#ee663e;--orange-soft:#3a2118;--orange-ink:#ffab8e;--orange-line:#5a3425;
+ --rail:#1c1e22;--rail-2:#2a2d33;--inv:#eceef0;--inv-ink:#111315;--ring:#4a4e55;
+ --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+ color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.55;
+ -webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+.app{display:flex;gap:0;align-items:flex-start;max-width:1240px;margin:0 auto;padding:16px}
+
+/* rail */
+.rail{width:236px;flex:none;background:var(--rail);border-radius:30px;padding:20px 14px;
+ position:sticky;top:calc(16px + env(safe-area-inset-top,0px));color:var(--rail-text)}
+.brand{display:flex;align-items:center;gap:10px;padding:0 8px 16px}
+.brand img{width:32px;height:32px;display:block;flex:none}
+.brand .nm{font-size:14px;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.brand .cap{font-size:10.5px;color:var(--rail-dim);font-weight:500}
+.sect{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--rail-dim);padding:12px 10px 7px}
+.rail button.nav{display:flex;width:100%;align-items:center;justify-content:space-between;gap:8px;
+ background:none;border:0;color:var(--rail-text);font:inherit;font-size:13.5px;font-weight:600;
+ border-radius:999px;padding:10px 13px;cursor:pointer;text-align:left;min-height:44px}
+.rail button.nav:hover{background:var(--rail-2)}
+.rail button.nav.on{background:#fff;color:#141518}
+.rail button.nav .ct{font-size:11.5px;font-weight:600;opacity:.65}
+.rail button.nav.on .ct{opacity:.55}
+.rail button.nav:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.seg{display:flex;gap:2px;background:var(--rail-2);border-radius:999px;padding:3px;margin:16px 8px 0}
+.seg button{flex:1;font:inherit;font-size:11px;font-weight:600;color:var(--rail-dim);background:none;border:0;
+ border-radius:999px;padding:7px 4px;cursor:pointer;min-height:34px}
+.seg button.on{background:#fff;color:#141518}
+
+/* main */
+.main{flex:1;min-width:0;padding:6px 0 0 20px}
+h1{font-size:30px;font-weight:800;letter-spacing:-.035em;margin:0 0 6px}
+.sub{color:var(--dim);font-weight:500;margin:0 0 20px;font-size:13.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.fc{background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:0;box-shadow:var(--shadow);
+ cursor:pointer;text-align:left;font:inherit;color:inherit;overflow:hidden;min-width:0;display:flex;flex-direction:column}
+.fc:hover{background:var(--hover)}
+.fc:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.fc .top{aspect-ratio:4/3;background:var(--glass);position:relative;border-bottom:1px solid var(--hair);overflow:hidden;
+ display:grid;grid-template-columns:repeat(3,1fr);gap:1px}
+.fc .top img{width:100%;height:100%;object-fit:cover;display:block}
+.fc .top .ph{width:100%;height:100%;background:var(--field)}
+.fc .cnt{position:absolute;right:8px;bottom:8px;background:rgba(10,12,11,.82);color:#fff;font-size:10.5px;
+ font-weight:700;border-radius:999px;padding:4px 9px;backdrop-filter:blur(4px)}
+.fc .body{padding:14px 15px 15px}
+.fc h3{font-size:15px;font-weight:700;letter-spacing:-.02em;margin:0 0 5px}
+.fc p{font-size:12.5px;color:var(--dim);margin:0;font-weight:500;line-height:1.45}
+.fc .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}
+.pill{font-size:10px;font-weight:700;border-radius:999px;padding:4px 9px;background:var(--field);color:var(--dim)}
+.pill.g{background:var(--accent-soft);color:var(--accent-ink)}
+.pill.o{background:var(--orange-soft);color:var(--orange-ink)}
+
+/* detail */
+.back{display:inline-flex;align-items:center;gap:7px;background:none;border:0;font:inherit;font-size:12.5px;
+ font-weight:600;color:var(--dim);cursor:pointer;padding:8px 0;margin-bottom:6px;min-height:40px}
+.back:hover{color:var(--accent-ink)}
+.dh{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.lede{font-size:16.5px;font-weight:600;letter-spacing:-.015em;color:var(--ink);max-width:58ch;margin:4px 0 16px;line-height:1.4}
+.panel{background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:18px;box-shadow:var(--shadow);margin-bottom:14px}
+.panel h4{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--dim);margin:0 0 10px}
+.panel p{margin:0;color:var(--ink-2);font-weight:500;max-width:66ch}
+ul.r{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+ul.r li{display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:start;font-size:13.5px;color:var(--ink-2);font-weight:500;min-width:0}
+ul.r li::before{content:"";width:17px;height:17px;border-radius:50%;background:var(--accent-soft);
+ border:2px solid var(--accent-line);margin-top:1px}
+ul.k li::before{background:var(--orange-soft);border-color:var(--orange-line)}
+.ex{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:10px}
+.tile{position:relative;aspect-ratio:9/16;background:var(--glass);border:1px solid var(--hair);border-radius:12px;
+ overflow:hidden;min-width:0}
+.tile img,.tile video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#0b0d0c}
+.tile .n{position:absolute;top:7px;left:8px;z-index:3;font-size:9.5px;font-weight:700;color:#fff;
+ background:rgba(10,12,11,.7);border-radius:999px;padding:3px 7px;backdrop-filter:blur(4px)}
+.tile .play{position:absolute;inset:0;z-index:2;border:0;background:transparent;cursor:pointer;display:flex;
+ align-items:center;justify-content:center;padding:0}
+.tile .play i{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.93);display:flex;
+ align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.tile .play i::after{content:"";border-left:13px solid #141518;border-top:8px solid transparent;
+ border-bottom:8px solid transparent;margin-left:4px}
+.tile .play:hover i{transform:scale(1.07)}
+.tile .play:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
+.tile .ig{position:absolute;right:7px;bottom:7px;z-index:3;font-size:9.5px;font-weight:700;color:#fff;text-decoration:none;
+ background:rgba(10,12,11,.7);border-radius:999px;padding:4px 9px;backdrop-filter:blur(4px)}
+.tile .ig:hover{background:var(--accent)}
+.tile.dead{display:flex;align-items:center;justify-content:center;border-style:dashed;border-color:var(--ring)}
+.tile.dead span{font-size:10.5px;font-weight:600;color:var(--mute);text-align:center;padding:10px;line-height:1.35}
+.empty{background:var(--field);border:1px dashed var(--ring);border-radius:12px;padding:18px;color:var(--dim);
+ font-size:13px;font-weight:500}
+.menu-btn{display:none}
+
+@media (max-width:860px){
+ .app{flex-direction:column;padding:0}
+ .rail{width:100%;position:sticky;top:env(safe-area-inset-top,0px);border-radius:0;padding:10px 12px;z-index:20;
+   display:flex;align-items:center;justify-content:space-between;gap:10px}
+ .brand{padding:0}
+ .rail .navwrap,.rail .sect{display:none}
+ .rail.open{flex-direction:column;align-items:stretch;height:100dvh;overflow:auto}
+ .rail.open .navwrap,.rail.open .sect{display:block}
+ .menu-btn{display:inline-flex;align-items:center;min-height:40px;background:var(--rail-2);color:var(--rail-text);
+   border:0;border-radius:999px;padding:0 15px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+ .seg{margin:10px 0 0}
+ .main{padding:18px 16px 56px}
+ h1{font-size:25px}
+ .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:11px}
+ .ex{grid-template-columns:repeat(auto-fill,minmax(104px,1fr))}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <aside class="rail" id="rail">
+    <div class="brand">
+      <img src="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png" alt="">
+      <div><div class="nm">FSCreative&#8482;</div><div class="cap">Format Library</div></div>
+      <button class="menu-btn" id="menuBtn" type="button" style="margin-left:auto">Menu</button>
+    </div>
+    <div class="navwrap">
+      <div class="sect">Browse</div>
+      <div id="nav"></div>
+      <div class="seg" id="themeSeg" role="group" aria-label="Theme">
+        <button type="button" data-t="light">Light</button>
+        <button type="button" data-t="dark">Dark</button>
+      </div>
+    </div>
+  </aside>
+  <main class="main" id="main"></main>
+</div>
+
+<script>
+const FAMILIES=[
+ {k:"all",   n:"All formats"},
+ {k:"talk",  n:"Talking"},
+ {k:"silent",n:"Non-talking"},
+ {k:"carousel",n:"Carousels"},
+ {k:"funnel",n:"Funnel"}
+];
+const FORMATS=[
+{id:"cineyap",fam:"talk",name:"CineYap",tag:"Signature",
+ one:"A hook, then a riff, shot so it looks like a film and feels like a thought.",
+ len:"No fixed length",
+ what:"You talk to camera and the craft goes on top afterward. Ad-libbed by default, never a read script. This is the format most of Gabe's own videos use.",
+ rules:["One idea per video","Spoken hook, from the Hook Engine","Ad-libbed, or talking points at most","Record 3 to 4 hook takes every time the camera comes out","Captions in one style the whole way through","Craft is icing. The thought comes first"],
+ kills:["Reading. The most common failure.","Two ideas fighting for the same video","Using B-roll and titles to avoid posting"],
+ media:[{id:"DdZrZm4szvq",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061546/fsc-formats/DdZrZm4szvq.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062396/fsc-formats/DdZrZm4szvq.mp4"},{id:"DdEs1i3tl7m",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061535/fsc-formats/DdEs1i3tl7m.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062247/fsc-formats/DdEs1i3tl7m.mp4"},{id:"DZSN4KCh0l8",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061476/fsc-formats/DZSN4KCh0l8.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061783/fsc-formats/DZSN4KCh0l8.mp4"},{id:"Dcwte_6vi7l",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061527/fsc-formats/Dcwte_6vi7l.jpg",v:""},{id:"Da_TIytoeg0",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061484/fsc-formats/Da_TIytoeg0.jpg",v:""}]},
+
+{id:"yapmax",fam:"talk",name:"YapMaxxing",tag:"New",
+ one:"One idea, stripped of every unnecessary word, with a panel above your head doing the showing.",
+ len:"30 to 45 seconds",
+ what:"A compression format. Take a carousel of 10 to 20 points and force it into 45 seconds. The panel above you swaps per beat and can take over the full frame. Can be built entirely in Instagram Edits.",
+ rules:["30 to 45 seconds. Past that it is a CineYap","About 110 words total, so roughly 6 words per point","A panel change on every beat","The panel shows, the voice argues. Never narrate the panel","Shoot with headroom. The build cannot raise a tight close-up to the eye line","Start mid-thought. No setup"],
+ kills:["Delivering it flat, like a grocery list","Keeping a point just because the carousel had it","Over-producing the panel"],
+ media:[]},
+
+{id:"antiedit",fam:"talk",name:"The Anti-Edit",tag:"",
+ one:"You, alone, delivering a message with almost zero edits.",
+ len:"15 seconds to over a minute",
+ what:"Everything you hide behind is removed. What survives is what you say and how you say it. The hardest format for most creatives, which is the point of it.",
+ rules:["Keep: trimmed dead space, auto captions in one style, optional music, a grade","Gone: B-roll, graphics, sound effects, flash cuts","The pause to collect a thought stays in","IG Edits does all of this"],
+ kills:["Waiting until you have better B-roll","Using the pressure to make something cinematic as a reason to skip the day"],
+ media:[{id:"DdU8ztaKQm2",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061541/fsc-formats/DdU8ztaKQm2.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062343/fsc-formats/DdU8ztaKQm2.mp4"},{id:"DcPJSesSHGS",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061521/fsc-formats/DcPJSesSHGS.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062150/fsc-formats/DcPJSesSHGS.mp4"},{id:"DdMzjd2yfZ3",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061537/fsc-formats/DdMzjd2yfZ3.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062290/fsc-formats/DdMzjd2yfZ3.mp4"},{id:"DcyebBBRe7H",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061528/fsc-formats/DcyebBBRe7H.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062193/fsc-formats/DcyebBBRe7H.mp4"},{id:"Dcg_na6Mnzc",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061523/fsc-formats/Dcg_na6Mnzc.jpg",v:""},{id:"Db6ucABPRCz",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061490/fsc-formats/Db6ucABPRCz.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061952/fsc-formats/Db6ucABPRCz.mp4"},{id:"Dbu7jqMJEyS",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061508/fsc-formats/Dbu7jqMJEyS.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062047/fsc-formats/Dbu7jqMJEyS.mp4"},{id:"DbI1pSksE78",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061497/fsc-formats/DbI1pSksE78.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061978/fsc-formats/DbI1pSksE78.mp4"},{id:"DaLB2oSu9Sy",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061483/fsc-formats/DaLB2oSu9Sy.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061917/fsc-formats/DaLB2oSu9Sy.mp4"},{id:"DaDJ0QBB83R",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061482/fsc-formats/DaDJ0QBB83R.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061798/fsc-formats/DaDJ0QBB83R.mp4"}]},
+
+{id:"cineshorts",fam:"talk",name:"CineShorts",tag:"",
+ one:"A short film with a story arc, carried by sequences rather than by you on camera.",
+ len:"Varies",
+ what:"The most produced thing in the library. Build the sequence, lay a voiceover and titles over it, and ship it. This is where the filmmaking actually shows.",
+ rules:["Build the sequence first, voice second","Story arc intact: setup, conflict, resolution","Titles hold structure rather than decorate","Shoot wide, medium and tight on the same moment"],
+ kills:["Beautiful footage with no arc","Letting the production cost become the reason you post twice a month"],
+ media:[{id:"DLFkxKPt6Go",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061452/fsc-formats/DLFkxKPt6Go.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061687/fsc-formats/DLFkxKPt6Go.mp4"},{id:"DOsvsh_ktAk",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061458/fsc-formats/DOsvsh_ktAk.jpg",v:""},{id:"DdQqyQ3pN1d",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061539/fsc-formats/DdQqyQ3pN1d.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062318/fsc-formats/DdQqyQ3pN1d.mp4"},{id:"Dc5TagvTs2_",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061519/fsc-formats/Dc5TagvTs2_.jpg",v:""},{id:"Dbqa9DLqv-9",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061506/fsc-formats/Dbqa9DLqv-9.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062014/fsc-formats/Dbqa9DLqv-9.mp4"},{id:"DZ_rYnkBELO",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061477/fsc-formats/DZ_rYnkBELO.jpg",v:""}]},
+
+{id:"brollvo",fam:"talk",name:"B-Roll + Voiceover",tag:"",
+ one:"Your sequence with your voice read over the top.",
+ len:"Varies",
+ what:"The halfway house between a CineShort and a CineYap. You never appear on camera, but there is still a spoken script, so it counts as dialogue.",
+ rules:["The sequence carries the emotion, the voice carries the message","Match the emotion, not the moment","Same footage works for three other formats"],
+ kills:["A voiceover that narrates what the viewer can already see"],
+ media:[{id:"DLFkxKPt6Go",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061452/fsc-formats/DLFkxKPt6Go.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061687/fsc-formats/DLFkxKPt6Go.mp4"},{id:"reels/DV52N1JE4sb",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061566/fsc-formats/reels_DV52N1JE4sb.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062476/fsc-formats/reels_DV52N1JE4sb.mp4"},{id:"Db_vEh6xeBJ",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061501/fsc-formats/Db_vEh6xeBJ.jpg",v:""}]},
+
+{id:"texthook",fam:"silent",name:"Text Hook + B-Roll",tag:"",
+ one:"One clip, one text hook, one song, and the whole story in the caption.",
+ len:"Under 10 seconds",
+ what:"The lowest effort format in the library, and it earns a slot every week. Open your camera roll, find one clip, give it an emotional hook, add a song, write a real caption.",
+ rules:["Under 10 seconds","No dialogue","One idea per clip","A text hook that reads in one pass","Music with a build","A caption that carries the context"],
+ kills:["A hook your Perfect Follower would not recognise as theirs","Treating the caption as an afterthought. The value lives there"],
+ media:[{id:"Db2RmHXAe-N",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061488/fsc-formats/Db2RmHXAe-N.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061936/fsc-formats/Db2RmHXAe-N.mp4"},{id:"DclvGtxRzKH",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061525/fsc-formats/DclvGtxRzKH.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062163/fsc-formats/DclvGtxRzKH.mp4"},{id:"DbcKbJSO5Sc",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061503/fsc-formats/DbcKbJSO5Sc.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061994/fsc-formats/DbcKbJSO5Sc.mp4"},{id:"Dc0rygpPzV2",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061516/fsc-formats/Dc0rygpPzV2.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062067/fsc-formats/Dc0rygpPzV2.mp4"},{id:"Db1c252PTn9",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061487/fsc-formats/Db1c252PTn9.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061932/fsc-formats/Db1c252PTn9.mp4"},{id:"DdGbo8sTM30",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061536/fsc-formats/DdGbo8sTM30.jpg",v:""},{id:"DbGdGlDgg8i",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061496/fsc-formats/DbGdGlDgg8i.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061958/fsc-formats/DbGdGlDgg8i.mp4"},{id:"reel/DQDO1pWjN58",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061555/fsc-formats/reel_DQDO1pWjN58.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062431/fsc-formats/reel_DQDO1pWjN58.mp4"},{id:"reel/DWe7f_RPQI-",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061563/fsc-formats/reel_DWe7f_RPQI-.jpg",v:""},{id:"DdeTm1_RnJ5",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061548/fsc-formats/DdeTm1_RnJ5.jpg",v:""}]},
+
+{id:"sevensec",fam:"silent",name:"7-Second B-Roll",tag:"",
+ one:"Pull one clip from the bank, put a hook on it, ship it.",
+ len:"Under 10 seconds",
+ what:"Always a Viral-layer post. The visual and the on-screen hook do everything. Built from footage you already shot for something else.",
+ rules:["Under 10 seconds, silent","One visual idea","Shot at 0.5x on the back camera","Storytelling arc lives in the caption","Think broad"],
+ kills:["Expecting it to build trust. It buys reach, not belief"],
+ media:[{id:"reel/Dcv3VOxMjAe",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061565/fsc-formats/reel_Dcv3VOxMjAe.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062452/fsc-formats/reel_Dcv3VOxMjAe.mp4"},{id:"DbFKEo8DYA2",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061491/fsc-formats/DbFKEo8DYA2.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061955/fsc-formats/DbFKEo8DYA2.mp4"},{id:"Dan2s3QoJT9",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061485/fsc-formats/Dan2s3QoJT9.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061920/fsc-formats/Dan2s3QoJT9.mp4"},{id:"reels/DbPZAF5t37o",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061568/fsc-formats/reels_DbPZAF5t37o.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062525/fsc-formats/reels_DbPZAF5t37o.mp4"},{id:"reels/Daxpe1NRcVE",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061567/fsc-formats/reels_Daxpe1NRcVE.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062522/fsc-formats/reels_Daxpe1NRcVE.mp4"}]},
+
+{id:"minivlog",fam:"silent",name:"Mini-Vlogs",tag:"",
+ one:"A cinematic recap of a trip, a weekend, or an ordinary day, cut to a song.",
+ len:"10 to 30 seconds",
+ what:"Tilted toward the visuals. No voiceover, no storyline required. A little random is fine. The whole job is handing someone a feeling.",
+ rules:["10 to 30 seconds","Pick a trending song and cut to it","No voiceover. Real audio under a minimal bed works","Keep it light"],
+ kills:["Trying to force a narrative onto clips that do not have one"],
+ media:[{id:"DUYBdGckm59",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061461/fsc-formats/DUYBdGckm59.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061711/fsc-formats/DUYBdGckm59.mp4"},{id:"DbG2nR4Ih_8",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061493/fsc-formats/DbG2nR4Ih_8.jpg",v:""},{id:"DdSo5O0P9B2",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061540/fsc-formats/DdSo5O0P9B2.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062328/fsc-formats/DdSo5O0P9B2.mp4"},{id:"DdC-oV3mTWX",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061533/fsc-formats/DdC-oV3mTWX.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062211/fsc-formats/DdC-oV3mTWX.mp4"}]},
+
+{id:"ditl",fam:"silent",name:"Day In The Life",tag:"",
+ one:"The mini vlog with a clock on it.",
+ len:"10 to 30 seconds",
+ what:"A specific time sequence: an actual day, a morning routine, an evening reset. The timestamp is what separates it from a mini vlog, and it is doing most of the work.",
+ rules:["Stamp the time. Day 1 vs Day 40, before 6am, three months of this","Build connection through hobbies, goals and interests","Shoot the sequence once and use it four ways"],
+ kills:["No time anchor, at which point it is just a mini vlog"],
+ media:[{id:"DVQ7MPeDA02",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061462/fsc-formats/DVQ7MPeDA02.jpg",v:""},{id:"DbyRWC_BtK6",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061510/fsc-formats/DbyRWC_BtK6.jpg",v:""},{id:"DbGCSYpOSJ_",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061494/fsc-formats/DbGCSYpOSJ_.jpg",v:""},{id:"DdBVRkmMe7B",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061531/fsc-formats/DdBVRkmMe7B.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062202/fsc-formats/DdBVRkmMe7B.mp4"},{id:"DOgFjE1DORR",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061453/fsc-formats/DOgFjE1DORR.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061702/fsc-formats/DOgFjE1DORR.mp4"},{id:"DWSAd9ljL8f",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061464/fsc-formats/DWSAd9ljL8f.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061738/fsc-formats/DWSAd9ljL8f.mp4"},{id:"DdW8uWrzO03",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061544/fsc-formats/DdW8uWrzO03.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062379/fsc-formats/DdW8uWrzO03.mp4"},{id:"DdUUfwHtSRc",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061543/fsc-formats/DdUUfwHtSRc.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062359/fsc-formats/DdUUfwHtSRc.mp4"}]},
+
+{id:"advicevid",fam:"silent",name:"Advice (silent)",tag:"",
+ one:"A carousel, assembled as a video.",
+ len:"Short",
+ what:"Pure value through short video. Same logic as a carousel, just sequentially assembled. If you have posted a carousel that did well, this already exists.",
+ rules:["One idea per clip","Edit to the music","A text hook to hold them","Rotate through the information","A CTA closes the strong ones"],
+ kills:["Pacing so fast nobody can read it"],
+ media:[{id:"DW7ij-AjoT3",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061463/fsc-formats/DW7ij-AjoT3.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061722/fsc-formats/DW7ij-AjoT3.mp4"},{id:"reel/DVooS6mRe0j",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061562/fsc-formats/reel_DVooS6mRe0j.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062444/fsc-formats/reel_DVooS6mRe0j.mp4"},{id:"reel/DQi_GeOEzub",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061558/fsc-formats/reel_DQi_GeOEzub.jpg",v:""},{id:"Ddmmy0fKOYd",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061549/fsc-formats/Ddmmy0fKOYd.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062417/fsc-formats/Ddmmy0fKOYd.mp4"},{id:"DdPYAHrS3Z6",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061538/fsc-formats/DdPYAHrS3Z6.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062298/fsc-formats/DdPYAHrS3Z6.mp4"},{id:"reel/DRd1bf4jFbt",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061560/fsc-formats/reel_DRd1bf4jFbt.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062436/fsc-formats/reel_DRd1bf4jFbt.mp4"}]},
+
+{id:"cinspiration",fam:"carousel",name:"Carousel · Inspiration",tag:"",
+ one:"Your own story as proof that the thing is possible.",
+ len:"7 to 10 slides",
+ what:"An achievement on its own reads as showing off. Paired with what it cost, the same achievement reads as proof. Vicarious motivation: people do not need the reward themselves to be moved toward it.",
+ rules:["Pair the win with the struggle","Think broad and relatable","7 to 10 slides, one line per slide","Add a sound before you post"],
+ kills:["The number with no cost attached"],
+ media:[{id:"DZ-4aXkIAOl",t:"",v:""},{id:"DEnRCTaxK5w",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061451/fsc-formats/DEnRCTaxK5w.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061663/fsc-formats/DEnRCTaxK5w.mp4"},{id:"DdIxz5QjstZ",t:"",v:""},{id:"Dc_ytKyDgxj",t:"",v:""},{id:"Dc1PE79lmUc",t:"",v:""}]},
+
+{id:"cguides",fam:"carousel",name:"Carousel · Tactical Guides",tag:"Best performer",
+ one:"Something you know, broken into steps somebody can run today.",
+ len:"7 to 10 slides",
+ what:"The only bar is saveability. A guide shows the actual thinking, which is what makes someone believe you could do it for them. Gabe's top post by followers is one of these.",
+ rules:["One narrow topic, one simple outcome","7 to 10 slides, under 10 is better","Proof visible by slide three","One step per slide, plain language","Simplify until a fifth grader gets it","Add a sound before you post"],
+ kills:["Dumping the whole process so it feels complete","Jargon. The people who know it do not need your guide"],
+ media:[{id:"Dc3immEILSE",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061518/fsc-formats/Dc3immEILSE.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062071/fsc-formats/Dc3immEILSE.mp4"},{id:"DbWRNfFD8FP",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061500/fsc-formats/DbWRNfFD8FP.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061983/fsc-formats/DbWRNfFD8FP.mp4"},{id:"DZx0GPWoKhd",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061479/fsc-formats/DZx0GPWoKhd.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061791/fsc-formats/DZx0GPWoKhd.mp4"},{id:"DaOaAxQkRE6",t:"",v:""},{id:"DaYlAQdDyBs",t:"",v:""},{id:"DbjtHEnICjx",t:"",v:""},{id:"DZxUMdelnk3",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061480/fsc-formats/DZxUMdelnk3.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061796/fsc-formats/DZxUMdelnk3.mp4"},{id:"Dc-iIl6k9jF",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061511/fsc-formats/Dc-iIl6k9jF.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062058/fsc-formats/Dc-iIl6k9jF.mp4"},{id:"DYjlH0fE3p3",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061472/fsc-formats/DYjlH0fE3p3.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061747/fsc-formats/DYjlH0fE3p3.mp4"}]},
+
+{id:"cadvice",fam:"carousel",name:"Carousel · Advice",tag:"",
+ one:"The peer voice. A few steps ahead, not at the top.",
+ len:"7 to 10 slides",
+ what:"\"I'm 35, and these are the things I wish I knew at 25.\" Stating the gap is what makes a stranger read it. Every line has to trace back to something you actually lived.",
+ rules:["Anchor every slide to a real experience","The gap can be age or career stage","No wins yet? Share what did not work","Every slide doubles as a hook for a future video"],
+ kills:["Lessons you read somewhere rather than lived"],
+ media:[{id:"DQ6-f4vkSzW",t:"",v:""},{id:"DaJTa8DEdFK",t:"",v:""},{id:"DYQIpauIKJz",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061469/fsc-formats/DYQIpauIKJz.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061745/fsc-formats/DYQIpauIKJz.mp4"},{id:"Db_g0XYDw2K",t:"",v:""},{id:"Da5g99ZAuMh",t:"",v:""},{id:"DbQcriqjPJE",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061498/fsc-formats/DbQcriqjPJE.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061981/fsc-formats/DbQcriqjPJE.mp4"}]},
+
+{id:"cpostcard",fam:"carousel",name:"Carousel · Postcards",tag:"",
+ one:"Frames you already shot, with almost no text on them.",
+ len:"7 to 10 slides",
+ what:"The least produced thing you will post and often the one people reply to. In a reel your best frame gets two seconds. Here somebody can sit on it.",
+ rules:["Minimal text, sometimes none","The story lives in the caption","Built from B-roll you already have","Weekly recap or month in review. Monthly is easiest to hold"],
+ kills:["Adding a guide's worth of text to what should be a look at your life"],
+ media:[{id:"DQWy5MdkedX",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061460/fsc-formats/DQWy5MdkedX.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061707/fsc-formats/DQWy5MdkedX.mp4"},{id:"DUd-apeEQZN",t:"",v:""},{id:"DbgszMcoKyY",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061504/fsc-formats/DbgszMcoKyY.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061999/fsc-formats/DbgszMcoKyY.mp4"},{id:"DZ13fj1E9Z7",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061473/fsc-formats/DZ13fj1E9Z7.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061750/fsc-formats/DZ13fj1E9Z7.mp4"},{id:"DY7QqnWDK6j",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061466/fsc-formats/DY7QqnWDK6j.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061740/fsc-formats/DY7QqnWDK6j.mp4"},{id:"DZJhDxCFOKp",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061474/fsc-formats/DZJhDxCFOKp.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061752/fsc-formats/DZJhDxCFOKp.mp4"},{id:"DYKtv0XCcKB",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061468/fsc-formats/DYKtv0XCcKB.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791061743/fsc-formats/DYKtv0XCcKB.mp4"}]},
+
+{id:"leadmagnet",fam:"funnel",name:"Lead Magnets",tag:"",
+ one:"A simple clip and a CTA that trades something free for an email.",
+ len:"Short",
+ what:"Use the non-talking formats to grow on and off Instagram. The post does the reach, ManyChat does the delivery.",
+ rules:["Buzz words that signal free: steal this, freebie, get my x","Set up the ManyChat DM automation before you post","Rotate four magnets so you can run a CTA every other day","Simple clip plus CTA"],
+ kills:["A lead magnet with no automation behind it"],
+ media:[{id:"DdAs1tpstq-",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061530/fsc-formats/DdAs1tpstq-.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062199/fsc-formats/DdAs1tpstq-.mp4"},{id:"reel/DH6IAPZR5mK",t:"https://res.cloudinary.com/dy0kchxh8/image/upload/v1791061554/fsc-formats/reel_DH6IAPZR5mK.jpg",v:"https://res.cloudinary.com/dy0kchxh8/video/upload/v1791062422/fsc-formats/reel_DH6IAPZR5mK.mp4"}]}
+];
+
+</script>
+<script>
+(function(){
+ var S={fam:"all",open:null};
+ var main=document.getElementById('main'), nav=document.getElementById('nav');
+ var rail=document.getElementById('rail'), mb=document.getElementById('menuBtn');
+ var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});};
+ var url=function(id){return id.indexOf('/')>-1 ? 'https://www.instagram.com/'+id+'/' : 'https://www.instagram.com/p/'+id+'/';};
+ var inFam=function(f){return S.fam==='all'||f.fam===S.fam;};
+ var total=FORMATS.reduce(function(a,f){return a+f.media.length;},0);
+ var playable=FORMATS.reduce(function(a,f){return a+f.media.filter(function(m){return m.v;}).length;},0);
+
+ function drawNav(){
+  nav.innerHTML=FAMILIES.map(function(fm){
+   var n=fm.k==='all'?FORMATS.length:FORMATS.filter(function(f){return f.fam===fm.k;}).length;
+   return '<button class="nav'+(S.fam===fm.k?' on':'')+'" data-f="'+fm.k+'"><span>'+fm.n+'</span><span class="ct">'+n+'</span></button>';
+  }).join('');
+ }
+
+ function drawGrid(){
+  var list=FORMATS.filter(inFam);
+  main.innerHTML='<h1>The Format Library</h1><p class="sub">'+FORMATS.length+' formats &middot; '+total+
+   ' examples, '+playable+' playable in place. Click a format for the breakdown.</p><div class="grid">'+
+   list.map(function(f){
+    var cov=f.media.filter(function(m){return m.t;}).slice(0,3);
+    var strip=[0,1,2].map(function(i){return cov[i]?'<img loading="lazy" src="'+cov[i].t+'" alt="">':'<div class="ph"></div>';}).join('');
+    return '<button class="fc" data-id="'+f.id+'">'+
+     '<div class="top">'+strip+'<span class="cnt">'+f.media.length+'</span></div>'+
+     '<div class="body"><h3>'+esc(f.name)+'</h3><p>'+esc(f.one)+'</p>'+
+     '<div class="meta"><span class="pill g">'+esc(f.len)+'</span>'+
+     (f.tag?'<span class="pill o">'+esc(f.tag)+'</span>':'')+'</div></div></button>';
+   }).join('')+'</div>';
+ }
+
+ function drawDetail(f){
+  var ex = f.media.length
+    ? '<div class="ex">'+f.media.map(function(m,i){
+        var n='<span class="n">'+String(i+1).padStart(2,'0')+'</span>';
+        var ig='<a class="ig" href="'+url(m.id)+'" target="_blank" rel="noopener noreferrer">Post &rarr;</a>';
+        if(!m.t) return '<div class="tile dead"><span>Post unavailable<br>'+esc(m.id.split('/').pop())+'</span></div>';
+        var pic='<img loading="lazy" src="'+m.t+'" alt="">';
+        var btn=m.v?'<button class="play" data-v="'+m.v+'" aria-label="Play"><i></i></button>':'';
+        return '<div class="tile">'+pic+btn+n+ig+'</div>';
+      }).join('')+'</div>'
+    : '<div class="empty">No examples saved yet. Send the links and they land here.</div>';
+  main.innerHTML='<button class="back" id="back">&larr; All formats</button>'+
+   '<div class="dh"><h1>'+esc(f.name)+'</h1></div>'+
+   '<div class="meta" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px">'+
+     '<span class="pill g">'+esc(f.len)+'</span><span class="pill">'+f.links.length+' examples</span>'+
+     (f.tag?'<span class="pill o">'+esc(f.tag)+'</span>':'')+'</div>'+
+   '<p class="lede">'+esc(f.one)+'</p>'+
+   '<div class="panel"><h4>What it is</h4><p>'+esc(f.what)+'</p></div>'+
+   '<div class="panel"><h4>The rules</h4><ul class="r">'+f.rules.map(function(r){return '<li><span></span><span>'+esc(r)+'</span></li>';}).join('')+'</ul></div>'+
+   '<div class="panel"><h4>What kills one</h4><ul class="r k">'+f.kills.map(function(r){return '<li><span></span><span>'+esc(r)+'</span></li>';}).join('')+'</ul></div>'+
+   '<div class="panel"><h4>Examples to study</h4>'+ex+'</div>';
+  document.getElementById('back').addEventListener('click',function(){S.open=null;render();});
+  main.querySelectorAll('.tile .play').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.parentNode, src=b.dataset.v;
+      main.querySelectorAll('.tile video').forEach(function(v){v.pause();});
+      var vid=document.createElement('video');
+      vid.src=src; vid.controls=true; vid.playsInline=true; vid.autoplay=true; vid.preload='none';
+      var img=t.querySelector('img'); if(img) img.remove();
+      b.remove(); t.insertBefore(vid,t.firstChild);
+      vid.play().catch(function(){});
+    });
+  });
+ }
+
+ function render(){
+  drawNav();
+  if(S.open){ drawDetail(FORMATS.filter(function(f){return f.id===S.open;})[0]); }
+  else drawGrid();
+  window.scrollTo({top:0});
+ }
+
+ nav.addEventListener('click',function(e){
+  var b=e.target.closest('button.nav'); if(!b) return;
+  S.fam=b.dataset.f; S.open=null; rail.classList.remove('open'); render();
+ });
+ main.addEventListener('click',function(e){
+  var c=e.target.closest('.fc'); if(!c) return;
+  S.open=c.dataset.id; render();
+ });
+ mb.addEventListener('click',function(){rail.classList.toggle('open');});
+
+ var seg=document.getElementById('themeSeg'),K='fsc-theme',saved=null;
+ try{saved=localStorage.getItem(K);}catch(e){}
+ function theme(v,w){
+  document.documentElement.setAttribute('data-theme',v==='dark'?'dark':'light');
+  Array.prototype.forEach.call(seg.children,function(b){
+   var on=b.dataset.t===v;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');});
+  if(w){try{localStorage.setItem(K,v);}catch(e){}}
+ }
+ seg.addEventListener('click',function(e){var b=e.target.closest('button');if(b)theme(b.dataset.t,true);});
+ theme(saved==='dark'?'dark':'light',false);
+ render();
+})();
+</script>
+
+</body>
+</html>
