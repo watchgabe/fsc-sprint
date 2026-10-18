@@ -5,7 +5,40 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Every FSCreative content format, with real examples you can watch. Filter by type, click a format for the breakdown.">
 <link rel="icon" href="https://res.cloudinary.com/dy0kchxh8/image/upload/v1778548956/Artwork5_bbba8026-9c77-4162-a796-822b2558fb9f_wfvsrh.png">
-<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+.two{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:22px;align-items:start;margin-top:14px}
+.two .panel{margin-top:0;margin-bottom:14px}
+ul.r li>span:empty{display:none}
+details.more{padding:0}
+details.more summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:2px;padding:16px 46px 16px 18px;position:relative;min-height:44px}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary span{font-size:14px;font-weight:700;color:var(--ink)}
+details.more summary em{font-style:normal;font-size:12px;color:var(--dim)}
+details.more summary::after{content:"";position:absolute;right:20px;top:50%;width:8px;height:8px;border-right:2px solid var(--dim);border-bottom:2px solid var(--dim);transform:translateY(-70%) rotate(45deg);transition:transform .15s}
+details.more[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+details.more summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:16px}
+.more-in{padding:0 18px 18px}
+.more-in h4{margin-top:16px}
+.more-in h4:first-child{margin-top:4px}
+.col-r .ex{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+@media (max-width:640px){.col-r .ex{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
+
+.xp{position:relative;display:block;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#141518;margin-bottom:14px;text-decoration:none;color:#fff}
+.xp-img{position:absolute;inset:0;background-size:cover;background-position:center}
+.xp-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,11,.05) 35%,rgba(10,12,11,.82))}
+.xp-play{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(0,0,0,.35);transition:transform .15s}
+.xp-play i{border-left:17px solid #141518;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:5px}
+.xp:hover .xp-play{transform:translate(-50%,-50%) scale(1.06)}
+.xp:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.xp-txt{position:absolute;left:16px;right:16px;bottom:13px;display:flex;flex-direction:column;gap:2px}
+.xp-txt b{font-size:15px;font-weight:750}
+.xp-txt em{font-style:normal;font-size:11.5px;opacity:.8}
+.xp.none{background:var(--glass);border:1px dashed var(--ring);color:var(--ink-2)}
+.xp.none .xp-txt{position:absolute;inset:auto 16px 16px}
+@media (max-width:900px){.two{grid-template-columns:minmax(0,1fr)}}
+.col-l,.col-r{min-width:0}
+@media (prefers-reduced-motion:reduce){.xp-play{transition:none}}
+</style>
 <title>The Format Library</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
@@ -167,6 +200,7 @@ const FAMILIES=[
  {k:"carousel",n:"Carousels"},
  {k:"funnel",n:"Funnel"}
 ];
+const LESSON={"cineyap": {"t": "CineYap", "u": "https://fscreative.circle.so/c/30ship/sections/1181267/lessons/4645980", "img": "https://i.vimeocdn.com/video/2208190207-bb67960f1fa5f0de5c252e0d1fcec8ea5f6fbc32bde6c11cf9a91b53304078ee-d_1280"}, "yapmax": {"t": "YapMaxxing", "u": "https://fscreative.circle.so/c/30ship/sections/1181267/lessons/4655170", "img": "https://i.vimeocdn.com/video/2208414500-e1a7693bd012c7de58f717f1b51124565c4be65d0d35918fbabceed6111e5077-d_1280"}, "antiedit": {"t": "The Anti-Edit", "u": "https://fscreative.circle.so/c/30ship/sections/1181267/lessons/4589668", "img": "https://i.vimeocdn.com/video/2204409891-8ddb1ddd7d797d2d882afbd6866ef2b9af3ac9f6900098cc0d4a055aeb00b421-d_1280"}, "cineshorts": {"t": "CineShorts", "u": "https://fscreative.circle.so/c/30ship/sections/1181267/lessons/4655169", "img": "https://i.vimeocdn.com/video/2208421030-6d6677d67cc6105797884c6e9baa5f046c64934e802ccd44b27ded978ff6dc90-d_1280"}, "brollvo": {"t": "CineShorts", "u": "https://fscreative.circle.so/c/30ship/sections/1181267/lessons/4655169", "img": "https://i.vimeocdn.com/video/2208421030-6d6677d67cc6105797884c6e9baa5f046c64934e802ccd44b27ded978ff6dc90-d_1280"}, "texthook": {"t": "Text Hook + B-Roll", "u": "https://fscreative.circle.so/c/30ship/sections/1181267/lessons/4594480", "img": "https://i.vimeocdn.com/video/2204761113-5691790e44e9a702fef49fa20428de3260729cc85b53fbadce0fc5ff05cbaddf-d_1280"}, "sevensec": {"t": "Text Hook + B-Roll", "u": "https://fscreative.circle.so/c/30ship/sections/1181267/lessons/4594480", "img": "https://i.vimeocdn.com/video/2204761113-5691790e44e9a702fef49fa20428de3260729cc85b53fbadce0fc5ff05cbaddf-d_1280"}, "minivlog": {"t": "Mini-Vlogs", "u": "https://fscreative.circle.so/c/30ship/sections/1181267/lessons/4599906", "img": "https://i.vimeocdn.com/video/2205138183-21207a6614b6181041b5177793eb80407f40bedbfb59ec2f2cb6512455504913-d_1280"}, "ditl": {"t": "Day In The Life", "u": "https://fscreative.circle.so/c/30ship/sections/1181267/lessons/4599942", "img": "https://i.vimeocdn.com/video/2205151348-675c3a29abf695893ec3b0d00948f0daee93a5b8b4c4b7b1ab7e3438bbfa06ae-d_1280"}, "advicevid": {"t": "Non-Talking: Advice", "u": "https://fscreative.circle.so/c/30ship/sections/1181267/lessons/4599943", "img": "https://i.vimeocdn.com/video/2205151540-786aa028ba6e0e80772d037c54f55900473a1f1a9258e714aeb23028e3613e53-d_1280"}, "cinspiration": {"t": "Carousels: Opener + Inspiration", "u": "https://fscreative.circle.so/c/30ship/sections/1181267/lessons/4556997", "img": "https://i.vimeocdn.com/video/2203872245-2e135f02ee74ab38dce190d5fd5dc05e08ca1078c6450e3824df31f6412d9d47-d_1280"}, "cguides": {"t": "Carousels: Guides", "u": "https://fscreative.circle.so/c/30ship/sections/1181267/lessons/4544481", "img": "https://i.vimeocdn.com/video/2203872245-2e135f02ee74ab38dce190d5fd5dc05e08ca1078c6450e3824df31f6412d9d47-d_1280"}, "cadvice": {"t": "Carousels: Advice", "u": "https://fscreative.circle.so/c/30ship/sections/1181267/lessons/4556996", "img": "https://i.vimeocdn.com/video/2203872245-2e135f02ee74ab38dce190d5fd5dc05e08ca1078c6450e3824df31f6412d9d47-d_1280"}, "cpostcard": {"t": "Carousels: Postcards + Life Updates", "u": "https://fscreative.circle.so/c/30ship/sections/1181267/lessons/4568133", "img": "https://i.vimeocdn.com/video/2203872245-2e135f02ee74ab38dce190d5fd5dc05e08ca1078c6450e3824df31f6412d9d47-d_1280"}};
 const FORMATS=[
 {id:"cineyap",fam:"talk",name:"CineYap",tag:"Signature",
  one:"A hook, then a riff, shot so it looks like a film and feels like a thought.",
@@ -334,17 +368,27 @@ const FORMATS=[
         return '<div class="tile">'+pic+btn+n+ig+'</div>';
       }).join('')+'</div>'
     : '<div class="empty">No examples saved yet. Send the links and they land here.</div>';
+  var ls=LESSON[f.id];
+  var exp = ls
+    ? '<a class="xp" href="'+ls.u+'" target="_blank" rel="noopener"><span class="xp-img" style="background-image:url('+ls.img+')"></span><span class="xp-shade"></span><span class="xp-play"><i></i></span><span class="xp-txt"><b>Watch Gabe&rsquo;s breakdown</b><em>'+esc(ls.t)+' &middot; opens in the community</em></span></a>'
+    : '<div class="xp none"><span class="xp-txt"><b>Breakdown coming soon</b><em>This format doesn&rsquo;t have a lesson yet</em></span></div>';
   main.innerHTML='<button class="back" id="back">&larr; All formats</button>'+
    '<div class="dh"><h1>'+esc(f.name)+'</h1></div>'+
    '<div class="meta" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px">'+
      '<span class="pill g">'+esc(f.len)+'</span><span class="pill">'+f.media.length+' examples</span>'+
      (f.tag?'<span class="pill o">'+esc(f.tag)+'</span>':'')+'</div>'+
    '<p class="lede">'+esc(f.one)+'</p>'+
-   '<div class="panel"><h4>What it is</h4><p>'+esc(f.what)+'</p></div>'+
-   '<div class="panel"><h4>The rules</h4><ul class="r">'+f.rules.map(function(r){return '<li><span></span><span>'+esc(r)+'</span></li>';}).join('')+'</ul></div>'+
-   '<div class="panel"><h4>What kills one</h4><ul class="r k">'+f.kills.map(function(r){return '<li><span></span><span>'+esc(r)+'</span></li>';}).join('')+'</ul></div>'+
-   '<div class="panel"><h4>Examples to study</h4>'+ex+'</div>';
-  document.getElementById('back').addEventListener('click',function(){S.open=null;render();});
+   '<div class="two">'+
+    '<div class="col-l">'+exp+
+     '<details class="more panel"><summary><span>The full breakdown</span><em>What it is, the rules, what kills one</em></summary>'+
+      '<div class="more-in"><h4>What it is</h4><p>'+esc(f.what)+'</p>'+
+      '<h4>The rules</h4><ul class="r">'+f.rules.map(function(r){return '<li><span>'+esc(r)+'</span></li>';}).join('')+'</ul>'+
+      '<h4>What kills one</h4><ul class="r k">'+f.kills.map(function(r){return '<li><span>'+esc(r)+'</span></li>';}).join('')+'</ul></div>'+
+     '</details>'+
+    '</div>'+
+    '<div class="col-r"><div class="panel"><h4>Examples to study</h4>'+ex+'</div></div>'+
+   '</div>';
+  document.getElementById('back').addEventListener('click',function(){S.open=null;setHash('');render();});
   main.querySelectorAll('.tile .play').forEach(function(b){
     b.addEventListener('click',function(){
       var t=b.parentNode, src=b.dataset.v;
@@ -367,11 +411,11 @@ const FORMATS=[
 
  nav.addEventListener('click',function(e){
   var b=e.target.closest('button.nav'); if(!b) return;
-  S.fam=b.dataset.f; S.open=null; rail.classList.remove('open'); render();
+  S.fam=b.dataset.f; S.open=null; setHash(''); rail.classList.remove('open'); render();
  });
  main.addEventListener('click',function(e){
   var c=e.target.closest('.fc'); if(!c) return;
-  S.open=c.dataset.id; render();
+  S.open=c.dataset.id; setHash(S.open); render();
  });
  mb.addEventListener('click',function(){rail.classList.toggle('open');});
 
@@ -385,6 +429,11 @@ const FORMATS=[
  }
  seg.addEventListener('click',function(e){var b=e.target.closest('button');if(b)theme(b.dataset.t,true);});
  theme(saved==='dark'?'dark':'light',false);
+
+ function setHash(id){ try{ history.replaceState(null,'',id?('#'+id):location.pathname+location.search); }catch(e){ location.hash=id||''; } }
+ function fromHash(){ var h=(location.hash||'').replace('#',''); var ok=FORMATS.some(function(f){return f.id===h;}); S.open=ok?h:null; }
+ window.addEventListener('hashchange',function(){ fromHash(); render(); });
+ fromHash();
  render();
 })();
 </script>
