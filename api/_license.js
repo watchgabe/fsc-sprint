@@ -44,8 +44,28 @@ export async function stripe(path, body) {
   return j;
 }
 
+// A Gumroad sale's key (2026-10-31: the beta sells on Gumroad; its download page shows each buyer a key like 6F0E4C97-B72A4E69-…).
+// Gumroad says whether it's real and whether it was refunded or charged back. The product id is public (it's on the product page).
+const GUMROAD_PRODUCT = 'QyvqCk56xko-brlpAVejxQ==';
+export const isGumroad = (k) => /^[0-9A-F]{8}(-[0-9A-F]{8}){3}$/i.test(String(k || '').trim());
+async function gumroad(key) {
+  try {
+    const r = await fetch('https://api.gumroad.com/v2/licenses/verify', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ product_id: GUMROAD_PRODUCT, license_key: String(key).trim(), increment_uses_count: 'false' }) });
+    const j = await r.json().catch(() => ({}));
+    if (r.status === 404 || j.success === false) return { ok: false, reason: 'invalid' };
+    if (!r.ok) return { ok: null, reason: 'unreachable' };
+    const p = j.purchase || {};
+    if (p.refunded) return { ok: false, reason: 'refunded' };
+    if (p.chargebacked || (p.disputed && !p.dispute_won)) return { ok: false, reason: 'disputed' };
+    return { ok: true, email: p.email || '' };
+  } catch (e) { return { ok: null, reason: 'unreachable' }; }
+}
+
 // { ok, reason, email } for a key
 export async function check(key) {
+  const revokedG = (process.env.REVOKED || '').split(',').map(s => s.trim().toUpperCase());
+  if (isGumroad(key)) return revokedG.includes(String(key).trim().toUpperCase()) ? { ok: false, reason: 'revoked' } : gumroad(key);
   const id = parseKey(key);
   if (!id) return { ok: false, reason: 'invalid' };
   const revoked = (process.env.REVOKED || '').split(',').map(s => s.trim()).filter(Boolean);
