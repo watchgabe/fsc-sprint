@@ -46,17 +46,63 @@ const LEAD_MAGNETS = {
     name: 'Cinematic Brand Challenge Waitlist',
     tagId: 23039551,
   },
+  'cohort2-waitlist': {
+    name: 'The 30Build Challenge · Cohort 2 Waitlist',
+    tagId: 24775025,
+    sequenceId: 2936109,
+  },
   'gap-framework': {
     name: 'The GAP Framework',
     tagId: 23768063,
+  },
+  '333-technique': {
+    name: 'The 3·33 Technique',
+    tagId: 24795522,
+    redirect: 'https://citrine-giver-f51.notion.site/3-33-Technique-37c6dd5462bb836f98f3013e89af79cf',
+  },
+  'shots-library': {
+    name: 'The Shots Library',
+    tagId: 24795717,
+    redirect: 'https://shots.fscreative.live/',
+  },
+  'format-library': {
+    name: 'The Format Library',
+    tagId: 24795720,
+    redirect: 'https://fscreative.live/formats',
+  },
+  'studio-waitlist-bio': {
+    name: 'Visual Studio Waitlist',
+    tagId: 25017517,
   },
 };
 
 const KIT_API_BASE = 'https://api.kit.com/v4';
 
+const CORS_ALLOWED_ORIGINS = new Set([
+  'https://fscreative.live',
+  'https://www.fscreative.live',
+  'https://watchgabe.com',
+  'https://www.watchgabe.com',
+]);
+
+function applyCors(req, res) {
+  const origin = req.headers.origin;
+  if (origin && CORS_ALLOWED_ORIGINS.has(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Vary', 'Origin');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Max-Age', '86400');
+  }
+}
+
 export default async function handler(req, res) {
+  applyCors(req, res);
+  if (req.method === 'OPTIONS') {
+    return res.status(204).end();
+  }
   if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
+    res.setHeader('Allow', 'POST, OPTIONS');
     return res.status(405).json({ error: 'method_not_allowed' });
   }
 

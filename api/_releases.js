@@ -1,10 +1,10 @@
 // written by Loop Studio's cineyap/publish.py: where this version's zips are (2026-10-31)
 export default {
- "install": "https://fscreative.live/cineyap/r/qS67TsP8TRX2J3leNgBfirP4nObPVaXf/Loop-Studio-0.10.34.zip",
+ "install": "https://fscreative.live/cineyap/r/j3Cfkh3llJrXqkYjxAIUYhtqjh6Lg9qt/Loop-Studio-0.10.34.zip",
  "feed": {
   "version": "0.10.34",
   "released": "2026-10-31",
   "notes": "Visual Studio is now Loop Studio. Exports clean up after themselves (a 9-minute video left 31 GB behind) and tell you before they start if your Mac is short on space. A frame you draw keeps its shape when you switch between 16:9 and 9:16 before reopening the video.",
-  "download": "https://fscreative.live/cineyap/r/qS67TsP8TRX2J3leNgBfirP4nObPVaXf/Loop-Studio-0.10.34-update.zip"
+  "download": "https://fscreative.live/cineyap/r/j3Cfkh3llJrXqkYjxAIUYhtqjh6Lg9qt/Loop-Studio-0.10.34-update.zip"
  }
 };
