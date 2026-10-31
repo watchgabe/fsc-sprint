@@ -1,6 +1,6 @@
 {
- "version": "0.10.24",
- "released": "2026-10-25",
- "notes": "Saves can't be lost any more (one save at a time, saved when you leave the page, Chat answers merge with your edits), the Brand page keeps your LUT, updates keep your styles and settings, one layout (Screens drawer + Inspector tab) with the regressions of 2026-10-24 fixed, the export matches the editor (4K text size, small caps, A-roll frames in every shape, iPhone HLG, Premiere XML), dark-only tokens on an 8px grid, bigger dropdowns and chevrons, the same spacing in Screens and the Inspector",
- "download": "https://fscreative.live/cineyap/Visual-Studio-0.10.24-update.zip"
+ "version": "0.10.33",
+ "released": "2026-10-31",
+ "notes": "Clicking a clip no longer splits it off Screen 1, so your screen settings stay put. Long videos with lots of B-roll export all the way through, and the face box sits on top of framed B-roll. The export queue shows where each video is going and the time it finished. New video can cut B-roll to music with no A-roll. A new B-roll workflow carousel style.",
+ "download": "https://fscreative.live/cineyap/r/KPhIRXY_7Dkq4xnKh2e2Gpx2xZmUHRVx/Visual-Studio-0.10.33-update.zip"
 }
