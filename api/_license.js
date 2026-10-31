@@ -1,19 +1,19 @@
-// Visual Studio licenses (2026-10-31). A key is the Stripe payment it came from, signed:
+// Loop Studio licenses (2026-10-31). A key is the Stripe payment it came from, signed:
 //   VS-<payment id>-<signature>          a sale (the payment's id without "pi_")
-//   VS-T<name>-<signature>               a free key (a tester, a gift): made with scripts/make_key.py in the Visual Studio folder
+//   VS-T<name>-<signature>               a free key (a tester, a gift): made with scripts/make_key.py in the Loop Studio folder
 // No database: a key is checked by its signature, then a sale's payment is looked up on Stripe, so a refund or a lost dispute
 // switches its key off by itself. REVOKED (comma-separated keys or ids) switches any key off by hand.
 //
 // Vercel env vars:
 //   LICENSE_SECRET     signs keys (the same value is in ~/.config/visual-studio/license_secret on Gabe's Mac, for free keys)
 //   STRIPE_SECRET_KEY  a restricted key: Checkout Sessions read, PaymentIntents write (to mark a key as emailed), Charges read
-//   RESEND_API_KEY     optional: emails the key to the buyer (from LICENSE_FROM, e.g. "Visual Studio <studio@fscreative.live>")
+//   RESEND_API_KEY     optional: emails the key to the buyer (from LICENSE_FROM, e.g. "Loop Studio <studio@fscreative.live>")
 //   REVOKED            optional
 //   SUPPORT_EMAIL      where a buyer with a problem writes (shown on the pages and in the email)
 import crypto from 'node:crypto';
 import releases from './_releases.js';
 
-export const RELEASES = releases;      // written by Visual Studio's ship step: the install zip and the update feed, at a path nobody can guess
+export const RELEASES = releases;      // written by Loop Studio's ship step: the install zip and the update feed, at a path nobody can guess
 
 const b32 = (buf) => {
   const A = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; let bits = 0, v = 0, out = '';
@@ -86,9 +86,9 @@ export async function emailKey(to, key, site) {
   const r = await fetch('https://api.resend.com/emails', {
     method: 'POST', headers: { Authorization: 'Bearer ' + process.env.RESEND_API_KEY, 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      from: process.env.LICENSE_FROM || 'Visual Studio <studio@fscreative.live>', to, subject: 'Your Visual Studio license key',
-      text: `Thanks for getting Visual Studio.\n\nYour license key:\n${key}\n\nDownload it here (this link works any time):\n${site}/api/download?key=${encodeURIComponent(key)}\n\n` +
-        `Unzip it, open the folder in the Claude app's Code tab and type "set me up". When Visual Studio asks for your key, paste the one above.\n\nKeep creating,\nGabe`,
+      from: process.env.LICENSE_FROM || 'Loop Studio <studio@fscreative.live>', to, subject: 'Your Loop Studio license key',
+      text: `Thanks for getting Loop Studio.\n\nYour license key:\n${key}\n\nDownload it here (this link works any time):\n${site}/api/download?key=${encodeURIComponent(key)}\n\n` +
+        `Unzip it, open the folder in the Claude app's Code tab and type "set me up". When Loop Studio asks for your key, paste the one above.\n\nKeep creating,\nGabe`,
     }),
   });
   return r.ok;

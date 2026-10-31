@@ -1,10 +1,10 @@
-// written by Visual Studio's cineyap/publish.py: where this version's zips are (2026-10-31)
+// written by Loop Studio's cineyap/publish.py: where this version's zips are (2026-10-31)
 export default {
- "install": "https://fscreative.live/cineyap/r/KPhIRXY_7Dkq4xnKh2e2Gpx2xZmUHRVx/Visual-Studio-0.10.33.zip",
+ "install": "https://fscreative.live/cineyap/r/qS67TsP8TRX2J3leNgBfirP4nObPVaXf/Loop-Studio-0.10.34.zip",
  "feed": {
-  "version": "0.10.33",
+  "version": "0.10.34",
   "released": "2026-10-31",
-  "notes": "Clicking a clip no longer splits it off Screen 1, so your screen settings stay put. Long videos with lots of B-roll export all the way through, and the face box sits on top of framed B-roll. The export queue shows where each video is going and the time it finished. New video can cut B-roll to music with no A-roll. A new B-roll workflow carousel style.",
-  "download": "https://fscreative.live/cineyap/r/KPhIRXY_7Dkq4xnKh2e2Gpx2xZmUHRVx/Visual-Studio-0.10.33-update.zip"
+  "notes": "Visual Studio is now Loop Studio. Exports clean up after themselves (a 9-minute video left 31 GB behind) and tell you before they start if your Mac is short on space. A frame you draw keeps its shape when you switch between 16:9 and 9:16 before reopening the video.",
+  "download": "https://fscreative.live/cineyap/r/qS67TsP8TRX2J3leNgBfirP4nObPVaXf/Loop-Studio-0.10.34-update.zip"
  }
 };
