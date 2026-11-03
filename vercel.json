@@ -2,8 +2,40 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/", "destination": "/waitlist", "permanent": false },
-    { "source": "/GAP", "destination": "/gap", "permanent": false },
-    { "source": "/Gap", "destination": "/gap", "permanent": false }
+    {
+      "source": "/",
+      "destination": "https://watchgabe.com/challenge?utm_source=fscreative&utm_medium=redirect&utm_campaign=do-more-launch",
+      "permanent": false
+    },
+    {
+      "source": "/waitlist",
+      "destination": "https://watchgabe.com/challenge?utm_source=fscreative&utm_medium=redirect&utm_campaign=do-more-launch",
+      "permanent": false
+    },
+    {
+      "source": "/cbc-waitlist-v2",
+      "destination": "https://watchgabe.com/challenge?utm_source=fscreative&utm_medium=redirect&utm_campaign=do-more-launch",
+      "permanent": false
+    },
+    {
+      "source": "/cohort2-waitlist",
+      "destination": "https://watchgabe.com/challenge?utm_source=fscreative&utm_medium=redirect&utm_campaign=do-more-launch",
+      "permanent": false
+    },
+    {
+      "source": "/cohort2-waitlist-v2",
+      "destination": "https://watchgabe.com/challenge?utm_source=fscreative&utm_medium=redirect&utm_campaign=do-more-launch",
+      "permanent": false
+    },
+    {
+      "source": "/GAP",
+      "destination": "/gap",
+      "permanent": false
+    },
+    {
+      "source": "/Gap",
+      "destination": "/gap",
+      "permanent": false
+    }
   ]
 }

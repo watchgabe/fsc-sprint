@@ -47,7 +47,7 @@ const LEAD_MAGNETS = {
     tagId: 23039551,
   },
   'cohort2-waitlist': {
-    name: 'The 30Build Challenge · Cohort 2 Waitlist',
+    name: 'Do More Challenge Waitlist',
     tagId: 24775025,
     sequenceId: 2936109,
   },
